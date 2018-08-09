@@ -2,14 +2,9 @@
 
 # PowerBot
 Repository for PowerBot WebGui
-:octocat: Whe editing this file or other Forge documentation
-use Markdown markup according to [GitHub Markdown Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
-ForgeTech Forge is a web-design, -development and 
--authoring tool that is meant to bridge the annoying 
-(not to meantion time-consuming and costly ) gaps
-between different roles in the development process
-of browser-/web-based software-products. 
+:octocat: When editing this file or other Forge documentation
+use Markdown markup according to [GitHub Markdown Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 For further information use Github Wiki-, Issues- and Project-Pages (and read according Info-Pages):
 ### [WIKI](https://github.com/ForgeTech/PowerBot/wiki/home) ([READ](https://github.com/ForgeTech/Forge/wiki/i_wiki))
@@ -17,7 +12,7 @@ For further information use Github Wiki-, Issues- and Project-Pages (and read ac
 ### [GITHUB PROJECTS](https://github.com/ForgeTech/PowerBot/projects) ([READ](https://github.com/ForgeTech/PowerBot/Forge/i_projects))
 
 ## See current state of development
-https://forgetech.github.io/Forge/
+<del>https://forgetech.github.io/Forge/</del>
 
 ## Installation
 * Make sure you have a working version of [Git](https://git-scm.com/), or [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your OS.
