@@ -7,12 +7,12 @@ Repository for PowerBot WebGui
 use Markdown markup according to [GitHub Markdown Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 For further information use Github Wiki-, Issues- and Project-Pages (and read according Info-Pages):
-### [WIKI](https://github.com/ForgeTech/PowerBot/wiki/home) ([READ](https://github.com/ForgeTech/Forge/wiki/i_wiki))
-### [GITHUB ISSUES](https://github.com/ForgeTech/PowerBot/issues) ([READ](https://github.com/ForgeTech/Forge/wiki/i_issues))
-### [GITHUB PROJECTS](https://github.com/ForgeTech/PowerBot/projects) ([READ](https://github.com/ForgeTech/PowerBot/Forge/i_projects))
+### [WIKI](https://github.com/ForgeTech/PowerBot/wiki/home) ([READ](https://github.com/ForgeTech/PowerBot/wiki/i_wiki))
+### [GITHUB ISSUES](https://github.com/ForgeTech/PowerBot/issues) ([READ](https://github.com/ForgeTech/PowerBot/wiki/i_issues))
+### [GITHUB PROJECTS](https://github.com/ForgeTech/PowerBot/projects) ([READ](https://github.com/ForgeTech/PowerBot/wiki/i_projects))
 
 ## See current state of development
-<del>https://forgetech.github.io/Forge/</del>
+<del>https://forgetech.github.io/Powerbot/</del>
 
 ## Installation
 * Make sure you have a working version of [Git](https://git-scm.com/), or [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your OS.
@@ -25,18 +25,19 @@ For further information use Github Wiki-, Issues- and Project-Pages (and read ac
 
 ## Usage
 
-Currently all forge frontend-application code is contained in frontend/forge-module
+Currently all forge frontend-application code is contained in frontend/pb-pwa
 angular-cli project. Follow instruction below to run it locally on your computer:
 
 1. [Clone Repository](https://help.github.com/articles/cloning-a-repository/) from [GitHub](https://github.com/ForgeTech/PowerBot) 
-2. Change into Folder: [Forge/frontend/powerbot](https://github.com/ForgeTech/Forge/tree/master/frontend/forge-module)
+2. Change into Folder: [Forge/frontend/pb-pwa](https://github.com/ForgeTech/Forge/tree/master/frontend/pb-pwa)
 3. Make sure node_modules are installed: `npm install` 
 4. Start development-server: `npm start`
-5. See [README.md](https://github.com/ForgeTech/Forge/blob/master/frontend/PowerBot/README.md) for further usage-instructions
+5. See [README.md](https://github.com/ForgeTech/Forge/blob/master/frontend/pb-pwa/README.md) for further usage-instructions
 
 ## History
 
 * 10.08.2018 First Produkt Meeting
+* 11.08.2018 Starting with PowerBot Milestone - Preparation
 
 ## Credits
 
