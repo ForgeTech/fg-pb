@@ -12,7 +12,7 @@ For further information use Github Wiki-, Issues- and Project-Pages (and read ac
 ### [GITHUB PROJECTS](https://github.com/ForgeTech/PowerBot/projects) ([READ](https://github.com/ForgeTech/PowerBot/wiki/i_projects))
 
 ## See current state of development
-<del>https://forgetech.github.io/Powerbot/</del>
+https://forgetech.github.io/PowerBot/
 
 ## Installation
 * Make sure you have a working version of [Git](https://git-scm.com/), or [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your OS.
