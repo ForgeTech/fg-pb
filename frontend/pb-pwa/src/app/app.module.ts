@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -33,6 +34,38 @@ import { TableOrdersComponent } from './component/table-orders/table-orders.comp
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
 
+/**
+ * Routes for PowerBot application
+ */
+const appRoutes: Routes = [
+  /**
+   * Empty route goes to dashboard
+   */
+  { path: '', component: DashboardComponent },
+  /**
+   * Routes to dashboard-components full-page views
+   */
+  { path: 'asks', component: AsksComponent },
+  { path: 'bids', component: BidsComponent },
+  { path: 'orderbook', component: OrderbookComponent },
+  { path: 'orders', component: OrdersComponent },
+  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'product-history', component: ProductHistoryComponent },
+  { path: 'signals', component: SignalsComponent },
+  { path: 'trades', component: TradesComponent },
+  /**
+   * All routes that do not match any route after
+   * checking the ones above, are redirected to
+   * dashboard view
+   */
+  { path: '**', redirectTo: ''}
+];
+/**
+ * PowerBot Application Module -
+ * The angular-applications main angular-module bundeling
+ * it's framework-code, configuring it's imports and exports
+ * and setting it up for execution.
+ */
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,9 +100,29 @@ import { TableTradesComponent } from './component/table-trades/table-trades.comp
   ],
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
+    RouterModule.forRoot(
+      appRoutes,
+      /**
+       * Tracing should be used for debbuging purposes only -
+       * should be configured to be enabled
+       * for non-production environments only
+       */
+      { enableTracing: environment.production ? false : true }
+    )
   ],
   providers: [],
+  entryComponents: [
+    AsksComponent,
+    BidsComponent,
+    DashboardComponent,
+    OrderbookComponent,
+    OrdersComponent,
+    PortfolioComponent,
+    ProductHistoryComponent,
+    SignalsComponent,
+    TradesComponent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
