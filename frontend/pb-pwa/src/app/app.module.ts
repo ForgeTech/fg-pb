@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { RouterModule, Routes } from '@angular/router';
 
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+
 import { AppComponent } from './app.component';
 
 import { AsksComponent } from './view/asks/asks.component';
@@ -109,7 +112,8 @@ const appRoutes: Routes = [
        * for non-production environments only
        */
       { enableTracing: environment.production ? false : true }
-    )
+    ),
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
   ],
   providers: [],
   entryComponents: [
