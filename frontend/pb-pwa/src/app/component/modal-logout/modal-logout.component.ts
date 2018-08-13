@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-modal-logout',
   templateUrl: './modal-logout.component.html',
-  styleUrls: ['./modal-logout.component.css']
+  styleUrls: ['./modal-logout.component.scss']
 })
 export class ModalLogoutComponent implements OnInit {
 
