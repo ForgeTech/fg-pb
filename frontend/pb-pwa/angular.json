@@ -21,6 +21,10 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/libs/PACE/themes/blue/pace-theme-flat-top.css",
+              "src/libs/PACE/pace.js",
+              "src/libs/signet/signet.js",
+              "src/libs/svg-morpheus/source/js/svg-morpheus.js",
               "src/manifest.json"
             ],
             "styles": [

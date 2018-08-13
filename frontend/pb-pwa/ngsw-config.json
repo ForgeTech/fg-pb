@@ -7,6 +7,10 @@
       "files": [
         "/favicon.ico",
         "/index.html",
+        "/libs/PACE/themes/purple/pace-theme-flat-top.css",
+        "/libs/PACE/pace.js",
+        "/libs/signet/signet.js",
+        "/libs/svg-morpheus/source/js/svg-morpheus.js",
         "/*.css",
         "/*.js"
       ]
