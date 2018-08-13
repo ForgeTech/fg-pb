@@ -7,14 +7,14 @@ Repository for PowerBot WebGui
 use Markdown markup according to [GitHub Markdown Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 For further information use Github Wiki-, Issues- and Project-Pages (and read according Info-Pages):
-### [WIKI](https://github.com/ForgeTech/PowerBot/wiki/home) ([READ](https://github.com/ForgeTech/PowerBot/wiki/i_wiki))
-### [GITHUB ISSUES](https://github.com/ForgeTech/PowerBot/issues) ([READ](https://github.com/ForgeTech/PowerBot/wiki/i_issues))
-### [GITHUB PROJECTS](https://github.com/ForgeTech/PowerBot/projects) ([READ](https://github.com/ForgeTech/PowerBot/wiki/i_projects))
+### [WIKI](https://github.com/ForgeTech/PowerBot/wiki/home) ([USAGE GUIDE](https://github.com/ForgeTech/PowerBot/wiki/i_wiki))
+### [GITHUB ISSUES](https://github.com/ForgeTech/PowerBot/issues) ([USAGE GUIDE](https://github.com/ForgeTech/PowerBot/wiki/i_issues))
+### [GITHUB PROJECTS](https://github.com/ForgeTech/PowerBot/projects) ([USAGE GUIDE](https://github.com/ForgeTech/PowerBot/wiki/i_projects))
 
 ## See current state of development
 https://forgetech.github.io/PowerBot/
 
-## Installation
+## Setup Guide
 * Make sure you have a working version of [Git](https://git-scm.com/), or [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your OS.
 * Make sure nodeJS is installed: [Get OS installer here](https://nodejs.org/en/download/) 
    or install from source: [Follow instructions here](https://howtonode.org/how-to-install-nodejs)
