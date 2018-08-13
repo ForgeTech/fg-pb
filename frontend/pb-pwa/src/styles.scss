@@ -1,25 +1,11 @@
-/** FORGE-Application global Styles */
+/** Powerbot global styles */
 
 // @import "normalize.css/normalize.css";
 // @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-// @import './styles/debug-helper-colors.scss';
-// @import './styles/debug-helper-labels.scss';
-
 @import './styles/angular-material-icons.scss';
+@import './styles/pb-common.scss';
 
-
-// .fg-layer.active {
-//   background-color: yellow;
-//   opacity: 0.8;
-//   color: black;
-//   // https://codepen.io/chriscoyier/pen/dDhHe
-//   background : repeating-linear-gradient( 45deg, transparent, transparent 10px, yellow 10px, transparent 20px);
-// }
-// Read: https://alligator.io/css/css-grid-holy-grail-layout/
-// .fg-grid {
-//   height: 1vh;
-// }
 body {
   border: 3px yellow solid;
   margin: -3px;
