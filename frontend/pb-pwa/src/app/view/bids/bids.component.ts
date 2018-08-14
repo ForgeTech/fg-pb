@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-bids',
+  selector: 'pb-view-bids',
   templateUrl: './bids.component.html',
   styleUrls: ['./bids.component.scss']
 })

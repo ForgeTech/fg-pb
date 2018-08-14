@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-asks',
+  selector: 'pb-view-asks',
   templateUrl: './asks.component.html',
   styleUrls: ['./asks.component.scss']
 })

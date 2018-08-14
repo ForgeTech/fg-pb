@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 
 @Component({
-  selector: 'app-modal-login',
+  selector: 'pb-modal-login',
   templateUrl: './modal-login.component.html',
   styleUrls: ['./modal-login.component.scss']
 })
-export class ModalLoginComponent implements OnInit {
+export class ModalLoginComponent extends FgComponentBaseComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-orderbook',
+  selector: 'pb-view-orderbook',
   templateUrl: './orderbook.component.html',
   styleUrls: ['./orderbook.component.scss']
 })

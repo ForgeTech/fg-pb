@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableBestBidComponent } from './table-best-bid.component';
+import { TableOrderbookComponent } from './table-orderbook.component';
 
-describe('TableBestBidComponent', () => {
-  let component: TableBestBidComponent;
-  let fixture: ComponentFixture<TableBestBidComponent>;
+describe('TableOrderbookComponent', () => {
+  let component: TableOrderbookComponent;
+  let fixture: ComponentFixture<TableOrderbookComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableBestBidComponent ]
+      declarations: [ TableOrderbookComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TableBestBidComponent);
+    fixture = TestBed.createComponent(TableOrderbookComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

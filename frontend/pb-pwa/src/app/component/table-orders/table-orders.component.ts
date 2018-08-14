@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 
 @Component({
-  selector: 'app-table-orders',
+  selector: 'pb-table-orders',
   templateUrl: './table-orders.component.html',
   styleUrls: ['./table-orders.component.scss']
 })
-export class TableOrdersComponent implements OnInit {
+export class TableOrdersComponent extends FgComponentBaseComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
 }

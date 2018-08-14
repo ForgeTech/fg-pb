@@ -33,8 +33,8 @@ import { ModalSettingsComponent } from './component/modal-settings/modal-setting
   import { TabProductionComponent } from './component/modal-settings/tab-production/tab-production.component';
   import { TabTestComponent } from './component/modal-settings/tab-test/tab-test.component';
 import { TableAsksComponent } from './component/table-asks/table-asks.component';
-import { TableBestBidComponent } from './component/table-best-bid/table-best-bid.component';
 import { TableBidsComponent } from './component/table-bids/table-bids.component';
+import { TableOrderbookComponent } from './component/table-orderbook/table-orderbook.component';
 import { TableOrdersComponent } from './component/table-orders/table-orders.component';
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
@@ -98,10 +98,10 @@ const appRoutes: Routes = [
       TabTestComponent,
     TableTradesComponent,
     TableAsksComponent,
-    TableBestBidComponent,
     TableBidsComponent,
     TableOrdersComponent,
     TableSignalsComponent,
+    TableOrderbookComponent,
   ],
   imports: [
     BrowserModule,

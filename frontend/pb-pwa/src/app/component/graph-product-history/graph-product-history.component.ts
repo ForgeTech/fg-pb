@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 
 @Component({
-  selector: 'app-graph-product-history',
+  selector: 'pb-graph-product-history',
   templateUrl: './graph-product-history.component.html',
   styleUrls: ['./graph-product-history.component.scss']
 })
-export class GraphProductHistoryComponent implements OnInit {
+export class GraphProductHistoryComponent extends FgComponentBaseComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
 }
