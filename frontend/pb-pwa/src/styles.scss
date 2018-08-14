@@ -1,9 +1,9 @@
 /** Powerbot global styles */
+@import "normalize.css/normalize.css";
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'material-design-icons/iconfont/material-icons.css';
 
-// @import "normalize.css/normalize.css";
-// @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-
-@import './styles/angular-material-icons.scss';
+// @import './styles/roboto-fontface.scss';
 @import './styles/pb-common.scss';
 
 body {

@@ -7,6 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
+import { FgMaterialModule } from './module/fg-material/fg-material.module';
+
 import { AppComponent } from './app.component';
 
 import { AsksComponent } from './view/asks/asks.component';
@@ -103,6 +105,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FgMaterialModule,
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
     RouterModule.forRoot(
       appRoutes,
