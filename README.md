@@ -32,7 +32,7 @@ angular-cli project. Follow instruction below to run it locally on your computer
 2. Change into Folder: [Forge/frontend/pb-pwa](https://github.com/ForgeTech/Forge/tree/master/frontend/pb-pwa)
 3. Make sure node_modules are installed: `npm install` 
 4. Start development-server: `npm start`
-5. See [README.md](https://github.com/ForgeTech/Forge/blob/master/frontend/pb-pwa/README.md) for further usage-instructions
+5. See [README.md](https://github.com/ForgeTech/PowerBot/tree/master/frontend/pb-pwa/README.md) for further usage-instructions
 
 ## History
 
