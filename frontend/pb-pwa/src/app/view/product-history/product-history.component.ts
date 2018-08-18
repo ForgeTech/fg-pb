@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './product-history.component.html',
   styleUrls: ['./product-history.component.scss']
 })
-export class ProductHistoryComponent implements OnInit {
+export class ProductHistoryViewComponent implements OnInit {
 
   constructor() { }
 

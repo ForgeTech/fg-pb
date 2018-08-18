@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -12,17 +13,20 @@ import { FgMaterialModule } from './module/fg-material/fg-material.module';
 
 import { AppComponent } from './app.component';
 
-import { AsksComponent } from './view/asks/asks.component';
-import { BidsComponent } from './view/bids/bids.component';
-import { DashboardComponent } from './view/dashboard/dashboard.component';
-import { OrderbookComponent } from './view/orderbook/orderbook.component';
-import { OrdersComponent } from './view/orders/orders.component';
-import { PortfolioComponent } from './view/portfolio/portfolio.component';
-import { ProductHistoryComponent } from './view/product-history/product-history.component';
-import { SignalsComponent } from './view/signals/signals.component';
-import { TradesComponent } from './view/trades/trades.component';
+import { AsksViewComponent } from './view/asks/asks.component';
+import { BidsViewComponent } from './view/bids/bids.component';
+import { DashboardViewComponent } from './view/dashboard/dashboard.component';
+import { OrderbookViewComponent } from './view/orderbook/orderbook.component';
+import { OrdersViewComponent } from './view/orders/orders.component';
+import { PortfolioViewComponent } from './view/portfolio/portfolio.component';
+import { ProductHistoryViewComponent } from './view/product-history/product-history.component';
+import { SignalsViewComponent } from './view/signals/signals.component';
+import { TradesViewComponent } from './view/trades/trades.component';
 
 import { BarStatusComponent } from './component/bar-status/bar-status.component';
+import { CardDashboardComponent } from './component/card-dashboard/card-dashboard.component';
+import { CardViewComponent } from './component/card-view/card-view.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { GraphComponent } from './component/graph/graph.component';
 import { GraphPortfolioComponent } from './component/graph-portfolio/graph-portfolio.component';
@@ -36,6 +40,7 @@ import { ModalSettingsComponent } from './component/modal-settings/modal-setting
   import { TabLoggingComponent } from './component/modal-settings/tab-logging/tab-logging.component';
   import { TabProductionComponent } from './component/modal-settings/tab-production/tab-production.component';
   import { TabTestComponent } from './component/modal-settings/tab-test/tab-test.component';
+import { SwitchDayNightComponent } from './component/switch-day-night/switch-day-night.component';
 import { TableComponent } from './component/table/table.component';
 import { TableAsksComponent } from './component/table-asks/table-asks.component';
 import { TableBidsComponent } from './component/table-bids/table-bids.component';
@@ -43,9 +48,7 @@ import { TableOrderbookComponent } from './component/table-orderbook/table-order
 import { TableOrdersComponent } from './component/table-orders/table-orders.component';
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
-import { CardDashboardComponent } from './component/card-dashboard/card-dashboard.component';
-import { CardViewComponent } from './component/card-view/card-view.component';
-import { SwitchDayNightComponent } from './component/switch-day-night/switch-day-night.component';
+
 
 /**
  * Routes for PowerBot application
@@ -54,18 +57,18 @@ const appRoutes: Routes = [
   /**
    * Empty route goes to dashboard
    */
-  { path: '', component: DashboardComponent },
+  { path: '', component: DashboardViewComponent },
   /**
    * Routes to dashboard-components full-page views
    */
-  { path: 'asks', component: AsksComponent },
-  { path: 'bids', component: BidsComponent },
-  { path: 'orderbook', component: OrderbookComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'portfolio', component: PortfolioComponent },
-  { path: 'product-history', component: ProductHistoryComponent },
-  { path: 'signals', component: SignalsComponent },
-  { path: 'trades', component: TradesComponent },
+  { path: 'asks', component: AsksViewComponent },
+  { path: 'bids', component: BidsViewComponent },
+  { path: 'orderbook', component: OrderbookViewComponent },
+  { path: 'orders', component: OrdersViewComponent },
+  { path: 'portfolio', component: PortfolioViewComponent },
+  { path: 'product-history', component: ProductHistoryViewComponent },
+  { path: 'signals', component: SignalsViewComponent },
+  { path: 'trades', component: TradesViewComponent },
   /**
    * All routes that do not match any route after
    * checking the ones above, are redirected to
@@ -82,17 +85,20 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    AsksComponent,
-    BidsComponent,
-    DashboardComponent,
-    OrderbookComponent,
-    OrdersComponent,
-    PortfolioComponent,
-    ProductHistoryComponent,
-    SignalsComponent,
-    TradesComponent,
+    AsksViewComponent,
+    BidsViewComponent,
+    DashboardViewComponent,
+    OrderbookViewComponent,
+    OrdersViewComponent,
+    PortfolioViewComponent,
+    ProductHistoryViewComponent,
+    SignalsViewComponent,
+    TradesViewComponent,
 
     BarStatusComponent,
+    CardDashboardComponent,
+    CardViewComponent,
+    DashboardComponent,
     FooterComponent,
     GraphComponent,
     GraphPortfolioComponent,
@@ -107,6 +113,7 @@ const appRoutes: Routes = [
       TabLoggingComponent,
       TabProductionComponent,
       TabTestComponent,
+    SwitchDayNightComponent,
     TableComponent,
     TableTradesComponent,
     TableAsksComponent,
@@ -114,12 +121,10 @@ const appRoutes: Routes = [
     TableOrdersComponent,
     TableSignalsComponent,
     TableOrderbookComponent,
-    CardDashboardComponent,
-    CardViewComponent,
-    SwitchDayNightComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FgMaterialModule,
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
     RouterModule.forRoot(
@@ -136,15 +141,15 @@ const appRoutes: Routes = [
   ],
   providers: [],
   entryComponents: [
-    AsksComponent,
-    BidsComponent,
-    DashboardComponent,
-    OrderbookComponent,
-    OrdersComponent,
-    PortfolioComponent,
-    ProductHistoryComponent,
-    SignalsComponent,
-    TradesComponent,
+    AsksViewComponent,
+    BidsViewComponent,
+    DashboardViewComponent,
+    OrderbookViewComponent,
+    OrdersViewComponent,
+    PortfolioViewComponent,
+    ProductHistoryViewComponent,
+    SignalsViewComponent,
+    TradesViewComponent,
   ],
   bootstrap: [AppComponent]
 })

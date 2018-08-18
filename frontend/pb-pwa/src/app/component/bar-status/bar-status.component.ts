@@ -6,10 +6,10 @@ import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base
   templateUrl: './bar-status.component.html',
   styleUrls: ['./bar-status.component.scss']
 })
-export class BarStatusComponent extends FgComponentBaseComponent {
+export class BarStatusComponent /* extends FgComponentBaseComponent */ {
 
   constructor() {
-    super();
+    // super();
   }
 
 }
