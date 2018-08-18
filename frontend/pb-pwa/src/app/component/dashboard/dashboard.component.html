@@ -14,9 +14,10 @@
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
-        <!-- <mat-card-content class="dashboard-card-content"> -->
-          <ng-container *ngTemplateOutlet="orders"></ng-container>
-        <!-- </mat-card-content> -->
+        <mat-card-content class="dashboard-card-content">
+          <!-- <ng-content [ngTemplateOutlet]="card.title"></ng-content> -->
+          <ng-content *ngTemplateOutlet="orders"></ng-content>
+        </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
@@ -33,7 +34,7 @@
 <ng-template #orderbook>
   <pb-table-orderbook></pb-table-orderbook>
 </ng-template>
-<ng-template #productHistory>
+<ng-template #producthistory>
   <pb-graph-product-history></pb-graph-product-history>
 </ng-template>
 <ng-template #bids>

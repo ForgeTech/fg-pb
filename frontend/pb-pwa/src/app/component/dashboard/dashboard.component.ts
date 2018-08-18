@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, TemplateRef } from '@angular/core';
+import { LowerCasePipe, NgTemplateOutlet } from '@angular/common';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 
@@ -8,31 +9,41 @@ import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/l
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+
+  @ViewChild('orders') orders: TemplateRef<any>;
+  @ViewChild('orderbook') orderbook: TemplateRef<any>;
+  @ViewChild('bids') bids: TemplateRef<any>;
+  @ViewChild('trades') trades: TemplateRef<any>;
+  @ViewChild('asks') asks: TemplateRef<any>;
+  @ViewChild('portfolio') portfolio: TemplateRef<any>;
+  @ViewChild('producthistory') productHistory: TemplateRef<any>;
+  @ViewChild('signals') signals: TemplateRef<any>;
+
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Orders', cols: 1, rows: 1 },
-          { title: 'Orderbook', cols: 2, rows: 2 },
-          { title: 'Bids', cols: 1, rows: 1 },
-          { title: 'Trades', cols: 1, rows: 1 },
-          { title: 'Asks', cols: 1, rows: 1 },
-          { title: 'Portfolio', cols: 1, rows: 1 },
-          { title: 'Product History', cols: 2, rows: 1 },
-          { title: 'Signals', cols: 1, rows: 1 },
+          { title: 'orders', cols: 3, rows: 1 },
+          { title: 'orderbook', cols: 3, rows: 2 },
+          { title: 'bids', cols: 3, rows: 1 },
+          { title: 'trades', cols: 3, rows: 1 },
+          { title: 'asks', cols: 3, rows: 1 },
+          { title: 'portfolio', cols: 3, rows: 1 },
+          { title: 'productHistory', cols: 3, rows: 1 },
+          { title: 'signals', cols: 3, rows: 1 },
         ];
       }
 
       return [
-        { title: 'Orders', cols: 1, rows: 1 },
-        { title: 'Orderbook', cols: 2, rows: 2 },
-        { title: 'Bids', cols: 1, rows: 1 },
-        { title: 'Trades', cols: 1, rows: 1 },
-        { title: 'Asks', cols: 1, rows: 1 },
-        { title: 'Portfolio', cols: 1, rows: 1 },
-        { title: 'Product History', cols: 2, rows: 1 },
-        { title: 'Signals', cols: 1, rows: 1 },
+        { title: 'orders', cols: 1, rows: 1 },
+        { title: 'orderbook', cols: 2, rows: 2 },
+        { title: 'bids', cols: 1, rows: 1 },
+        { title: 'trades', cols: 1, rows: 1 },
+        { title: 'asks', cols: 1, rows: 1 },
+        { title: 'portfolio', cols: 1, rows: 1 },
+        { title: 'producthistory', cols: 2, rows: 1 },
+        { title: 'signals', cols: 1, rows: 1 },
       ];
     })
   );
