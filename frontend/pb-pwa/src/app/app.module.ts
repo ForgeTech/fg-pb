@@ -22,11 +22,12 @@ import { ProductHistoryComponent } from './view/product-history/product-history.
 import { SignalsComponent } from './view/signals/signals.component';
 import { TradesComponent } from './view/trades/trades.component';
 
-import { BarHeaderComponent } from './component/bar-header/bar-header.component';
 import { BarStatusComponent } from './component/bar-status/bar-status.component';
+import { FooterComponent } from './component/footer/footer.component';
 import { GraphComponent } from './component/graph/graph.component';
 import { GraphPortfolioComponent } from './component/graph-portfolio/graph-portfolio.component';
 import { GraphProductHistoryComponent } from './component/graph-product-history/graph-product-history.component';
+import { HeaderComponent } from './component/header/header.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { ModalLoginComponent } from './component/modal-login/modal-login.component';
 import { ModalLogoutComponent } from './component/modal-logout/modal-logout.component';
@@ -42,6 +43,9 @@ import { TableOrderbookComponent } from './component/table-orderbook/table-order
 import { TableOrdersComponent } from './component/table-orders/table-orders.component';
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
+import { CardDashboardComponent } from './component/card-dashboard/card-dashboard.component';
+import { CardViewComponent } from './component/card-view/card-view.component';
+import { SwitchDayNightComponent } from './component/switch-day-night/switch-day-night.component';
 
 /**
  * Routes for PowerBot application
@@ -88,11 +92,12 @@ const appRoutes: Routes = [
     SignalsComponent,
     TradesComponent,
 
-    BarHeaderComponent,
     BarStatusComponent,
+    FooterComponent,
     GraphComponent,
     GraphPortfolioComponent,
     GraphProductHistoryComponent,
+    HeaderComponent,
     ModalComponent,
     ModalLoginComponent,
     ModalLogoutComponent,
@@ -109,6 +114,9 @@ const appRoutes: Routes = [
     TableOrdersComponent,
     TableSignalsComponent,
     TableOrderbookComponent,
+    CardDashboardComponent,
+    CardViewComponent,
+    SwitchDayNightComponent,
   ],
   imports: [
     BrowserModule,

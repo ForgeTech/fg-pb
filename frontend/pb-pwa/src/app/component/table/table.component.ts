@@ -4,7 +4,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 @Component({
   selector: 'pb-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
 

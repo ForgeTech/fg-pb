@@ -1,6 +1,5 @@
 /** Powerbot global styles */
 @import "normalize.css/normalize.css";
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import 'material-design-icons/iconfont/material-icons.css';
 
 // @import './styles/roboto-fontface.scss';
@@ -9,4 +8,10 @@
 body {
   border: 3px yellow solid;
   margin: -3px;
+}
+.pb-day-mode {
+  @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+}
+.pb-night-mode {
+  @import '@angular/material/prebuilt-themes/purple-green.css';
 }
