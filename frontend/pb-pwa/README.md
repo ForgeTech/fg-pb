@@ -14,6 +14,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Deploy to Github-Page(s)
+
+Run `npm run ghp-deploy` to deploy the project to github-page(s) at https://forgetech.github.io/PowerBot. You can use the sub-command `ghp-build` to build the project with required base-href of 'PowerBot' to `dist/` directory. Also you can use the sub-command `ghp-commit` to deploy any contents of the `dist`-directory to github-page(s) at mentioned url.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
@@ -21,6 +25,14 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Generate Documentation
+
+Run command `npm run docs` to generate project documentation, based on compodoc npm-package, into docs-directory.
+
+## Generate OpenApi (previously called Swagger) Client
+
+TODO: Run command `npm run oapi-generate-cli` to generate angular-cli based on OpenApi-Specification.
 
 ## Further help
 
