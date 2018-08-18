@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { ChartModule } from 'angular-highcharts';
 
 import { FgMaterialModule } from './module/fg-material/fg-material.module';
 
@@ -23,8 +24,10 @@ import { TradesComponent } from './view/trades/trades.component';
 
 import { BarHeaderComponent } from './component/bar-header/bar-header.component';
 import { BarStatusComponent } from './component/bar-status/bar-status.component';
+import { GraphComponent } from './component/graph/graph.component';
 import { GraphPortfolioComponent } from './component/graph-portfolio/graph-portfolio.component';
 import { GraphProductHistoryComponent } from './component/graph-product-history/graph-product-history.component';
+import { ModalComponent } from './component/modal/modal.component';
 import { ModalLoginComponent } from './component/modal-login/modal-login.component';
 import { ModalLogoutComponent } from './component/modal-logout/modal-logout.component';
 import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
@@ -32,6 +35,7 @@ import { ModalSettingsComponent } from './component/modal-settings/modal-setting
   import { TabLoggingComponent } from './component/modal-settings/tab-logging/tab-logging.component';
   import { TabProductionComponent } from './component/modal-settings/tab-production/tab-production.component';
   import { TabTestComponent } from './component/modal-settings/tab-test/tab-test.component';
+import { TableComponent } from './component/table/table.component';
 import { TableAsksComponent } from './component/table-asks/table-asks.component';
 import { TableBidsComponent } from './component/table-bids/table-bids.component';
 import { TableOrderbookComponent } from './component/table-orderbook/table-orderbook.component';
@@ -86,8 +90,10 @@ const appRoutes: Routes = [
 
     BarHeaderComponent,
     BarStatusComponent,
+    GraphComponent,
     GraphPortfolioComponent,
     GraphProductHistoryComponent,
+    ModalComponent,
     ModalLoginComponent,
     ModalLogoutComponent,
     ModalSettingsComponent,
@@ -96,6 +102,7 @@ const appRoutes: Routes = [
       TabLoggingComponent,
       TabProductionComponent,
       TabTestComponent,
+    TableComponent,
     TableTradesComponent,
     TableAsksComponent,
     TableBidsComponent,
@@ -117,6 +124,7 @@ const appRoutes: Routes = [
       { enableTracing: environment.production ? false : true }
     ),
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    ChartModule
   ],
   providers: [],
   entryComponents: [
