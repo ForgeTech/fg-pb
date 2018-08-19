@@ -12,7 +12,9 @@
     "ghp-build": "ng build --prod --base-href /PowerBot/",
     "ghp-push": "./node_modules/.bin/angular-cli-ghpages --repo=https://6d96ad8b1251092dee67ef8e6defa64d795cc336@github.com/ForgeTech/PowerBot.git",
     "ghp-deploy": "npm run ghp-build & npm run ghp-push",
-    "gen-api": "./node_modules/.bin/swagger-ts-client -s ./../pb-api/swagger.json -t ./../pb-api/types/api.ts -o ./../pb-api/services/"
+    "gen-swagger-ts-client": "./node_modules/.bin/swagger-ts-client  -c ./../pb-api/ts-client.config.js",
+    "gen-swagger-angular-generator": "./node_modules/.bin/swagger-angular-generator -s ./../pb-swagger-angular-generator/swagger.json -d ./../pb-swagger-angular-generator/ --no-store",
+    "gen-swagger-codegen": "docker run --rm -v ~/swagger-codegen:/local swaggerapi/swagger-codegen-cli generate -i https://playground.powerbot-trading.com/api/v0/swagger.json -l typescript-angular -o /local/api"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +23,7 @@
     "@angular/common": "6.0.3",
     "@angular/compiler": "6.0.3",
     "@angular/core": "6.0.3",
-    "@angular/flex-layout": "^6.0.0-beta.17",
+    "@angular/flex-layout": "6.0.0-beta.17",
     "@angular/forms": "6.0.3",
     "@angular/http": "6.0.3",
     "@angular/material": "6.4.5",
@@ -57,13 +59,14 @@
     "codelyzer": "4.2.1",
     "jasmine-core": "2.99.1",
     "jasmine-spec-reporter": "4.2.1",
-    "karma": "^3.0.0",
+    "karma": "3.0.0",
     "karma-chrome-launcher": "2.2.0",
     "karma-coverage-istanbul-reporter": "2.0.0",
     "karma-jasmine": "1.1.1",
     "karma-jasmine-html-reporter": "0.2.2",
-    "protractor": "^5.4.0",
-    "swagger-ts-client": "^0.9.6",
+    "protractor": "5.4.0",
+    "swagger-angular-generator": "2.0.1",
+    "swagger-ts-client": "0.9.6",
     "ts-node": "5.0.1",
     "tslint": "5.9.1",
     "typescript": "2.7.2"
