@@ -1,19 +1,28 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>
-      <img height="35px" alt="Power Logo" src="./assets/powerbot_logo.png"/>
-    </span>
-    <span>
-      <p>
-       by Inercom
-      </p>
-    </span>
-    <pb-bar-status></pb-bar-status>
-    <pb-switch-day-night></pb-switch-day-night>
+    <div fxLayout="row" fxFlexFill>
+      <div fxFlex="164px">
+        <img height="50px" alt="Power Logo" src="./assets/powerbot_logo.png"/>
+      </div>
+      <div fxFlex="150px">
+        <p>
+          by Inercom
+        </p>
+      </div>
+      <div fxFlex="100">
+        <pb-bar-status></pb-bar-status>
+      </div>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-toolbar color="secondary">
   <mat-toolbar-row>
-    <span>Actionbar</span>
+    <div fxLayout="row" fxFlexFill>
+      <div fxFlex="90">
+      </div>
+      <div fxFlex="10">
+        <pb-switch-day-night></pb-switch-day-night>
+      </div>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>

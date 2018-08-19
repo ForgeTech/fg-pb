@@ -4,6 +4,7 @@ import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { RouterModule, Routes } from '@angular/router';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -126,6 +127,7 @@ const appRoutes: Routes = [
     BrowserModule,
     CommonModule,
     FgMaterialModule,
+    FlexLayoutModule,
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
     RouterModule.forRoot(
       appRoutes,

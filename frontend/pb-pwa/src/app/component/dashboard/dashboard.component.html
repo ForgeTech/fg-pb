@@ -14,7 +14,11 @@
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
+        <mat-card-content
+          class="dashboard-card-content"
+          [style.overflow]="'auto'"
+          [style.height.px]="'300'"
+        >
           <!-- <ng-content [ngTemplateOutlet]="card.title"></ng-content> -->
           <ng-content *ngTemplateOutlet="orders"></ng-content>
         </mat-card-content>

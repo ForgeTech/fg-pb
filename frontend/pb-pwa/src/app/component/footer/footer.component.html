@@ -1,11 +1,23 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>
-      <p>
-        &copy;
-      </p>
-    </span>
-    <img height="35px" alt="ForgeTech Logo" src="./assets/forgetech/logo-small.png" />
-    <img height="35px" alt="ForgeTech Text" src="./assets/forgetech/logo-text.png" />
+    <div fxLayout="row" fxFlexFill>
+      <div fxFlex="164px">
+        <a mat-button href="https://www.forgetech.biz/">
+          &copy; 2018
+          &nbsp;
+          <img height="16px" alt="ForgeTech Logo" src="./assets/forgetech/logo--small.png" />
+          &nbsp;
+          <img height="16px" alt="ForgeTech Text" src="./assets/forgetech/text--small.png" />
+        </a>
+      </div>
+    <div fxFlex="">
+    </div>
+    <div fxFlex="300px">
+      <a mat-button href="https://creativecommons.org/licenses/by-nc/3.0/at/">
+        <img height="25px" alt="Licence BY-NC Logo" src="./assets/licence/by-nd.png" />
+        Licenced under BY-NC 3.0 AT
+      </a>
+    </div>
+  </div>
   </mat-toolbar-row>
 </mat-toolbar>
