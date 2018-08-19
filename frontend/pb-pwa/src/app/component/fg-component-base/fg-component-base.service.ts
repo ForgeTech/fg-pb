@@ -1,54 +1,54 @@
-// import { Injectable } from '@angular/core';
-// import { FgEventService } from './../../service/fg-event/fg-event.service';
+import { Injectable } from '@angular/core';
+import { FgEventService } from './../../service/fg-event/fg-event.service';
+// import { Logger as FgLogService } from 'angular2-logger/core';
 // import { FgGestureService } from './../../service/fg-gesture/fg-gesture.service';
 // import { FgKeyboardService } from './../../service/fg-keyboard/fg-keyboard.service';
 // import { FgZindexService } from './../../service/fg-zindex/fg-zindex.service';
-// import { Logger as FgLogService } from 'angular2-logger/core';
 // import { IFgStateEntityInterface } from '../../../../../../fg-shared/interface/fg-interfaces.export';
-//   /**
-//   * FgComponentBaseService -
-//   * Service provides forge-components with all commonly needed
-//   * functionality
-//   */
-// @Injectable()
-// export class FgComponentBaseService {
-//   /**
-//   * Gives access to FgLogService
-//   */
-//   public $log: FgLogService;
-//   /**
-//   * Gives access to FgEventService-methodes
-//   */
-//   public $event: FgEventService;
-//   /**
-//   * Gives access to FgGestureService-methodes
-//   */
-//   public $gesture: FgGestureService;
-//   /**
-//   * Gives access to FgKeyboardService-methodes
-//   */
-//   public $keyboard: FgKeyboardService;
-//   /**
-//   * Gives access to FgZindexService-methodes
-//   */
-//   public $zindex: FgZindexService;
-//   /**
-//   * CONSTRUCTOR
-//   */
-//   constructor (
-//     $log: FgLogService,
-//     $event: FgEventService,
-//     $gesture: FgGestureService,
-//     $keyboard: FgKeyboardService,
-//     $zindex: FgZindexService
-//   ) {
+  /**
+  * FgComponentBaseService -
+  * Service provides forge-components with all commonly needed
+  * functionality
+  */
+@Injectable()
+export class FgComponentBaseService {
+  /**
+  * Gives access to FgLogService
+  */
+  // public $log: FgLogService;
+  /**
+  * Gives access to FgEventService-methodes
+  */
+  // public $event: FgEventService;
+  /**
+  * Gives access to FgGestureService-methodes
+  */
+  // public $gesture: FgGestureService;
+  /**
+  * Gives access to FgKeyboardService-methodes
+  */
+  // public $keyboard: FgKeyboardService;
+  /**
+  * Gives access to FgZindexService-methodes
+  */
+  // public $zindex: FgZindexService;
+  /**
+  * CONSTRUCTOR
+  */
+  constructor (
+    // $log: FgLogService,
+    // $event: FgEventService,
+    // $gesture: FgGestureService,
+    // $keyboard: FgKeyboardService,
+    // $zindex: FgZindexService
+  ) {
 
-//     this.$log = $log;
-//     this.$event = $event;
-//     this.$gesture = $gesture;
-//     this.$keyboard = $keyboard;
-//     this.$zindex = $zindex;
-//   }
+    // this.$log = $log;
+    // this.$event = $event;
+    // this.$gesture = $gesture;
+    // this.$keyboard = $keyboard;
+    // this.$zindex = $zindex;
+  }
 //   /**
 //    * Methode to be used with component-base create-action,
 //    * defining when to disable the action in fgAction-component
@@ -117,4 +117,4 @@
 //       index: index
 //     };
 //   }
-// }
+}

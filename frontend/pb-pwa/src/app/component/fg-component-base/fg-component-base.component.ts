@@ -10,7 +10,7 @@ import {
   SimpleChanges,
   ElementRef,
 } from '@angular/core';
-// import { FgComponentBaseService } from './fg-component-base.service';
+import { FgComponentBaseService } from './fg-component-base.service';
 // import {
 //   FgComponentBaseEvent,
 //   FgEntityEvent
@@ -33,7 +33,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   /**
    * INJECTED FgLogService provides logging functionallity for component
    */
-  protected _$component: any; // FgComponentBaseService;
+  protected _$component: FgComponentBaseService;
   /**
    * GETTER for protected member _$component
    */
@@ -127,7 +127,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   constructor(
     // $el: ElementRef,
     // $log: FgLogService,
-    // $component: FgComponentBaseService
+    $component: FgComponentBaseService
   ) {
     // super(
     //   $log,
@@ -161,7 +161,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * Implements methode for component life-cycle OnInit-Interface.
    */
   public ngOnInit() {
-    this.$component.$log.log( 'ngOnInit: ' );
+    // this.$component.$log.log( 'ngOnInit: ' );
     this.logComponentInfoToConsole();
     // this.emitEvent( FgComponentBaseEvent.ON_INIT, this, this.entity );
   }
@@ -169,7 +169,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * Implements methode for component life-cycle AfterViewInit-Interface.
    */
   public ngAfterViewInit() {
-    this.$component.$log.log( 'ngAfterViewInit: ' );
+    // this.$component.$log.log( 'ngAfterViewInit: ' );
     if ( this.parent ) {
       this.entity.parent = this.parent;
     }
@@ -181,7 +181,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * @param changes
    */
   public ngOnChanges( changes: SimpleChanges ) {
-    this.$component.$log.log( 'ngOnChanges: ' );
+    // this.$component.$log.log( 'ngOnChanges: ' );
     this.logComponentInfoToConsole();
     // this.emitEvent( FgComponentBaseEvent.ON_CHANGES, this, changes );
     // this.emitEvent( FgEntityEvent.SYNC, this, this.entity );
@@ -190,7 +190,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * Implements methode for component life-cycle OnInit-Interface.
    */
   public ngOnDestroy() {
-    this.$component.$log.log( 'ngOnDestroy: ' );
+    // this.$component.$log.log( 'ngOnDestroy: ' );
     this.logComponentInfoToConsole();
     // this.emitEvent( FgComponentBaseEvent.ON_DESTROY, this.entity );
   }
@@ -199,18 +199,18 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * @param event Instance of FgEvent
    */
   public handleChildEvents( event: any /* FgEvent */ ): void {
-    this.$component.$log.warn( 'handleChildEvents:' );
-    this.$component.$log.warn( `
-      CAUTION:
-      Called from fgComponentBaseComponent -
-      but should must likely being overwritten by extending fgComponent!
-      Make sure this is not a error!
-    ` );
+    // this.$component.$log.warn( 'handleChildEvents:' );
+    // this.$component.$log.warn( `
+    //   CAUTION:
+    //   Called from fgComponentBaseComponent -
+    //   but should must likely being overwritten by extending fgComponent!
+    //   Make sure this is not a error!
+    // ` );
   }
   /**
    * Methode prints value of a components common information to console.
    */
   private logComponentInfoToConsole() {
-    this.$component.$log.log( this );
+    // this.$component.$log.log( this );
   }
 }

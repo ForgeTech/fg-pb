@@ -1,11 +1,11 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <div fxLayout="row" fxFlexFill>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill>
       <div fxFlex="164px">
-        <img height="50px" alt="Power Logo" src="./assets/powerbot_logo.png"/>
+        <img class="pb-header-logo" alt="Power Logo" src="./assets/powerbot_logo.png"/>
       </div>
       <div fxFlex="150px">
-        <p>
+        <p class="pb-header-label">
           by Inercom
         </p>
       </div>
@@ -17,10 +17,10 @@
 </mat-toolbar>
 <mat-toolbar color="secondary">
   <mat-toolbar-row>
-    <div fxLayout="row" fxFlexFill>
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill>
       <div fxFlex="90">
       </div>
-      <div fxFlex="10">
+      <div fxFlex="10 30px">
         <pb-switch-day-night></pb-switch-day-night>
       </div>
     </div>

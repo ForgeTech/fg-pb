@@ -2,13 +2,21 @@ import { Component, ViewChild, TemplateRef } from '@angular/core';
 import { LowerCasePipe, NgTemplateOutlet } from '@angular/common';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
+import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
+import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 
 @Component({
   selector: 'pb-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent extends FgComponentBaseComponent {
+
+  constructor(private breakpointObserver: BreakpointObserver, $component: FgComponentBaseService) {
+    super(
+      $component
+    );
+  }
 
   @ViewChild('orders') orders: TemplateRef<any>;
   @ViewChild('orderbook') orderbook: TemplateRef<any>;
@@ -47,6 +55,4 @@ export class DashboardComponent {
       ];
     })
   );
-
-  constructor(private breakpointObserver: BreakpointObserver) {}
 }

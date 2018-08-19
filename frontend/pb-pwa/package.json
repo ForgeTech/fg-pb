@@ -14,6 +14,7 @@
     "ghp-deploy": "npm run ghp-build & npm run ghp-push",
     "gen-swagger-ts-client": "./node_modules/.bin/swagger-ts-client  -c ./../pb-api/ts-client.config.js",
     "gen-swagger-angular-generator": "./node_modules/.bin/swagger-angular-generator -s ./../pb-swagger-angular-generator/swagger.json -d ./../pb-swagger-angular-generator/ --no-store",
+    "gen-ng4": "./node_modules/.bin/a4apigen -u https://playground.powerbot-trading.com/api/v0/swagger.json -o ../pb-swagger-angular4/",
     "gen-swagger-codegen": "docker run --rm -v ~/swagger-codegen:/local swaggerapi/swagger-codegen-cli generate -i https://playground.powerbot-trading.com/api/v0/swagger.json -l typescript-angular -o /local/api"
   },
   "private": true,
@@ -56,6 +57,7 @@
     "@types/jasminewd2": "2.0.3",
     "@types/node": "8.9.4",
     "angular-cli-ghpages": "0.5.3",
+    "angular4-swagger-client-generator": "^0.1.24",
     "codelyzer": "4.2.1",
     "jasmine-core": "2.99.1",
     "jasmine-spec-reporter": "4.2.1",

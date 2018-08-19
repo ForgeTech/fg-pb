@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
+import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
 
 @Component({
   selector: 'pb-tab-api-key',
@@ -8,8 +9,10 @@ import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-b
 })
 export class TabApiKeyComponent extends FgComponentBaseComponent {
 
-  constructor() {
-    super();
+  constructor($component: FgComponentBaseService) {
+    super(
+      $component
+    );
   }
 
 }

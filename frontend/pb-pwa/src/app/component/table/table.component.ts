@@ -1,13 +1,22 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { TableDataSource } from './table-datasource';
+import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
+import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 
 @Component({
   selector: 'pb-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit {
+export class TableComponent extends FgComponentBaseComponent implements OnInit {
+
+  constructor($component: FgComponentBaseService) {
+    super(
+      $component
+    );
+  }
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: TableDataSource;

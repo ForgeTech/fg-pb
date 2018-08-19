@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
+import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 
 @Component({
   selector: 'pb-modal-login',
@@ -8,8 +9,10 @@ import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base
 })
 export class ModalLoginComponent extends FgComponentBaseComponent {
 
-  constructor() {
-    super();
+  constructor($component: FgComponentBaseService) {
+    super(
+      $component
+    );
   }
 
 }

@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
+import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 
 @Component({
   selector: 'pb-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent extends FgComponentBaseComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor($component: FgComponentBaseService) {
+    super(
+      $component
+    );
   }
 
 }

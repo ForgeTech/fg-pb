@@ -50,7 +50,7 @@ import { TableOrdersComponent } from './component/table-orders/table-orders.comp
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
 
-
+import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
 /**
  * Routes for PowerBot application
  */
@@ -141,7 +141,9 @@ const appRoutes: Routes = [
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     ChartModule
   ],
-  providers: [],
+  providers: [
+    FgComponentBaseService
+  ],
   entryComponents: [
     AsksViewComponent,
     BidsViewComponent,

@@ -1,15 +1,20 @@
 import { Component } from '@angular/core';
 import { Chart } from 'angular-highcharts';
+import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
+import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 
 @Component({
   selector: 'pb-graph',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.css']
 })
-export class GraphComponent {
+export class GraphComponent extends FgComponentBaseComponent {
 
-  constructor() { }
-
+  constructor($component: FgComponentBaseService) {
+    super(
+      $component
+    );
+  }
   chart = new Chart({
     chart: {
       type: 'line'
