@@ -51,6 +51,8 @@ import { TableSignalsComponent } from './component/table-signals/table-signals.c
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
 
 import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { FgEventService } from './service/fg-event/fg-event.service';
 /**
  * Routes for PowerBot application
  */
@@ -125,6 +127,11 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    LoggerModule.forRoot({
+      // serverLoggingUrl: '/api/logs',
+      level: NgxLoggerLevel.INFO,
+      // serverLogLevel: NgxLoggerLevel.ERROR
+    }),
     CommonModule,
     FgMaterialModule,
     FlexLayoutModule,
@@ -142,7 +149,8 @@ const appRoutes: Routes = [
     ChartModule
   ],
   providers: [
-    FgComponentBaseService
+    FgComponentBaseService,
+    FgEventService
   ],
   entryComponents: [
     AsksViewComponent,

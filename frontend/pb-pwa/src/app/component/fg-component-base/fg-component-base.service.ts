@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FgEventService } from './../../service/fg-event/fg-event.service';
-// import { Logger as FgLogService } from 'angular2-logger/core';
+import { NGXLogger as FgLogService } from 'ngx-logger';
 // import { FgGestureService } from './../../service/fg-gesture/fg-gesture.service';
 // import { FgKeyboardService } from './../../service/fg-keyboard/fg-keyboard.service';
 // import { FgZindexService } from './../../service/fg-zindex/fg-zindex.service';
@@ -15,11 +15,11 @@ export class FgComponentBaseService {
   /**
   * Gives access to FgLogService
   */
-  // public $log: FgLogService;
+  public $log: FgLogService;
   /**
   * Gives access to FgEventService-methodes
   */
-  // public $event: FgEventService;
+  public $event: FgEventService;
   /**
   * Gives access to FgGestureService-methodes
   */
@@ -36,15 +36,15 @@ export class FgComponentBaseService {
   * CONSTRUCTOR
   */
   constructor (
-    // $log: FgLogService,
-    // $event: FgEventService,
+    $log: FgLogService,
+    $event: FgEventService,
     // $gesture: FgGestureService,
     // $keyboard: FgKeyboardService,
     // $zindex: FgZindexService
   ) {
 
-    // this.$log = $log;
-    // this.$event = $event;
+    this.$log = $log;
+    this.$event = $event;
     // this.$gesture = $gesture;
     // this.$keyboard = $keyboard;
     // this.$zindex = $zindex;

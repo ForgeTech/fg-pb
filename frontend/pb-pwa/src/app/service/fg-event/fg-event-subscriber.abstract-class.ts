@@ -1,6 +1,6 @@
 import { FgEventService } from './../fg-event/fg-event.service';
 import { FgEvent, FgAction } from '../../class/fg-class.export';
-import { Logger as FgLogService } from 'angular2-logger/core';
+import { NGXLogger as FgLogService } from 'ngx-logger';
 /**
 * FgEventSubscriber -
 * Abstract class to be extended by classes

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FgEvent, FgAction } from '../../class/fg-class.export';
-import { Logger as FgLogService } from 'angular2-logger/core';
+import { NGXLogger as FgLogService } from 'ngx-logger';
 /**
  * FgEventService -
  * Service provides an interface to handle and distribute

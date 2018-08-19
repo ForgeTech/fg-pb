@@ -11,18 +11,17 @@ import {
   ElementRef,
 } from '@angular/core';
 import { FgComponentBaseService } from './fg-component-base.service';
-// import {
-//   FgComponentBaseEvent,
-//   FgEntityEvent
-// } from './../../event/fg-events.export';
-// import { FgEventSubscriber } from './../../service/fg-event/fg-event-subscriber.abstract-class';
-// import { Logger as FgLogService } from 'angular2-logger/core';
+import {
+  FgComponentBaseEvent,
+  FgEntityEvent
+} from './../../event/fg-events.export';
+import { FgEventSubscriber } from './../../service/fg-event/fg-event-subscriber.abstract-class';
 // import {
 //   IFgComponentEntityInterface,
 //   IFgActionProviderInterface,
 //   IFgActionEntityInterface
 // } from '../../../../../../fg-shared/interface/fg-interfaces.export';
-// import { FgEvent, FgAction } from '../../class/fg-class.export';
+import { FgEvent, FgAction } from '../../class/fg-class.export';
 /**
  * CAUTION: This abstract class isn't a real angular-component,
  * as it doesn't use the @Component decorator and is meant to be
@@ -37,7 +36,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   /**
    * GETTER for protected member _$component
    */
-  get $component(): any { // FgComponentBaseService {
+  get $component(): FgComponentBaseService {
     return this._$component;
   }
   /**
@@ -78,14 +77,14 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * Contains a EventEmitter instance and uses it to publish
    * a components events to their parent-component
    */
-  @Output() event: EventEmitter<any>; // EventEmitter<FgEvent>;
+  @Output() event: EventEmitter<FgEvent>;
   /**
    * CAUTION! MAKE SURE THIS IS NOT INITIALIZED IN
    * COMPONENT-BASE-COMPONENT CONSTRUCTOR!
    * actions-property should only be initialized by components
    * which want to provide component-related actions
    */
-  public actions: any[]; // IFgActionEntityInterface[];
+  public actions: FgAction[]; // IFgActionEntityInterface[];
   /**
    * INPUT To receive a components configuration-object
    */
@@ -96,7 +95,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   @HostListener( 'click', [ '$event' ])
   protected onClick( $event ) {
     event.stopPropagation();
-    // this.emitEvent( FgComponentBaseEvent.CLICK, this, this.entity );
+    this.emitEvent( FgComponentBaseEvent.CLICK, this, this.entity );
   }
   /**
    * Dispatch focus-in event
@@ -109,9 +108,9 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
      * on elements
      */
     // if ( this.entity && this.entity.selectable ) {
-      // this.emitEvent( FgComponentBaseEvent.SELECTED, this, this.entity );
+    //   this.emitEvent( FgComponentBaseEvent.SELECTED, this, this.entity );
     // }
-    // this.emitEvent( FgComponentBaseEvent.FOCUS_IN, this, this.entity );
+    this.emitEvent( FgComponentBaseEvent.FOCUS_IN, this, this.entity );
   }
   /**
    * Dispatch focus-out event
@@ -119,49 +118,48 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   @HostListener( 'focusout' , [ '$event' ] )
   protected onFocusout( $event ) {
     event.stopPropagation();
-    // this.emitEvent( FgComponentBaseEvent.FOCUS_OUT, this, this.entity );
+    this.emitEvent( FgComponentBaseEvent.FOCUS_OUT, this, this.entity );
   }
   /**
    * CONSTRUCTOR
    */
   constructor(
     // $el: ElementRef,
-    // $log: FgLogService,
     $component: FgComponentBaseService
   ) {
     // super(
     //   $log,
     //   $component.$event
     // );
-    // this._$component = $component;
-    this.event = new EventEmitter<any>(); // new EventEmitter<FgEvent>();
+    this._$component = $component;
+    this.event = new EventEmitter<FgEvent>();
     // Default set of component ui-actions
-    // this.actions = [
-    //   new FgAction( new FgEvent( FgComponentBaseEvent.CREATE ), 'Add', 'add_box', 'Q', $component.disableCreateAction ),
-    //   new FgAction( new FgEvent( FgComponentBaseEvent.EDIT ), 'Edit', 'edit', 'E', $component.disableEditableAction ),
-    //   new FgAction( new FgEvent( FgComponentBaseEvent.LOCK ), 'Lock', 'lock', 'R', $component.disableLockAction ),
-    //   new FgAction( new FgEvent( FgComponentBaseEvent.DELETE ), 'Delete', 'delete_forever', 'F', $component.disableDeleteAction ),
-    //   new FgAction( new FgEvent( FgComponentBaseEvent.EXPORT ), 'Export', 'import_export', 'Y', $component.disableExportAction ),
-    //   new FgAction( new FgEvent( FgComponentBaseEvent.PRINT ), 'Print', 'print', 'P', $component.disablePrintAction ),
-    // ];
+    this.actions = [
+      new FgAction( new FgEvent( FgComponentBaseEvent.CREATE ), 'Add', 'add_box', 'Q', /* $component.disableCreateAction */),
+      new FgAction( new FgEvent( FgComponentBaseEvent.EDIT ), 'Edit', 'edit', 'E', /* $component.disableEditableAction */),
+      new FgAction( new FgEvent( FgComponentBaseEvent.LOCK ), 'Lock', 'lock', 'R', /* $component.disableLockAction */),
+      new FgAction( new FgEvent( FgComponentBaseEvent.DELETE ), 'Delete', 'delete_forever', 'F', /* $component.disableDeleteAction */),
+      new FgAction( new FgEvent( FgComponentBaseEvent.EXPORT ), 'Export', 'import_export', 'Y', /* $component.disableExportAction */),
+      new FgAction( new FgEvent( FgComponentBaseEvent.PRINT ), 'Print', 'print', 'P', /* $component.disablePrintAction */),
+    ];
   }
   /**
    * Dispatch an event via global event-service and component event-emitter
    */
   public emitEvent( signature: string , dispatcher: any, data: any = false, options: any = false, bubble = false ) {
-    // const eventToDispatch: FgEvent = new FgEvent( signature, dispatcher, data, options, bubble );
-    // // Emit component-event using angular event-emitter
-    // if ( eventToDispatch.bubble) {
-    //   this.event.emit( eventToDispatch );
-    // }
-    // // Emit global-event via event-service
-    // this.$component.$event.emit( eventToDispatch );
+    const eventToDispatch: FgEvent = new FgEvent( signature, dispatcher, data, options, bubble );
+    // Emit component-event using angular event-emitter
+    if ( eventToDispatch.bubble) {
+      this.event.emit( eventToDispatch );
+    }
+    // Emit global-event via event-service
+    this.$component.$event.emit( eventToDispatch );
   }
   /**
    * Implements methode for component life-cycle OnInit-Interface.
    */
   public ngOnInit() {
-    // this.$component.$log.log( 'ngOnInit: ' );
+    this.$component.$log.log( 'ngOnInit ' );
     this.logComponentInfoToConsole();
     // this.emitEvent( FgComponentBaseEvent.ON_INIT, this, this.entity );
   }
@@ -169,7 +167,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * Implements methode for component life-cycle AfterViewInit-Interface.
    */
   public ngAfterViewInit() {
-    // this.$component.$log.log( 'ngAfterViewInit: ' );
+    this.$component.$log.log( 'ngAfterViewInit' );
     if ( this.parent ) {
       this.entity.parent = this.parent;
     }
@@ -181,7 +179,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * @param changes
    */
   public ngOnChanges( changes: SimpleChanges ) {
-    // this.$component.$log.log( 'ngOnChanges: ' );
+    this.$component.$log.log( 'ngOnChanges' );
     this.logComponentInfoToConsole();
     // this.emitEvent( FgComponentBaseEvent.ON_CHANGES, this, changes );
     // this.emitEvent( FgEntityEvent.SYNC, this, this.entity );
@@ -190,7 +188,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * Implements methode for component life-cycle OnInit-Interface.
    */
   public ngOnDestroy() {
-    // this.$component.$log.log( 'ngOnDestroy: ' );
+    this.$component.$log.log( 'ngOnDestroy' );
     this.logComponentInfoToConsole();
     // this.emitEvent( FgComponentBaseEvent.ON_DESTROY, this.entity );
   }
@@ -199,18 +197,20 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * @param event Instance of FgEvent
    */
   public handleChildEvents( event: any /* FgEvent */ ): void {
-    // this.$component.$log.warn( 'handleChildEvents:' );
-    // this.$component.$log.warn( `
-    //   CAUTION:
-    //   Called from fgComponentBaseComponent -
-    //   but should must likely being overwritten by extending fgComponent!
-    //   Make sure this is not a error!
-    // ` );
+    this.$component.$log.warn( 'handleChildEvents:' );
+    this.$component.$log.warn( `
+      CAUTION:
+      Called from fgComponentBaseComponent -
+      but should must likely being overwritten by extending fgComponent!
+      Make sure this is not a error!
+    ` );
   }
   /**
    * Methode prints value of a components common information to console.
    */
   private logComponentInfoToConsole() {
-    // this.$component.$log.log( this );
+    // TODO reimplament in a way nglogger can parse this
+    // with json.stringify()
+    this.$component.$log.log( this.constructor.name );
   }
 }
