@@ -4,15 +4,19 @@ import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { RouterModule, Routes } from '@angular/router';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { ChartModule } from 'angular-highcharts';
 
+import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
+import { FgEventService } from './service/fg-event/fg-event.service';
 import { FgMaterialModule } from './module/fg-material/fg-material.module';
 
 import { AppComponent } from './app.component';
+import { FgAppService } from './app.service';
 
 import { AsksViewComponent } from './view/asks/asks.component';
 import { BidsViewComponent } from './view/bids/bids.component';
@@ -50,9 +54,6 @@ import { TableOrdersComponent } from './component/table-orders/table-orders.comp
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
 
-import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
-import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
-import { FgEventService } from './service/fg-event/fg-event.service';
 /**
  * Routes for PowerBot application
  */
@@ -129,7 +130,7 @@ const appRoutes: Routes = [
     BrowserModule,
     LoggerModule.forRoot({
       // serverLoggingUrl: '/api/logs',
-      level: NgxLoggerLevel.INFO,
+      level: environment.production ? NgxLoggerLevel.ERROR : NgxLoggerLevel.LOG,
       // serverLogLevel: NgxLoggerLevel.ERROR
     }),
     CommonModule,
@@ -150,6 +151,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     FgComponentBaseService,
+    FgAppService,
     FgEventService
   ],
   entryComponents: [
