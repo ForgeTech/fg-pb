@@ -1,0 +1,17 @@
+export * from './authentication.service';
+import { AuthenticationService } from './authentication.service';
+export * from './contract.service';
+import { ContractService } from './contract.service';
+export * from './logs.service';
+import { LogsService } from './logs.service';
+export * from './market.service';
+import { MarketService } from './market.service';
+export * from './messages.service';
+import { MessagesService } from './messages.service';
+export * from './orders.service';
+import { OrdersService } from './orders.service';
+export * from './signals.service';
+import { SignalsService } from './signals.service';
+export * from './trades.service';
+import { TradesService } from './trades.service';
+export const APIS = [AuthenticationService, ContractService, LogsService, MarketService, MessagesService, OrdersService, SignalsService, TradesService];
