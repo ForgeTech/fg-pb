@@ -16,6 +16,7 @@ import { FgEventService } from './service/fg-event/fg-event.service';
 import { FgMaterialModule } from './module/fg-material/fg-material.module';
 
 import { AppComponent } from './app.component';
+import { ApiModule, ConfigurationParameters, Configuration } from './module/pb-api';
 import { FgAppService } from './app.service';
 
 import { AsksViewComponent } from './view/asks/asks.component';
@@ -54,6 +55,15 @@ import { TableOrdersComponent } from './component/table-orders/table-orders.comp
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
 
+/**
+ * Define Configuration for swagger-codegen api-module
+ */
+export function apiConfigFactory(): Configuration {
+  const params: ConfigurationParameters = {
+    // set configuration parameters here.
+  };
+  return new Configuration(params);
+}
 /**
  * Routes for PowerBot application
  */
@@ -128,15 +138,16 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    ChartModule,
+    CommonModule,
+    FgMaterialModule,
+    FlexLayoutModule,
+    ApiModule.forRoot(apiConfigFactory),
     LoggerModule.forRoot({
       // serverLoggingUrl: '/api/logs',
       level: environment.production ? NgxLoggerLevel.ERROR : NgxLoggerLevel.LOG,
       // serverLogLevel: NgxLoggerLevel.ERROR
     }),
-    CommonModule,
-    FgMaterialModule,
-    FlexLayoutModule,
-    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
     RouterModule.forRoot(
       appRoutes,
       /**
@@ -146,8 +157,8 @@ const appRoutes: Routes = [
        */
       { enableTracing: environment.production ? false : true }
     ),
+    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
-    ChartModule
   ],
   providers: [
     FgComponentBaseService,
