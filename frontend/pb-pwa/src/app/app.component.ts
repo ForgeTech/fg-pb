@@ -12,6 +12,8 @@ import {
 } from './event/fg-events.export';
 import { FgComponentBaseComponent } from './component/fg-component-base/fg-component-base.component';
 import { NGXLogger as FgLogService } from 'ngx-logger';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
 // import {
 //   IFgProjectEntityInterface,
 //   IFgComponentBaseAbstractEntityInterface,
@@ -33,6 +35,10 @@ import { NGXLogger as FgLogService } from 'ngx-logger';
 })
 export class AppComponent extends FgEventSubscriber
   implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+  /**
+   * Hold reference to angular-material dialog-utils
+   */
+  protected $dialog: MatDialog;
   /**
    * Hold reference to angular router-service instance
    */
@@ -57,8 +63,8 @@ export class AppComponent extends FgEventSubscriber
    * if focus is lost, for example - if focus is automatically set on a
    * toolbar on selection.
    */
-  protected selectedComponent: FgComponentBaseComponent;
-  protected selectedComponentEntity: any; // IFgComponentBaseAbstractEntityInterface;
+  public selectedComponent: FgComponentBaseComponent;
+  public selectedComponentEntity: any; // IFgComponentBaseAbstractEntityInterface;
 
   /**
    * Reset the modules router-configuration with passed routes
@@ -78,6 +84,7 @@ export class AppComponent extends FgEventSubscriber
   */
   constructor(
     angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
+    $dialog: MatDialog,
     $router: Router,
     $init: FgAppService,
     $log: FgLogService,
@@ -87,6 +94,7 @@ export class AppComponent extends FgEventSubscriber
       $log,
       $component.$event
     );
+    this.$dialog = $dialog;
     this.$component = $component;
     this.$init = $init;
     this.$router = $router;
@@ -95,7 +103,7 @@ export class AppComponent extends FgEventSubscriber
     ];
 
     // Initialize powerbot-application
-
+    this.$dialog.open( ModalSettingsComponent );
 
     this.$component.$event.subscribe(FgComponentBaseEvent.SELECTED, this.setSelectedComponent());
     // this.$component.$event.subscribe( FgComponentBaseEvent.FOCUS_IN, this.setActiveComponent() );
@@ -120,9 +128,10 @@ export class AppComponent extends FgEventSubscriber
   protected setSelectedComponent(): (event: FgEvent) => void {
     return event => {
       // if (event.dispatcher) {
-      // if (event.dispatcher && event.dispatcher['actions']) {
-      this.selectedComponent = event.dispatcher as FgComponentBaseComponent;
-      this.selectedComponentEntity = event.data as any; // IFgComponentBaseAbstractEntityInterface;
+        // if (event.dispatcher && event.dispatcher['actions']) {
+        this.selectedComponent = event.dispatcher as FgComponentBaseComponent;
+        this.selectedComponentEntity = event.data as any; // IFgComponentBaseAbstractEntityInterface;
+        console.log(this.selectedComponent);
       // }
     };
   }

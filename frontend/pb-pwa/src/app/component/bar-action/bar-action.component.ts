@@ -3,11 +3,11 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 
 @Component({
-  selector: 'pb-card-dashboard',
-  templateUrl: './card-dashboard.component.html',
-  styleUrls: ['./card-dashboard.component.scss']
+  selector: 'pb-bar-action',
+  templateUrl: './bar-action.component.html',
+  styleUrls: ['./bar-action.component.scss']
 })
-export class CardDashboardComponent extends FgComponentBaseComponent {
+export class BarActionComponent extends FgComponentBaseComponent {
 
   constructor($component: FgComponentBaseService) {
     super(

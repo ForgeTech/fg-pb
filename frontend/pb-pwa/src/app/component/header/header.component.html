@@ -1,28 +1,32 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill>
-      <div fxFlex="164px">
+    <div
+      fxLayout="row"
+      fxLayoutAlign="space-between center"
+      fxLayoutGap="10px"
+      fxFlexFill>
+      <div fxFlex="10 180px">
         <img class="pb-header-logo" alt="Power Logo" src="./assets/powerbot_logo.png"/>
       </div>
-      <div fxFlex="150px">
+      <div fxFlex="10 140px">
         <p class="pb-header-label">
           by Inercom
         </p>
       </div>
-      <div fxFlex="100">
+      <div fxFlex="70">
         <pb-bar-status></pb-bar-status>
       </div>
+      <div fx-flex="10 150px">
+        <button
+          class="pb-header-btn-help"
+          mat-mini-fab
+          matTooltip="Help [?]"
+          color="accent"
+        >
+          ?
+        </button>
+      </div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-toolbar color="secondary">
-  <mat-toolbar-row>
-    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill>
-      <div fxFlex="90">
-      </div>
-      <div fxFlex="10 30px">
-        <pb-switch-day-night></pb-switch-day-night>
-      </div>
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
+

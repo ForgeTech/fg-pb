@@ -1,0 +1,28 @@
+<div
+  class="fg-actions"
+  tabindex="0"
+  fxLayout="row"
+  fxLayoutAlign="end center"
+  fxLayoutGap="5px"
+  fxFlexFill
+>
+  <ng-container *ngIf="this.entity && this.entity.actions">
+    <!-- {{ this.entity.constructor.name }}:&nbsp;&nbsp; -->
+    <div fxFlex="50px" *ngFor="let action of this.entity.actions">
+      <button
+        mat-mini-fab
+        matBadge="{{action.key}}"
+        matBadgePosition="below after"
+        matTooltip="{{action.label}}"
+        color="{{action.color}}"
+        (click)="this.entity.emitEvent(action.event)"
+      >
+        <!-- disabled="this.getDisabledState()" -->
+        <mat-icon>{{ action.icon }}</mat-icon>
+      </button>
+    </div>
+  </ng-container>
+  <div fxFlex="10">
+    <pb-switch-day-night></pb-switch-day-night>
+  </div>
+</div>

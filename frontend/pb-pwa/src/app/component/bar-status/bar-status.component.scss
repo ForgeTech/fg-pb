@@ -1,3 +1,18 @@
-.bar-status {
+.bar-status--container {
+  position: relative;
   height: 50px;
+}
+.bar-status--progress {
+  height: 100%;
+}
+.bar-status--label {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  color: black;
+}
+.bar-status--settings {
+  position: absolute;
+  right: 10px;
+  top: 5px;
 }

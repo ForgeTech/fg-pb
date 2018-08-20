@@ -10,5 +10,6 @@ html {
   overflow: hidden;
 }
 body {
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }

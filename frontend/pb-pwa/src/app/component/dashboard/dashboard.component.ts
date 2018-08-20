@@ -32,14 +32,14 @@ export class DashboardComponent extends FgComponentBaseComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'orders', cols: 3, rows: 1 },
-          { title: 'orderbook', cols: 3, rows: 2 },
-          { title: 'bids', cols: 3, rows: 1 },
-          { title: 'trades', cols: 3, rows: 1 },
-          { title: 'asks', cols: 3, rows: 1 },
-          { title: 'portfolio', cols: 3, rows: 1 },
-          { title: 'productHistory', cols: 3, rows: 1 },
-          { title: 'signals', cols: 3, rows: 1 },
+          { title: 'orders', cols: 4, rows: 1 },
+          { title: 'orderbook', cols: 4, rows: 2 },
+          { title: 'bids', cols: 4, rows: 1 },
+          { title: 'trades', cols: 4, rows: 1 },
+          { title: 'asks', cols: 4, rows: 1 },
+          { title: 'portfolio', cols: 4, rows: 1 },
+          { title: 'productHistory', cols: 4, rows: 1 },
+          { title: 'signals', cols: 4, rows: 1 },
         ];
       }
 

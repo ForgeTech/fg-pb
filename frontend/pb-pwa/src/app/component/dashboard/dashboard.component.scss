@@ -1,21 +1,19 @@
-.grid-container {
-  margin: 5px;
+.dashboard-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .dashboard-card {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  right: -24px;
-  bottom: -15px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-.more-button {
+.dashboard-card-menu-button {
   position: absolute;
   top: 5px;
   right: 10px;
-}
-
-.dashboard-card-content {
-  text-align: center;
 }

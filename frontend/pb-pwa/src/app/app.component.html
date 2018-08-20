@@ -1,6 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="pb-night-mode" style="text-align:center">
+<div class="pb-night-mode">
   <pb-header></pb-header>
+  <pb-bar-action
+    [entity]="this.selectedComponent">
+  </pb-bar-action>
   <router-outlet></router-outlet>
   <pb-footer></pb-footer>
 </div>

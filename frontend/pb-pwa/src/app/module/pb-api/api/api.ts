@@ -14,4 +14,13 @@ export * from './signals.service';
 import { SignalsService } from './signals.service';
 export * from './trades.service';
 import { TradesService } from './trades.service';
-export const APIS = [AuthenticationService, ContractService, LogsService, MarketService, MessagesService, OrdersService, SignalsService, TradesService];
+export const APIS = [
+  AuthenticationService,
+  ContractService,
+  LogsService,
+  MarketService,
+  MessagesService,
+  OrdersService,
+  SignalsService,
+  TradesService
+];

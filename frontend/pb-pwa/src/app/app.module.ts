@@ -12,12 +12,13 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { ChartModule } from 'angular-highcharts';
 
 import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
+import { FgActionsComponent } from './component/fg-actions/fg-actions.component';
 import { FgEventService } from './service/fg-event/fg-event.service';
 import { FgMaterialModule } from './module/fg-material/fg-material.module';
+import { FgAppService } from './app.service';
 
 import { AppComponent } from './app.component';
 import { ApiModule, ConfigurationParameters, Configuration } from './module/pb-api';
-import { FgAppService } from './app.service';
 
 import { AsksViewComponent } from './view/asks/asks.component';
 import { BidsViewComponent } from './view/bids/bids.component';
@@ -54,6 +55,7 @@ import { TableOrderbookComponent } from './component/table-orderbook/table-order
 import { TableOrdersComponent } from './component/table-orders/table-orders.component';
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
+import { BarActionComponent } from './component/bar-action/bar-action.component';
 
 /**
  * Define Configuration for swagger-codegen api-module
@@ -98,6 +100,7 @@ const appRoutes: Routes = [
  */
 @NgModule({
   declarations: [
+    FgActionsComponent,
     AppComponent,
     AsksViewComponent,
     BidsViewComponent,
@@ -135,6 +138,7 @@ const appRoutes: Routes = [
     TableOrdersComponent,
     TableSignalsComponent,
     TableOrderbookComponent,
+    BarActionComponent,
   ],
   imports: [
     BrowserModule,
@@ -145,7 +149,7 @@ const appRoutes: Routes = [
     ApiModule.forRoot(apiConfigFactory),
     LoggerModule.forRoot({
       // serverLoggingUrl: '/api/logs',
-      level: environment.production ? NgxLoggerLevel.ERROR : NgxLoggerLevel.LOG,
+      level: environment.production ? NgxLoggerLevel.ERROR : NgxLoggerLevel.WARN,
       // serverLogLevel: NgxLoggerLevel.ERROR
     }),
     RouterModule.forRoot(
@@ -166,6 +170,7 @@ const appRoutes: Routes = [
     FgEventService
   ],
   entryComponents: [
+    ModalSettingsComponent,
     AsksViewComponent,
     BidsViewComponent,
     DashboardViewComponent,

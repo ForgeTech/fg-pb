@@ -1,3 +1,30 @@
-<p>
-  modal works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <button
+      class="pb-modal-btn-close"
+      mat-fab
+      matTooltip="Close Modal"
+      color="primary"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-card-title
+      class="pb-modal-title"
+    >
+      <!-- <mat-toolbar color="primary">
+        <mat-toolbar-row> -->
+          <h2>
+            <ng-content select="[title]"></ng-content>
+          </h2>
+        <!-- </mat-toolbar-row>
+      </mat-toolbar> -->
+    </mat-card-title>
+  </mat-card-header>
+  <ng-content select="[content]"></ng-content>
+  <mat-card-actions>
+      <ng-content select="[actions]"></ng-content>
+    </mat-card-actions>
+    <mat-card-footer>
+        <ng-content select="[footer]"></ng-content>
+  </mat-card-footer>
+</mat-card>

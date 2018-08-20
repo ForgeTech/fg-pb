@@ -1,8 +1,32 @@
-<mat-progress-bar
-  class="bar-status"
-  mode="determinate"
-  value="65"
-  color="accent"
->
-Offline
-</mat-progress-bar>
+<div class="bar-status--container">
+  <mat-progress-bar
+    class="bar-status--progress"
+    mode="indeterminate"
+    disabled="false"
+    value="0"
+    color="accent">
+  </mat-progress-bar>
+  <div class="bar-status--label">
+    <mat-chip-list>
+      <mat-chip color="primary" selected>
+        <mat-icon>warning</mat-icon>Not Connected
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+  <div class="bar-status--settings">
+    <button class="btn-connection-settings"
+      mat-mini-fab matTooltip="Connection Settings"
+      color="primary"
+      >
+      <!-- color="this.entity.statusConnection" -->
+      <mat-icon>power_setting_new</mat-icon>
+    </button>
+    <button class="btn-market-settings"
+      mat-mini-fab matTooltip="Market Settings"
+      color="primary"
+      >
+      <!-- color="this.entity.statusMarket" -->
+      <mat-icon>timeline</mat-icon>
+    </button>
+  </div>
+</div>

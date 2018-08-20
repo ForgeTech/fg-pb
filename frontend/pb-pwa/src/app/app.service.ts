@@ -5,7 +5,6 @@ import { FgEventService } from './service/fg-event/fg-event.service';
 import { FgEvent } from './class/fg-class.export';
 import { FgEventSubscriber } from './service/fg-event/fg-event-subscriber.abstract-class';
 import {
-  FgProjectEvent,
   FgEntityEvent,
   FgComponentBaseEvent
 } from './event/fg-events.export';

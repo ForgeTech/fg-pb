@@ -22,6 +22,10 @@ export class FgAction /* implements IFgActionEntityInterface */ {
   */
   icon: string | any;
   /**
+   * TODO
+   */
+  color: string;
+  /**
   * Holds animatin property-object to apply animations on action
   * state-changes
   * TODO: Implement any as an object containing multiple
@@ -50,6 +54,7 @@ export class FgAction /* implements IFgActionEntityInterface */ {
   */
   constructor(
     event: FgEvent,
+    color: string,
     label: string,
     icon: string | any,
     key: string = 'none',
@@ -57,6 +62,7 @@ export class FgAction /* implements IFgActionEntityInterface */ {
     disabled = (x => true),
   ) {
     this.icon = icon;
+    this.color = color;
     this.label = label;
     this.event = event;
     this.key = key;

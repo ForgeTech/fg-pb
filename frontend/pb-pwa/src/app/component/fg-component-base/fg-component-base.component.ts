@@ -96,6 +96,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   protected onClick( $event ) {
     event.stopPropagation();
     this.emitEvent( FgComponentBaseEvent.CLICK, this, this.entity );
+    this.emitEvent( FgComponentBaseEvent.SELECTED, this, this.entity );
   }
   /**
    * Dispatch focus-in event
@@ -103,14 +104,14 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   @HostListener( 'focusin', [ '$event' ])
   protected onFocusIn( $event ) {
     event.stopPropagation();
+    this.emitEvent( FgComponentBaseEvent.FOCUS_IN, this, this.entity );
     /**
      * TODO: Implement selectable propertie to allow ignoring selection
      * on elements
      */
     // if ( this.entity && this.entity.selectable ) {
-    //   this.emitEvent( FgComponentBaseEvent.SELECTED, this, this.entity );
+      this.emitEvent( FgComponentBaseEvent.SELECTED, this, this.entity );
     // }
-    this.emitEvent( FgComponentBaseEvent.FOCUS_IN, this, this.entity );
   }
   /**
    * Dispatch focus-out event
@@ -135,12 +136,12 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
     this.event = new EventEmitter<FgEvent>();
     // Default set of component ui-actions
     this.actions = [
-      new FgAction( new FgEvent( FgComponentBaseEvent.CREATE ), 'Add', 'add_box', 'Q', /* $component.disableCreateAction */),
-      new FgAction( new FgEvent( FgComponentBaseEvent.EDIT ), 'Edit', 'edit', 'E', /* $component.disableEditableAction */),
-      new FgAction( new FgEvent( FgComponentBaseEvent.LOCK ), 'Lock', 'lock', 'R', /* $component.disableLockAction */),
-      new FgAction( new FgEvent( FgComponentBaseEvent.DELETE ), 'Delete', 'delete_forever', 'F', /* $component.disableDeleteAction */),
-      new FgAction( new FgEvent( FgComponentBaseEvent.EXPORT ), 'Export', 'import_export', 'Y', /* $component.disableExportAction */),
-      new FgAction( new FgEvent( FgComponentBaseEvent.PRINT ), 'Print', 'print', 'P', /* $component.disablePrintAction */),
+      new FgAction( new FgEvent( FgComponentBaseEvent.CREATE ), 'accent', 'Add', 'add_box', 'Q', /* $component.disableCreateAction */),
+      new FgAction(new FgEvent(FgComponentBaseEvent.EDIT), 'accent', 'Edit', 'edit', 'E', /* $component.disableEditableAction */),
+      new FgAction(new FgEvent(FgComponentBaseEvent.LOCK), 'accent', 'Lock', 'lock', 'R', /* $component.disableLockAction */),
+      new FgAction(new FgEvent(FgComponentBaseEvent.DELETE), 'accent', 'Delete', 'delete_forever', 'F', /* $component.disableDeleteAction */),
+      new FgAction(new FgEvent(FgComponentBaseEvent.EXPORT), 'accent', 'Export', 'import_export', 'Y', /* $component.disableExportAction */),
+      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT), 'accent', 'Print', 'print', 'P', /* $component.disablePrintAction */),
     ];
   }
   /**
@@ -161,7 +162,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   public ngOnInit() {
     this.$component.$log.log( 'ngOnInit ' );
     this.logComponentInfoToConsole();
-    // this.emitEvent( FgComponentBaseEvent.ON_INIT, this, this.entity );
+    this.emitEvent( FgComponentBaseEvent.ON_INIT, this, this.entity );
   }
   /**
    * Implements methode for component life-cycle AfterViewInit-Interface.
@@ -172,7 +173,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
       this.entity.parent = this.parent;
     }
     this.logComponentInfoToConsole();
-    // this.emitEvent( FgComponentBaseEvent.AFTER_VIEW, this, this.entity );
+    this.emitEvent( FgComponentBaseEvent.AFTER_VIEW, this, this.entity );
   }
   /**
    * Implements methode for component life-cycle OnChange-Interface.
@@ -181,8 +182,8 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   public ngOnChanges( changes: SimpleChanges ) {
     this.$component.$log.log( 'ngOnChanges' );
     this.logComponentInfoToConsole();
-    // this.emitEvent( FgComponentBaseEvent.ON_CHANGES, this, changes );
-    // this.emitEvent( FgEntityEvent.SYNC, this, this.entity );
+    this.emitEvent( FgComponentBaseEvent.ON_CHANGES, this, changes );
+    this.emitEvent( FgEntityEvent.SYNC, this, this.entity );
   }
   /**
    * Implements methode for component life-cycle OnInit-Interface.
@@ -190,7 +191,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   public ngOnDestroy() {
     this.$component.$log.log( 'ngOnDestroy' );
     this.logComponentInfoToConsole();
-    // this.emitEvent( FgComponentBaseEvent.ON_DESTROY, this.entity );
+    this.emitEvent( FgComponentBaseEvent.ON_DESTROY, this.entity );
   }
   /**
    * Methode to handle events emitted from component output event-emmitter
@@ -211,6 +212,6 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   private logComponentInfoToConsole() {
     // TODO reimplament in a way nglogger can parse this
     // with json.stringify()
-    this.$component.$log.log( this.constructor.name );
+    this.$component.$log.info( this.constructor.name );
   }
 }

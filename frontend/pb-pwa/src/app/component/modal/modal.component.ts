@@ -5,7 +5,7 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
 @Component({
   selector: 'pb-modal',
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent extends FgComponentBaseComponent {
 
