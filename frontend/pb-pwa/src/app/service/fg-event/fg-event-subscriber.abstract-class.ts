@@ -1,4 +1,4 @@
-import { FgEventService } from './../fg-event/fg-event.service';
+import { FgEventService } from './fg-event.service';
 import { FgEvent, FgAction } from '../../class/fg-class.export';
 import { NGXLogger as FgLogService } from 'ngx-logger';
 /**

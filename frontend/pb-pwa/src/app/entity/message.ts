@@ -1,4 +1,4 @@
-import { Message as MessageInterface } from '../module/pb-api';
+import { MessageInterface } from '../module/pb-api/model/interfaces.export';
 
 /**
  * Message -

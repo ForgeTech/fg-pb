@@ -8,7 +8,7 @@ import {
   MessagesService,
   OrdersService,
   TradesService
-} from './../../module/pb-api';
+} from '../../module/pb-api';
 /**
  * DataService -
  * Service providing interface to fetch, access and
@@ -29,5 +29,6 @@ export class DataService {
     public $market: MarketService,
     public $messages: MessagesService,
     public $orders: OrdersService,
+    public $trades: TradesService,
   ) { }
 }

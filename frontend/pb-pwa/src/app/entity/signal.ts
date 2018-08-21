@@ -1,4 +1,4 @@
-import { Signal as SignalInterface } from '../module/pb-api';
+import { SignalInterface } from '../module/pb-api/model/interfaces.export';
 /**
  * Signal -
  * Entity-Class used to hold

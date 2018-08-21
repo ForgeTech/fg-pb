@@ -1,4 +1,4 @@
-import { Order as OrderInterface } from '../module/pb-api';
+import { OrderInterface } from '../module/pb-api/model/interfaces.export';
 /**
  * Order -
  * Entity-Class used to hold

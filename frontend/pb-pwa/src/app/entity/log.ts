@@ -1,4 +1,4 @@
-import { LogEntry as LogInterface } from '../module/pb-api';
+import { LogInterface } from '../module/pb-api/model/interfaces.export';
 /**
  * Log -
  * Entity-Class used to hold

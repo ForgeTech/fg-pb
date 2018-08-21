@@ -1,4 +1,4 @@
-import { MarketStatus as MarketInterface, InlineResponse20012Options } from '../module/pb-api';
+import { MarketInterface, InlineResponse20012Options } from '../module/pb-api/model/interfaces.export';
 /**
  * Market -
  * Entity-Class used to hold

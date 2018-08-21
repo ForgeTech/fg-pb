@@ -1,4 +1,5 @@
-import { Trade as TradeInterface } from '../module/pb-api';
+
+import { TradeInterface } from '../module/pb-api/model/interfaces.export';
 /**
  * Trade -
  * Entity-Class used to hold

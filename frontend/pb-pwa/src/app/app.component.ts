@@ -14,7 +14,7 @@ import { FgComponentBaseComponent } from './component/fg-component-base/fg-compo
 import { NGXLogger as FgLogService } from 'ngx-logger';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
-import { ConfigPowerbot } from './entity/entity.export';
+import { ConfigPowerbot, PowerBot } from './entity/entity.export';
 
 import {
 Log,
@@ -52,7 +52,7 @@ export class AppComponent extends FgEventSubscriber
   /**
    * TODO: Hold test-data instances
    */
-  public powerbot: any;
+  public powerbot: PowerBot;
   /**
    * Hold reference to angular-material dialog-utils
    */
@@ -125,10 +125,12 @@ export class AppComponent extends FgEventSubscriber
     this.config.connection_test.api_server_url = 'https://playground.powerbot-trading.com/api/v0';
     this.config.connection_test.cache_connection = true;
 
+    this.powerbot = new PowerBot();
     /**
      * TODO: TEST CONNECTION TO API
      */
     const test_order: Order = new Order(40, 344, 'sdfsdf');
+    test_order.quantity = 1;
     this.$app.$data.$orders.addOrder(test_order).toPromise().then(x => {
       console.log('ORDER SUCCESS');
       console.log(x);
