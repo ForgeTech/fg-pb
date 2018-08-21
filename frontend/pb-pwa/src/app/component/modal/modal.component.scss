@@ -1,10 +1,11 @@
+.modal-header {
+  position: relative;
+}
 .modal-btn-close {
   position: absolute;
-  right: -10px;
-  top: -10px;
+  right: -15px;
+  top: -15px;
 }
-.modal-title {
-  // position: absolute;
-  // left: 10px;
-  // top: -20px;
+.modal-content {
+  padding: 15px;
 }

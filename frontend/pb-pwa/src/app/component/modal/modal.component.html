@@ -1,30 +1,24 @@
-<mat-card>
-  <mat-card-header>
+<mat-toolbar
+  color="primary"
+ class="modal-header"
+>
+  <mat-toolbar-row>
+    <h2>
+      <ng-content select="[title]"></ng-content>
+    </h2>
     <button
-      class="pb-modal-btn-close"
+      class="modal-btn-close"
       mat-fab
       matTooltip="Close Modal"
-      color="primary"
+      color="accent"
     >
       <mat-icon>close</mat-icon>
     </button>
-    <mat-card-title
-      class="pb-modal-title"
-    >
-      <!-- <mat-toolbar color="primary">
-        <mat-toolbar-row> -->
-          <h2>
-            <ng-content select="[title]"></ng-content>
-          </h2>
-        <!-- </mat-toolbar-row>
-      </mat-toolbar> -->
-    </mat-card-title>
-  </mat-card-header>
-  <ng-content select="[content]"></ng-content>
-  <mat-card-actions>
-      <ng-content select="[actions]"></ng-content>
-    </mat-card-actions>
-    <mat-card-footer>
-        <ng-content select="[footer]"></ng-content>
-  </mat-card-footer>
-</mat-card>
+  </mat-toolbar-row>
+</mat-toolbar>
+<ng-content select="[content]"></ng-content>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <ng-content select="[actions]"></ng-content>
+  </mat-toolbar-row>
+</mat-toolbar>

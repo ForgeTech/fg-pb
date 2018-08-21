@@ -2,6 +2,7 @@
   class="dashboard-container"
   cols="4"
   rowHeight="350px"
+  gutterSize="10px"
 >
   <mat-grid-tile
     *ngFor="let card of cards | async"
@@ -29,8 +30,8 @@
       <mat-card-content
         class="dashboard-card-content"
         [style.overflow]="'auto'"
-        [style.height.px]="'300'"
-      >
+        >
+        <!-- [style.height.px]="'300'" -->
         <div tabindex="0">
           <ng-content *ngTemplateOutlet="orders"></ng-content>
           <!-- <ng-content *ngTemplateOutlet="card.title"></ng-content> -->

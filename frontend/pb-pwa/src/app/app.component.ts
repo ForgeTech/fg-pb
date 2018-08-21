@@ -103,7 +103,7 @@ export class AppComponent extends FgEventSubscriber
     ];
 
     // Initialize powerbot-application
-    this.$dialog.open( ModalSettingsComponent );
+    this.$dialog.open(ModalSettingsComponent, { panelClass: 'pb-panel' } );
 
     this.$component.$event.subscribe(FgComponentBaseEvent.SELECTED, this.setSelectedComponent());
     // this.$component.$event.subscribe( FgComponentBaseEvent.FOCUS_IN, this.setActiveComponent() );

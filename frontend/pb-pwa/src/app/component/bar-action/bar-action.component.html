@@ -7,23 +7,47 @@
       fxFlexFill
     >
       <div fxFlex="10 100px">
-        <button mat-raised-button color="accent" [matMenuTriggerFor]="connection">
+        <button
+          mat-raised-button
+          color="primary"
+          [matMenuTriggerFor]="connection"
+        >
           <mat-icon>power_setting_new</mat-icon>
-          Connect
+          Connection Menu
         </button>
-        <mat-menu #connection="matMenu">
-          <button mat-menu-item>Settings</button>
-          <button mat-menu-item>Disconnect</button>
+        <mat-menu
+          #connection="matMenu"
+        >
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>flash_off</mat-icon>
+            <span>Disconnect</span>
+          </button>
         </mat-menu>
       </div>
       <div fxFlex="10 100px">
-        <button mat-raised-button color="accent" [matMenuTriggerFor]="market">
+        <button
+          mat-raised-button
+          color="primary"
+          [matMenuTriggerFor]="market"
+        >
           <mat-icon>timeline</mat-icon>
-          Market
+          Market Menu
         </button>
-        <mat-menu #market="matMenu">
-          <button mat-menu-item>Login</button>
-          <button mat-menu-item>Logout</button>
+        <mat-menu
+          #market="matMenu"
+        >
+          <button mat-menu-item>
+            <mat-icon>flash_on</mat-icon>
+            <span>Login</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>flash_off</mat-icon>
+            <span>Logout</span>
+          </button>
         </mat-menu>
       </div>
       <div fxFlex="80">
