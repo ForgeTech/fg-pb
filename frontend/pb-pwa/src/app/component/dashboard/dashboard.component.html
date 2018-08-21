@@ -22,8 +22,18 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #cardMenu="matMenu" xPosition="before">
-            <button mat-menu-item>Expand</button>
-            <button mat-menu-item>Remove</button>
+            <button mat-menu-item>
+              <mat-icon>open_in_new</mat-icon>
+              <span>Open Window</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>tab</mat-icon>
+              <span>Open Tab</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>print</mat-icon>
+              <span>Print</span>
+            </button>
           </mat-menu>
         </mat-card-title>
       </mat-card-header>
