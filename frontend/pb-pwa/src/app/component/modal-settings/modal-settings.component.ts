@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
+import { MatDialogRef } from '../../../../node_modules/@angular/material';
 
 @Component({
   selector: 'app-modal-settings',
@@ -9,10 +10,11 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
 })
 export class ModalSettingsComponent extends FgComponentBaseComponent {
 
-  constructor($component: FgComponentBaseService) {
+  constructor(
+    $component: FgComponentBaseService
+  ) {
     super(
       $component
     );
   }
-
 }

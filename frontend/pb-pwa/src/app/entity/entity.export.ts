@@ -4,11 +4,24 @@ import { ConfigMarketConnection } from './config-market';
 import { ConfigPowerbot } from './config-powerbot';
 import { ConfigProductionConnection } from './config-production-connection';
 import { ConfigTestConnection } from './config-test-connection';
+import { Contract } from './contract';
+import { Log } from './log';
+import { Market } from './market';
+import { Message } from './message';
+import { Order } from './order';
+import { Signal } from './signal';
+import { Trade } from './trade';
 export {
   ConfigGenerateApiKey,
   ConfigLoggingConnection,
   ConfigMarketConnection,
   ConfigPowerbot,
   ConfigProductionConnection,
-  ConfigTestConnection
+  ConfigTestConnection,
+  Log,
+  Market,
+  Message,
+  Order,
+  Signal,
+  Trade,
 };

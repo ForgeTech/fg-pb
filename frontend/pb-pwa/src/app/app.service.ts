@@ -11,6 +11,7 @@ import {
 // import { FgSassService } from './service/fg-sass/fg-sass.service';
 import { NGXLogger as FgLogService } from 'ngx-logger';
 import { environment } from '../environments/environment';
+import { DataService } from './service/data/data.service';
 // import { FgGraphqlService } from './../../../fg-graphql/src/app/service/fg-graphql/fg-graphql.service';
 // import {
 //   IFgProjectEntityInterface,
@@ -30,26 +31,26 @@ import { environment } from '../environments/environment';
 @Injectable()
 export class FgAppService extends FgEventSubscriber {
   /**
-  * Used to hold reference to forge data-service
+  * Used to hold reference data-service
   */
-  // protected $data: FgEntityService;
+  public $data: DataService;
   /**
   * Used to hold reference to forge event-service
   */
-  protected $event: FgEventService;
+  public $event: FgEventService;
   /**
   * Used to hold reference to forge log-service
   */
-  protected $log: FgLogService;
+  public $log: FgLogService;
   /**
   * Used to hold reference to forge import-service
   */
-  // protected $import: FgImportService;
+  // public $import: FgImportService;
   /**
   * Instance of ApolloGraphqlClient
   */
-  protected $apollo_persist: any;
-  protected $apollo_inmemmory: any;
+  public $apollo_persist: any;
+  public $apollo_inmemmory: any;
   /**
   * Store reference to sass compiler-service
   */
@@ -58,7 +59,7 @@ export class FgAppService extends FgEventSubscriber {
   * CONSTRUCTOR
   */
   constructor(
-    // $data: FgEntityService,
+    $data: DataService,
     $event: FgEventService,
     $log: FgLogService,
     // $import: FgImportService,
@@ -68,7 +69,7 @@ export class FgAppService extends FgEventSubscriber {
       $log,
       $event
     );
-    // this.$data = $data;
+    this.$data = $data;
     this.$event = $event;
     this.$log = $log;
     // this.$import = $import;

@@ -10,16 +10,18 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { ChartModule } from 'angular-highcharts';
-
-import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
-import { FgActionsComponent } from './component/fg-actions/fg-actions.component';
-import { FgEventService } from './service/fg-event/fg-event.service';
 import { FgMaterialModule } from './module/fg-material/fg-material.module';
-import { FgAppService } from './app.service';
-
-import { AppComponent } from './app.component';
 import { ApiModule, ConfigurationParameters, Configuration } from './module/pb-api';
 
+import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
+import { FgEventService } from './service/fg-event/fg-event.service';
+
+import { FgActionsComponent } from './component/fg-actions/fg-actions.component';
+
+import { FgAppService } from './app.service';
+import { DataService } from './service/data/data.service';
+
+import { AppComponent } from './app.component';
 import { AsksViewComponent } from './view/asks/asks.component';
 import { BidsViewComponent } from './view/bids/bids.component';
 import { DashboardViewComponent } from './view/dashboard/dashboard.component';
@@ -63,6 +65,13 @@ import { BarActionComponent } from './component/bar-action/bar-action.component'
 export function apiConfigFactory(): Configuration {
   const params: ConfigurationParameters = {
     // set configuration parameters here.
+    apiKeys: {'api_key' : '44fc8162-d2c6-432a-8279-d8d40e5c0e1b'},
+    // apiKeys?: { [key: string ]: string };
+    // username?: string;
+    // password?: string;
+    // accessToken?: string | (() => string);
+    basePath: 'https://playground.powerbot-trading.com/api/v0'
+    // withCredentials?: boolean;
   };
   return new Configuration(params);
 }
@@ -167,7 +176,8 @@ const appRoutes: Routes = [
   providers: [
     FgComponentBaseService,
     FgAppService,
-    FgEventService
+    FgEventService,
+    DataService
   ],
   entryComponents: [
     ModalSettingsComponent,

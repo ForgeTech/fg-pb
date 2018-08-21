@@ -14,6 +14,16 @@ import { FgComponentBaseComponent } from './component/fg-component-base/fg-compo
 import { NGXLogger as FgLogService } from 'ngx-logger';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
+import { ConfigPowerbot } from './entity/entity.export';
+
+import {
+Log,
+Market,
+Message,
+Order,
+Signal,
+Trade,
+} from './entity/entity.export';
 // import {
 //   IFgProjectEntityInterface,
 //   IFgComponentBaseAbstractEntityInterface,
@@ -36,6 +46,14 @@ import { ModalSettingsComponent } from './component/modal-settings/modal-setting
 export class AppComponent extends FgEventSubscriber
   implements OnInit, OnChanges, AfterViewInit, OnDestroy {
   /**
+   * Hold test-data configuration
+   */
+  public config: ConfigPowerbot;
+  /**
+   * TODO: Hold test-data instances
+   */
+  public powerbot: any;
+  /**
    * Hold reference to angular-material dialog-utils
    */
   protected $dialog: MatDialog;
@@ -50,7 +68,7 @@ export class AppComponent extends FgEventSubscriber
   /**
    * Holds a reference to the basic forge init-service
    */
-  protected $init: FgAppService;
+  protected $app: FgAppService;
   /**
    * Holds reference to the currently active-component entity.
    * The active-component is the component that currently holds focus
@@ -86,7 +104,7 @@ export class AppComponent extends FgEventSubscriber
     angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
     $dialog: MatDialog,
     $router: Router,
-    $init: FgAppService,
+    $app: FgAppService,
     $log: FgLogService,
     $component: FgComponentBaseService
   ) {
@@ -96,11 +114,47 @@ export class AppComponent extends FgEventSubscriber
     );
     this.$dialog = $dialog;
     this.$component = $component;
-    this.$init = $init;
+    this.$app = $app;
     this.$router = $router;
     this.eventsToSubscribe = [
       // [ FgProjectEvent.SyncForge, this.addEntity() ],
     ];
+
+    this.config = new ConfigPowerbot();
+    this.config.connection_test.api_key = '44fc8162-d2c6-432a-8279-d8d40e5c0e1b';
+    this.config.connection_test.api_server_url = 'https://playground.powerbot-trading.com/api/v0';
+    this.config.connection_test.cache_connection = true;
+
+    /**
+     * TODO: TEST CONNECTION TO API
+     */
+    const test_order: Order = new Order(40, 344, 'sdfsdf');
+    this.$app.$data.$orders.addOrder(test_order).toPromise().then(x => {
+      console.log('ORDER SUCCESS');
+      console.log(x);
+    }).catch(x => {
+      console.log('ORDER ERROR');
+      console.log(x);
+    });
+
+    this.$app.$data.$logs.getLogs().toPromise().then(x => {
+      console.log('LOGS SUCCESS');
+      console.log(x);
+    }).catch(x => {
+      console.log('LOGS ERROR');
+      console.log(x);
+    });
+
+    this.$app.$data.$contracts.getOrders(1).toPromise().then( x => {
+      console.log('CONTRACT SUCCESS');
+      console.log(x);
+    }).catch( x => {
+      console.log('CONTRACT ERROR');
+      console.log(x);
+    });
+
+    console.log('AHHHHHHHHHHHH');
+    console.log(this.config);
 
     // Initialize powerbot-application
     this.$dialog.open(ModalSettingsComponent, { panelClass: 'pb-panel' } );

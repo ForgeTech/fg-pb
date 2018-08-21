@@ -1,7 +1,7 @@
 html,
 body {
   display: block;
-  width: 100%;
+  width: auto;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -10,13 +10,15 @@ html {
   overflow: hidden;
 }
 body {
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: scroll;
 }
-*:focus {
-  margin: 3px;
-  outline: #00FF00 dotted 3px;
-}
+
+// *:focus {
+//   margin: 3px;
+//   outline: #00FF00 dotted 3px;
+// }
+
 .pb-panel .mat-dialog-container {
   margin: -25px;
   border-radius: 10px;
@@ -25,3 +27,7 @@ body {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+// .mat-menu-panel {
+//   width: 170px;
+// }
