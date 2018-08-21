@@ -13,6 +13,10 @@ body {
   overflow-x: scroll;
   overflow-y: scroll;
 }
+*:focus {
+  margin: 3px;
+  outline: #00FF00 dotted 3px;
+}
 .pb-panel .mat-dialog-container {
   margin: -25px;
   border-radius: 10px;

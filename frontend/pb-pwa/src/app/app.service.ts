@@ -10,7 +10,7 @@ import {
 } from './event/fg-events.export';
 // import { FgSassService } from './service/fg-sass/fg-sass.service';
 import { NGXLogger as FgLogService } from 'ngx-logger';
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 // import { FgGraphqlService } from './../../../fg-graphql/src/app/service/fg-graphql/fg-graphql.service';
 // import {
 //   IFgProjectEntityInterface,

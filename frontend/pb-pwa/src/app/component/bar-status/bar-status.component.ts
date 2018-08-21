@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
-import { FgComponentBaseService } from './../fg-component-base/fg-component-base.service';
+import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 
 /**
  * BarStatusComponent -

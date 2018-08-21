@@ -14,8 +14,8 @@ import { FgComponentBaseService } from './fg-component-base.service';
 import {
   FgComponentBaseEvent,
   FgEntityEvent
-} from './../../event/fg-events.export';
-import { FgEventSubscriber } from './../../service/fg-event/fg-event-subscriber.abstract-class';
+} from '../../event/fg-events.export';
+import { FgEventSubscriber } from '../../service/fg-event/fg-event-subscriber.abstract-class';
 // import {
 //   IFgComponentEntityInterface,
 //   IFgActionProviderInterface,

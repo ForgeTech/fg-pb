@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FgEventService } from './../../service/fg-event/fg-event.service';
+import { FgEventService } from '../../service/fg-event/fg-event.service';
 import { NGXLogger as FgLogService } from 'ngx-logger';
 // import { FgGestureService } from './../../service/fg-gesture/fg-gesture.service';
 // import { FgKeyboardService } from './../../service/fg-keyboard/fg-keyboard.service';

@@ -1,11 +1,11 @@
 import { Component, Input, ElementRef } from '@angular/core';
-import { FgComponentBaseComponent } from './../fg-component-base/fg-component-base.component';
-import { FgComponentBaseService } from './../fg-component-base/fg-component-base.service';
+import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
+import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { FgEvent, FgAction } from '../../class/fg-class.export';
 import {
   FgComponentBaseEvent,
   FgEntityEvent
-} from './../../event/fg-events.export';
+} from '../../event/fg-events.export';
 /**
  * TODO: FgActionsComponent
  */
