@@ -49,8 +49,8 @@ export class FgAppService extends FgEventSubscriber {
   /**
   * Instance of ApolloGraphqlClient
   */
-  public $apollo_persist: any;
-  public $apollo_inmemmory: any;
+  // public $apollo_persist: any;
+  // public $apollo_inmemmory: any;
   /**
   * Store reference to sass compiler-service
   */

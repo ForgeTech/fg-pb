@@ -35,7 +35,7 @@
   <!-- READ: https://github.com/HubSpot/signet#signet -->
   <meta name="signet:authors" content="&copy; FORGETECH.github.io, Florian Neumann (di.neumann.florian@gmail.com)">
 
-  <script async type="text/javascript" src="./libs/PACE/pace.js"></script>
+  <!-- <script async type="text/javascript" src="./libs/PACE/pace.js"></script> -->
   <script async type="text/javascript" src="./libs/signet/signet.js"></script>
   <script async type="text/javascript" src="./libs/svg-morpheus/source/js/svg-morpheus.js"></script>
 
@@ -48,6 +48,19 @@
       <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     </section>
   <![endif] -->
+  <script>
+    console.log('EVENTLISTENER');
+    if(window){
+      window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        console.log('FIRED FIRED');
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // deferredPrompt.prompt()
+      });
+    }
+  </script>
   <pb-pwa></pb-pwa>
   <!--
     Following script is loaded from local running vorlonjs-server if running

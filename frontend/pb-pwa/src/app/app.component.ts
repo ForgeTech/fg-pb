@@ -120,43 +120,41 @@ export class AppComponent extends FgEventSubscriber
       // [ FgProjectEvent.SyncForge, this.addEntity() ],
     ];
 
+    /**
+     * TODO: Store and receive config from localstorage variable
+     * if user has entered them before and checked remember box
+     */
     this.config = new ConfigPowerbot();
     this.config.connection_test.api_key = '44fc8162-d2c6-432a-8279-d8d40e5c0e1b';
     this.config.connection_test.api_server_url = 'https://playground.powerbot-trading.com/api/v0';
     this.config.connection_test.cache_connection = true;
 
-    this.powerbot = new PowerBot();
+    // Setup polling data from backend
     /**
-     * TODO: TEST CONNECTION TO API
+     * TODO: Dispatch data update event
      */
-    const test_order: Order = new Order(40, 344, 'sdfsdf');
-    test_order.quantity = 1;
-    this.$app.$data.$orders.addOrder(test_order).toPromise().then(x => {
-      console.log('ORDER SUCCESS');
-      console.log(x);
-    }).catch(x => {
-      console.log('ORDER ERROR');
-      console.log(x);
+    this.$app.$data.getPollingTimer( 0, 5000 ).subscribe( x => {
+      this.$log.warn('Polling Data');
+      this.$app.$data.fetchApplicationData().then(appData => {
+        this.powerbot = appData;
+      }).catch( error  => {
+        console.log('ERROR FETCHING INITIAL DATA');
+        console.log(error);
+      });
     });
+     // .fetchApplicationData().then( appData => {
+    //   this.powerbot = appData;
+    //   this.powerbot.config = this.config;
+    //   console.log('APP DATA');
+    //   console.log(appData);
+    // }).catch( x => {
+    //   console.log('ERROR');
+    // });
 
-    this.$app.$data.$logs.getLogs().toPromise().then(x => {
-      console.log('LOGS SUCCESS');
-      console.log(x);
-    }).catch(x => {
-      console.log('LOGS ERROR');
-      console.log(x);
-    });
+    // if (deferredPrompt) {
+    //   console.log('INSTALL APP');
+    // }
 
-    this.$app.$data.$contracts.getOrders(1).toPromise().then( x => {
-      console.log('CONTRACT SUCCESS');
-      console.log(x);
-    }).catch( x => {
-      console.log('CONTRACT ERROR');
-      console.log(x);
-    });
-
-    console.log('AHHHHHHHHHHHH');
-    console.log(this.config);
 
     // Initialize powerbot-application
     this.$dialog.open(ModalSettingsComponent, { panelClass: 'pb-panel' } );

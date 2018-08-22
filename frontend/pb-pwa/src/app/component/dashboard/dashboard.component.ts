@@ -26,6 +26,16 @@ export class DashboardComponent extends FgComponentBaseComponent {
   @ViewChild('portfolio') portfolio: TemplateRef<any>;
   @ViewChild('producthistory') productHistory: TemplateRef<any>;
   @ViewChild('signals') signals: TemplateRef<any>;
+  templates: any = {
+    orders: this.orders,
+    orderbook: this.orderbook,
+    bids: this.bids,
+    trades: this.trades,
+    asks: this.asks,
+    portfolio: this.portfolio,
+    producthistory: this.productHistory,
+    signals: this.signals,
+  };
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(

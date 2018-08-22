@@ -10,9 +10,8 @@ import {
 } from '../module/pb-api/model/interfaces.export';
 
 /**
- * Log -
- * Entity-Class used to hold
- * log-message data
+ * PowerBor -
+ * Entity to
  */
 export class PowerBot {
   /**
@@ -22,34 +21,34 @@ export class PowerBot {
     /**
      * Holds PowerBot configuration data
      */
-    public config: ConfigPowerbot,
+    public config?: ConfigPowerbot,
     /**
      * Holds current powerbot contract data
      */
-    public contracts: ContractInterface[],
+    public contracts?: ContractInterface[],
     /**
      * Holds current powerbot contract data
      */
-    public logs: LogInterface[],
+    public logs?: LogInterface[],
     /**
      * Holds current powerbot contract data
      */
-    public markets: MarketInterface[],
+    public markets?: MarketInterface[],
     /**
      * Holds current powerbot contract data
      */
-    public messages: MessageInterface[],
+    public messages?: MessageInterface[],
     /**
      * Holds current powerbot contract data
      */
-    public orders: OrderInterface[],
+    public orders?: OrderInterface[],
     /**
      * Holds current powerbot contract data
      */
-    public signals: SignalInterface[],
+    public signals?: SignalInterface[],
     /**
      * Holds current powerbot contract data
      */
-    public trades: TradeInterface[],
+    public trades?: TradeInterface[],
   ) {}
 }

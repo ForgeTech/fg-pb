@@ -43,14 +43,44 @@
         >
         <!-- [style.height.px]="'300'" -->
         <div tabindex="0">
-          <ng-content *ngTemplateOutlet="orders"></ng-content>
-          <!-- <ng-content *ngTemplateOutlet="card.title"></ng-content> -->
+          <!-- <ng-container *ngTemplateOutlet="orders"></ng-container> -->
+          <!-- <ng-container *ngTemplateOutlet="templates['{{card.title}}']"></ng-container> -->
+          <ng-container [ngSwitch]="card.title">
+            <ng-container *ngSwitchCase="'orders'">
+              <ng-container *ngTemplateOutlet="orders"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'trades'">
+              <ng-container *ngTemplateOutlet="trades"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'portfolio'">
+              <ng-container *ngTemplateOutlet="graphPortfolio"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'orderbook'">
+              <ng-container *ngTemplateOutlet="orderbook"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'producthistory'">
+              <ng-container *ngTemplateOutlet="productHistory"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'bids'">
+              <ng-container *ngTemplateOutlet="bids"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'asks'">
+              <ng-container *ngTemplateOutlet="asks"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'signals'">
+              <ng-container *ngTemplateOutlet="signals"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+              Template {{card.title}}  not found!
+            </ng-container>
+          </ng-container>
         </div>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
 
+<!-- PowerBot Dashboard Temlates -->
 <!-- PowerBot Dashboard Temlates -->
 <ng-template #orders>
   <pb-table-orders></pb-table-orders>
@@ -76,3 +106,5 @@
 <ng-template #signals>
   <pb-table-signals></pb-table-signals>
 </ng-template>
+
+
