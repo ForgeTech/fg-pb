@@ -1,5 +1,5 @@
 <mat-toolbar
-  color="primary"
+ color="primary"
  class="modal-header"
 >
   <mat-toolbar-row>
@@ -17,8 +17,13 @@
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
-<ng-content select="[content]"></ng-content>
-<mat-toolbar color="primary">
+<div class="modal-content">
+  <ng-content select="[content]"></ng-content>
+</div>
+<mat-toolbar
+  class="modal-actions"
+  color="primary"
+>
   <mat-toolbar-row>
     <ng-content select="[actions]"></ng-content>
   </mat-toolbar-row>

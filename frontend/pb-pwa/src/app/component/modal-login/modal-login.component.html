@@ -3,7 +3,26 @@
     Market Login
   </div>
   <div content>
-
+    <div class="modal-login">
+      <mat-tab-group>
+        <mat-tab label="Login">
+          <div class="pb-tab tab-test">
+            <form
+              class="modal-login-form"
+            >
+              <p>
+                <mat-form-field appearance="fill">
+                  <mat-label>Epex Password</mat-label>
+                  <input matInput placeholder="like: 2434234">
+                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                  <mat-hint>The password for connection to Epex service</mat-hint>
+                </mat-form-field>
+              </p>
+            </form>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
   <div actions>
     <button mat-flat-button color="primary">

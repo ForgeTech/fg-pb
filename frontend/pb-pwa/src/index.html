@@ -48,20 +48,9 @@
       <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     </section>
   <![endif] -->
-  <script>
-    console.log('EVENTLISTENER');
-    if(window){
-      window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
-        e.preventDefault();
-        console.log('FIRED FIRED');
-        // Stash the event so it can be triggered later.
-        deferredPrompt = e;
-        // deferredPrompt.prompt()
-      });
-    }
-  </script>
+
   <pb-pwa></pb-pwa>
+
   <!--
     Following script is loaded from local running vorlonjs-server if running
     and used to connect the application to the vorlonjs debugging-server

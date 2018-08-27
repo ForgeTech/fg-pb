@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 import { Angulartics2Module } from 'angulartics2';
@@ -13,9 +14,9 @@ import { ChartModule } from 'angular-highcharts';
 import { FgMaterialModule } from './module/fg-material/fg-material.module';
 import { ApiModule, ConfigurationParameters, Configuration } from './module/pb-api';
 
+import { FgGlobalScopeModule } from './module/fg-global-scope/fg-global-scope.module';
 import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
 import { FgEventService } from './service/fg-event/fg-event.service';
-
 import { FgActionsComponent } from './component/fg-actions/fg-actions.component';
 
 import { FgAppService } from './app.service';
@@ -43,7 +44,6 @@ import { GraphProductHistoryComponent } from './component/graph-product-history/
 import { HeaderComponent } from './component/header/header.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { ModalLoginComponent } from './component/modal-login/modal-login.component';
-import { ModalLogoutComponent } from './component/modal-logout/modal-logout.component';
 import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
   import { TabApiKeyComponent } from './component/modal-settings/tab-api-key/tab-api-key.component';
   import { TabLoggingComponent } from './component/modal-settings/tab-logging/tab-logging.component';
@@ -58,6 +58,7 @@ import { TableOrdersComponent } from './component/table-orders/table-orders.comp
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
 import { BarActionComponent } from './component/bar-action/bar-action.component';
+import { PwaInstallComponent } from './component/pwa-install/pwa-install.component';
 
 /**
  * Define Configuration for swagger-codegen api-module
@@ -132,7 +133,6 @@ const appRoutes: Routes = [
     HeaderComponent,
     ModalComponent,
     ModalLoginComponent,
-    ModalLogoutComponent,
     ModalSettingsComponent,
       TabProductionComponent,
       TabApiKeyComponent,
@@ -148,13 +148,17 @@ const appRoutes: Routes = [
     TableSignalsComponent,
     TableOrderbookComponent,
     BarActionComponent,
+    PwaInstallComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     ChartModule,
     CommonModule,
     FgMaterialModule,
     FlexLayoutModule,
+    FgGlobalScopeModule.forBrowser(),
     ApiModule.forRoot(apiConfigFactory),
     LoggerModule.forRoot({
       // serverLoggingUrl: '/api/logs',
@@ -181,6 +185,7 @@ const appRoutes: Routes = [
   ],
   entryComponents: [
     ModalSettingsComponent,
+    ModalLoginComponent,
     AsksViewComponent,
     BidsViewComponent,
     DashboardViewComponent,

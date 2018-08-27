@@ -15,6 +15,7 @@ import {
   FgComponentBaseEvent,
   FgEntityEvent
 } from '../../event/fg-events.export';
+import { GlobalRef } from './../../module/fg-global-scope/fg-global-refs.class';
 import { FgEventSubscriber } from '../../service/fg-event/fg-event-subscriber.abstract-class';
 // import {
 //   IFgComponentEntityInterface,
@@ -126,7 +127,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    */
   constructor(
     // $el: ElementRef,
-    $component: FgComponentBaseService
+    $component: FgComponentBaseService,
   ) {
     // super(
     //   $log,
@@ -136,12 +137,12 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
     this.event = new EventEmitter<FgEvent>();
     // Default set of component ui-actions
     this.actions = [
-      new FgAction( new FgEvent( FgComponentBaseEvent.CREATE ), 'accent', 'Add', 'add_box', 'Q', /* $component.disableCreateAction */),
-      new FgAction(new FgEvent(FgComponentBaseEvent.EDIT), 'accent', 'Edit', 'edit', 'E', /* $component.disableEditableAction */),
-      new FgAction(new FgEvent(FgComponentBaseEvent.LOCK), 'accent', 'Lock', 'lock', 'R', /* $component.disableLockAction */),
-      new FgAction(new FgEvent(FgComponentBaseEvent.DELETE), 'accent', 'Delete', 'delete_forever', 'F', /* $component.disableDeleteAction */),
-      new FgAction(new FgEvent(FgComponentBaseEvent.EXPORT), 'accent', 'Export', 'import_export', 'Y', /* $component.disableExportAction */),
-      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT), 'accent', 'Print', 'print', 'P', /* $component.disablePrintAction */),
+      // new FgAction( new FgEvent( FgComponentBaseEvent.CREATE ), 'accent', 'Add', 'add_box', 'Q', /* $component.disableCreateAction */),
+      // new FgAction(new FgEvent(FgComponentBaseEvent.EDIT), 'accent', 'Edit', 'edit', 'E', /* $component.disableEditableAction */),
+      // new FgAction(new FgEvent(FgComponentBaseEvent.LOCK), 'accent', 'Lock', 'lock', 'R', /* $component.disableLockAction */),
+      // new FgAction(new FgEvent(FgComponentBaseEvent.DELETE), 'accent', 'Delete', 'delete_forever', 'F', /* $component.disableDeleteAction */),
+      // new FgAction(new FgEvent(FgComponentBaseEvent.EXPORT), 'accent', 'Export', 'import_export', 'Y', /* $component.disableExportAction */),
+      // new FgAction(new FgEvent(FgComponentBaseEvent.PRINT), 'accent', 'Print', 'print', 'P', /* $component.disablePrintAction */),
     ];
   }
   /**

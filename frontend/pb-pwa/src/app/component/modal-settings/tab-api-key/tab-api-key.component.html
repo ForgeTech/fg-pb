@@ -1,3 +1,38 @@
-<p>
-  tab-api-key works!
-</p>
+<div class="pb-tab tab-api-key">
+  <form class="tab-api-key-form" [formGroup]="options">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>RoboComp Password</mat-label>
+        <input matInput placeholder="like: ljad032234">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>The password for connection to RoboComp service</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Epex Password</mat-label>
+        <input matInput placeholder="like: 2434234">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>The password for connection to Epex service</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Api Key Name</mat-label>
+        <input matInput placeholder="like: Inercom Trading">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>Name to identify api-key</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-checkbox>can trade</mat-checkbox>
+      &nbsp;
+      <mat-checkbox>can signal</mat-checkbox>
+    </p>
+    <p>
+      <mat-checkbox>Production</mat-checkbox>
+      &nbsp;
+      <mat-checkbox>Test</mat-checkbox>
+    </p>
+  </form>
+</div>

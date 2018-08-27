@@ -1,3 +1,23 @@
-<p>
-  tab-test works!
-</p>
+<div class="pb-tab tab-test">
+  <form class="tab-test-form" [formGroup]="options">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Test Server Url</mat-label>
+<input matInput placeholder="like: https://playground.powerbot-trading.com/api/v0">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>Url to the PowerBot Trading API</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>API Key</mat-label>
+        <input matInput placeholder="Like: **************">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>The Api Key you received from PowerBot Trading</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-checkbox>Remember me</mat-checkbox>
+    </p>
+  </form>
+</div>

@@ -1,3 +1,31 @@
-<p>
-  tab-production works!
-</p>
+<div class="pb-tab tab-production">
+  <form class="tab-production-form" [formGroup]="options">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Production Server Url</mat-label>
+        <input matInput placeholder="like: https://playground.powerbot-trading.com/api/">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>Url to the PowerBot Trading API</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Backup Server Url</mat-label>
+        <input matInput placeholder="like: https://playground.powerbot-trading.com/backup/">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>Url to the PowerBot Backup-Server</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>API Key</mat-label>
+        <input matInput placeholder="Like: **************">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>The Api Key you received from PowerBot Trading</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-checkbox>Remember me</mat-checkbox>
+    </p>
+  </form>
+</div>

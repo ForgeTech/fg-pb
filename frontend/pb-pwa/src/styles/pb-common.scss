@@ -13,21 +13,20 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
 }
-
+.pb-panal {
+  .tab {
+    height: 80vh;
+  }
+}
 // *:focus {
 //   margin: 3px;
 //   outline: #00FF00 dotted 3px;
 // }
 
-.pb-panel .mat-dialog-container {
-  margin: -25px;
-  border-radius: 10px;
-}
-.pb-panel .mat-tab-body-content {
-  padding-left: 10px;
-  padding-right: 10px;
+.pb-tab .mat-form-field {
+  width: 100%;
 }
 
-// .mat-menu-panel {
-//   width: 170px;
-// }
+.mat-menu-panel {
+  width: 170px;
+}

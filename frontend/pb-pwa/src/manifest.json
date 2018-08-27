@@ -1,12 +1,10 @@
 {
-  "name": "pb-pwa",
-  "short_name": "pb-pwa",
+  "name": "PowerBot by Inercom",
+  "short_name": "PowerBot",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "https://forgetech.github.io/PowerBot/",
-  "prefer_related_applications": false,
+  "start_url": "/",
   "icons": [
     {
       "src": "assets/application/pwa-icon-72x72.png",

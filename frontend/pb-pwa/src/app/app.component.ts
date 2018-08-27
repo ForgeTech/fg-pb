@@ -24,16 +24,7 @@ Order,
 Signal,
 Trade,
 } from './entity/entity.export';
-// import {
-//   IFgProjectEntityInterface,
-//   IFgComponentBaseAbstractEntityInterface,
-// } from '../../../../fg-shared/interface/fg-interfaces.export';
-// import { FgProjectEntityMock } from '../../../../fg-shared/mock/fg-project.entity.mock';
-// import * as FORGE_CONFIG from './../app/data/config/forge.project.config';
-// import * as RANDOM_CONFIG from './../app/data/config/random.project.config';
-// import * as GENERATED_CONFIG from './../app/data/config/generated.project.config';
-// import { FgComponentBaseComponent } from './component/fg-components.export';
-// import { FgProjectEntity } from './entity/fg-project.entity';
+import { ModalLoginComponent } from './component/modal-login/modal-login.component';
 
 /**
   * The application-component loaded by angular-module bootstrap
@@ -142,22 +133,25 @@ export class AppComponent extends FgEventSubscriber
         console.log(error);
       });
     });
-     // .fetchApplicationData().then( appData => {
-    //   this.powerbot = appData;
-    //   this.powerbot.config = this.config;
-    //   console.log('APP DATA');
-    //   console.log(appData);
-    // }).catch( x => {
-    //   console.log('ERROR');
-    // });
 
-    // if (deferredPrompt) {
-    //   console.log('INSTALL APP');
-    // }
+    {
 
+}
 
     // Initialize powerbot-application
-    this.$dialog.open(ModalSettingsComponent, { panelClass: 'pb-panel' } );
+    /**
+     * TODO Only open modal when connection config data isn't set
+     */
+    this.$dialog.open(ModalSettingsComponent, {
+        panelClass: 'pb-panel',
+        height: '90vh',
+        width: '90vw',
+      } );
+      this.$dialog.open(ModalLoginComponent, {
+        panelClass: 'pb-panel',
+        height: '90vh',
+        width: '90vw',
+     } );
 
     this.$component.$event.subscribe(FgComponentBaseEvent.SELECTED, this.setSelectedComponent());
     // this.$component.$event.subscribe( FgComponentBaseEvent.FOCUS_IN, this.setActiveComponent() );

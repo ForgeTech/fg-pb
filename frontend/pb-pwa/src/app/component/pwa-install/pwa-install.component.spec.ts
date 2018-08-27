@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalLogoutComponent } from './modal-logout.component';
+import { PwaInstallComponent } from './pwa-install.component';
 
-describe('ModalLogoutComponent', () => {
-  let component: ModalLogoutComponent;
-  let fixture: ComponentFixture<ModalLogoutComponent>;
+describe('PwaInstallComponent', () => {
+  let component: PwaInstallComponent;
+  let fixture: ComponentFixture<PwaInstallComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalLogoutComponent ]
+      declarations: [ PwaInstallComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalLogoutComponent);
+    fixture = TestBed.createComponent(PwaInstallComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

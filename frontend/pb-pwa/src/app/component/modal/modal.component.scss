@@ -1,11 +1,15 @@
-.modal-header {
-  position: relative;
-}
 .modal-btn-close {
   position: absolute;
   right: -15px;
   top: -15px;
 }
+.modal-header {
+  position: relative;
+}
 .modal-content {
   padding: 15px;
+  min-height: 65%;
+}
+.modal-actions {
+
 }
