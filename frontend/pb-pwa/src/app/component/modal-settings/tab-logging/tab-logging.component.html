@@ -1,10 +1,19 @@
 
 <div class="pb-tab tab-logging">
-  <form class="tab-logging-form" [formGroup]="options">
+  <form
+    class="tab-logging-form"
+    [formGroup]="options"
+    (ngSubmit)="createLoggingConfig()"
+  >
     <p>
       <mat-form-field appearance="fill">
         <mat-label>Logging Url</mat-label>
-        <input matInput placeholder="like: https://powerbot-trading/api/logs">
+        <input
+          matInput
+          placeholder="like: https://powerbot-trading/api/logs"
+          formControlName="logsUrl"
+          required
+        >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>Url to logging server</mat-hint>
       </mat-form-field>

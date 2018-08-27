@@ -1,9 +1,18 @@
 <div class="pb-tab tab-production">
-  <form class="tab-production-form" [formGroup]="options">
+  <form
+    class="tab-production-form"
+    [formGroup]="options"
+    (ngSubmit)="creatProductionConfig()"
+  >
     <p>
       <mat-form-field appearance="fill">
         <mat-label>Production Server Url</mat-label>
-        <input matInput placeholder="like: https://playground.powerbot-trading.com/api/">
+        <input
+          matInput
+          placeholder="like: https://playground.powerbot-trading.com/api/"
+          formControlName="serverUrl"
+          required
+        >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>Url to the PowerBot Trading API</mat-hint>
       </mat-form-field>
@@ -11,7 +20,12 @@
     <p>
       <mat-form-field appearance="fill">
         <mat-label>Backup Server Url</mat-label>
-        <input matInput placeholder="like: https://playground.powerbot-trading.com/backup/">
+        <input
+          matInput
+          placeholder="like: https://playground.powerbot-trading.com/backup/"
+          formControlName="backupUrl"
+          required
+        >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>Url to the PowerBot Backup-Server</mat-hint>
       </mat-form-field>
@@ -19,13 +33,23 @@
     <p>
       <mat-form-field appearance="fill">
         <mat-label>API Key</mat-label>
-        <input matInput placeholder="Like: **************">
+        <input
+          matInput
+          placeholder="Like: **************"
+          formControlName="apiKey"
+          required
+        >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>The Api Key you received from PowerBot Trading</mat-hint>
       </mat-form-field>
     </p>
     <p>
-      <mat-checkbox>Remember me</mat-checkbox>
+      <mat-checkbox
+        formControlName="cacheForm"
+        required
+      >
+      Remember me
+    </mat-checkbox>
     </p>
   </form>
 </div>

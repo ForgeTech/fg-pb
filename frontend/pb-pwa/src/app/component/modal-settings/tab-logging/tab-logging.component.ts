@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'pb-tab-logging',
@@ -21,7 +21,7 @@ export class TabLoggingComponent extends FgComponentBaseComponent {
     this.options = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
-
+      logsUrl: [null, [Validators.required, Validators.minLength(5)]],
     });
   }
 

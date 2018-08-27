@@ -9,11 +9,18 @@
           <div class="pb-tab tab-test">
             <form
               class="modal-login-form"
+              [formGroup]="options"
+              (ngSubmit)="createMarketConfig()"
             >
               <p>
                 <mat-form-field appearance="fill">
                   <mat-label>Epex Password</mat-label>
-                  <input matInput placeholder="like: 2434234">
+                  <input
+                    matInput
+                    placeholder="like: 2434234"
+                    formControlName="epexPass"
+                    required
+                  >
                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                   <mat-hint>The password for connection to Epex service</mat-hint>
                 </mat-form-field>

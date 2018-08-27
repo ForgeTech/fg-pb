@@ -1,9 +1,17 @@
 <div class="pb-tab tab-test">
-  <form class="tab-test-form" [formGroup]="options">
+  <form class="tab-test-form"
+    [formGroup]="options"
+    (ngSubmit)="createTestConfig()"
+  >
     <p>
       <mat-form-field appearance="fill">
         <mat-label>Test Server Url</mat-label>
-<input matInput placeholder="like: https://playground.powerbot-trading.com/api/v0">
+        <input
+          matInput
+          placeholder="like: https://playground.powerbot-trading.com/api/v0"
+          formControlName="serverUrl"
+          required
+        >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>Url to the PowerBot Trading API</mat-hint>
       </mat-form-field>
@@ -11,13 +19,23 @@
     <p>
       <mat-form-field appearance="fill">
         <mat-label>API Key</mat-label>
-        <input matInput placeholder="Like: **************">
+        <input
+          matInput
+          placeholder="Like: **************"
+          formControlName="apiKey"
+          required
+        >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>The Api Key you received from PowerBot Trading</mat-hint>
       </mat-form-field>
     </p>
     <p>
-      <mat-checkbox>Remember me</mat-checkbox>
+      <mat-checkbox
+        formControlName="cacheForm"
+        required
+      >
+        Remember me
+      </mat-checkbox>
     </p>
   </form>
 </div>

@@ -1,9 +1,19 @@
 <div class="pb-tab tab-api-key">
-  <form class="tab-api-key-form" [formGroup]="options">
+  <form
+    class="tab-api-key-form"
+    [formGroup]="options"
+    (ngSubmit)="createApiConfig()"
+    novalidate
+  >
     <p>
       <mat-form-field appearance="fill">
         <mat-label>RoboComp Password</mat-label>
-        <input matInput placeholder="like: ljad032234">
+        <input
+          matInput
+          placeholder="like: ljad032234"
+          formControlName="roboCompPass"
+          required
+        >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>The password for connection to RoboComp service</mat-hint>
       </mat-form-field>
@@ -11,7 +21,12 @@
     <p>
       <mat-form-field appearance="fill">
         <mat-label>Epex Password</mat-label>
-        <input matInput placeholder="like: 2434234">
+        <input
+          matInput
+          placeholder="like: 2434234"
+          formControlName="epexPass"
+          required
+        >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>The password for connection to Epex service</mat-hint>
       </mat-form-field>
@@ -19,20 +34,45 @@
     <p>
       <mat-form-field appearance="fill">
         <mat-label>Api Key Name</mat-label>
-        <input matInput placeholder="like: Inercom Trading">
+        <input
+          matInput
+          placeholder="like: Inercom Trading"
+          formControlName="apiKey"
+          required
+        >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint>Name to identify api-key</mat-hint>
       </mat-form-field>
     </p>
     <p>
-      <mat-checkbox>can trade</mat-checkbox>
+      <mat-checkbox
+        formControlName="canTrade"
+        required
+      >
+        can trade
+      </mat-checkbox>
       &nbsp;
-      <mat-checkbox>can signal</mat-checkbox>
+      <mat-checkbox
+        formControlName="canSignal"
+        required
+      >
+        can signal
+      </mat-checkbox>
     </p>
     <p>
-      <mat-checkbox>Production</mat-checkbox>
+      <mat-checkbox
+        formControlName="envProd"
+        quired
+      >
+        Production
+      </mat-checkbox>
       &nbsp;
-      <mat-checkbox>Test</mat-checkbox>
+      <mat-checkbox
+        formControlName="envTest"
+        quired
+      >
+        Test
+      </mat-checkbox>
     </p>
   </form>
 </div>
