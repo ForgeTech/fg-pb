@@ -1,28 +1,36 @@
-<pb-modal>
+<pb-modal [entity]="this.entity">
   <div title >
     Connection Settings
   </div>
   <div content>
-    <mat-tab-group>
+    <mat-tab-group color="{{ color }}">
       <mat-tab label="Production">
-        <pb-tab-production></pb-tab-production>
+        <pb-tab-production [config]="color"></pb-tab-production>
       </mat-tab>
       <mat-tab label="Test">
-        <pb-tab-test></pb-tab-test>
+        <pb-tab-test [config]="color"></pb-tab-test>
       </mat-tab>
       <mat-tab label="Logging">
-        <pb-tab-logging></pb-tab-logging>
+        <pb-tab-logging [config]="color"></pb-tab-logging>
       </mat-tab>
       <mat-tab label="Api Key">
-        <pb-tab-api-key></pb-tab-api-key>
+        <pb-tab-api-key [config]="color"></pb-tab-api-key>
       </mat-tab>
     </mat-tab-group>
   </div>
   <div actions>
-    <button mat-flat-button color="primary">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="cancelSettings($event)"
+      >
       Cancel
     </button>
-    <button mat-raised-button color="accent">
+    <button
+    mat-raised-button
+    color="accent"
+    (click)="saveSettings($event)"
+    >
       Save
     </button>
   </div>

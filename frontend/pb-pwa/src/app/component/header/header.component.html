@@ -14,7 +14,7 @@
         </p>
       </div>
       <div fxFlex="70">
-        <pb-bar-status></pb-bar-status>
+        <pb-bar-status [entity]="this.entity"></pb-bar-status>
       </div>
       <div fx-flex="10 150px">
         <button
@@ -22,6 +22,7 @@
           mat-mini-fab
           matTooltip="Help [?]"
           color="accent"
+          (click)="openHelpModal($event)"
         >
           ?
         </button>

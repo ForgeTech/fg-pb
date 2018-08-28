@@ -20,7 +20,8 @@ import { FgEventService } from './service/fg-event/fg-event.service';
 import { FgActionsComponent } from './component/fg-actions/fg-actions.component';
 
 import { FgAppService } from './app.service';
-import { DataService } from './service/data/data.service';
+import { PbDataService } from './service/pb-data/pb-data.service';
+import { PbModalService } from './service/pb-modal/pb-modal.service';
 
 import { AppComponent } from './app.component';
 import { AsksViewComponent } from './view/asks/asks.component';
@@ -43,7 +44,9 @@ import { GraphPortfolioComponent } from './component/graph-portfolio/graph-portf
 import { GraphProductHistoryComponent } from './component/graph-product-history/graph-product-history.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ModalComponent } from './component/modal/modal.component';
-import { ModalLoginComponent } from './component/modal-login/modal-login.component';
+// import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
+// import { ModalHelpComponent } from './component/modal-help/modal-help.component';
+import { ModalMarketComponent } from './component/modal-market/modal-market.component';
 import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
   import { TabApiKeyComponent } from './component/modal-settings/tab-api-key/tab-api-key.component';
   import { TabLoggingComponent } from './component/modal-settings/tab-logging/tab-logging.component';
@@ -67,6 +70,7 @@ export function apiConfigFactory(): Configuration {
   const params: ConfigurationParameters = {
     // set configuration parameters here.
     apiKeys: {'api_key' : '44fc8162-d2c6-432a-8279-d8d40e5c0e1b'},
+    // apiKeys: {'api_key' : '44fc8162-d2c6-432a-8-error'},
     // apiKeys?: { [key: string ]: string };
     // username?: string;
     // password?: string;
@@ -80,27 +84,27 @@ export function apiConfigFactory(): Configuration {
  * Routes for PowerBot application
  */
 const appRoutes: Routes = [
-  /**
-   * Empty route goes to dashboard
-   */
-  { path: '', component: DashboardViewComponent },
-  /**
-   * Routes to dashboard-components full-page views
-   */
-  { path: 'asks', component: AsksViewComponent },
-  { path: 'bids', component: BidsViewComponent },
-  { path: 'orderbook', component: OrderbookViewComponent },
-  { path: 'orders', component: OrdersViewComponent },
-  { path: 'portfolio', component: PortfolioViewComponent },
-  { path: 'product-history', component: ProductHistoryViewComponent },
-  { path: 'signals', component: SignalsViewComponent },
-  { path: 'trades', component: TradesViewComponent },
-  /**
-   * All routes that do not match any route after
-   * checking the ones above, are redirected to
-   * dashboard view
-   */
-  { path: '**', redirectTo: ''}
+  // /**
+  //  * Empty route goes to dashboard
+  //  */
+  // { path: '', component: DashboardViewComponent },
+  // /**
+  //  * Routes to dashboard-components full-page views
+  //  */
+  // { path: 'asks', component: AsksViewComponent },
+  // { path: 'bids', component: BidsViewComponent },
+  // { path: 'orderbook', component: OrderbookViewComponent },
+  // { path: 'orders', component: OrdersViewComponent },
+  // { path: 'portfolio', component: PortfolioViewComponent },
+  // { path: 'product-history', component: ProductHistoryViewComponent },
+  // { path: 'signals', component: SignalsViewComponent },
+  // { path: 'trades', component: TradesViewComponent },
+  // /**
+  //  * All routes that do not match any route after
+  //  * checking the ones above, are redirected to
+  //  * dashboard view
+  //  */
+  // { path: '**', redirectTo: ''}
 ];
 /**
  * PowerBot Application Module -
@@ -132,7 +136,9 @@ const appRoutes: Routes = [
     GraphProductHistoryComponent,
     HeaderComponent,
     ModalComponent,
-    ModalLoginComponent,
+    // ModalAddOrderComponent,
+    // ModalHelpComponent,
+    ModalMarketComponent,
     ModalSettingsComponent,
       TabProductionComponent,
       TabApiKeyComponent,
@@ -181,11 +187,14 @@ const appRoutes: Routes = [
     FgComponentBaseService,
     FgAppService,
     FgEventService,
-    DataService
+    PbDataService,
+    PbModalService,
   ],
   entryComponents: [
+    // ModalAddOrderComponent,
+    // ModalHelpComponent,
     ModalSettingsComponent,
-    ModalLoginComponent,
+    ModalMarketComponent,
     AsksViewComponent,
     BidsViewComponent,
     DashboardViewComponent,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
+import { PowerBot } from '../../entity/powerbot';
 
 @Component({
   selector: 'pb-switch-day-night',
@@ -8,11 +9,14 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
   styleUrls: ['./switch-day-night.component.scss']
 })
 export class SwitchDayNightComponent extends FgComponentBaseComponent {
-
+  entity: PowerBot;
   constructor($component: FgComponentBaseService) {
     super(
       $component
     );
+  }
+  toggleTheme($event: Event): void {
+    this.entity.darkTheme = !this.entity.darkTheme;
   }
 
 }

@@ -1,10 +1,12 @@
-<pb-modal>
+<pb-modal [entity]="this.entity">
   <div title>
     Market Login
   </div>
   <div content>
     <div class="modal-login">
-      <mat-tab-group>
+      <mat-tab-group
+        color="{{ color }}"
+      >
         <mat-tab label="Login">
           <div class="pb-tab tab-test">
             <form
@@ -13,12 +15,12 @@
               (ngSubmit)="createMarketConfig()"
             >
               <p>
-                <mat-form-field appearance="fill">
-                  <mat-label>Epex Password</mat-label>
+                <mat-form-field appearance="fill" color="{{ color }}">
+                  <mat-label>Market</mat-label>
                   <input
                     matInput
                     placeholder="like: 2434234"
-                    formControlName="epexPass"
+                    formControlName="market"
                     required
                   >
                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
@@ -32,10 +34,18 @@
     </div>
   </div>
   <div actions>
-    <button mat-flat-button color="primary">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="saveMarket($event)"
+    >
       Cancel
     </button>
-    <button mat-raised-button color="accent">
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="saveMarket($event)"
+    >
       Login
     </button>
   </div>

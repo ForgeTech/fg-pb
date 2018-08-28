@@ -8,6 +8,11 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
   styleUrls: ['./table-orders.component.scss']
 })
 export class TableOrdersComponent extends FgComponentBaseComponent {
+  // config: any = {
+  //   columns: ['id', 'name'],
+  //   size: 50,
+  //   sizeOptions: [25, 50, 100, 250]
+  // };
 
   constructor($component: FgComponentBaseService) {
     super(

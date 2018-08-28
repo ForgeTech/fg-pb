@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
+import { PowerBot } from '../../entity/powerbot';
 
 /**
  * BarStatusComponent -
@@ -13,6 +14,7 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
   styleUrls: ['./bar-status.component.scss']
 })
 export class BarStatusComponent  extends FgComponentBaseComponent {
+  entity: PowerBot;
   /**
    * Constructor
    */
@@ -20,7 +22,21 @@ export class BarStatusComponent  extends FgComponentBaseComponent {
     super(
       $component
     );
-    this.entity = new BarStatusEntity();
+  }
+  openMarketModule($event: Event): void {
+    this.$component.$modal.openMarketModal( $event );
+  }
+
+  openSettingsModule($event: Event): void {
+    this.$component.$modal.openSettingsModal( $event );
+  }
+
+  disconnectMarket($event: Event): void {
+
+  }
+
+  disconnectApi($event: Event): void {
+
   }
 }
 /**

@@ -19,6 +19,14 @@ export class PowerBot {
    */
   constructor(
     /**
+     * Flag indicating if powerbot is fetching data
+     */
+    public loading: boolean = true,
+    /**
+     * Flag indicating dark-theme mode
+     */
+    public darkTheme: boolean = false,
+    /**
      * Holds PowerBot configuration data
      */
     public config?: ConfigPowerbot,
@@ -33,7 +41,7 @@ export class PowerBot {
     /**
      * Holds current powerbot contract data
      */
-    public markets?: MarketInterface[],
+    public market?: MarketInterface,
     /**
      * Holds current powerbot contract data
      */

@@ -11,17 +11,7 @@ import {
 // import { FgSassService } from './service/fg-sass/fg-sass.service';
 import { NGXLogger as FgLogService } from 'ngx-logger';
 import { environment } from '../environments/environment';
-import { DataService } from './service/data/data.service';
-// import { FgGraphqlService } from './../../../fg-graphql/src/app/service/fg-graphql/fg-graphql.service';
-// import {
-//   IFgProjectEntityInterface,
-//   IFgComponentBaseAbstractEntityInterface
-// } from '../../../../fg-shared/interface/fg-interfaces.export';
-
-// Import apollo-client config-data
-// import * as apollo_client_config from './data/config/apollo-client.config';
-// import * as apollo_graphql_default_options from './data/config/apollo-default-options';
-// import * as apollo_cache_persist_config from './data/config/apollo-cache-persist-localforage.config';
+import { PbDataService } from './service/pb-data/pb-data.service';
 /**
 * FgAppService -
 * Service provides the functionality needed
@@ -33,7 +23,7 @@ export class FgAppService extends FgEventSubscriber {
   /**
   * Used to hold reference data-service
   */
-  public $data: DataService;
+  public $data: PbDataService;
   /**
   * Used to hold reference to forge event-service
   */
@@ -59,7 +49,7 @@ export class FgAppService extends FgEventSubscriber {
   * CONSTRUCTOR
   */
   constructor(
-    $data: DataService,
+    $data: PbDataService,
     $event: FgEventService,
     $log: FgLogService,
     // $import: FgImportService,

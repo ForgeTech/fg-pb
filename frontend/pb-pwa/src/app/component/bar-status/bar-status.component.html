@@ -1,29 +1,68 @@
 <div class="bar-status--container">
   <mat-progress-bar
     class="bar-status--progress"
-    mode="determinate"
-    disabled="false"
+    mode="{{this.entity.loading ? 'indeterminate' : 'determindate' }}"
     color="accent">
   </mat-progress-bar>
   <div class="bar-status--label">
-    <mat-chip-list>
-      <mat-chip color="primary" selected>
-        <mat-icon>warning</mat-icon>Not Connected
-      </mat-chip>
-    </mat-chip-list>
+      <!-- Refresh State -->
+      <ng-container *ngIf="!this.entity.market; else connected">
+        <mat-chip-list>
+          <mat-chip color="accent" selected>
+            <mat-icon>refresh</mat-icon>
+            &nbsp;
+            <span>
+              Checking Connection
+            </span>
+          </mat-chip>
+        </mat-chip-list>
+      </ng-container>
+      <!-- Connection States -->
+      <ng-template #connected>
+        <mat-chip-list
+          [ngSwitch]="entity.market.status"
+          matTooltip="{{ entity.market | json }}"
+        >
+          <mat-chip *ngSwitchCase="'OK'" color="primary" selected>
+            <mat-icon>signal_wifi_4_bar</mat-icon>
+            &nbsp;
+            <span>
+              Connected
+            </span>
+          </mat-chip>
+          <mat-chip *ngSwitchCase="'WARN'" color="warn" selected>
+            <mat-icon>signal_wifi_off</mat-icon>
+            &nbsp;
+            <span>
+              Connection Warning
+            </span>
+          </mat-chip>
+          <mat-chip *ngSwitchCase="'ERROR'" color="warn" selected>
+            <mat-icon>signal_wifi_off</mat-icon>
+            &nbsp;
+            <span>
+              Connection Error
+            </span>
+          </mat-chip>
+        </mat-chip-list>
+      </ng-template>
   </div>
   <div class="bar-status--settings">
     <button class="btn-connection-settings"
-      mat-mini-fab matTooltip="Connection Settings"
+      mat-mini-fab
+      matTooltip="Connection Settings"
       color="primary"
-      >
+      (click)="openSettingsModule($event)"
+    >
       <!-- color="this.entity.statusConnection" -->
       <mat-icon>power_setting_new</mat-icon>
     </button>
     <button class="btn-market-settings"
-      mat-mini-fab matTooltip="Market Settings"
+      mat-mini-fab
+      matTooltip="Market Settings"
       color="primary"
-      >
+      (click)="openMarketModule($event)"
+    >
       <!-- color="this.entity.statusMarket" -->
       <mat-icon>timeline</mat-icon>
     </button>

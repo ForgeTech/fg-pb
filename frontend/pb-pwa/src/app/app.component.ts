@@ -24,7 +24,15 @@ Order,
 Signal,
 Trade,
 } from './entity/entity.export';
-import { ModalLoginComponent } from './component/modal-login/modal-login.component';
+import { DashboardViewComponent } from './view/dashboard/dashboard.component';
+import { AsksViewComponent } from './view/asks/asks.component';
+import { BidsViewComponent } from './view/bids/bids.component';
+import { OrderbookViewComponent } from './view/orderbook/orderbook.component';
+import { OrdersViewComponent } from './view/orders/orders.component';
+import { PortfolioViewComponent } from './view/portfolio/portfolio.component';
+import { ProductHistoryViewComponent } from './view/product-history/product-history.component';
+import { SignalsViewComponent } from './view/signals/signals.component';
+import { TradesViewComponent } from './view/trades/trades.component';
 
 /**
   * The application-component loaded by angular-module bootstrap
@@ -36,14 +44,33 @@ import { ModalLoginComponent } from './component/modal-login/modal-login.compone
 })
 export class AppComponent extends FgEventSubscriber
   implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+  private appRoutes: Routes = [
+    /**
+     * Empty route goes to dashboard
+     */
+    { path: '', component: DashboardViewComponent },
+    /**
+     * Routes to dashboard-components full-page views
+     */
+    { path: 'asks', component: AsksViewComponent },
+    { path: 'bids', component: BidsViewComponent },
+    { path: 'orderbook', component: OrderbookViewComponent },
+    { path: 'orders', component: OrdersViewComponent },
+    { path: 'portfolio', component: PortfolioViewComponent },
+    { path: 'product-history', component: ProductHistoryViewComponent },
+    { path: 'signals', component: SignalsViewComponent },
+    { path: 'trades', component: TradesViewComponent },
+    /**
+     * All routes that do not match any route after
+     * checking the ones above, are redirected to
+     * dashboard view
+     */
+    { path: '**', redirectTo: '' }
+  ];
   /**
    * Hold test-data configuration
    */
   public config: ConfigPowerbot;
-  /**
-   * TODO: Hold test-data instances
-   */
-  public powerbot: PowerBot;
   /**
    * Hold reference to angular-material dialog-utils
    */
@@ -55,7 +82,7 @@ export class AppComponent extends FgEventSubscriber
   /**
    * Holds a reference to the basic forge component-service
    */
-  protected $component: FgComponentBaseService;
+  public $component: FgComponentBaseService;
   /**
    * Holds a reference to the basic forge init-service
    */
@@ -111,6 +138,7 @@ export class AppComponent extends FgEventSubscriber
       // [ FgProjectEvent.SyncForge, this.addEntity() ],
     ];
 
+    this.setRouteData(this.appRoutes, {});
     /**
      * TODO: Store and receive config from localstorage variable
      * if user has entered them before and checked remember box
@@ -119,15 +147,15 @@ export class AppComponent extends FgEventSubscriber
     this.config.connection_test.api_key = '44fc8162-d2c6-432a-8279-d8d40e5c0e1b';
     this.config.connection_test.api_server_url = 'https://playground.powerbot-trading.com/api/v0';
     this.config.connection_test.cache_connection = true;
+    // Set powerbot-config on at dataservice
+    this.$app.$data.$powerbot.config = this.config;
 
     // Setup polling data from backend
-    /**
-     * TODO: Dispatch data update event
-     */
     this.$app.$data.getPollingTimer( 0, 5000 ).subscribe( x => {
       this.$log.warn('Polling Data');
       this.$app.$data.fetchApplicationData().then(appData => {
-        this.powerbot = appData;
+        console.log('POLLING DATA');
+        console.log(this.$component.$data.$powerbot);
       }).catch( error  => {
         console.log('ERROR FETCHING INITIAL DATA');
         console.log(error);
@@ -142,16 +170,16 @@ export class AppComponent extends FgEventSubscriber
     /**
      * TODO Only open modal when connection config data isn't set
      */
-    this.$dialog.open(ModalSettingsComponent, {
-        panelClass: 'pb-panel',
-        height: '90vh',
-        width: '90vw',
-      } );
-      this.$dialog.open(ModalLoginComponent, {
-        panelClass: 'pb-panel',
-        height: '90vh',
-        width: '90vw',
-     } );
+    // this.$dialog.open(ModalSettingsComponent, {
+    //     panelClass: 'pb-panel',
+    //     height: '90vh',
+    //     width: '90vw',
+    //   } );
+    // this.$dialog.open(ModalLoginComponent, {
+    //     panelClass: 'pb-panel',
+    //     height: '90vh',
+    //     width: '90vw',
+    //  } );
 
     this.$component.$event.subscribe(FgComponentBaseEvent.SELECTED, this.setSelectedComponent());
     // this.$component.$event.subscribe( FgComponentBaseEvent.FOCUS_IN, this.setActiveComponent() );

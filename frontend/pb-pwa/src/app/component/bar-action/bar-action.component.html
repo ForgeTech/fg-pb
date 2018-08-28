@@ -6,7 +6,7 @@
       fxLayoutGap="10px"
       fxFlexFill
     >
-      <div fxFlex="10 100px">
+      <div fxFlex="170px">
         <button
           mat-raised-button
           color="primary"
@@ -18,17 +18,17 @@
         <mat-menu
           #connection="matMenu"
         >
-          <button mat-menu-item>
+          <button mat-menu-item (click)="openSettingsModal($event)">
             <mat-icon>settings</mat-icon>
             <span>Settings</span>
           </button>
-          <button mat-menu-item>
+          <button mat-menu-item (click)="disconnectApi($event)">
             <mat-icon>flash_off</mat-icon>
             <span>Disconnect</span>
           </button>
         </mat-menu>
       </div>
-      <div fxFlex="10 100px">
+      <div fxFlex="170px">
         <button
           mat-raised-button
           color="primary"
@@ -40,21 +40,24 @@
         <mat-menu
           #market="matMenu"
         >
-          <button mat-menu-item>
+          <button mat-menu-item (click)="openMarketModal($event)">
             <mat-icon>flash_on</mat-icon>
             <span>Login</span>
           </button>
-          <button mat-menu-item>
+          <button mat-menu-item (click)="disconnectMarket($event)">
             <mat-icon>flash_off</mat-icon>
             <span>Logout</span>
           </button>
         </mat-menu>
       </div>
-      <div fxFlex="10 100px">
+      <div fxFlex="170px">
         <pb-pwa-install></pb-pwa-install>
       </div>
-      <div fxFlex="70">
+      <div fxFlex="100">
         <fg-actions [entity]="this.entity"></fg-actions>
+      </div>
+      <div fxFlex="75px">
+        <pb-switch-day-night [entity]="this.entity"></pb-switch-day-night>
       </div>
     </div>
   </mat-toolbar-row>

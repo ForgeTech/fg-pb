@@ -33,6 +33,7 @@
     "@angular/pwa": "0.6.3",
     "@angular/router": "6.0.3",
     "@angular/service-worker": "6.0.3",
+    "@swimlane/ngx-datatable": "^13.1.0",
     "angular-highcharts": "6.2.6",
     "angulartics2": "6.2.0",
     "core-js": "2.5.4",

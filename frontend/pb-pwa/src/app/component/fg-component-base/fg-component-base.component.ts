@@ -87,9 +87,13 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    */
   public actions: FgAction[]; // IFgActionEntityInterface[];
   /**
-   * INPUT To receive a components configuration-object
+   * INPUT To receive a components entity-object
    */
   @Input() entity: any; // IFgComponentEntityInterface;
+  /**
+   * INPUT To receive a components configuration-object
+   */
+  @Input() config: any;
   /**
    * Dispatch click event
    */

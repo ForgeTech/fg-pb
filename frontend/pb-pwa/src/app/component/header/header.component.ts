@@ -15,4 +15,8 @@ export class HeaderComponent extends FgComponentBaseComponent {
     );
   }
 
+  openHelpModal($event: Event): void {
+    this.$component.$modal.openHelpModal($event);
+  }
+
 }

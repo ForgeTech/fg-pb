@@ -1,10 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="pb-night-mode">
-  <pb-header></pb-header>
+<div [ngClass]="{
+  'pb-light-theme': !this.$component.$data.$powerbot.darkTheme,
+  'pb-dark-theme': this.$component.$data.$powerbot.darkTheme
+}">
+  <pb-header [entity]="this.$component.$data.$powerbot"></pb-header>
   <pb-bar-action
-    [entity]="this.selectedComponent">
+    [entity]="this.$component.$data.$powerbot">
   </pb-bar-action>
   <router-outlet></router-outlet>
-  <pb-footer></pb-footer>
+  <pb-footer [entity]="this.$component.$data.$powerbot"></pb-footer>
 </div>
 

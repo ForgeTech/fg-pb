@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
+import { ModalSettingsComponent } from '../modal-settings/modal-settings.component';
 
 @Component({
   selector: 'pb-bar-action',
@@ -15,4 +16,19 @@ export class BarActionComponent extends FgComponentBaseComponent {
     );
   }
 
+  openMarketModal( $event: Event): void {
+    this.$component.$modal.openMarketModal( $event );
+  }
+
+  openSettingsModal($event: Event): void {
+    this.$component.$modal.openSettingsModal( $event );
+  }
+
+  disconnectMarket($event: Event): void {
+
+  }
+
+  disconnectApi($event: Event): void {
+
+  }
 }

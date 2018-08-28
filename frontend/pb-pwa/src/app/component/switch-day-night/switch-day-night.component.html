@@ -1,14 +1,18 @@
 <div class="switch-day-night">
-  <mat-slide-toggle color="primary" ></mat-slide-toggle>
+  <!-- <mat-slide-toggle
+    color="primary"
+    checked="entity.darkTheme"
+    (click)="toggleTheme($event)"
+  ></mat-slide-toggle> -->
+
   <button
     mat-mini-fab
-    matBadge="S"
-    matBadgePosition="below after"
-    matTooltip="Toogle Day/Night Colorscheme [S]"
     color="accent"
-    disabled="false"
-  >
-    <mat-icon>brightness_7</mat-icon>
-    <!-- <mat-icon>brightness_1</mat-icon> -->
+    (click)="toggleTheme($event)"
+    >
+    <!-- matBadge="S"
+    matBadgePosition="below after"
+    matTooltip="Toogle Day/Night Colorscheme [S]" -->
+    <mat-icon >{{ entity.darkTheme ? 'brightness_3' : 'brightness_7' }}</mat-icon>
   </button>
 </div>

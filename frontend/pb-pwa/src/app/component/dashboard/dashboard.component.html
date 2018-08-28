@@ -83,28 +83,28 @@
 <!-- PowerBot Dashboard Temlates -->
 <!-- PowerBot Dashboard Temlates -->
 <ng-template #orders>
-  <pb-table-orders></pb-table-orders>
+  <pb-table-orders [entity]="this.$component.$data.$powerbot"></pb-table-orders>
 </ng-template>
 <ng-template #trades>
-  <pb-table-trades></pb-table-trades>
+  <pb-table-trades [entity]="this.$component.$data.$powerbot"></pb-table-trades>
 </ng-template>
 <ng-template #portfolio>
-  <pb-graph-portfolio></pb-graph-portfolio>
+  <pb-graph-portfolio [entity]="this.$component.$data.$powerbot"></pb-graph-portfolio>
 </ng-template>
 <ng-template #orderbook>
-  <pb-table-orderbook></pb-table-orderbook>
+  <pb-table-orderbook [entity]="this.$component.$data.$powerbot"></pb-table-orderbook>
 </ng-template>
 <ng-template #producthistory>
-  <pb-graph-product-history></pb-graph-product-history>
+  <pb-graph-product-history [entity]="this.$component.$data.$powerbot"></pb-graph-product-history>
 </ng-template>
 <ng-template #bids>
-  <pb-table-bids></pb-table-bids>
+  <pb-table-bids [entity]="this.$component.$data.$powerbot"></pb-table-bids>
 </ng-template>
 <ng-template #asks>
-  <pb-table-asks></pb-table-asks>
+  <pb-table-asks [entity]="this.$component.$data.$powerbot"></pb-table-asks>
 </ng-template>
 <ng-template #signals>
-  <pb-table-signals></pb-table-signals>
+  <pb-table-signals [entity]="this.$component.$data.$powerbot"></pb-table-signals>
 </ng-template>
 
 

@@ -8,7 +8,7 @@
 >
   <ng-container *ngIf="this.entity && this.entity.actions">
     <!-- {{ this.entity.constructor.name }}:&nbsp;&nbsp; -->
-    <div fxFlex="50px" *ngFor="let action of this.entity.actions">
+    <div fxFlex="100" *ngFor="let action of this.entity.actions">
       <button
         mat-mini-fab
         matBadge="{{action.key}}"
@@ -22,7 +22,4 @@
       </button>
     </div>
   </ng-container>
-  <div fxFlex="10">
-    <pb-switch-day-night></pb-switch-day-night>
-  </div>
 </div>

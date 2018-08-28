@@ -1,1 +1,6 @@
-<pb-table></pb-table>
+<ng-container *ngIf="this.$component.$data.$powerbot && this.$component.$data.$powerbot.signals">
+  <pb-table
+    [entity]="this.$component.$data.$powerbot.signals"
+    [config]="this.config"
+  ></pb-table>
+</ng-container>

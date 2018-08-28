@@ -22,10 +22,8 @@ import {
 
 import {
   Order,
-  Market,
   PowerBot
  } from '../../entity/entity.export';
-import { Subscription } from 'rxjs';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 
 /**
@@ -33,10 +31,9 @@ import { TimerObservable } from 'rxjs/observable/TimerObservable';
  * Service providing interface to fetch, access and
  * handle data within application
  */
- @Injectable({
-  providedIn: 'root'
-})
-export class DataService {
+ @Injectable()
+export class PbDataService {
+  public $powerbot: PowerBot = new PowerBot();
   public $pollingTimer: TimerObservable<any>;
   /**
    * Constructor
@@ -54,27 +51,29 @@ export class DataService {
   ) {}
 
   getPollingTimer(delay: number, tick: number ): TimerObservable<any> {
-    if(!this.$pollingTimer) {
+    if (!this.$pollingTimer) {
       this.$pollingTimer = TimerObservable.create(delay, tick);
     }
     return  this.$pollingTimer;
   }
 
   async fetchApplicationData(): Promise<PowerBot> { // Promise<PowerBot> {
-    let powerbot: PowerBot = new PowerBot();
     try {
-      // powerbot.contracts = await this.fetchContracts();
-      powerbot.logs = await this.fetchLogs();
-      powerbot.markets = [ await this.fetchMarkets()];
-      powerbot.messages = await this.fetchMessages();
-      // powerbot.orders = await this.fetchOrders();
-      powerbot.signals = await this.fetchSignals();
-      powerbot.trades = await this.fetchTrades();
-      } catch (error) {
+      this.$powerbot.loading = true;
+      // this.$powerbot.contracts = await this.fetchContracts();
+      this.$powerbot.logs = await this.fetchLogs();
+      this.$powerbot.market = await this.fetchMarket();
+      this.$powerbot.messages = await this.fetchMessages();
+      // this.$powerbot.orders = await this.fetchOrders();
+      this.$powerbot.signals = await this.fetchSignals();
+      this.$powerbot.trades = await this.fetchTrades();
+      this.$powerbot.loading = false;
+    } catch (error) {
+        this.$powerbot.loading = false;
         console.log('ERROR FETCHING APP DATA');
         console.log(error);
       }
-    return powerbot;
+    return this.$powerbot;
   }
   async fetchContracts(): Promise<any> { // Promise<ContractInterface[]> {
     try {
@@ -94,7 +93,7 @@ export class DataService {
     }
     return;
   }
-  async fetchMarkets(): Promise<any> { //  Promise<any> { // Promise<MarketInterface> {
+  async fetchMarket(): Promise<any> { //  Promise<any> { // Promise<MarketInterface> {
     try {
       return await this.$market.getStatus().toPromise();
     } catch (error) {

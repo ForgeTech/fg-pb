@@ -6,7 +6,7 @@
     novalidate
   >
     <p>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" color="{{ config }}">
         <mat-label>RoboComp Password</mat-label>
         <input
           matInput
@@ -19,7 +19,7 @@
       </mat-form-field>
     </p>
     <p>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" color="{{ config }}">
         <mat-label>Epex Password</mat-label>
         <input
           matInput
@@ -32,7 +32,7 @@
       </mat-form-field>
     </p>
     <p>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill"  color="{{ config }}">
         <mat-label>Api Key Name</mat-label>
         <input
           matInput
@@ -48,6 +48,7 @@
       <mat-checkbox
         formControlName="canTrade"
         required
+         color="{{ config }}"
       >
         can trade
       </mat-checkbox>
@@ -55,6 +56,7 @@
       <mat-checkbox
         formControlName="canSignal"
         required
+        color="{{ config }}"
       >
         can signal
       </mat-checkbox>
@@ -62,14 +64,16 @@
     <p>
       <mat-checkbox
         formControlName="envProd"
-        quired
+        required
+        color="{{ config }}"
       >
         Production
       </mat-checkbox>
       &nbsp;
       <mat-checkbox
         formControlName="envTest"
-        quired
+        required
+        color="{{ config }}"
       >
         Test
       </mat-checkbox>
