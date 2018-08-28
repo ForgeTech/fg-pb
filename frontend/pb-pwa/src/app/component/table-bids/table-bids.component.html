@@ -1,6 +1,6 @@
-<ng-container *ngIf="this.$component.$data.$powerbot && this.$component.$data.$powerbot.bids">
+<ng-container *ngIf="this.$component.$data.$powerbot">
   <pb-table
-    [entity]="this.$component.$data.$powerbot.bids"
+    [entity]="this.$component.$data.$powerbot"
     [config]="this.config"
   ></pb-table>
 </ng-container>

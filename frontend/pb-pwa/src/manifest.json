@@ -4,7 +4,8 @@
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "start_url": "/",
+  "scope": "/",
+  "start_url": "https://forgetech.github.io/PowerBot/",
   "icons": [
     {
       "src": "assets/application/pwa-icon-72x72.png",

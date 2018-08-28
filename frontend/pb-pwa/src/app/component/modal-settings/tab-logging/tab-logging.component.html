@@ -3,10 +3,13 @@
   <form
     class="tab-logging-form"
     [formGroup]="options"
-    (ngSubmit)="createLoggingConfig()"
+    (ngSubmit)="createLoggingConfig( $event )"
   >
     <p>
-      <mat-form-field appearance="fill">
+      <mat-form-field
+        appearance="fill"
+        color="{{ config }}"
+      >
         <mat-label>Logging Url</mat-label>
         <input
           matInput

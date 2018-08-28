@@ -12,7 +12,7 @@
             <form
               class="modal-login-form"
               [formGroup]="options"
-              (ngSubmit)="createMarketConfig()"
+              (ngSubmit)="createMarketConfig( $event )"
             >
               <p>
                 <mat-form-field appearance="fill" color="{{ color }}">

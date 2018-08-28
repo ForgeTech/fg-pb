@@ -21,6 +21,7 @@ export {
   ConfigProductionConnection,
   ConfigTestConnection,
   Log,
+  Contract,
   Market,
   Message,
   Order,

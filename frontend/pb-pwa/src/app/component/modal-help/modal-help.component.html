@@ -1,0 +1,21 @@
+<pb-modal [entity]="this.entity">
+  <div title >
+    Help / Guides
+  </div>
+  <div content>
+    <mat-tab-group color="{{ color }}">
+      <mat-tab label="Topics">
+        Topics
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div actions>
+    <button
+    mat-raised-button
+    color="accent"
+    (click)="saveSettings($event)"
+    >
+      Close
+    </button>
+  </div>
+</pb-modal>

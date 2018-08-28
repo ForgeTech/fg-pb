@@ -21,7 +21,8 @@
       <ng-template #connected>
         <mat-chip-list
           [ngSwitch]="entity.market.status"
-          matTooltip="{{ entity.market | json }}"
+          matTooltip="{{ entity.market | json:4 }}"
+          matTooltipClass="mat-tooltip-prettyjson"
         >
           <mat-chip *ngSwitchCase="'OK'" color="primary" selected>
             <mat-icon>signal_wifi_4_bar</mat-icon>
@@ -52,7 +53,7 @@
       mat-mini-fab
       matTooltip="Connection Settings"
       color="primary"
-      (click)="openSettingsModule($event)"
+      (click)="openSettingsModal($event)"
     >
       <!-- color="this.entity.statusConnection" -->
       <mat-icon>power_setting_new</mat-icon>
@@ -61,7 +62,7 @@
       mat-mini-fab
       matTooltip="Market Settings"
       color="primary"
-      (click)="openMarketModule($event)"
+      (click)="openMarketModal($event)"
     >
       <!-- color="this.entity.statusMarket" -->
       <mat-icon>timeline</mat-icon>

@@ -26,5 +26,7 @@ export class TabTestComponent extends FgComponentBaseComponent {
       cacheForm: [null, []],
     });
   }
-
+  createTestConfig($event: Event): void {
+    console.log('Test CONFIG');
+  }
 }

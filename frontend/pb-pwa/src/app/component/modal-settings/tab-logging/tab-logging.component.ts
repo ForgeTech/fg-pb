@@ -25,4 +25,8 @@ export class TabLoggingComponent extends FgComponentBaseComponent {
     });
   }
 
+  createLoggingConfig( $event: Event ): void {
+
+  }
+
 }

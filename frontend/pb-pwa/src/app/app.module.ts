@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { PrettyJsonModule } from 'angular2-prettyjson';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -21,7 +22,6 @@ import { FgActionsComponent } from './component/fg-actions/fg-actions.component'
 
 import { FgAppService } from './app.service';
 import { PbDataService } from './service/pb-data/pb-data.service';
-import { PbModalService } from './service/pb-modal/pb-modal.service';
 
 import { AppComponent } from './app.component';
 import { AsksViewComponent } from './view/asks/asks.component';
@@ -44,8 +44,8 @@ import { GraphPortfolioComponent } from './component/graph-portfolio/graph-portf
 import { GraphProductHistoryComponent } from './component/graph-product-history/graph-product-history.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ModalComponent } from './component/modal/modal.component';
-// import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
-// import { ModalHelpComponent } from './component/modal-help/modal-help.component';
+import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
+import { ModalHelpComponent } from './component/modal-help/modal-help.component';
 import { ModalMarketComponent } from './component/modal-market/modal-market.component';
 import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
   import { TabApiKeyComponent } from './component/modal-settings/tab-api-key/tab-api-key.component';
@@ -62,6 +62,7 @@ import { TableSignalsComponent } from './component/table-signals/table-signals.c
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
 import { BarActionComponent } from './component/bar-action/bar-action.component';
 import { PwaInstallComponent } from './component/pwa-install/pwa-install.component';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 
 /**
  * Define Configuration for swagger-codegen api-module
@@ -136,8 +137,8 @@ const appRoutes: Routes = [
     GraphProductHistoryComponent,
     HeaderComponent,
     ModalComponent,
-    // ModalAddOrderComponent,
-    // ModalHelpComponent,
+    ModalAddOrderComponent,
+    ModalHelpComponent,
     ModalMarketComponent,
     ModalSettingsComponent,
       TabProductionComponent,
@@ -160,6 +161,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    PrettyJsonModule,
     ChartModule,
     CommonModule,
     FgMaterialModule,
@@ -187,12 +189,11 @@ const appRoutes: Routes = [
     FgComponentBaseService,
     FgAppService,
     FgEventService,
-    PbDataService,
-    PbModalService,
+    PbDataService
   ],
   entryComponents: [
-    // ModalAddOrderComponent,
-    // ModalHelpComponent,
+    ModalAddOrderComponent,
+    ModalHelpComponent,
     ModalSettingsComponent,
     ModalMarketComponent,
     AsksViewComponent,

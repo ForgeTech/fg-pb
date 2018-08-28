@@ -32,4 +32,8 @@ export class TabApiKeyComponent extends FgComponentBaseComponent {
     });
   }
 
+  createApiConfig( $event: Event ): void {
+    console.log('API CONFIG');
+  }
+
 }

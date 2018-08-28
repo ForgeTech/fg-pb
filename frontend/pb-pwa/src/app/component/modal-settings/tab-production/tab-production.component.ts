@@ -28,4 +28,8 @@ export class TabProductionComponent extends FgComponentBaseComponent {
     });
   }
 
+  createProductionConfig($event: Event): void {
+    console.log('PRODUCTION CONFIG');
+  }
+
 }

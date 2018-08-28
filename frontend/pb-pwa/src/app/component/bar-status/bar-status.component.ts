@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { PowerBot } from '../../entity/powerbot';
+import { ModalMarketComponent } from '../modal-market/modal-market.component';
+import { ModalSettingsComponent } from '../modal-settings/modal-settings.component';
 
 /**
  * BarStatusComponent -
@@ -23,12 +25,22 @@ export class BarStatusComponent  extends FgComponentBaseComponent {
       $component
     );
   }
-  openMarketModule($event: Event): void {
-    this.$component.$modal.openMarketModal( $event );
+  openMarketModal($event: Event): void {
+    this.$component.$modal.open( ModalMarketComponent, {
+      panelClass: 'pb-panel',
+      height: '90vh',
+      width: '90vw',
+      data: this.$component.$data.$powerbot
+    });
   }
 
-  openSettingsModule($event: Event): void {
-    this.$component.$modal.openSettingsModal( $event );
+  openSettingsModal($event: Event): void {
+    this.$component.$modal.open( ModalSettingsComponent, {
+      panelClass: 'pb-panel',
+      height: '90vh',
+      width: '90vw',
+      data: this.$component.$data.$powerbot
+    });
   }
 
   disconnectMarket($event: Event): void {

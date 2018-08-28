@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FgEventService } from '../../service/fg-event/fg-event.service';
 import { NGXLogger as FgLogService } from 'ngx-logger';
-import { MatDialog } from '@angular/material';
 import { PbDataService } from '../../service/pb-data/pb-data.service';
-import { PbModalService } from '../../service/pb-modal/pb-modal.service';
+import { MatDialog } from '@angular/material';
 // import { FgGestureService } from './../../service/fg-gesture/fg-gesture.service';
 // import { FgKeyboardService } from './../../service/fg-keyboard/fg-keyboard.service';
 // import { FgZindexService } from './../../service/fg-zindex/fg-zindex.service';
@@ -30,7 +29,7 @@ export class FgComponentBaseService {
   /**
   * Gives access to PbModalService-methodes
   */
-  public $modal: PbModalService;
+  public $modal: MatDialog;
   /**
   * Gives access to FgGestureService-methodes
   */
@@ -47,10 +46,10 @@ export class FgComponentBaseService {
   * CONSTRUCTOR
   */
   constructor (
-    $data: PbDataService,
     $log: FgLogService,
     $event: FgEventService,
-    // $modal: PbModalService,
+    $data: PbDataService,
+    $modal: MatDialog,
     // $gesture: FgGestureService,
     // $keyboard: FgKeyboardService,
     // $zindex: FgZindexService
@@ -59,7 +58,7 @@ export class FgComponentBaseService {
     this.$log = $log;
     this.$event = $event;
     this.$data = $data;
-    // this.$modal = $modal;
+    this.$modal = $modal;
     // this.$gesture = $gesture;
     // this.$keyboard = $keyboard;
     // this.$zindex = $zindex;

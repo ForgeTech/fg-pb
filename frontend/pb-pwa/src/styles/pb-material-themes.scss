@@ -14,30 +14,49 @@ $light-modal: #fff;
 
 // Include the default theme styles.
 @include angular-material-theme($light-theme);
-
+// *,
+// .modal-content,
+// .mat-primary,
+// .mat-button,
+// .mat-accent,
+// .mat-warn {
+//   // background-color: red !important;
+//   /* Firefox */
+//   -moz-transition: all 1s ease-in;
+//   /* WebKit */
+//   -webkit-transition: all 1s ease-in;
+//   /* Opera */
+//   -o-transition: all 1s ease-in;
+//   /* Standard */
+//   transition: all 1s ease-in;
+// }
 // Override default theme styles
+body {
+  background-color: $light-body;
+}
 .mat-dialog-container {
   background-color: transparent !important;
   box-shadow: none !important;
 }
+.mat-menu-item {
+  background-color: transparent !important;
+}
 .modal-content {
+  background-color: $light-modal;
   box-shadow: 0 11px 15px -7px rgba(0, 0, 0, .2),
   0 24px 38px 3px rgba(0, 0, 0, .14),
   0 9px 46px 8px rgba(0, 0, 0, .12);
 }
-.mat-menu-item {
-  background-color: transparent !important;
+.mat-form-field {
+  width: 100%;
+}
+.mat-menu-panel {
+  width: 200px;
+}
+.mat-tooltip-prettyjson {
+  white-space: pre;
 }
 
-//
-.pb-light-theme {
-  body {
-    background-color: $light-body;
-  }
-  .modal-content {
-    background-color: $light-modal;
-  }
-}
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
 // CSS class whatever you want. In this example, any component inside of an element with
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
@@ -47,7 +66,7 @@ $light-modal: #fff;
   $dark-accent : mat-palette($mat-amber, A200, A100, A400);
   $dark-warn : mat-palette($mat-deep-orange);
   $dark-theme : mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
-  $dark-body: #595959;
+  $dark-body: #929292;
   $dark-modal: #525252;
   @include angular-material-theme($dark-theme);
   body {

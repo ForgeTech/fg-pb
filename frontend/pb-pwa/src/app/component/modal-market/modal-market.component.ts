@@ -32,11 +32,15 @@ export class ModalMarketComponent extends ModalComponent {
     });
   }
 
-  cancelMarket($event: Event): void {
+  createMarketConfig( $event: Event ): void {
+    console.log('MARKET CONFIG');
+  }
+
+  cancelMarket( $event: Event ): void {
     console.log('CANCEL');
     console.log(this.entity);
   }
-  saveMarket($event: Event): void {
+  saveMarket( $event: Event ): void {
     console.log('SAVE');
     console.log(this.entity);
   }

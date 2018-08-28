@@ -2,7 +2,7 @@
   <form
     class="tab-api-key-form"
     [formGroup]="options"
-    (ngSubmit)="createApiConfig()"
+    (ngSubmit)="createApiConfig( $event )"
     novalidate
   >
     <p>

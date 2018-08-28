@@ -1,0 +1,28 @@
+<pb-modal [entity]="this.entity">
+  <div title >
+    Order
+  </div>
+  <div content>
+    <mat-tab-group color="{{ color }}">
+      <mat-tab label="Add">
+        Add Order
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div actions>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="cancelSettings($event)"
+      >
+      Cancel
+    </button>
+    <button
+    mat-raised-button
+    color="accent"
+    (click)="saveSettings($event)"
+    >
+      Add
+    </button>
+  </div>
+</pb-modal>
