@@ -47,6 +47,18 @@ export class PowerBot {
      */
     public messages?: MessageInterface[],
     /**
+     * Holds current powerbot orderbook data
+     */
+    public orderbook?: any,
+    /**
+     * Holds current powerbot asks data
+     */
+    public asks?: any[],
+    /**
+     * Holds current powerbot asks data
+     */
+    public bids?: any[],
+    /**
      * Holds current powerbot contract data
      */
     public orders?: OrderInterface[],

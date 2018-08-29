@@ -4,8 +4,11 @@
   </div>
   <div content>
     <mat-tab-group color="{{ color }}">
-      <mat-tab label="Add">
-        Add Order
+      <mat-tab label="Add Orders">
+        <pb-table-add-order
+          [entity]="data"
+        >
+        </pb-table-add-order>
       </mat-tab>
     </mat-tab-group>
   </div>

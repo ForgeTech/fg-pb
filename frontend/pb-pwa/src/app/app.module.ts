@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { PrettyJsonModule } from 'angular2-prettyjson';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -63,6 +64,7 @@ import { TableTradesComponent } from './component/table-trades/table-trades.comp
 import { BarActionComponent } from './component/bar-action/bar-action.component';
 import { PwaInstallComponent } from './component/pwa-install/pwa-install.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+import { TableAddOrderComponent } from './component/table-add-order/table-add-order.component';
 
 /**
  * Define Configuration for swagger-codegen api-module
@@ -156,12 +158,14 @@ const appRoutes: Routes = [
     TableOrderbookComponent,
     BarActionComponent,
     PwaInstallComponent,
+    TableAddOrderComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     PrettyJsonModule,
+    NgxDatatableModule,
     ChartModule,
     CommonModule,
     FgMaterialModule,

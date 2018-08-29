@@ -1,6 +1,14 @@
-<ng-container *ngIf="this.$component.$data.$powerbot && this.$component.$data.$powerbot.orders">
+<ng-container *ngIf="this.entity && this.config">
   <pb-table
-    [entity]="this.$component.$data.$powerbot.orders"
+    [entity]="this.entity"
     [config]="this.config"
-    ></pb-table>
+  ></pb-table>
+  <button
+    mat-mini-fab
+    (click)="openAddOrderModal($event)"
+  >
+    <mat-icon>
+      add
+    </mat-icon>
+  </button>
 </ng-container>

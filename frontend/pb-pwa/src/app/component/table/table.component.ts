@@ -10,20 +10,34 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent extends FgComponentBaseComponent implements AfterViewInit {
+
+  rows: any[] = [{
+    name: 'test',
+    gender: 'mandi'
+  },
+  {
+    name: 'test2'
+    gender: 'weibi'
+  }];
+
   constructor($component: FgComponentBaseService) {
     super(
       $component
     );
   }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  dataSource: TableDataSource;
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatSort) sort: MatSort;
+  // dataSource: TableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
 
-  ngAfterViewInit() {
-    this.dataSource = new TableDataSource(this.entity, this.paginator, this.sort);
+  // ngAfterViewInit() {
+  //   // this.dataSource = new TableDataSource(this.entity, this.paginator, this.sort);
+  // }
+
+  getRowHeight(row) {
+    return row.height;
   }
 
 }

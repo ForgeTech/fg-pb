@@ -3,30 +3,27 @@ import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 
 @Component({
-  selector: 'pb-table-orderbook',
-  templateUrl: './table-orderbook.component.html',
-  styleUrls: ['./table-orderbook.component.scss']
+  selector: 'pb-table-add-order',
+  templateUrl: './table-add-order.component.html',
+  styleUrls: ['./table-add-order.component.scss']
 })
-export class TableOrderbookComponent extends FgComponentBaseComponent {
+export class TableAddOrderComponent extends FgComponentBaseComponent {
   config: any = {
     columns: [
-      'Best Bid',
-      'Bid Qty',
-      'Best Ask',
-      'Ask Qty',
-      'Last',
-      'Last Qty',
-      'High',
-      'Low',
-      'Volume',
-      'Last Update',
-      'My Position',
-      'My Volume'
+      'Contract',
+      'Qty [MW]',
+      'Price [EUR]',
+      'Note',
+      'Dlvry Start',
+      'Dlvry End',
+      'Status'
     ],
     size: 50,
     sizeOptions: [25, 50, 100, 250]
   };
-
+  /**
+   * CONSTRUCTOR
+   */
   constructor($component: FgComponentBaseService) {
     super(
       $component
