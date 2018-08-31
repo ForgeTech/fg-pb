@@ -1,3 +1,4 @@
+<!-- <pb-card-dashboard></pb-card-dashboard> -->
 <mat-grid-list
   class="dashboard-container"
   cols="4"
@@ -11,6 +12,7 @@
   >
     <mat-card class="dashboard-card">
       <mat-card-header>
+        <!-- <fg-actions [entity]="this"></fg-actions> -->
         <mat-card-title>
           {{card.title}}
           <button
@@ -39,8 +41,8 @@
       </mat-card-header>
       <mat-card-content
         class="dashboard-card-content"
-        [style.overflow]="'auto'"
         >
+        <!-- [style.overflow]="'auto'" -->
         <!-- [style.height.px]="'300'" -->
         <div tabindex="0">
           <!-- <ng-container *ngTemplateOutlet="orders"></ng-container> -->

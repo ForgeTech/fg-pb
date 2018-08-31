@@ -11,12 +11,30 @@ import { ModalAddOrderComponent } from '../modal-add-order/modal-add-order.compo
 export class TableOrdersComponent extends FgComponentBaseComponent {
   config: any = {
     columns: [
-      'dlvry Start',
-      'dlvry End',
-      'Side',
-      'Qty [MW]',
-      'Price [EUR]',
-      'Note'
+      {
+        name: 'dlvry Start',
+        prop: 'contract_details.dlvryStart'
+      },
+      {
+        name: 'dlvry End',
+        prop: 'contract_details.dlvryEnd'
+      },
+      {
+        name: 'Side',
+        prop: 'name'
+      },
+      {
+        name: 'Qty [MW]',
+        prop: 'name'
+      },
+      {
+        name: 'Price [EUR]',
+        prop: 'name'
+      },
+      {
+        name: 'Note',
+        prop: 'name'
+      }
     ],
     size: 50,
     sizeOptions: [25, 50, 100, 250]

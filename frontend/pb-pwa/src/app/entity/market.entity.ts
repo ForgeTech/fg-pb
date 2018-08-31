@@ -4,7 +4,7 @@ import { MarketInterface, InlineResponse20012Options } from '../module/pb-api/mo
  * Entity-Class used to hold
  * market data
  */
-export class Market implements MarketInterface {
+export class MarketEntity implements MarketInterface {
   /** Constructor */
   constructor(
     /**

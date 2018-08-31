@@ -5,7 +5,7 @@ import { MessageInterface } from '../module/pb-api/model/interfaces.export';
  * Entity-Class used to hold
  * message data
  */
-export class Message implements MessageInterface {
+export class MessageEntity implements MessageInterface {
   /**
    * Constructor
    */

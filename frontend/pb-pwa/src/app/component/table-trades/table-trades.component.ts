@@ -9,22 +9,15 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
 })
 export class TableTradesComponent extends FgComponentBaseComponent {
   config: any = {
-    columns: [
-      'dlvry Start',
-      'dlvry End',
-      'Side',
-      'Qty [MW]',
-      'Price [EUR]',
-      'Note'
-    ],
     size: 50,
     sizeOptions: [25, 50, 100, 250]
   };
-
+  /**
+   * CONSTRUCTOR
+   */
   constructor($component: FgComponentBaseService) {
     super(
       $component
     );
   }
-
 }

@@ -4,7 +4,7 @@ import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { ModalComponent } from '../modal/modal.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PowerBot } from '../../entity/entity.export';
+import { PowerBotEntity } from '../../entity/entity.export';
 
 @Component({
   selector: 'pb-modal-market',
@@ -15,7 +15,7 @@ export class ModalMarketComponent extends ModalComponent {
   options: FormGroup;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: PowerBot,
+    @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
     public modalRef: MatDialogRef<any>,
     public $fb: FormBuilder,
     $component: FgComponentBaseService

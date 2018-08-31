@@ -1,14 +1,73 @@
-<ng-container *ngIf="this.entity && this.config">
-  <pb-table
-    [entity]="this.entity"
-    [config]="this.config"
-  ></pb-table>
-  <button
-    mat-mini-fab
-    (click)="openAddOrderModal($event)"
+<ng-container *ngIf="this.entity && this.entity.orders && this.config">
+   <ngx-datatable
+    class="datatable material"
+    [rows]="entity.orders"
+    [columnMode]="'standard'"
+    [headerHeight]="50"
+    [rowHeight]="50"
+    [footerHeight]="25"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
   >
-    <mat-icon>
-      add
-    </mat-icon>
-  </button>
+    <!-- (page)="onPage($event)" -->
+    <ngx-datatable-column name="dlvry Start">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>{{ row.contract_details.dlvryStart | date }}</span>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="dlvry End">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>{{ row.contract_details.dlvryEnd | date }}</span>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Side">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>{{ row | pbTradeSide }}</span>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Qty [MW]">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>{{ row.quantity }}</span>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Price [EUR]">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>{{ row.price }}</span>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Note">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>{{ row.note }}</span>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
 </ng-container>
+<!-- Add-Order Button -->
+<button
+  class="btn-add-order"
+  mat-mini-fab
+  mat-tooltip="Add Order"
+  (click)="openAddOrderModal($event)"
+>
+  <mat-icon>
+    add
+  </mat-icon>
+</button>

@@ -35,7 +35,7 @@ import { ProductHistoryViewComponent } from './view/product-history/product-hist
 import { SignalsViewComponent } from './view/signals/signals.component';
 import { TradesViewComponent } from './view/trades/trades.component';
 
-import { BarStatusComponent } from './component/bar-status/bar-status.component';
+import { BarStateComponent } from './component/bar-state/bar-state.component';
 import { CardDashboardComponent } from './component/card-dashboard/card-dashboard.component';
 import { CardViewComponent } from './component/card-view/card-view.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
@@ -65,6 +65,7 @@ import { BarActionComponent } from './component/bar-action/bar-action.component'
 import { PwaInstallComponent } from './component/pwa-install/pwa-install.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { TableAddOrderComponent } from './component/table-add-order/table-add-order.component';
+import { PbSidePipe } from './pipe/pb-side.pipe';
 
 /**
  * Define Configuration for swagger-codegen api-module
@@ -129,7 +130,7 @@ const appRoutes: Routes = [
     SignalsViewComponent,
     TradesViewComponent,
 
-    BarStatusComponent,
+    BarStateComponent,
     CardDashboardComponent,
     CardViewComponent,
     DashboardComponent,
@@ -159,6 +160,7 @@ const appRoutes: Routes = [
     BarActionComponent,
     PwaInstallComponent,
     TableAddOrderComponent,
+    PbSidePipe,
   ],
   imports: [
     BrowserModule,

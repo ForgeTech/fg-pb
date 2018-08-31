@@ -8,11 +8,11 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
   styleUrls: ['./table-signals.component.scss']
 })
 export class TableSignalsComponent extends FgComponentBaseComponent {
-  config: any = {
-    columns: ['delivery_start', 'delivery_end'],
-    size: 50,
-    sizeOptions: [25, 50, 100, 250]
-  };
+  // config: any = {
+  //   columns: ['delivery_start', 'delivery_end'],
+  //   size: 50,
+  //   sizeOptions: [25, 50, 100, 250]
+  // };
 
   constructor($component: FgComponentBaseService) {
     super(

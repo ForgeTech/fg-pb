@@ -9,20 +9,6 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
 })
 export class TableOrderbookComponent extends FgComponentBaseComponent {
   config: any = {
-    columns: [
-      'Best Bid',
-      'Bid Qty',
-      'Best Ask',
-      'Ask Qty',
-      'Last',
-      'Last Qty',
-      'High',
-      'Low',
-      'Volume',
-      'Last Update',
-      'My Position',
-      'My Volume'
-    ],
     size: 50,
     sizeOptions: [25, 50, 100, 250]
   };
@@ -31,6 +17,16 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
     super(
       $component
     );
+  }
+
+  removeAmount($event: Event): void {
+    console.log('REMOVE AMOUNT');
+  }
+  addAmount($event: Event): void {
+    console.log('ADD AMOUNT');
+  }
+  addDoubleAmount($event: Event): void {
+    console.log('ADD DOUBLE AMOUNT');
   }
 
 }

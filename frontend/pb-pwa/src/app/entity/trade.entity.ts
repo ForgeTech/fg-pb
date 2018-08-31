@@ -5,7 +5,7 @@ import { TradeInterface } from '../module/pb-api/model/interfaces.export';
  * Entity-Class used to hold
  * order data
  */
-export class Trade implements TradeInterface {
+export class TradeEntity implements TradeInterface {
   /** Constructor */
   constructor(
     /**

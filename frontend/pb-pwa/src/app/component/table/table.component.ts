@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { TableDataSource } from './table-datasource';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
@@ -9,14 +9,14 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent extends FgComponentBaseComponent implements AfterViewInit {
+export class TableComponent extends FgComponentBaseComponent implements OnChanges {
 
   rows: any[] = [{
     name: 'test',
     gender: 'mandi'
   },
   {
-    name: 'test2'
+    name: 'test2',
     gender: 'weibi'
   }];
 
@@ -24,6 +24,15 @@ export class TableComponent extends FgComponentBaseComponent implements AfterVie
     super(
       $component
     );
+  }
+
+  ngOnChanges($changes: SimpleChanges): void {
+    console.log('CHANGES');
+    console.log($changes);
+    console.log($changes.entity.currentValue);
+    // if ($changes.entity) {
+    //   this.rows = this.entity;
+    // }
   }
 
   // @ViewChild(MatPaginator) paginator: MatPaginator;

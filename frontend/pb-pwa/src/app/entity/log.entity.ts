@@ -4,7 +4,7 @@ import { LogInterface } from '../module/pb-api/model/interfaces.export';
  * Entity-Class used to hold
  * log-message data
  */
-export class Log implements LogInterface {
+export class LogEntity implements LogInterface {
   /**
    * Constructor
    */

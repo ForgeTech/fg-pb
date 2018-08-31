@@ -14,15 +14,15 @@ import { FgComponentBaseComponent } from './component/fg-component-base/fg-compo
 import { NGXLogger as FgLogService } from 'ngx-logger';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
-import { ConfigPowerbot, PowerBot } from './entity/entity.export';
+import { ConfigPowerbot, PowerBotEntity } from './entity/entity.export';
 
 import {
-Log,
-Market,
-Message,
-Order,
-Signal,
-Trade,
+LogEntity,
+MarketEntity,
+MessageEntity,
+OrderEntity,
+SignalEntity,
+TradeEntity,
 } from './entity/entity.export';
 import { DashboardViewComponent } from './view/dashboard/dashboard.component';
 import { AsksViewComponent } from './view/asks/asks.component';
@@ -151,10 +151,10 @@ export class AppComponent extends FgEventSubscriber
     this.$app.$data.$powerbot.config = this.config;
 
     // Setup polling data from backend
-    this.$app.$data.getPollingTimer( 0, 5000 ).subscribe( x => {
-      this.$log.warn('Polling Data');
+    this.$app.$data.getPollingTimer( 0, 10000 ).subscribe( x => {
       this.$app.$data.fetchApplicationData().then(appData => {
         console.log('POLLING DATA');
+        // this.$app.$data.$powerbot = appData.
         console.log(this.$component.$data.$powerbot);
       }).catch( error  => {
         console.log('ERROR FETCHING INITIAL DATA');

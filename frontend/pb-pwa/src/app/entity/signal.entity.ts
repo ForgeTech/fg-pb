@@ -4,7 +4,7 @@ import { SignalInterface } from '../module/pb-api/model/interfaces.export';
  * Entity-Class used to hold
  * signal data
  */
-export class Signal implements SignalInterface {
+export class SignalEntity implements SignalInterface {
   /** Constructor */
   constructor(
     /**

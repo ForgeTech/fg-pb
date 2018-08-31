@@ -1,0 +1,88 @@
+<div class="bar-status--container">
+  <mat-progress-bar
+    class="bar-status--progress"
+    mode="{{
+      this.entity.state.appState === BarStateEnum.Loading
+      ? 'indeterminate' : 'determindate'
+    }}"
+    matTooltip="{{ entity.market | json:4 }}"
+    matTooltipClass="mat-tooltip-prettyjson"
+    color="accent">
+  </mat-progress-bar>
+  <div class="bar-status--label">
+    <!-- Connection States -->
+    <mat-chip-list
+      *ngIf="this.entity.state.connectionState !== BarStateEnum.Disabled"
+      [ngSwitch]="this.entity.state.connectionState"
+    >
+      <mat-chip
+        *ngSwitchCase="BarStateEnum.Loading"
+        color="accent"
+        selected
+      >
+        <mat-icon>refresh</mat-icon>
+        &nbsp;
+        <span>
+          Checking Connection
+        </span>
+      </mat-chip>
+      <mat-chip
+        *ngSwitchCase="BarStateEnum.Online"
+        color="primary"
+        selected
+      >
+        <mat-icon>signal_wifi_4_bar</mat-icon>
+        &nbsp;
+        <span>
+          Connected
+        </span>
+      </mat-chip>
+      <mat-chip
+        *ngSwitchCase="BarStateEnum.Warning"
+        color="warn"
+        selected
+      >
+        <mat-icon>signal_wifi_off</mat-icon>
+        &nbsp;
+        <span>
+          Connection Warning
+        </span>
+      </mat-chip>
+      <mat-chip
+        *ngSwitchCase="BarStateEnum.Error"
+        color="warn"
+        selected
+      >
+        <mat-icon>signal_wifi_off</mat-icon>
+        &nbsp;
+        <span>
+          Connection Error
+        </span>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+  <div
+    class="bar-status--settings"
+  >
+    <!-- Connection-State Button -->
+    <button
+      class="btn-connection-settings"
+      mat-mini-fab
+      matTooltip="Connection State ( {{ getStateLabel( this.entity.state.connectionState ) }} )"
+      color="{{ getStateColor( this.entity.state.connectionState ) }}"
+      (click)="openConnectionModal($event)"
+    >
+      <mat-icon>power_setting_new</mat-icon>
+    </button>
+    <!-- Market-State Button -->
+    <button
+      class="btn-market-settings"
+      mat-mini-fab
+      matTooltip="Market State ( {{ getStateLabel( this.entity.state.marketState ) }} )"
+      color="{{ getStateColor( this.entity.state.marketState ) }}"
+      (click)="openMarketModal( $event )"
+    >
+      <mat-icon>timeline</mat-icon>
+    </button>
+  </div>
+</div>

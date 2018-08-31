@@ -3,7 +3,7 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
 import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material'
 import { ModalComponent } from '../modal/modal.component';
-import { PowerBot } from '../../entity/powerbot';
+import { PowerBotEntity } from '../../entity/powerbot.entity';
 
 @Component({
   selector: 'pb-modal-add-order',
@@ -14,7 +14,7 @@ export class ModalAddOrderComponent extends ModalComponent {
 
   constructor(
     public modalRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: PowerBot,
+    @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
     $component: FgComponentBaseService
   ) {
     super(

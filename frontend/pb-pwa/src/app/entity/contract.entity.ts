@@ -1,6 +1,6 @@
 import { ContractInterface, InlineResponse2002 } from '../module/pb-api/model/interfaces.export';
 
-export class Contract implements ContractInterface {
+export class ContractEntity implements ContractInterface {
   constructor(
     /**
          * the contract's product

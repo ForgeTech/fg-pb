@@ -3,7 +3,7 @@ import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material'
-import { PowerBot } from '../../entity/powerbot';
+import { PowerBotEntity } from '../../entity/powerbot.entity';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class ModalComponent extends FgComponentBaseComponent {
 
   constructor(
     public modalRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: PowerBot,
+    @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
     $component: FgComponentBaseService) {
     super(
       $component

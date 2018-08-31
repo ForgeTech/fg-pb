@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PowerBot } from '../../entity/powerbot';
+import { PowerBotEntity } from '../../entity/powerbot.entity';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import {
@@ -13,7 +13,7 @@ import {
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardViewComponent {
-  powerbot: PowerBot; // IFgProjectEntityInterface;
+  powerbot: PowerBotEntity; // IFgProjectEntityInterface;
   protected $route: ActivatedRoute;
   protected $router: Router;
 

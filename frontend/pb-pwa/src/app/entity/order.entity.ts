@@ -4,7 +4,7 @@ import { OrderInterface } from '../module/pb-api/model/interfaces.export';
  * Entity-Class used to hold
  * order data
  */
-export class Order implements OrderInterface {
+export class OrderEntity implements OrderInterface {
   /**
    * Constructor
    */
