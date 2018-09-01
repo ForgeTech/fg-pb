@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { FgEventService } from './service/fg-event/fg-event.service';
 // import { FgImportService } from './service/fg-import/fg-import.service';
 import { FgEvent } from './class/fg-class.export';
-import { FgEventSubscriber } from './service/fg-event/fg-event-subscriber.abstract-class';
+// import { FgEventSubscriber } from './service/fg-event/fg-event-subscriber.abstract-class';
 import {
   FgEntityEvent,
   FgComponentBaseEvent
@@ -19,7 +19,8 @@ import { PbDataService } from './service/pb-data/pb-data.service';
 * and run successfully
 */
 @Injectable()
-export class FgAppService extends FgEventSubscriber {
+export class FgAppService // extends FgEventSubscriber
+{
   /**
   * Used to hold reference data-service
   */
@@ -55,11 +56,12 @@ export class FgAppService extends FgEventSubscriber {
     // $import: FgImportService,
     // $sass: FgSassService
   ) {
-    super(
-      $log,
-      $event
-    );
+    // super(
+    //   $log,
+    //   $event
+    // );
     this.$data = $data;
+    // this.$event = $event;
     this.$event = $event;
     this.$log = $log;
     // this.$import = $import;
@@ -94,10 +96,10 @@ export class FgAppService extends FgEventSubscriber {
 
     }
 
-    this.eventsToSubscribe = [
+    // this.eventsToSubscribe = [
       // [ FgEntityEvent.ADD, this.addEntity() ],
       // [ FgEntityEvent.REMOVE, this.removeEntity() ],
       // [ FgEntityEvent.SYNC, this.syncEntity() ]
-    ];
+    // ];
   }
 }

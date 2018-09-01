@@ -50,12 +50,12 @@ export class BarActionComponent extends FgComponentBaseComponent {
    * Dispatch signal for disconnecting from api
    */
   disconnectApi( $event: Event ): void {
-    this.$component.$event.emit( new FgEvent( PbAppEvent.DISCONNECT_API ) );
+    this.emitEvent( PbAppEvent.DISCONNECT_API, this );
   }
   /**
    * Dispatch signal to disconnect from market
    */
   disconnectMarket( $event: Event ): void {
-    this.$component.$event.emit( new FgEvent( PbAppEvent.DISCONNECT_MARKET ) );
+    this.emitEvent( PbAppEvent.DISCONNECT_MARKET, this );
   }
 }

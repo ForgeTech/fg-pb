@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { PrettyJsonModule } from 'angular2-prettyjson';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgForageModule, NgForageConfig } from 'ngforage';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -86,27 +87,27 @@ export function apiConfigFactory(): Configuration {
  * Routes for PowerBot application
  */
 const appRoutes: Routes = [
-  // /**
-  //  * Empty route goes to dashboard
-  //  */
-  // { path: '', component: DashboardViewComponent },
-  // /**
-  //  * Routes to dashboard-components full-page views
-  //  */
-  // { path: 'asks', component: AsksViewComponent },
-  // { path: 'bids', component: BidsViewComponent },
-  // { path: 'orderbook', component: OrderbookViewComponent },
-  // { path: 'orders', component: OrdersViewComponent },
-  // { path: 'portfolio', component: PortfolioViewComponent },
-  // { path: 'product-history', component: ProductHistoryViewComponent },
-  // { path: 'signals', component: SignalsViewComponent },
-  // { path: 'trades', component: TradesViewComponent },
-  // /**
-  //  * All routes that do not match any route after
-  //  * checking the ones above, are redirected to
-  //  * dashboard view
-  //  */
-  // { path: '**', redirectTo: ''}
+  /**
+   * Empty route goes to dashboard
+   */
+  { path: '', component: DashboardViewComponent },
+  /**
+   * Routes to dashboard-components full-page views
+   */
+  { path: 'asks', component: AsksViewComponent },
+  { path: 'bids', component: BidsViewComponent },
+  { path: 'orderbook', component: OrderbookViewComponent },
+  { path: 'orders', component: OrdersViewComponent },
+  { path: 'portfolio', component: PortfolioViewComponent },
+  { path: 'product-history', component: ProductHistoryViewComponent },
+  { path: 'signals', component: SignalsViewComponent },
+  { path: 'trades', component: TradesViewComponent },
+  /**
+   * All routes that do not match any route after
+   * checking the ones above, are redirected to
+   * dashboard view
+   */
+  { path: '**', redirectTo: ''}
 ];
 /**
  * PowerBot Application Module -
@@ -169,6 +170,13 @@ const appRoutes: Routes = [
     FgMaterialModule,
     FlexLayoutModule,
     FgGlobalScopeModule.forBrowser(),
+    NgForageModule.forRoot({
+      name: 'PowerBot',
+      driver: [ // defaults to indexedDB -> webSQL -> localStorage -> sessionStorage
+        NgForageConfig.DRIVER_INDEXEDDB,
+        NgForageConfig.DRIVER_LOCALSTORAGE
+      ]
+    }),
     ApiModule.forRoot(apiConfigFactory),
     LoggerModule.forRoot({
       // serverLoggingUrl: '/api/logs',

@@ -15,8 +15,8 @@ import {
   FgComponentBaseEvent,
   FgEntityEvent
 } from '../../event/fg-events.export';
-import { GlobalRef } from './../../module/fg-global-scope/fg-global-refs.class';
-import { FgEventSubscriber } from '../../service/fg-event/fg-event-subscriber.abstract-class';
+// import { GlobalRef } from './../../module/fg-global-scope/fg-global-refs.class';
+// import { FgEventSubscriber } from '../../service/fg-event/fg-event-subscriber.abstract-class';
 // import {
 //   IFgComponentEntityInterface,
 //   IFgActionProviderInterface,

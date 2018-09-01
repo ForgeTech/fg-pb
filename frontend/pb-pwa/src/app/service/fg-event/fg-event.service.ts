@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FgEvent, FgAction } from '../../class/fg-class.export';
 import { NGXLogger as FgLogService } from 'ngx-logger';
+import { Subject } from 'rxjs';
 /**
  * FgEventService -
  * Service provides an interface to handle and distribute
@@ -10,6 +11,7 @@ import { NGXLogger as FgLogService } from 'ngx-logger';
  */
 @Injectable()
 export class FgEventService {
+  public event$: Subject<FgEvent>;
   /**
    * Instance of Forge Log-Service
    */
@@ -34,6 +36,7 @@ export class FgEventService {
     this.$log = $log;
     this.eventsToLog = [];
     this.subscribed = [];
+    this.event$ = new Subject<FgEvent>();
   }
   /**
    * Methode to define a set of events that should be logged
@@ -111,5 +114,7 @@ export class FgEventService {
     .forEach( subscription => {
       subscription[ 1 ]( event );
     });
+    // Dispatch event on rxjs-object
+    this.event$.next(event);
   }
 }

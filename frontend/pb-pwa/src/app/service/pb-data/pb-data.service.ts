@@ -26,6 +26,7 @@ import {
  } from '../../entity/entity.export';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { BarStateEnum } from '../../entity/bar-state.entity';
+import { NgForage, NgForageCache, NgForageConfig, CachedItem } from 'ngforage';
 
 /**
  * DataService -
@@ -90,13 +91,21 @@ export class PbDataService {
      * Provides access to powerbot trade-object service
      */
     protected $trades: TradesService,
-  ) {}
+    /**
+     * Provides access to powerbot trade-object service
+     */
+    protected $storage: NgForage,
+  ) {
+    this.$storage.setItem( 'mauzi', {
+      value: 'Liebstest flausch'
+    });
+  }
   /**
    * Return observable polling timer-object
    * @param delay The delay before timer dispatches first event
    * @param tick The intervall in which the timer dispatches it's event
    */
-  getPollingTimer( delay: number = 10000, tick: number = 1000 ): TimerObservable<any> {
+  getPollingTimer( delay: number = 0, tick: number = 1000 ): TimerObservable<any> {
     if (!this.$pollingTimer) {
       this.$pollingTimer = TimerObservable.create(delay, tick);
     }
