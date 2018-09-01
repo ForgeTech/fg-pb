@@ -12,7 +12,7 @@
   <div class="bar-status--label">
     <!-- Connection States -->
     <mat-chip-list
-      *ngIf="this.entity.state.connectionState !== BarStateEnum.Disabled"
+
       [ngSwitch]="this.entity.state.connectionState"
     >
       <mat-chip
@@ -57,6 +57,17 @@
         &nbsp;
         <span>
           Connection Error
+        </span>
+      </mat-chip>
+      <mat-chip
+        *ngSwitchDefault
+        color="warn"
+        selected
+      >
+        <mat-icon>signal_wifi_off</mat-icon>
+        &nbsp;
+        <span>
+          Disconnected
         </span>
       </mat-chip>
     </mat-chip-list>

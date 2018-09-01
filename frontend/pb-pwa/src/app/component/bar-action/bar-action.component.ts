@@ -3,20 +3,30 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { ModalSettingsComponent } from '../modal-settings/modal-settings.component';
 import { ModalMarketComponent } from '../modal-market/modal-market.component';
-
+import { FgEvent } from '../../class/fg-class.export';
+import { PbAppEvent } from '../../event/fg-events.export';
+/**
+ * Bar-Action-Component -
+ * represents a collection of buttons and other navigation
+ * elements providing access to a set of application functionallity
+ */
 @Component({
   selector: 'pb-bar-action',
   templateUrl: './bar-action.component.html',
   styleUrls: ['./bar-action.component.scss']
 })
 export class BarActionComponent extends FgComponentBaseComponent {
-
+  /**
+   * CONSTRUCTOR
+   */
   constructor($component: FgComponentBaseService) {
     super(
       $component
     );
   }
-
+  /**
+   * Methode to open Market-Settings Modal
+   */
   openMarketModal( $event: Event): void {
     this.$component.$modal.open( ModalMarketComponent, {
       panelClass: 'pb-panel',
@@ -25,7 +35,9 @@ export class BarActionComponent extends FgComponentBaseComponent {
       data: this.$component.$data.$powerbot,
     });
   }
-
+  /**
+   * Methode to open Api-Settings Modal
+   */
   openSettingsModal($event: Event): void {
     this.$component.$modal.open( ModalSettingsComponent, {
       panelClass: 'pb-panel',
@@ -34,12 +46,16 @@ export class BarActionComponent extends FgComponentBaseComponent {
       data: this.$component.$data.$powerbot
     });
   }
-
-  disconnectMarket($event: Event): void {
-
+  /**
+   * Dispatch signal for disconnecting from api
+   */
+  disconnectApi( $event: Event ): void {
+    this.$component.$event.emit( new FgEvent( PbAppEvent.DISCONNECT_API ) );
   }
-
-  disconnectApi($event: Event): void {
-
+  /**
+   * Dispatch signal to disconnect from market
+   */
+  disconnectMarket( $event: Event ): void {
+    this.$component.$event.emit( new FgEvent( PbAppEvent.DISCONNECT_MARKET ) );
   }
 }

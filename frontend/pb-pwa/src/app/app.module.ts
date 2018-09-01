@@ -36,8 +36,6 @@ import { SignalsViewComponent } from './view/signals/signals.component';
 import { TradesViewComponent } from './view/trades/trades.component';
 
 import { BarStateComponent } from './component/bar-state/bar-state.component';
-import { CardDashboardComponent } from './component/card-dashboard/card-dashboard.component';
-import { CardViewComponent } from './component/card-view/card-view.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { GraphComponent } from './component/graph/graph.component';
@@ -131,8 +129,6 @@ const appRoutes: Routes = [
     TradesViewComponent,
 
     BarStateComponent,
-    CardDashboardComponent,
-    CardViewComponent,
     DashboardComponent,
     FooterComponent,
     GraphComponent,

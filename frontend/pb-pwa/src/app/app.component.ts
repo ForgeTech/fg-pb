@@ -8,14 +8,15 @@ import { FgEventSubscriber } from './service/fg-event/fg-event-subscriber.abstra
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import {
   FgComponentBaseEvent,
-  FgEntityEvent
+  FgEntityEvent,
+  PbAppEvent
 } from './event/fg-events.export';
 import { FgComponentBaseComponent } from './component/fg-component-base/fg-component-base.component';
 import { NGXLogger as FgLogService } from 'ngx-logger';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
 import { ConfigPowerbot, PowerBotEntity } from './entity/entity.export';
-
+import { Subscription } from 'rxjs';
 import {
 LogEntity,
 MarketEntity,
@@ -44,6 +45,9 @@ import { TradesViewComponent } from './view/trades/trades.component';
 })
 export class AppComponent extends FgEventSubscriber
   implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+  /**
+   * Powerbot application-routes
+   */
   private appRoutes: Routes = [
     /**
      * Empty route goes to dashboard
@@ -71,6 +75,10 @@ export class AppComponent extends FgEventSubscriber
    * Hold test-data configuration
    */
   public config: ConfigPowerbot;
+  /**
+   * Hold test-data configuration
+   */
+  public timerSubscribtion: Subscription;
   /**
    * Hold reference to angular-material dialog-utils
    */
@@ -150,22 +158,6 @@ export class AppComponent extends FgEventSubscriber
     // Set powerbot-config on at dataservice
     this.$app.$data.$powerbot.config = this.config;
 
-    // Setup polling data from backend
-    this.$app.$data.getPollingTimer( 0, 10000 ).subscribe( x => {
-      this.$app.$data.fetchApplicationData().then(appData => {
-        console.log('POLLING DATA');
-        // this.$app.$data.$powerbot = appData.
-        console.log(this.$component.$data.$powerbot);
-      }).catch( error  => {
-        console.log('ERROR FETCHING INITIAL DATA');
-        console.log(error);
-      });
-    });
-
-    {
-
-}
-
     // Initialize powerbot-application
     /**
      * TODO Only open modal when connection config data isn't set
@@ -181,22 +173,69 @@ export class AppComponent extends FgEventSubscriber
     //     width: '90vw',
     //  } );
 
-    this.$component.$event.subscribe(FgComponentBaseEvent.SELECTED, this.setSelectedComponent());
-    // this.$component.$event.subscribe( FgComponentBaseEvent.FOCUS_IN, this.setActiveComponent() );
+    this.$component.$event.subscribe( PbAppEvent.CONNECT_API, function() {
+      return event => {
+        // Fetch initial data
+        this.fetchAppData();
+        // Setup polling data from backend
+        this.startDataPolling();
+      };
+    });
+    this.$component.$event.subscribe( PbAppEvent.DISCONNECT_API, function() {
+      return event => {  this.$app.$log.warn('DISCONNECT API!'); };
+    });
+    this.$component.$event.subscribe( PbAppEvent.CONNECT_MARKET, function() {
+      return event => {  this.$app.$log.warn('CONNECT MARKET!'); };
+    });
+    this.$component.$event.subscribe( PbAppEvent.DISCONNECT_MARKET, function() {
+        return event => { this.$app.$log.warn('DISCONNECT MARKET!'); };
+    });
 
     // Register the events that should be logged from emit-funciton
     this.$component.$event.registerEventsToLog([
-      FgComponentBaseEvent.CLICK,
-      FgComponentBaseEvent.FOCUS_IN,
-      FgComponentBaseEvent.FOCUS_OUT,
-      FgComponentBaseEvent.CREATE,
-      FgComponentBaseEvent.SELECTED,
-      FgComponentBaseEvent.EDIT,
-      FgComponentBaseEvent.DELETE,
-      FgComponentBaseEvent.LOCK,
-      FgComponentBaseEvent.EXPORT,
-      FgComponentBaseEvent.PRINT,
+      PbAppEvent.CONNECT_API,
+      PbAppEvent.CONNECT_MARKET,
+      PbAppEvent.DISCONNECT_API,
+      PbAppEvent.DISCONNECT_MARKET,
+      // FgComponentBaseEvent.CLICK,
+      // FgComponentBaseEvent.FOCUS_IN,
+      // FgComponentBaseEvent.FOCUS_OUT,
+      // FgComponentBaseEvent.CREATE,
+      // FgComponentBaseEvent.SELECTED,
+      // FgComponentBaseEvent.EDIT,
+      // FgComponentBaseEvent.DELETE,
+      // FgComponentBaseEvent.LOCK,
+      // FgComponentBaseEvent.EXPORT,
+      // FgComponentBaseEvent.PRINT,
     ]);
+  }
+  /**
+   * Fetch and set application-data
+   */
+  protected fetchAppData(): void {
+    this.$app.$data.fetchApplicationData().then(appData => {
+      this.$log.info('Received Polling-Data:');
+      this.$log.info(appData);
+      // Merge and override $powerbot data
+      // https://stackoverflow.com/questions/36384351/angular-2-merging-extending-objects
+      this.$app.$data.$powerbot = { ...this.$app.$data.$powerbot, ...appData };
+    }).catch(error => {
+      this.$log.error(error);
+    });
+  }
+  /**
+   * Setup and subscribe to polling application-data
+   */
+  protected startDataPolling(): void {
+    this.timerSubscribtion = this.$app.$data.getPollingTimer(10000, 10000).subscribe(x => {
+      this.fetchAppData();
+    });
+  }
+  /**
+   * Unsubscribe from polling application-data
+   */
+  protected stopDataPolling(): void {
+    this.timerSubscribtion.unsubscribe();
   }
   /**
    * TODO: Set active entity

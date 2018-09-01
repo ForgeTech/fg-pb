@@ -34,30 +34,89 @@ import { BarStateEnum } from '../../entity/bar-state.entity';
  */
  @Injectable()
 export class PbDataService {
+  /**
+   * Represents the collected set of application-data
+   * and provides access to it within powerbot-application
+   */
   public $powerbot: PowerBotEntity = new PowerBotEntity();
-  public $pollingTimer: TimerObservable<any>;
+  /**
+   * TODO: Should keep track of the number of called api
+   * requests used to display loading state for parallel
+   * sets of requests
+   */
+  public openCalls: number = 0;
+  /** Member-variable to hold instance of
+   * polling-timer observable
+   */
+  protected $pollingTimer: TimerObservable<any>;
   /**
    * Constructor
    */
   constructor(
+    /**
+     * Provides client-application log-service
+     */
     protected $log: FgLogService,
+    /**
+     * Provides access to powerbot auth-service
+     * ( used to generate api keys )
+     */
     protected $auth: AuthenticationService,
+    /**
+     * Provides access to powerbot contracts-objects service
+     */
     protected $contracts: ContractService,
+    /**
+     * Provides access to powerbot logs-objects service
+     */
     protected $logs: LogsService,
+    /**
+     * Provides access to powerbot market-objects service
+     */
     protected $market: MarketService,
+    /**
+     * Provides access to powerbot message-objects service
+     */
     protected $messages: MessagesService,
+    /**
+     * Provides access to powerbot order-object service
+     */
     protected $orders: OrdersService,
+    /**
+     * Provides access to powerbot signal-objects service
+     */
     protected $signals: SignalsService,
+    /**
+     * Provides access to powerbot trade-object service
+     */
     protected $trades: TradesService,
   ) {}
-
-  getPollingTimer( delay: number, tick: number ): TimerObservable<any> {
+  /**
+   * Return observable polling timer-object
+   * @param delay The delay before timer dispatches first event
+   * @param tick The intervall in which the timer dispatches it's event
+   */
+  getPollingTimer( delay: number = 10000, tick: number = 1000 ): TimerObservable<any> {
     if (!this.$pollingTimer) {
       this.$pollingTimer = TimerObservable.create(delay, tick);
     }
     return  this.$pollingTimer;
   }
-
+  /**
+   * TODO: Wrap a api-request function to automatically keep track
+   * of parallel requests loading state
+   * @param fn
+   */
+  async fetch<T extends Function>(fn: T): Promise<T> {
+    return <any>function (...args) {
+      this.openCalls++;
+      console.log(this.openCalls);
+      return fn(...args);
+    };
+  }
+  /**
+   * Fetch full set of application-data from backend
+   */
   async fetchApplicationData(): Promise<PowerBotEntity> { // Promise<PowerBot> {
     // Set app loading-State when starting fetching data
     this.$powerbot.state.appState = BarStateEnum.Loading;
@@ -76,6 +135,8 @@ export class PbDataService {
       this.$powerbot.contracts = this.$powerbot.orderbook.contracts;
       // Set Products data
       this.$powerbot.products = this.$powerbot.orderbook.products;
+      console.log(await this.$orders.getOrderBook(this.$powerbot.products[0]).toPromise());
+      // this.$orders.getOrderBooks()
       // Get Log data
       this.$powerbot.logs = await this.$logs.getLogs().toPromise();
       // Get Message data

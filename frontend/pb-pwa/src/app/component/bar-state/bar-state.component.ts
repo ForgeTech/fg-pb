@@ -82,7 +82,7 @@ export class BarStateComponent  extends FgComponentBaseComponent {
         label = 'Error';
       break;
       default:
-        label = 'Disabled';
+        label = 'Disconnected';
       break;
     }
     return label;
