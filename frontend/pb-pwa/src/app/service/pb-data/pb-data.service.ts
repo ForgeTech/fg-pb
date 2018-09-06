@@ -62,44 +62,40 @@ export class PbDataService {
      * Provides access to powerbot auth-service
      * ( used to generate api keys )
      */
-    protected $auth: AuthenticationService,
+    public $auth: AuthenticationService,
     /**
      * Provides access to powerbot contracts-objects service
      */
-    protected $contracts: ContractService,
+    public $contracts: ContractService,
     /**
      * Provides access to powerbot logs-objects service
      */
-    protected $logs: LogsService,
+    public $logs: LogsService,
     /**
      * Provides access to powerbot market-objects service
      */
-    protected $market: MarketService,
+    public $market: MarketService,
     /**
      * Provides access to powerbot message-objects service
      */
-    protected $messages: MessagesService,
+    public $messages: MessagesService,
     /**
      * Provides access to powerbot order-object service
      */
-    protected $orders: OrdersService,
+    public $orders: OrdersService,
     /**
      * Provides access to powerbot signal-objects service
      */
-    protected $signals: SignalsService,
+    public $signals: SignalsService,
     /**
      * Provides access to powerbot trade-object service
      */
-    protected $trades: TradesService,
+    public $trades: TradesService,
     /**
      * Provides access to powerbot trade-object service
      */
-    protected $storage: NgForage,
-  ) {
-    this.$storage.setItem( 'mauzi', {
-      value: 'Liebstest flausch'
-    });
-  }
+    public $storage: NgForage,
+  ) {}
   /**
    * Return observable polling timer-object
    * @param delay The delay before timer dispatches first event
@@ -144,7 +140,7 @@ export class PbDataService {
       this.$powerbot.contracts = this.$powerbot.orderbook.contracts;
       // Set Products data
       this.$powerbot.products = this.$powerbot.orderbook.products;
-      console.log(await this.$orders.getOrderBook(this.$powerbot.products[0]).toPromise());
+      // console.log(await this.$orders.getOrderBook(this.$powerbot.products[0]).toPromise());
       // this.$orders.getOrderBooks()
       // Get Log data
       this.$powerbot.logs = await this.$logs.getLogs().toPromise();
@@ -164,6 +160,8 @@ export class PbDataService {
     }
     // Disable app loading-state when data-fetching is finished
     this.$powerbot.state.appState = BarStateEnum.Disabled;
+    this.$log.warn( this.$powerbot );
+    console.log( this.$powerbot );
     return this.$powerbot;
   }
   /**

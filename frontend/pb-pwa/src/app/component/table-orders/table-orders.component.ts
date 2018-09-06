@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { ModalAddOrderComponent } from '../modal-add-order/modal-add-order.component';
+import { PbAppEvent } from '../../event/pb-app.event';
+import { FgEvent } from '../../class/fg-event.class';
 
+/**
+ * Table-Component for displaying order-data
+ */
 @Component({
   selector: 'pb-table-orders',
   templateUrl: './table-orders.component.html',
@@ -39,20 +44,18 @@ export class TableOrdersComponent extends FgComponentBaseComponent {
     size: 50,
     sizeOptions: [25, 50, 100, 250]
   };
-
+  /**
+   * CONSTRUCTION
+   */
   constructor($component: FgComponentBaseService) {
     super(
       $component
     );
   }
-
+  /**
+   * Dispatch event for opening add-order modal
+   */
   openAddOrderModal( $event: Event ): void {
-    this.$component.$modal.open(ModalAddOrderComponent, {
-      panelClass: 'pb-panel',
-      height: '90vh',
-      width: '90vw',
-      data: this.$component.$data.$powerbot
-    });
+    this.$component.$event.emit( new FgEvent( PbAppEvent.OPEN_ADD_ORDER_MODAL ) );
   }
-
 }

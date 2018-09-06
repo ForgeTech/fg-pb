@@ -2,31 +2,88 @@ import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ConfigLoggingConnection } from '../../../entity/entity.export';
+import { PbAppStorageConst } from '../../../app.storage.const';
+import { NgxLoggerLevel, LoggerConfig } from 'ngx-logger';
+import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 
 @Component({
   selector: 'pb-tab-logging',
   templateUrl: './tab-logging.component.html',
   styleUrls: ['./tab-logging.component.scss']
 })
-export class TabLoggingComponent extends FgComponentBaseComponent {
-  options: FormGroup;
-
+export class TabLoggingComponent extends FgComponentBaseComponent implements PbModalTabComponentInterface {
+  /**
+   * Form containing input-elements to allow
+   * setting logging/debuging configuration
+   */
+  public form: FormGroup;
+  /**
+   * Provide log-level enum to component
+   */
+  protected logLevels = NgxLoggerLevel;
+  /**
+   * CONSTRUCTOR
+   */
   constructor(
-    $component: FgComponentBaseService,
-    $fb: FormBuilder
+    protected $component: FgComponentBaseService,
+    protected $fb: FormBuilder
   ) {
     super(
       $component
     );
-    this.options = $fb.group({
+    this.form = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
-      logsUrl: [null, [Validators.required, Validators.minLength(5)]],
+      logUrl: [null, [Validators.required, Validators.minLength(5)]],
+      logLevel: [null, []],
+      debugUrl: [null, []],
+      cacheForm: [null, []]
     });
   }
-
-  createLoggingConfig( $event: Event ): void {
-
+  /**
+   * Helper-Methode to provide log-level values
+   * in a way they can be used with ngFor-directive
+   */
+  private logLevelsKeys(): Array<string> {
+    let keys = Object.keys(this.logLevels);
+    keys = keys.slice(keys.length / 2);
+    return keys;
+  }
+  /**
+   * Create logging-config from form-data
+   */
+  private getLoggingConfig(): ConfigLoggingConnection {
+    let config: ConfigLoggingConnection = new ConfigLoggingConnection();
+    config.remote_logging_url = this.form.controls.logUrl.value;
+    config.remote_logging_level = this.form.controls.logLevel.value;
+    config.vorlon_debug_server_url = this.form.controls.debugUrl.value;
+    return config;
+  }
+  /**
+   * Persist logging-config in browser
+   */
+  private storeLoggingConfig() {
+    this.$component.$data.$storage.setItem(
+      PbAppStorageConst.PB_SETTINGS_LOGGING,
+      this.getLoggingConfig()
+    );
+  }
+  /**
+   * Configure log-service with remote logging-url and
+   * store config when cacheForm is true
+   */
+  public action() {
+    this.$component.$log.warn('CONNECT LOGGER');
+    if ( !this.form.errors &&  this.form.controls.cacheForm.value === true) {
+      this.$component.$log.warn('Store Config');
+      this.storeLoggingConfig();
+    }
+    let config = this.getLoggingConfig();
+    let currentConfig: LoggerConfig = this.$component.$log.getConfigSnapshot();
+    currentConfig.serverLoggingUrl = config.remote_logging_url;
+    currentConfig.serverLogLevel = this.logLevels[config.remote_logging_level];
+    // this.$component.$log.updateConfig( currentConfig );
   }
 
 }

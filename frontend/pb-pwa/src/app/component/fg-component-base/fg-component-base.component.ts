@@ -35,12 +35,6 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    */
   protected _$component: FgComponentBaseService;
   /**
-   * GETTER for protected member _$component
-   */
-  get $component(): FgComponentBaseService {
-    return this._$component;
-  }
-  /**
    * Contains the identifier of a components dp-entity
    */
   protected _id: number;
@@ -131,13 +125,8 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    */
   constructor(
     // $el: ElementRef,
-    $component: FgComponentBaseService,
+    protected $component: FgComponentBaseService,
   ) {
-    // super(
-    //   $log,
-    //   $component.$event
-    // );
-    this._$component = $component;
     this.event = new EventEmitter<FgEvent>();
     // Default set of component ui-actions
     this.actions = [

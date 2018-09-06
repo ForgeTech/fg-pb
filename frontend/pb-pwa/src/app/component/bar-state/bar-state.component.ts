@@ -5,6 +5,8 @@ import { PowerBotEntity } from '../../entity/powerbot.entity';
 import { ModalMarketComponent } from '../modal-market/modal-market.component';
 import { ModalSettingsComponent } from '../modal-settings/modal-settings.component';
 import { BarStateEntity, BarStateEnum } from '../../entity/bar-state.entity';
+import { PbAppEvent } from '../../event/pb-app.event';
+import { FgEvent } from '../../class/fg-event.class';
 
 /**
  * BarStatusComponent -
@@ -18,7 +20,7 @@ import { BarStateEntity, BarStateEnum } from '../../entity/bar-state.entity';
 })
 export class BarStateComponent  extends FgComponentBaseComponent {
   entity: PowerBotEntity;
-  protected BarStateEnum = BarStateEnum;
+  public BarStateEnum = BarStateEnum;
   /**
    * Constructor
    */
@@ -30,27 +32,17 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   /**
    * Display Market Settings-Modal
    */
-  protected openMarketModal($event: Event): void {
-    this.$component.$modal.open( ModalMarketComponent, {
-      panelClass: 'pb-panel',
-      height: '90vh',
-      width: '90vw',
-      data: this.$component.$data.$powerbot
-    });
+  public openMarketModal($event: Event): void {
+    this.$component.$event.emit( new FgEvent( PbAppEvent.OPEN_MARKET_MODAL ) );
   }
   /**
    * Display Connection Settings-Modal
    */
-  protected openConnectionModal($event: Event): void {
-    this.$component.$modal.open( ModalSettingsComponent, {
-      panelClass: 'pb-panel',
-      height: '90vh',
-      width: '90vw',
-      data: this.$component.$data.$powerbot
-    });
+  public openConnectionModal($event: Event): void {
+    this.$component.$event.emit( new FgEvent( PbAppEvent.OPEN_CONNECTION_MODAL ) );
   }
 
-  protected getStateColor( state: BarStateEnum ): string {
+  public getStateColor( state: BarStateEnum ): string {
     let color = '';
     switch (state) {
       case BarStateEnum.Online:

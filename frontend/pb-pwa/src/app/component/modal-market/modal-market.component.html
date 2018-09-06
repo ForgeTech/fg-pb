@@ -5,7 +5,7 @@
   <div content>
     <div class="modal-login">
       <mat-tab-group
-        color="{{ color }}"
+        color="{{ inputThemeColor }}"
       >
         <mat-tab label="Login">
           <div class="pb-tab tab-test">
@@ -15,17 +15,24 @@
               (ngSubmit)="createMarketConfig( $event )"
             >
               <p>
-                <mat-form-field appearance="fill" color="{{ color }}">
+                <mat-form-field appearance="fill" color="{{ inputThemeColor }}">
                   <mat-label>Market</mat-label>
                   <input
                     matInput
                     placeholder="like: 2434234"
-                    formControlName="market"
+                    formControlName="pwd_epex"
                     required
                   >
                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                   <mat-hint>The password for connection to Epex service</mat-hint>
                 </mat-form-field>
+              </p>
+              <p>
+                <mat-checkbox
+                  formControlName="cacheForm"
+                >
+                  Remember me
+                </mat-checkbox>
               </p>
             </form>
           </div>
@@ -37,7 +44,7 @@
     <button
       mat-flat-button
       color="primary"
-      (click)="saveMarket($event)"
+      (click)="closeModal($event)"
     >
       Cancel
     </button>

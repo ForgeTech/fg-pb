@@ -24,6 +24,10 @@ OrderEntity,
 SignalEntity,
 TradeEntity,
 } from './entity/entity.export';
+import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
+import { ModalHelpComponent } from './component/modal-help/modal-help.component';
+import { ModalMarketComponent } from './component/modal-market/modal-market.component';
+import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
 
 /**
   * The application-component loaded by angular-module bootstrap
@@ -110,17 +114,43 @@ export class AppComponent // extends FgEventSubscriber
     /**
      * TODO Only open modal when connection config data isn't set
      */
-    // this.$dialog.open(ModalSettingsComponent, {
-    //     panelClass: 'pb-panel',
-    //     height: '90vh',
-    //     width: '90vw',
-    //   } );
-    // this.$dialog.open(ModalLoginComponent, {
-    //     panelClass: 'pb-panel',
-    //     height: '90vh',
-    //     width: '90vw',
-    //  } );
 
+    this.$app.$log.warn('Dispatch Connect_API');
+    this.$app.$event.emit( new FgEvent( PbAppEvent.CONNECT_API ) );
+
+    const modal_config = {
+      panelClass: 'pb-panel',
+      height: '90vh',
+      width: '90vw',
+    };
+    // Register event to open connection modal
+    this.$component.$event.event$
+    .filter( event => event.signature === PbAppEvent.OPEN_CONNECTION_MODAL )
+    .subscribe( event => {
+      this.$app.$log.warn('OPEN CONNECTION MODAL');
+      this.$dialog.open( ModalSettingsComponent, modal_config );
+    });
+    // Register event to open market modal
+    this.$component.$event.event$
+    .filter( event => event.signature === PbAppEvent.OPEN_MARKET_MODAL )
+    .subscribe( event => {
+      this.$app.$log.warn('OPEN MARKET MODAL!');
+      this.$dialog.open( ModalMarketComponent, modal_config );
+    });
+    // Register event to open add-order modal
+    this.$component.$event.event$
+    .filter( event => event.signature === PbAppEvent.OPEN_ADD_ORDER_MODAL )
+    .subscribe( event => {
+      this.$app.$log.warn('OPEN ADD-ORDER MODAL!');
+      this.$dialog.open( ModalAddOrderComponent, modal_config );
+    });
+    // Register event to open help modal
+    this.$component.$event.event$
+    .filter( event => event.signature === PbAppEvent.OPEN_HELP_MODAL )
+    .subscribe( event => {
+      this.$app.$log.warn('OPEN HELP MODAL!');
+      this.$dialog.open( ModalHelpComponent, modal_config );
+    });
     // Register event for connecting to API
     this.$component.$event.event$
     .filter(event => event.signature === PbAppEvent.CONNECT_API)
@@ -164,6 +194,7 @@ export class AppComponent // extends FgEventSubscriber
       // FgComponentBaseEvent.EXPORT,
       // FgComponentBaseEvent.PRINT,
     ]);
+    this.$app.$event.emit(new FgEvent(PbAppEvent.CONNECT_API));
   }
   /**
    * Fetch and set application-data
@@ -193,30 +224,6 @@ export class AppComponent // extends FgEventSubscriber
   protected stopDataPolling(): void {
     this.timerSubscribtion.unsubscribe();
   }
-  /**
-   * TODO: Set active entity
-   */
-  // protected setSelectedComponent(): (event: FgEvent) => void {
-  //   return event => {
-  //     // if (event.dispatcher) {
-  //       // if (event.dispatcher && event.dispatcher['actions']) {
-  //       this.selectedComponent = event.dispatcher as FgComponentBaseComponent;
-  //       this.selectedComponentEntity = event.data as any; // IFgComponentBaseAbstractEntityInterface;
-  //       console.log(this.selectedComponent);
-  //     // }
-  //   };
-  // }
-  /**
-   * TODO: Set active entity
-   */
-  // protected setActiveComponent(): (event: FgEvent) => void {
-  //   return event => {
-  //     if (event.dispatcher && event.dispatcher['actions']) {
-  //       this.activeComponent = event.dispatcher;
-  //       this.activeComponentEntity = event.data;
-  //     }
-  //   };
-  // }
   /**
    * Implements methode for component life-cycle OnInit-Interface.
    */

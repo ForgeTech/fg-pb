@@ -2,7 +2,7 @@
 <div class="pb-tab tab-logging">
   <form
     class="tab-logging-form"
-    [formGroup]="options"
+    [formGroup]="form"
     (ngSubmit)="createLoggingConfig( $event )"
   >
     <p>
@@ -10,16 +10,53 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label>Logging Url</mat-label>
+        <mat-label>Remote Log-Server Url</mat-label>
         <input
           matInput
           placeholder="like: https://powerbot-trading/api/logs"
-          formControlName="logsUrl"
+          formControlName="logUrl"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Url to logging server</mat-hint>
+        <mat-hint>Url to remote log-server</mat-hint>
       </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Remote Log-Level</mat-label>
+        <mat-select
+          placeholder="like: Debug"
+          formControlName="logLevel"
+          required
+        >
+          <mat-option *ngFor="let level of logLevelsKeys()" [value]="level">
+            {{level}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Only matching logs will be sent to remote log-server</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field
+        appearance="fill"
+        color="{{ config }}"
+      >
+        <mat-label>Vorlon Debug-Server URL</mat-label>
+        <input
+          matInput
+          placeholder="like: https://powerbot-trading/api/logs"
+          formControlName="debugUrl"
+        >
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>Url to remote log-server</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-checkbox
+        formControlName="cacheForm"
+      >
+        Remember me
+      </mat-checkbox>
     </p>
   </form>
 </div>

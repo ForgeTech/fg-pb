@@ -2,31 +2,44 @@ import { Component, Inject } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { MatDialogRef } from '@angular/material';
-import { MAT_DIALOG_DATA } from '@angular/material'
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { PowerBotEntity } from '../../entity/powerbot.entity';
 
-
+/**
+ * ModalComponent - Meant as base component to be extendet
+ * by other Powerbot modal-dialogs
+ */
 @Component({
   selector: 'pb-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent extends FgComponentBaseComponent {
-  public color: string;
-  public colorInvert: string;
-
+  /**
+   * The color that should be used for input-labels -
+   * it's set to accent color for dark-theme instead
+   * of primary for default-theme
+   */
+  public inputThemeColor: string;
+  /**
+   * CONSTRUCTOR
+   * @param modalRef Ref to the modal-dialog Component
+   * @param data The optional data-object that can be passed via dialog-config
+   */
   constructor(
     public modalRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
-    $component: FgComponentBaseService) {
+    $component: FgComponentBaseService
+  ) {
     super(
       $component
     );
-    this.color = this.data.darkTheme ? 'accent' : 'primary';
-    // console.log('DATA MODAL');
-    // console.log( this.data.darkTheme );
+    this.inputThemeColor = this.$component.$data.$powerbot.darkTheme ? 'accent' : 'primary';
   }
-
+  /**
+   * Methode to be called when the user wants to close the
+   * modal-dialog window
+   */
   closeModal(): void {
     this.modalRef.close('CLOSE MODAL');
   }

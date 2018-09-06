@@ -4,7 +4,8 @@ import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { ModalComponent } from '../modal/modal.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PowerBotEntity } from '../../entity/entity.export';
+import { PowerBotEntity, ConfigMarketConnection } from '../../entity/entity.export';
+import { PbAppStorageConst } from '../../app.storage.const';
 
 @Component({
   selector: 'pb-modal-market',
@@ -12,8 +13,14 @@ import { PowerBotEntity } from '../../entity/entity.export';
   styleUrls: ['./modal-market.component.scss']
 })
 export class ModalMarketComponent extends ModalComponent {
-  options: FormGroup;
-
+  /**
+   * The Form containing input-elements
+   * for setting market configuration
+   */
+  marketForm: FormGroup;
+  /**
+   * CONSTRUCTOR
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
     public modalRef: MatDialogRef<any>,
@@ -25,24 +32,40 @@ export class ModalMarketComponent extends ModalComponent {
       data,
       $component
     );
-    this.options = $fb.group({
+    this.marketForm = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
-      market: [null, [Validators.required, Validators.minLength(5)]],
+      pwd_epex: [null, [Validators.required, Validators.minLength(5)]],
+      cacheForm: [null, []]
     });
   }
-
-  createMarketConfig( $event: Event ): void {
-    console.log('MARKET CONFIG');
+  /**
+  * Create market-config from form-data
+  */
+  private getMarketConfig(): ConfigMarketConnection {
+    let config: ConfigMarketConnection = new ConfigMarketConnection();
+    config.pwd_epex = this.marketForm.controls.pwd_epex.value;
+    return config;
   }
-
-  cancelMarket( $event: Event ): void {
-    console.log('CANCEL');
-    console.log(this.entity);
+  /**
+   * Persist market-config in browser
+   */
+  private storeMarketConfig() {
+    this.$component.$data.$storage.setItem(
+      PbAppStorageConst.PB_SETTINGS_MARKET,
+      this.getMarketConfig()
+    );
   }
-  saveMarket( $event: Event ): void {
-    console.log('SAVE');
-    console.log(this.entity);
+  /**
+   * TODO: Find out how to connect market
+   * Configure powerbot to pass market-configuration with requests
+   * to allow connecting to market, so orders can be placed
+   */
+  public connectMarket() {
+    if (!this.marketForm.errors && this.marketForm.controls.cacheForm.value === true) {
+      this.storeMarketConfig();
+    }
+    let config = this.getMarketConfig();
   }
 
 }

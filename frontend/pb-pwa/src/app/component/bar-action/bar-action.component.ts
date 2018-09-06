@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
-import { ModalSettingsComponent } from '../modal-settings/modal-settings.component';
-import { ModalMarketComponent } from '../modal-market/modal-market.component';
 import { FgEvent } from '../../class/fg-class.export';
 import { PbAppEvent } from '../../event/fg-events.export';
 /**
@@ -28,23 +26,13 @@ export class BarActionComponent extends FgComponentBaseComponent {
    * Methode to open Market-Settings Modal
    */
   openMarketModal( $event: Event): void {
-    this.$component.$modal.open( ModalMarketComponent, {
-      panelClass: 'pb-panel',
-      height: '90vh',
-      width: '90vw',
-      data: this.$component.$data.$powerbot,
-    });
+    this.$component.$event.emit( new FgEvent( PbAppEvent.OPEN_MARKET_MODAL ) );
   }
   /**
    * Methode to open Api-Settings Modal
    */
   openSettingsModal($event: Event): void {
-    this.$component.$modal.open( ModalSettingsComponent, {
-      panelClass: 'pb-panel',
-      height: '90vh',
-      width: '90vw',
-      data: this.$component.$data.$powerbot
-    });
+    this.$component.$event.emit( new FgEvent( PbAppEvent.OPEN_CONNECTION_MODAL) );
   }
   /**
    * Dispatch signal for disconnecting from api

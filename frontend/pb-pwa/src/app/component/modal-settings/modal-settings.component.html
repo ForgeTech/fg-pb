@@ -3,18 +3,22 @@
     Connection Settings
   </div>
   <div content>
-    <mat-tab-group color="{{ color }}">
+    <mat-tab-group #tabGroup
+      color="{{ inputThemeColor }}"
+      [selectedIndex]="selectedTabIndex"
+      (selectedTabChange)="onTabChange($event)"
+    >
       <mat-tab label="Production">
-        <pb-tab-production [config]="color"></pb-tab-production>
+        <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>
       </mat-tab>
       <mat-tab label="Test">
-        <pb-tab-test [config]="color"></pb-tab-test>
+        <pb-tab-test #tabTest [config]="inputThemeColor"></pb-tab-test>
       </mat-tab>
       <mat-tab label="Logging">
-        <pb-tab-logging [config]="color"></pb-tab-logging>
+        <pb-tab-logging #tabLogging [config]="inputThemeColor"></pb-tab-logging>
       </mat-tab>
       <mat-tab label="Api Key">
-        <pb-tab-api-key [config]="color"></pb-tab-api-key>
+        <pb-tab-api-key #tabApi [config]="inputThemeColor"></pb-tab-api-key>
       </mat-tab>
     </mat-tab-group>
   </div>
@@ -22,16 +26,17 @@
     <button
       mat-flat-button
       color="primary"
-      (click)="cancelSettings($event)"
-      >
+      (click)="closeModal($event)"
+    >
       Cancel
     </button>
     <button
-    mat-raised-button
-    color="accent"
-    (click)="saveSettings($event)"
+      mat-raised-button
+      color="accent"
+      [disabled]="isDisabled()"
+      (click)="action($event)"
     >
-      Save
+      {{ getModalActionBtnLabel() }}
     </button>
   </div>
 </pb-modal>

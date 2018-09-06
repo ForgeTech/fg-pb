@@ -3,7 +3,7 @@
     Order
   </div>
   <div content>
-    <mat-tab-group color="{{ color }}">
+    <mat-tab-group color="{{ this.inputThemeColor }}">
       <mat-tab label="Add Orders">
         <pb-table-add-order
           [entity]="data"
@@ -16,14 +16,14 @@
     <button
       mat-flat-button
       color="primary"
-      (click)="cancelSettings($event)"
-      >
+      (click)="closeModal($event)"
+    >
       Cancel
     </button>
     <button
-    mat-raised-button
-    color="accent"
-    (click)="saveSettings($event)"
+      mat-raised-button
+      color="accent"
+      (click)="saveSettings($event)"
     >
       Add
     </button>
