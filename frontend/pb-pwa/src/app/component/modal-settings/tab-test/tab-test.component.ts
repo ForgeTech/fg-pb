@@ -5,7 +5,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfigTestConnection } from '../../../entity/entity.export';
 import { PbAppStorageConst } from '../../../app.storage.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
+import { FgEvent } from '../../../class/fg-event.class';
+import { PbAppEvent } from '../../../event/pb-app.event';
 
+/**
+ * TabTestComponent -
+ * This Tab is used to set powerbot test-api configuraion
+ * data
+ */
 @Component({
   selector: 'pb-tab-test',
   templateUrl: './tab-test.component.html',
@@ -21,7 +28,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    * CONSTRUCTOR
    */
   constructor(
-    protected $component: FgComponentBaseService,
+    public $component: FgComponentBaseService,
     protected $fb: FormBuilder
   ) {
     super(
@@ -32,16 +39,27 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
       floatLabel: 'auto',
       serverUrl: [null, [Validators.required, Validators.minLength(5)]],
       apiKey: [null, [Validators.required]],
-      cacheForm: [null, []],
+      store: [null, []],
     });
+    this.setFormData();
   }
   /**
- * Create logging-config from form-data
- */
-  private getLoggingConfig(): ConfigTestConnection {
+   * Set form-data from powerbot storage
+   */
+  private setFormData(): void {
+    this.$component.$log.warn('SET DATA!!!');
+    this.form.patchValue(
+      this.$component.$data.$powerbot.config.testConfig
+    );
+  }
+  /**
+   * Create logging-config from form-data
+   */
+  private getFormData(): ConfigTestConnection {
     let config: ConfigTestConnection = new ConfigTestConnection();
-    config.api_server_url = this.form.controls.serverUrl.value;
-    config.api_key = this.form.controls.apiKey.value;
+    config.serverUrl = this.form.controls.serverUrl.value;
+    config.apiKey = this.form.controls.apiKey.value;
+    config.store = this.form.controls.store.value;
     return config;
   }
   /**
@@ -49,8 +67,8 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    */
   private storeLoggingConfig() {
     this.$component.$data.$storage.setItem(
-      PbAppStorageConst.PB_SETTINGS_TEST,
-      this.getLoggingConfig()
+      PbAppStorageConst.CONFIG_TEST,
+      this.getFormData()
     );
   }
   /**
@@ -60,12 +78,10 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    * Configure log-service with remote logging-url and
    * store config when cacheForm is true
    */
-  public action() {
-    this.$component.$log.warn('CONNECT LOGGER');
-    if (!this.form.errors && this.form.controls.cacheForm.value === true) {
-      this.$component.$log.warn('Store Config');
+  public action($event: any = false) {
+    if (!this.form.errors && this.form.controls.store.value === true) {
       this.storeLoggingConfig();
     }
-    let config = this.getLoggingConfig();
+    this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API, this));
   }
 }

@@ -33,7 +33,7 @@ export class PowerBotEntity {
     /**
      * Holds PowerBot configuration data
      */
-    public config?: ConfigPowerbot,
+    public config: ConfigPowerbot = new ConfigPowerbot(),
     /**
      * Holds current powerbot contract data
      */

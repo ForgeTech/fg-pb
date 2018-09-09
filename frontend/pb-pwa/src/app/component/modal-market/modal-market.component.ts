@@ -17,7 +17,7 @@ export class ModalMarketComponent extends ModalComponent {
    * The Form containing input-elements
    * for setting market configuration
    */
-  marketForm: FormGroup;
+  form: FormGroup;
   /**
    * CONSTRUCTOR
    */
@@ -32,19 +32,28 @@ export class ModalMarketComponent extends ModalComponent {
       data,
       $component
     );
-    this.marketForm = $fb.group({
+    this.form = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
-      pwd_epex: [null, [Validators.required, Validators.minLength(5)]],
-      cacheForm: [null, []]
+      epexPass: [null, [Validators.required, Validators.minLength(5)]],
+      store: [null, []]
     });
+    this.setFormData();
+  }
+  /**
+   * Set form-data from powerbot storage
+   */
+  private setFormData(): void {
+    this.form.patchValue(
+      this.$component.$data.$powerbot.config.marketConfig
+    );
   }
   /**
   * Create market-config from form-data
   */
   private getMarketConfig(): ConfigMarketConnection {
     let config: ConfigMarketConnection = new ConfigMarketConnection();
-    config.pwd_epex = this.marketForm.controls.pwd_epex.value;
+    config.epexPass = this.form.controls.epexPass.value;
     return config;
   }
   /**
@@ -52,7 +61,7 @@ export class ModalMarketComponent extends ModalComponent {
    */
   private storeMarketConfig() {
     this.$component.$data.$storage.setItem(
-      PbAppStorageConst.PB_SETTINGS_MARKET,
+      PbAppStorageConst.CONFIG_MARKET,
       this.getMarketConfig()
     );
   }
@@ -61,8 +70,8 @@ export class ModalMarketComponent extends ModalComponent {
    * Configure powerbot to pass market-configuration with requests
    * to allow connecting to market, so orders can be placed
    */
-  public connectMarket() {
-    if (!this.marketForm.errors && this.marketForm.controls.cacheForm.value === true) {
+  public action( $event: Event ) {
+    if (!this.form.errors && this.form.controls.store.value === true) {
       this.storeMarketConfig();
     }
     let config = this.getMarketConfig();

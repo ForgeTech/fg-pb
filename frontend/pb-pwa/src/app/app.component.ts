@@ -99,24 +99,25 @@ export class AppComponent // extends FgEventSubscriber
     // this.eventsToSubscribe = [
       // [ FgProjectEvent.SyncForge, this.addEntity() ],
     // ];
-    /**
-     * TODO: Store and receive config from localstorage variable
-     * if user has entered them before and checked remember box
-     */
-    this.config = new ConfigPowerbot();
-    this.config.connection_test.api_key = '44fc8162-d2c6-432a-8279-d8d40e5c0e1b';
-    this.config.connection_test.api_server_url = 'https://playground.powerbot-trading.com/api/v0';
-    this.config.connection_test.cache_connection = true;
-    // Set powerbot-config on at dataservice
-    this.$app.$data.$powerbot.config = this.config;
 
     // Initialize powerbot-application
+    // Set powerbot-config on at dataservice
+    this.$app.$data.initConfigFromStorage().then( powerbot => {
+      try {
+        Object.assign( powerbot.config, environment.powerbot.config );
+        this.$app.$log.warn( 'Powerbot configuration set from environment-file!' );
+        console.log(environment);
+        console.log(this.$app.$data.$powerbot.config);
+      } catch ( error ) {
+        this.$app.$log.info( `Environment didn't overreide Powerbot configuration!` );
+      }
+      this.$app.$event.emit( new FgEvent( PbAppEvent.OPEN_CONNECTION_MODAL ) );
+    } );
     /**
      * TODO Only open modal when connection config data isn't set
      */
-
-    this.$app.$log.warn('Dispatch Connect_API');
-    this.$app.$event.emit( new FgEvent( PbAppEvent.CONNECT_API ) );
+    // this.$app.$log.warn('Dispatch Connect_API');
+    // this.$app.$event.emit( new FgEvent( PbAppEvent.CONNECT_API ) );
 
     const modal_config = {
       panelClass: 'pb-panel',
@@ -156,6 +157,7 @@ export class AppComponent // extends FgEventSubscriber
     .filter(event => event.signature === PbAppEvent.CONNECT_API)
     .subscribe( event => {
       this.$app.$log.warn('CONNECT API!');
+      console.log( event );
       // Start polling data from backend
       this.startDataPolling();
     });
@@ -194,7 +196,6 @@ export class AppComponent // extends FgEventSubscriber
       // FgComponentBaseEvent.EXPORT,
       // FgComponentBaseEvent.PRINT,
     ]);
-    this.$app.$event.emit(new FgEvent(PbAppEvent.CONNECT_API));
   }
   /**
    * Fetch and set application-data

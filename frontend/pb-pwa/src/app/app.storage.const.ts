@@ -12,17 +12,17 @@ export class PbAppStorageConst {
     /**
     * Identifier that should be used for powerbot production-connection-settings
     */
-    public static readonly PB_SETTINGS_PRODUCTION = 'pb_settings_production';
+    public static readonly CONFIG_PRODUCTION = 'pb_config_production';
     /**
     * Identifier that should be used for powerbot test-connection-settings
     */
-    public static readonly PB_SETTINGS_TEST = 'pb_settings_test';
+    public static readonly CONFIG_TEST = 'pb_config_test';
     /**
     * Identifier that should be used for powerbot test-connection-settings
     */
-    public static readonly PB_SETTINGS_LOGGING = 'pb_settings_logging';
+    public static readonly CONFIG_LOGGING = 'pb_config_logging';
     /**
     * Identifier that should be used for powerbot test-connection-settings
     */
-    public static readonly PB_SETTINGS_MARKET = 'pb_settings_market';
+    public static readonly CONFIG_MARKET = 'pb_config_market';
 }

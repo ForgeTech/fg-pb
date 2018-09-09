@@ -29,7 +29,7 @@ export class ModalComponent extends FgComponentBaseComponent {
   constructor(
     public modalRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
-    $component: FgComponentBaseService
+    public $component: FgComponentBaseService
   ) {
     super(
       $component
@@ -40,7 +40,7 @@ export class ModalComponent extends FgComponentBaseComponent {
    * Methode to be called when the user wants to close the
    * modal-dialog window
    */
-  closeModal(): void {
+  closeModal($event?: Event ): void {
     this.modalRef.close('CLOSE MODAL');
   }
 

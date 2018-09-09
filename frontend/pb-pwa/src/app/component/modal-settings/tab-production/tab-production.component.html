@@ -2,7 +2,7 @@
   <form
     class="tab-production-form"
     [formGroup]="form"
-    (ngSubmit)="createProductionConfig( $event )"
+    (ngSubmit)="action( $event )"
   >
     <p>
       <mat-form-field
@@ -54,7 +54,7 @@
     </p>
     <p>
       <mat-checkbox
-        formControlName="cacheForm"
+        formControlName="store"
         required
         color="{{ config }}"
       >

@@ -39,15 +39,9 @@ export class ModalSettingsComponent extends ModalComponent {
   @ViewChild('tabLogging') tabLogging: TabLoggingComponent;
   @ViewChild('tabApi') tabApi: TabApiKeyComponent;
   /**
-   * Collection of available components nested in
-   * tabs
+   * Hold references to tab-components
    */
-  tabComponents: PbModalTabComponentInterface[] = [
-    this.tabProduction,
-    this.tabTest,
-    this.tabLogging,
-    this.tabApi
-  ];
+  public tabComponents: PbModalTabComponentInterface[];
   /**
    * Variable to hold the active-tab index
    */
@@ -71,19 +65,34 @@ export class ModalSettingsComponent extends ModalComponent {
     );
   }
   /**
+   * Override Life-cycle methode from super
+   * class
+   */
+  public ngAfterViewInit(): void {
+    super.ngAfterViewInit();
+    // Initialize variables with view-references after
+    // components where created
+    this.activeTab = this.tabProduction;
+    this.tabComponents = [
+      this.tabProduction,
+      this.tabTest,
+      this.tabLogging,
+      this.tabApi
+    ];
+  }
+  /**
    * Method to call when a selection appears on
    * modal tab-group
    */
   onTabChange($event: MatTabChangeEvent ) {
     this.activeTabIndex = $event.index;
-    this.activeTab = this.activeTab[ this.activeTabIndex ];
+    this.activeTab = this.tabComponents[ this.activeTabIndex ];
   }
   /**
    * Methode to call when add-orders modal-dialog
    * should be canceled
    */
   cancelSettings($event: Event): void {
-    console.log('Cancel');
     this.closeModal();
   }
   /**

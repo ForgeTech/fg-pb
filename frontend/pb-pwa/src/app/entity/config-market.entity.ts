@@ -11,6 +11,6 @@ export class ConfigMarketConnection {
     /**
     * Password for accessing epex
     */
-    public pwd_epex: string = '',
+    public epexPass: string = '',
   ) {}
 }

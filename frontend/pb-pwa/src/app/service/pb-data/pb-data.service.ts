@@ -26,7 +26,8 @@ import {
  } from '../../entity/entity.export';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { BarStateEnum } from '../../entity/bar-state.entity';
-import { NgForage, NgForageCache, NgForageConfig, CachedItem } from 'ngforage';
+import { NgForage, NgForageCache, NgForageConfig, CachedItem, NgForageModule } from 'ngforage';
+import { PbAppStorageConst } from '../../app.storage.const';
 
 /**
  * DataService -
@@ -39,7 +40,7 @@ export class PbDataService {
    * Represents the collected set of application-data
    * and provides access to it within powerbot-application
    */
-  public $powerbot: PowerBotEntity = new PowerBotEntity();
+  public $powerbot: PowerBotEntity;
   /**
    * TODO: Should keep track of the number of called api
    * requests used to display loading state for parallel
@@ -96,12 +97,17 @@ export class PbDataService {
      */
     public $storage: NgForage,
   ) {}
+  // async getPowerBotConfig() Promise<PowerBotEntity> {
+  //   return // Init Powerbot from store if data is available
+
+  //   });
+  // }
   /**
    * Return observable polling timer-object
    * @param delay The delay before timer dispatches first event
    * @param tick The intervall in which the timer dispatches it's event
    */
-  getPollingTimer( delay: number = 0, tick: number = 1000 ): TimerObservable<any> {
+  getPollingTimer( delay: number = 0, tick: number = 5000 ): TimerObservable<any> {
     if (!this.$pollingTimer) {
       this.$pollingTimer = TimerObservable.create(delay, tick);
     }
@@ -160,8 +166,32 @@ export class PbDataService {
     }
     // Disable app loading-state when data-fetching is finished
     this.$powerbot.state.appState = BarStateEnum.Disabled;
-    this.$log.warn( this.$powerbot );
+    // this.$log.warn( this.$powerbot );
     console.log( this.$powerbot );
+    return this.$powerbot;
+  }
+  /**
+   * Initialize Powerbot from browser-storage
+   */
+  async initConfigFromStorage(): Promise<PowerBotEntity> {
+    this.$powerbot = new PowerBotEntity();
+    let config;
+    config = await this.$storage.getItem( PbAppStorageConst.CONFIG_PRODUCTION );
+    if ( config ) {
+      Object.assign( this.$powerbot.config.prodConfig, config );
+    }
+    config = await this.$storage.getItem( PbAppStorageConst.CONFIG_TEST );
+    if ( config ) {
+      Object.assign( this.$powerbot.config.testConfig, config );
+    }
+    config = await this.$storage.getItem( PbAppStorageConst.CONFIG_LOGGING );
+    if ( config ) {
+      Object.assign( this.$powerbot.config.logConfig, config );
+    }
+    config = await this.$storage.getItem( PbAppStorageConst.CONFIG_MARKET );
+    if ( config ) {
+      Object.assign( this.$powerbot.config.marketConfig, config );
+    }
     return this.$powerbot;
   }
   /**

@@ -26,7 +26,7 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    * CONSTRUCTOR
    */
   constructor(
-    protected $component: FgComponentBaseService,
+    public $component: FgComponentBaseService,
     protected $fb: FormBuilder
   ) {
     super(
@@ -38,14 +38,23 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
       logUrl: [null, [Validators.required, Validators.minLength(5)]],
       logLevel: [null, []],
       debugUrl: [null, []],
-      cacheForm: [null, []]
+      store: [null, []]
     });
+    this.setFormData();
+  }
+  /**
+   * Set form-data from powerbot storage
+   */
+  private setFormData(): void {
+    this.form.patchValue(
+      this.$component.$data.$powerbot.config.logConfig
+    );
   }
   /**
    * Helper-Methode to provide log-level values
    * in a way they can be used with ngFor-directive
    */
-  private logLevelsKeys(): Array<string> {
+  public logLevelsKeys(): Array<string> {
     let keys = Object.keys(this.logLevels);
     keys = keys.slice(keys.length / 2);
     return keys;
@@ -55,9 +64,10 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    */
   private getLoggingConfig(): ConfigLoggingConnection {
     let config: ConfigLoggingConnection = new ConfigLoggingConnection();
-    config.remote_logging_url = this.form.controls.logUrl.value;
-    config.remote_logging_level = this.form.controls.logLevel.value;
-    config.vorlon_debug_server_url = this.form.controls.debugUrl.value;
+    config.logUrl = this.form.controls.logUrl.value;
+    config.logLevel = this.form.controls.logLevel.value;
+    config.debugUrl = this.form.controls.debugUrl.value;
+    config.store = this.form.controls.store.value;
     return config;
   }
   /**
@@ -65,7 +75,7 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    */
   private storeLoggingConfig() {
     this.$component.$data.$storage.setItem(
-      PbAppStorageConst.PB_SETTINGS_LOGGING,
+      PbAppStorageConst.CONFIG_LOGGING,
       this.getLoggingConfig()
     );
   }
@@ -73,16 +83,14 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    * Configure log-service with remote logging-url and
    * store config when cacheForm is true
    */
-  public action() {
-    this.$component.$log.warn('CONNECT LOGGER');
-    if ( !this.form.errors &&  this.form.controls.cacheForm.value === true) {
-      this.$component.$log.warn('Store Config');
+  public action($event: any = false) {
+    if ( !this.form.errors &&  this.form.controls.store.value === true) {
       this.storeLoggingConfig();
     }
     let config = this.getLoggingConfig();
     let currentConfig: LoggerConfig = this.$component.$log.getConfigSnapshot();
-    currentConfig.serverLoggingUrl = config.remote_logging_url;
-    currentConfig.serverLogLevel = this.logLevels[config.remote_logging_level];
+    currentConfig.serverLoggingUrl = config.logUrl;
+    currentConfig.serverLogLevel = this.logLevels[config.logLevel];
     // this.$component.$log.updateConfig( currentConfig );
   }
 

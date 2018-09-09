@@ -2,7 +2,7 @@
   <form
     class="tab-api-key-form"
     [formGroup]="form"
-    (ngSubmit)="createApiConfig( $event )"
+    (ngSubmit)="action( $event )"
     novalidate
   >
     <p>
@@ -11,7 +11,7 @@
         <input
           matInput
           placeholder="like: ljad032234"
-          formControlName="roboCompPass"
+          formControlName="roboPass"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>

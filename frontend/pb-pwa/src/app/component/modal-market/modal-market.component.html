@@ -11,16 +11,17 @@
           <div class="pb-tab tab-test">
             <form
               class="modal-login-form"
-              [formGroup]="options"
-              (ngSubmit)="createMarketConfig( $event )"
-            >
+              [formGroup]="form"
+              (ngSubmit)="action($event)"
+              >
+              <!-- [formGroup]="form" -->
               <p>
                 <mat-form-field appearance="fill" color="{{ inputThemeColor }}">
                   <mat-label>Market</mat-label>
                   <input
                     matInput
                     placeholder="like: 2434234"
-                    formControlName="pwd_epex"
+                    formControlName="epexPass"
                     required
                   >
                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
@@ -29,7 +30,7 @@
               </p>
               <p>
                 <mat-checkbox
-                  formControlName="cacheForm"
+                  formControlName="store"
                 >
                   Remember me
                 </mat-checkbox>
@@ -51,7 +52,7 @@
     <button
       mat-raised-button
       color="accent"
-      (click)="saveMarket($event)"
+      (click)="action($event)"
     >
       Login
     </button>

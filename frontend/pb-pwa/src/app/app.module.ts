@@ -170,13 +170,14 @@ const appRoutes: Routes = [
     FgMaterialModule,
     FlexLayoutModule,
     FgGlobalScopeModule.forBrowser(),
-    NgForageModule.forRoot({
-      name: 'PowerBot',
-      driver: [ // defaults to indexedDB -> webSQL -> localStorage -> sessionStorage
-        NgForageConfig.DRIVER_INDEXEDDB,
-        NgForageConfig.DRIVER_LOCALSTORAGE
-      ]
-    }),
+    NgForageModule.forRoot(),
+    // NgForageModule.forRoot({
+      // name: 'PowerBot',
+      // driver: [ // defaults to indexedDB -> webSQL -> localStorage -> sessionStorage
+      //   NgForageConfig.DRIVER_INDEXEDDB,
+      //   NgForageConfig.DRIVER_LOCALSTORAGE
+      // ]
+    // }),
     ApiModule.forRoot(apiConfigFactory),
     LoggerModule.forRoot({
       // serverLoggingUrl: '/api/logs',

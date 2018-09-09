@@ -5,6 +5,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfigProductionConnection } from '../../../entity/entity.export';
 import { PbAppStorageConst } from '../../../app.storage.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
+import { FgEvent } from '../../../class/fg-event.class';
+import { PbAppEvent } from '../../../event/pb-app.event';
 
 @Component({
   selector: 'pb-tab-production',
@@ -21,7 +23,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * CONSTRUCTOR
    */
   constructor(
-    protected $component: FgComponentBaseService,
+    public $component: FgComponentBaseService,
     protected $fb: FormBuilder
   ) {
     super(
@@ -33,16 +35,27 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
       serverUrl: [null, [Validators.required, Validators.minLength(5)]],
       backupUrl: [null, [Validators.required]],
       apiKey: [null, [Validators.required]],
-      cacheForm: [null, []],
+      store: [null, []],
     });
+    this.setFormData();
+  }
+  /**
+   * Set form-data from powerbot storage
+   */
+  private setFormData(): void {
+    this.form.patchValue(
+      this.$component.$data.$powerbot.config.prodConfig
+    );
   }
   /**
    * Create production-config from form-data
    */
   private getProductionConfig(): ConfigProductionConnection {
     let config: ConfigProductionConnection = new ConfigProductionConnection();
-    config.api_server_url = this.form.controls.serverUrl.value;
-    config.backup_server_url = this.form.controls.backupUrl.value;
+    config.serverUrl = this.form.controls.serverUrl.value;
+    config.backupUrl = this.form.controls.backupUrl.value;
+    config.apiKey = this.form.controls.apiKey.value;
+    config.store = this.form.controls.store.value;
     return config;
   }
   /**
@@ -50,7 +63,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    */
   private storeProductionConfig() {
     this.$component.$data.$storage.setItem(
-      PbAppStorageConst.PB_SETTINGS_PRODUCTION,
+      PbAppStorageConst.CONFIG_PRODUCTION,
       this.getProductionConfig()
     );
   }
@@ -62,13 +75,11 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * Configure data-service with powerbot-production
    * configuration
    */
-  public action() {
-    this.$component.$log.warn('CONNECT LOGGER');
-    if (!this.form.errors && this.form.controls.cacheForm.value === true) {
-      this.$component.$log.warn('Store Config');
+  public action($event: any = false) {
+    if (!this.form.errors && this.form.controls.store.value === true) {
       this.storeProductionConfig();
     }
-    let config = this.getProductionConfig();
+    this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API, this));
   }
 
 }

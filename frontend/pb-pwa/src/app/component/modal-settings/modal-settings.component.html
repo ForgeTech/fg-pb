@@ -5,7 +5,7 @@
   <div content>
     <mat-tab-group #tabGroup
       color="{{ inputThemeColor }}"
-      [selectedIndex]="selectedTabIndex"
+      [selectedIndex]="activeTabIndex"
       (selectedTabChange)="onTabChange($event)"
     >
       <mat-tab label="Production">
@@ -33,9 +33,9 @@
     <button
       mat-raised-button
       color="accent"
-      [disabled]="isDisabled()"
       (click)="action($event)"
-    >
+      >
+      <!-- [disabled]="isDisabled()" -->
       {{ getModalActionBtnLabel() }}
     </button>
   </div>

@@ -1,7 +1,7 @@
 <div class="pb-tab tab-test">
   <form class="tab-test-form"
     [formGroup]="form"
-    (ngSubmit)="createTestConfig( $event )"
+    (ngSubmit)="action( $event )"
   >
     <p>
       <mat-form-field
@@ -37,8 +37,7 @@
     </p>
     <p>
       <mat-checkbox
-        formControlName="cacheForm"
-        required
+        formControlName="store"
       >
         Remember me
       </mat-checkbox>

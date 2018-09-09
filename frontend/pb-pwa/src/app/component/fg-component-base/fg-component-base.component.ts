@@ -8,7 +8,6 @@ import {
   Input,
   Output,
   SimpleChanges,
-  ElementRef,
 } from '@angular/core';
 import { FgComponentBaseService } from './fg-component-base.service';
 import {
@@ -16,12 +15,6 @@ import {
   FgEntityEvent
 } from '../../event/fg-events.export';
 // import { GlobalRef } from './../../module/fg-global-scope/fg-global-refs.class';
-// import { FgEventSubscriber } from '../../service/fg-event/fg-event-subscriber.abstract-class';
-// import {
-//   IFgComponentEntityInterface,
-//   IFgActionProviderInterface,
-//   IFgActionEntityInterface
-// } from '../../../../../../fg-shared/interface/fg-interfaces.export';
 import { FgEvent, FgAction } from '../../class/fg-class.export';
 /**
  * CAUTION: This abstract class isn't a real angular-component,
@@ -30,10 +23,6 @@ import { FgEvent, FgAction } from '../../class/fg-class.export';
  */
 export class FgComponentBaseComponent // extends FgEventSubscriber
 implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, OnDestroy {
-  /**
-   * INJECTED FgLogService provides logging functionallity for component
-   */
-  protected _$component: FgComponentBaseService;
   /**
    * Contains the identifier of a components dp-entity
    */
@@ -125,7 +114,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    */
   constructor(
     // $el: ElementRef,
-    protected $component: FgComponentBaseService,
+    public $component: FgComponentBaseService,
   ) {
     this.event = new EventEmitter<FgEvent>();
     // Default set of component ui-actions

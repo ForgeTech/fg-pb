@@ -15,18 +15,18 @@ export class ConfigPowerbot {
     /**
      * Holds logging-service connection-configuration
      */
-    public connection_logging: ConfigLoggingConnection = new ConfigLoggingConnection(),
+    public logConfig: ConfigLoggingConnection = new ConfigLoggingConnection(),
     /**
      * Holds market-service connection-configuration
      */
-    public connection_market: ConfigMarketConnection = new ConfigMarketConnection(),
+    public marketConfig: ConfigMarketConnection = new ConfigMarketConnection(),
     /**
      * Holds powerbot production-server connection-configuration
      */
-    public connection_production: ConfigProductionConnection = new ConfigProductionConnection(),
+    public prodConfig: ConfigProductionConnection = new ConfigProductionConnection(),
     /**
      * Holds powerbot test-server connection-configuration
      */
-    public connection_test: ConfigTestConnection = new ConfigTestConnection()
+    public testConfig: ConfigTestConnection = new ConfigTestConnection()
   ) {}
 }

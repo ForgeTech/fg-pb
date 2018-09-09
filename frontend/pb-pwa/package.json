@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "docs": "./node_modules/.bin/compodoc -p src/tsconfig.app.json -d docs",
-    "ghp-build": "ng build --prod --base-href /PowerBot/",
+    "ghp-build": "ng build --prod --base-href /PowerBot/ --configuration=ghp",
     "ghp-push": "./node_modules/.bin/angular-cli-ghpages --repo=https://6d96ad8b1251092dee67ef8e6defa64d795cc336@github.com/ForgeTech/PowerBot.git",
     "ghp-deploy": "npm run ghp-build & npm run ghp-push",
     "gen-swagger-ts-client": "./node_modules/.bin/swagger-ts-client  -c ./../pb-api/ts-client.config.js",

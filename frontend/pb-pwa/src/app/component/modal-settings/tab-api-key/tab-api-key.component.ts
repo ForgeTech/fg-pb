@@ -20,7 +20,7 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
    */
   constructor(
     protected $fb: FormBuilder,
-    protected $component: FgComponentBaseService,
+    public $component: FgComponentBaseService,
   ) {
     super(
       $component
@@ -28,7 +28,7 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
     this.form = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
-      roboCompPass: [null, [Validators.required, Validators.minLength(5)]],
+      roboPass: [null, [Validators.required, Validators.minLength(5)]],
       epexPass: [null, [Validators.required]],
       apiKey: [null, [Validators.required]],
       canTrade: [null, []],
@@ -40,7 +40,7 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
   /**
    * TODO: Generate and return api-key for user
    */
-  action(): void {
+  action( $event: any = false ): void {
     console.log('API CONFIG');
   }
 
