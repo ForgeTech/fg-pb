@@ -34,7 +34,7 @@ export class ModalComponent extends FgComponentBaseComponent {
     super(
       $component
     );
-    this.inputThemeColor = this.$component.$data.$powerbot.darkTheme ? 'accent' : 'primary';
+    this.inputThemeColor = 'accent';
   }
   /**
    * Methode to be called when the user wants to close the
