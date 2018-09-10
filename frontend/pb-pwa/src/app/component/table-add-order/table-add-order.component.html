@@ -1,6 +1,49 @@
 <ng-container *ngIf="this.entity && this.config">
-  <!-- <pb-table
-    [entity]="this.entity"
-    [config]="this.config"
-  ></pb-table> -->
+   <ngx-datatable
+    class="datatable material"
+    [rows]="entity.contracts"
+    [columnMode]="'standard'"
+    [headerHeight]="50"
+    [rowHeight]="50"
+    [footerHeight]="25"
+    [scrollbarV]="true"
+    [scrollbarH]="true"
+  >
+    <!-- (page)="onPage($event)" -->
+    <ngx-datatable-column name="Name">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>{{ row.name }}</span>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Best Bid">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>TODO</span>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Bid Qty">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>TODO</span>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Best Ask">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>{{ row.quantity }}</span>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
 </ng-container>

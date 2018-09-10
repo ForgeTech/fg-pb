@@ -25,6 +25,12 @@ $light-modal: $white;
 body {
   background-color: $light-body;
 }
+.mat-tab-body {
+  padding: 0 15px 0 15px;
+}
+.mat-checkbox-layout {
+  padding-left: 15px;
+}
 .mat-dialog-container {
   background-color: transparent !important;
   box-shadow: none !important;
@@ -42,12 +48,11 @@ body {
   width: 100%;
 }
 .mat-menu-panel {
-  width: 200px;
+  width: 250px;
 }
 .mat-tooltip-prettyjson {
   white-space: pre;
 }
-
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
 .mat-checkbox .mat-icon
 .mat-flat-button,
@@ -59,7 +64,10 @@ body {
     color: $white;
   }
 }
-
+.datatable {
+  color: $black;
+  background-color: #cfd8dc;
+}
 
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
 // CSS class whatever you want. In this example, any component inside of an element with
@@ -73,11 +81,9 @@ body {
   $dark-body: #929292;
   $dark-modal: #525252;
   @include angular-material-theme($dark-theme);
-
   body {
     background-color: $dark-body;
   }
-
   .modal-content {
     background-color: $dark-modal;
     color: $white;
@@ -92,5 +98,9 @@ body {
     &.mat-accent {
       color: $white;
     }
+  }
+  .datatable {
+    color: $white;
+    background-color: $dark-body;
   }
 }

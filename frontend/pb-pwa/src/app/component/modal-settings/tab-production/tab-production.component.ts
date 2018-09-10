@@ -79,7 +79,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     if (!this.form.errors && this.form.controls.store.value === true) {
       this.storeProductionConfig();
     }
-    this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API, this));
+    this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API_PROD, this));
   }
 
 }

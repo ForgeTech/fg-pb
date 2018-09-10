@@ -154,9 +154,18 @@ export class AppComponent // extends FgEventSubscriber
     });
     // Register event for connecting to API
     this.$component.$event.event$
-    .filter(event => event.signature === PbAppEvent.CONNECT_API)
+    .filter(event => event.signature === PbAppEvent.CONNECT_API_TEST)
     .subscribe( event => {
-      this.$app.$log.warn('CONNECT API!');
+      this.$app.$log.warn('CONNECT API TEST!');
+      console.log( event );
+      // Start polling data from backend
+      this.startDataPolling();
+    });
+    // Register event for connecting to API
+    this.$component.$event.event$
+    .filter(event => event.signature === PbAppEvent.CONNECT_API_PROD)
+    .subscribe( event => {
+      this.$app.$log.warn('CONNECT API PRODUCTION!');
       console.log( event );
       // Start polling data from backend
       this.startDataPolling();
@@ -181,7 +190,8 @@ export class AppComponent // extends FgEventSubscriber
     });
     // Register the events that should be logged from emit-funciton
     this.$component.$event.registerEventsToLog([
-      PbAppEvent.CONNECT_API,
+      PbAppEvent.CONNECT_API_TEST,
+      PbAppEvent.CONNECT_API_PROD,
       PbAppEvent.CONNECT_MARKET,
       PbAppEvent.DISCONNECT_API,
       PbAppEvent.DISCONNECT_MARKET,

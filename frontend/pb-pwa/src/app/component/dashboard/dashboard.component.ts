@@ -4,6 +4,9 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
+import { FgComponentBaseEvent } from '../../event/fg-events.export';
+import { FgAction } from '../../class/fg-action.class';
+import { FgEvent } from '../../class/fg-event.class';
 
 @Component({
   selector: 'pb-dashboard',
@@ -42,26 +45,74 @@ export class DashboardComponent extends FgComponentBaseComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'orders', cols: 4, rows: 1 },
-          { title: 'orderbook', cols: 4, rows: 2 },
-          { title: 'bids', cols: 4, rows: 1 },
-          { title: 'trades', cols: 4, rows: 1 },
-          { title: 'asks', cols: 4, rows: 1 },
-          { title: 'portfolio', cols: 4, rows: 1 },
-          { title: 'productHistory', cols: 4, rows: 1 },
-          { title: 'signals', cols: 4, rows: 1 },
+          {
+            title: 'Orders',
+            template: 'orders',
+            cols: 4, rows: 1 },
+          {
+            title: 'Orderbook',
+            template: 'orderbook',
+            cols: 4, rows: 2 },
+          {
+            title: 'Bids',
+            template: 'bids',
+            cols: 4, rows: 1 },
+          {
+            title: 'Trades',
+            template: 'trades',
+            cols: 4, rows: 1 },
+          {
+            title: 'Asks',
+            template: 'asks',
+            cols: 4, rows: 1 },
+          {
+            title: 'Portfolio',
+            template: 'portfolio',
+            cols: 4, rows: 1 },
+          {
+            title: 'Product History',
+            template: 'productHistory',
+            cols: 4, rows: 1 },
+          {
+            title: 'Signals',
+            template: 'signals',
+            cols: 4, rows: 1 },
         ];
       }
 
       return [
-        { title: 'orders', cols: 1, rows: 1 },
-        { title: 'orderbook', cols: 2, rows: 2 },
-        { title: 'bids', cols: 1, rows: 1 },
-        { title: 'trades', cols: 1, rows: 1 },
-        { title: 'asks', cols: 1, rows: 1 },
-        { title: 'portfolio', cols: 1, rows: 1 },
-        { title: 'producthistory', cols: 2, rows: 1 },
-        { title: 'signals', cols: 1, rows: 1 },
+        {
+          title: 'Orders',
+          template: 'orders',
+          cols: 1, rows: 1 },
+        {
+          title: 'Orderbook',
+          template: 'orderbook',
+          cols: 2, rows: 2 },
+        {
+          title: 'Bids',
+          template: 'bids',
+          cols: 1, rows: 1 },
+        {
+          title: 'Trades',
+          template: 'trades',
+          cols: 1, rows: 1 },
+        {
+          title: 'Asks',
+          template: 'asks',
+          cols: 1, rows: 1 },
+        {
+          title: 'Portfolio',
+          template: 'portfolio',
+          cols: 1, rows: 1 },
+        {
+          title: 'Product history',
+          template: 'producthistory',
+          cols: 2, rows: 1 },
+        {
+          title: 'Signals',
+          template: 'signals',
+          cols: 1, rows: 1 },
       ];
     })
   );

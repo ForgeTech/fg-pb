@@ -107,7 +107,7 @@ export class PbDataService {
    * @param delay The delay before timer dispatches first event
    * @param tick The intervall in which the timer dispatches it's event
    */
-  getPollingTimer( delay: number = 0, tick: number = 5000 ): TimerObservable<any> {
+  getPollingTimer( delay: number = 0, tick: number = 10000 ): TimerObservable<any> {
     if (!this.$pollingTimer) {
       this.$pollingTimer = TimerObservable.create(delay, tick);
     }

@@ -74,7 +74,7 @@ export class BarStateComponent  extends FgComponentBaseComponent {
         label = 'Error';
       break;
       default:
-        label = 'Disconnected';
+        label = 'Offline';
       break;
     }
     return label;

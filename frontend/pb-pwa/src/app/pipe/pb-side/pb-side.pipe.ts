@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PowerBotEntity } from '../entity/entity.export';
-import { TradeInterface } from '../module/pb-api/model/interfaces.export';
+import { PowerBotEntity } from '../../entity/entity.export';
+import { TradeInterface } from '../../module/pb-api/model/interfaces.export';
 /**
  * Pipe for transforming PowerBot trade-object to trade-side value
  */

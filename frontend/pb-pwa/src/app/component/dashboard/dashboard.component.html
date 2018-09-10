@@ -46,7 +46,7 @@
         <div tabindex="0">
           <!-- <ng-container *ngTemplateOutlet="orders"></ng-container> -->
           <!-- <ng-container *ngTemplateOutlet="templates['{{card.title}}']"></ng-container> -->
-          <ng-container [ngSwitch]="card.title">
+          <ng-container [ngSwitch]="card.template">
             <ng-container *ngSwitchCase="'orders'">
               <ng-container *ngTemplateOutlet="orders"></ng-container>
             </ng-container>

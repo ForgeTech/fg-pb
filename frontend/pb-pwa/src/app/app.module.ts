@@ -64,7 +64,8 @@ import { BarActionComponent } from './component/bar-action/bar-action.component'
 import { PwaInstallComponent } from './component/pwa-install/pwa-install.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { TableAddOrderComponent } from './component/table-add-order/table-add-order.component';
-import { PbSidePipe } from './pipe/pb-side.pipe';
+import { PbSidePipe } from './pipe/pb-side/pb-side.pipe';
+import { FgEnumPipe } from './pipe/fg-enum/fg-enum.pipe';
 
 /**
  * Define Configuration for swagger-codegen api-module
@@ -158,6 +159,7 @@ const appRoutes: Routes = [
     PwaInstallComponent,
     TableAddOrderComponent,
     PbSidePipe,
+    FgEnumPipe,
   ],
   imports: [
     BrowserModule,

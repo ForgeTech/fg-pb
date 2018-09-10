@@ -82,6 +82,6 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
     if (!this.form.errors && this.form.controls.store.value === true) {
       this.storeLoggingConfig();
     }
-    this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API, this));
+    this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API_TEST, this));
   }
 }

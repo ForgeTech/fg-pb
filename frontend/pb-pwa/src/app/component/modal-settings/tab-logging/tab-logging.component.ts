@@ -21,7 +21,7 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
   /**
    * Provide log-level enum to component
    */
-  protected logLevels = NgxLoggerLevel;
+  public logLevels = NgxLoggerLevel;
   /**
    * CONSTRUCTOR
    */
@@ -54,11 +54,11 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    * Helper-Methode to provide log-level values
    * in a way they can be used with ngFor-directive
    */
-  public logLevelsKeys(): Array<string> {
-    let keys = Object.keys(this.logLevels);
-    keys = keys.slice(keys.length / 2);
-    return keys;
-  }
+  // public logLevelsKeys(): Array<string> {
+  //   let keys = Object.keys(this.logLevels);
+  //   keys = keys.slice(keys.length / 2);
+  //   return keys;
+  // }
   /**
    * Create logging-config from form-data
    */

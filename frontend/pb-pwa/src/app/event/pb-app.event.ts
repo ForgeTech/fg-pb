@@ -7,7 +7,11 @@ export class PbAppEvent {
     /**
     * Event to be thrown when application should connect to Powerbot Api
     */
-    public static readonly CONNECT_API = 'Event_PbApp_Connect_Api';
+    public static readonly CONNECT_API_PROD = 'Event_PbApp_Connect_Api_Production';
+    /**
+    * Event to be thrown when application should connect to Powerbot Api
+    */
+    public static readonly CONNECT_API_TEST = 'Event_PbApp_Connect_Api_Test';
     /**
     * Event to be thrown when application should disconnect from Powerbot Api
     */

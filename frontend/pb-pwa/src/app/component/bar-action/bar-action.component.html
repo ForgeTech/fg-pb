@@ -20,7 +20,15 @@
         >
           <button mat-menu-item (click)="openSettingsModal($event)">
             <mat-icon>settings</mat-icon>
-            <span>Settings</span>
+            <span>Configuration</span>
+          </button>
+          <button mat-menu-item (click)="connectProduction($event)">
+            <mat-icon>flash_on</mat-icon>
+            <span>Connect Production</span>
+          </button>
+          <button mat-menu-item (click)="connectTest($event)">
+            <mat-icon>flash_on</mat-icon>
+            <span>Connect Test</span>
           </button>
           <button mat-menu-item (click)="disconnectApi($event)">
             <mat-icon>flash_off</mat-icon>
@@ -41,12 +49,16 @@
           #market="matMenu"
         >
           <button mat-menu-item (click)="openMarketModal($event)">
+            <mat-icon>settings</mat-icon>
+            <span>Configuration</span>
+          </button>
+          <button mat-menu-item (click)="openMarketModal($event)">
             <mat-icon>flash_on</mat-icon>
-            <span>Login</span>
+            <span>Connect Market</span>
           </button>
           <button mat-menu-item (click)="disconnectMarket($event)">
             <mat-icon>flash_off</mat-icon>
-            <span>Logout</span>
+            <span>Disconnect Market</span>
           </button>
         </mat-menu>
       </div>
