@@ -7,7 +7,7 @@
 
 export const environment = {
   name: 'GitHub-Page',
-  production: false,
+  production: true,
   // Use Powerbot variable to preset application-data
   // for development environment
   powerbot: {

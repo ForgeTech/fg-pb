@@ -29,7 +29,7 @@
           formControlName="logLevel"
           required
         >
-          <mat-option *ngFor="let level of logLevels | fgEnum" [value]="level">
+          <mat-option *ngFor="let level of logLevels | fgEnum; let i = index" [value]="i">
             {{level}}
           </mat-option>
         </mat-select>
@@ -54,6 +54,7 @@
     <p>
       <mat-checkbox
         formControlName="store"
+        (change)="clearStore($event)"
       >
         Store Configuration
       </mat-checkbox>

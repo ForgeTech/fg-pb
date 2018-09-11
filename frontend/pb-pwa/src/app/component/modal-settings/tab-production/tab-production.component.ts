@@ -68,6 +68,16 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     );
   }
   /**
+   * If checkbox for store configuration is set to false, delete
+   * configuration if available
+   * @param $event
+   */
+  public clearStore( $event ) {
+    if ( this.form.controls.store.value === false ) {
+      this.$component.$data.$storage.removeItem(PbAppStorageConst.CONFIG_PRODUCTION);
+    }
+  }
+  /**
    * TODO: Find out how to update configuration for
    * generated api-services - and how to configure a second
    * connection for backup-server
@@ -75,7 +85,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * Configure data-service with powerbot-production
    * configuration
    */
-  public action($event: any = false) {
+  public action( $event: any = false ) {
     if (!this.form.errors && this.form.controls.store.value === true) {
       this.storeProductionConfig();
     }

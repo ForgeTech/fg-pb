@@ -72,6 +72,16 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
     );
   }
   /**
+  * If checkbox for store configuration is set to false, delete
+  * configuration if available
+  * @param $event
+  */
+  public clearStore($event) {
+    if (this.form.controls.store.value === false) {
+      this.$component.$data.$storage.removeItem(PbAppStorageConst.CONFIG_TEST);
+    }
+  }
+  /**
    * TODO: Find out how to update configured connection
    * for generated api services
    *

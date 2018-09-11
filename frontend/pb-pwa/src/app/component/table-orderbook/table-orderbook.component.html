@@ -24,7 +24,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>TODO</span>
+        <span>{{ row.bestBidPrice }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -33,7 +33,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>TODO</span>
+        <span>{{ row.bestBidQuantity }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -42,7 +42,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>{{ row.quantity }}</span>
+        <span>{{ row.bestAskPrice }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -51,7 +51,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>{{ row.price }}</span>
+        <span>{{ row.bestAskQuantity }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -60,7 +60,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>{{ row.price }}</span>
+        <span>{{ row.lastPrice }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -69,7 +69,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>{{ row.price }}</span>
+        <span>{{ row.lastQuantity }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -78,7 +78,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>{{ row.price }}</span>
+        <span>{{ row.high }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -87,7 +87,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>{{ row.price }}</span>
+        <span>{{ row.low }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -96,7 +96,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>{{ row.price }}</span>
+        <span>{{ row.totalQuantity }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -105,7 +105,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>{{ row.price }}</span>
+        <span>{{ row.lastTradeTime }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -114,7 +114,7 @@
       ngx-datatable-cell-template
       let-row="row"
       >
-        <span>{{ row.price }}</span>
+        <span>{{ row.absolutePosition }}</span>
       </ng-template>
     </ngx-datatable-column>
 
@@ -123,7 +123,7 @@
         ngx-datatable-cell-template
         let-row="row"
       >
-        <span>{{ row.price }}</span>
+        <span>WHAT's that</span>
       </ng-template>
     </ngx-datatable-column>
   </ngx-datatable>
@@ -133,25 +133,25 @@
   <button
     mat-mini-fab
     matTooltip="Remove amount"
-    color="accent"
     (click)="removeAmount($event)"
-  >
+    >
+    <!-- color="accent" -->
     <mat-icon>remove</mat-icon>
   </button>
   <button
     mat-mini-fab
     matTooltip="Add amount"
-    color="accent"
     (click)="addAmount($event)"
-  >
+    >
+    <!-- color="accent" -->
     <mat-icon>add_box</mat-icon>
   </button>
   <button
   mat-mini-fab
   matTooltip="Add double amount"
-  color="accent"
   (click)="addDoubleAmount($event)"
   >
+  <!-- color="accent" -->
     <mat-icon>library_add</mat-icon>
   </button>
 </div>

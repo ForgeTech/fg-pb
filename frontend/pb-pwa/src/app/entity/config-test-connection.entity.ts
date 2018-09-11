@@ -22,6 +22,6 @@ export class ConfigTestConnection {
      * store the connection configuration
      * on client
      */
-    public store: boolean = true,
+    public store: boolean = false,
   ) {}
 }

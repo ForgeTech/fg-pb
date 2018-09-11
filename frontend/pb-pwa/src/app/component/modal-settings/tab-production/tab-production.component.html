@@ -55,8 +55,7 @@
     <p>
       <mat-checkbox
         formControlName="store"
-        required
-        color="{{ config }}"
+        (change)="clearStore($event)"
       >
       Store Configuration
     </mat-checkbox>

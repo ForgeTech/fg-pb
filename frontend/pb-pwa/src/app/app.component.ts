@@ -120,9 +120,9 @@ export class AppComponent // extends FgEventSubscriber
     // this.$app.$event.emit( new FgEvent( PbAppEvent.CONNECT_API ) );
 
     const modal_config = {
-      panelClass: 'pb-panel',
-      height: '90vh',
-      width: '90vw',
+      // panelClass: 'pb-panel',
+      height: '90vmin',
+      width: '90vmax',
     };
     // Register event to open connection modal
     this.$component.$event.event$

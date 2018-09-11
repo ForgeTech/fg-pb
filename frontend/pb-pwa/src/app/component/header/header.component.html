@@ -5,27 +5,66 @@
       fxLayoutAlign="space-between center"
       fxLayoutGap="10px"
       fxFlexFill>
-      <div fxFlex="20 320px">
+      <div fxFlex="10 150px">
         <img class="pb-header-logo" alt="Power Logo" src="./assets/powerbot_logo.png"/>
       </div>
-      <div fxFlex="10 140px">
-        <p class="pb-header-label">
-          by Inercom
-        </p>
+      <div fxFlex="10 150px">
+        <button
+          mat-stroked-button
+          [matMenuTriggerFor]="connection"
+        >
+          <mat-icon>power_setting_new</mat-icon>
+          Connection
+        </button>
+        <mat-menu
+          #connection="matMenu"
+        >
+          <button mat-menu-item (click)="openSettingsModal($event)">
+            <mat-icon>settings</mat-icon>
+            <span>Configuration</span>
+          </button>
+          <button mat-menu-item (click)="connectProduction($event)">
+            <mat-icon>flash_on</mat-icon>
+            <span>Connect Production</span>
+          </button>
+          <button mat-menu-item (click)="connectTest($event)">
+            <mat-icon>flash_on</mat-icon>
+            <span>Connect Test</span>
+          </button>
+          <button mat-menu-item (click)="disconnectApi($event)">
+            <mat-icon>flash_off</mat-icon>
+            <span>Disconnect</span>
+          </button>
+        </mat-menu>
+        <button
+          mat-stroked-button
+          [matMenuTriggerFor]="market"
+        >
+          <mat-icon>timeline</mat-icon>
+          Market
+        </button>
+        <mat-menu
+          #market="matMenu"
+        >
+          <button mat-menu-item (click)="openMarketModal($event)">
+            <mat-icon>settings</mat-icon>
+            <span>Configuration</span>
+          </button>
+          <button mat-menu-item (click)="openMarketModal($event)">
+            <mat-icon>flash_on</mat-icon>
+            <span>Connect Market</span>
+          </button>
+          <button mat-menu-item (click)="disconnectMarket($event)">
+            <mat-icon>flash_off</mat-icon>
+            <span>Disconnect Market</span>
+          </button>
+        </mat-menu>
       </div>
       <div fxFlex="70">
         <pb-bar-state [entity]="this.entity"></pb-bar-state>
       </div>
       <div fx-flex="10 150px">
-        <button
-          class="pb-header-btn-help"
-          mat-mini-fab
-          matTooltip="Help"
-          color="accent"
-          (click)="openHelpModal($event)"
-        >
-          <mat-icon>live_help</mat-icon>
-        </button>
+        <fg-actions [entity]="this"></fg-actions>
       </div>
     </div>
   </mat-toolbar-row>

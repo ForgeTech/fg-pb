@@ -80,6 +80,16 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
     );
   }
   /**
+   * If checkbox for store configuration is set to false, delete
+   * configuration if available
+   * @param $event
+   */
+  public clearStore( $event ) {
+    if ( this.form.controls.store.value === false ) {
+      this.$component.$data.$storage.removeItem(PbAppStorageConst.CONFIG_LOGGING);
+    }
+  }
+  /**
    * Configure log-service with remote logging-url and
    * store config when cacheForm is true
    */

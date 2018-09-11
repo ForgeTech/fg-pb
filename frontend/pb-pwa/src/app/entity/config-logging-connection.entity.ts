@@ -25,6 +25,6 @@ export class ConfigLoggingConnection {
      * store the connection configuration
      * on client
      */
-    public store: string = ''
+    public store: boolean = false
   ) {}
 }

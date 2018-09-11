@@ -25,6 +25,26 @@ $light-modal: $white;
 body {
   background-color: $light-body;
 }
+.mat-progress-bar {
+  opacity: 0.1 !important;
+}
+.datatable-pager {
+  display: none;
+}
+.mat-card {
+  background-color: #cfd8dc;
+}
+.mat-mini-fab {
+  box-shadow: none !important;
+}
+.btn-bar {
+  .mat-mini-fab {
+    background-color: transparent !important;
+    .mat-icon {
+      color: $black;
+    }
+  }
+}
 .mat-tab-body {
   padding: 0 15px 0 15px;
 }
@@ -66,7 +86,7 @@ body {
 }
 .datatable {
   color: $black;
-  background-color: #cfd8dc;
+  background-color: red;
 }
 
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
@@ -83,6 +103,13 @@ body {
   @include angular-material-theme($dark-theme);
   body {
     background-color: $dark-body;
+  }
+  .btn-bar {
+    .mat-mini-fab {
+      .mat-icon {
+        color: $white
+      }
+    }
   }
   .modal-content {
     background-color: $dark-modal;

@@ -38,6 +38,7 @@
     <p>
       <mat-checkbox
         formControlName="store"
+        (change)="clearStore($event)"
       >
         Store Configuration
       </mat-checkbox>

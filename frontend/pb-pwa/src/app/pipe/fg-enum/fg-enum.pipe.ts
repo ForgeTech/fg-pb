@@ -13,12 +13,9 @@ export class FgEnumPipe implements PipeTransform {
    * @param value Typescript enum-object
    * @param args (optional) args are not used in this pipe
    */
-  transform(value: any, args?: any): any {
-    console.log(value);
+  transform(value: Object, args?: any): any {
     let keys = Object.keys(value);
-    console.log(keys);
     keys = keys.slice(keys.length / 2);
-    console.log(keys);
     return keys;
   }
 

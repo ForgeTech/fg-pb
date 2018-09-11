@@ -23,18 +23,18 @@ export class ConfigGenerateApiKey {
      /**
      * Enable api-key for trade-service
      */
-    public can_trade: boolean = true,
+    public can_trade: boolean = false,
      /**
      * Enable api-key for signal-service
      */
-    public can_signal: boolean = true,
+    public can_signal: boolean = false,
      /**
      * Enable api-key for PowerBot production-server
      */
-    public allow_production: boolean = true,
+    public allow_production: boolean = false,
      /**
      * Enable api-key for PowerBot test-server
      */
-    public allow_test: boolean = true,
+    public allow_test: boolean = false,
   ) {}
 }
