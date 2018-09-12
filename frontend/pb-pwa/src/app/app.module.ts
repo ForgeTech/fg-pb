@@ -180,7 +180,7 @@ const appRoutes: Routes = [
       //   NgForageConfig.DRIVER_LOCALSTORAGE
       // ]
     // }),
-    ApiModule.forRoot(apiConfigFactory),
+    ApiModule,
     LoggerModule.forRoot({
       // serverLoggingUrl: '/api/logs',
       level: environment.production ? NgxLoggerLevel.ERROR : NgxLoggerLevel.WARN,

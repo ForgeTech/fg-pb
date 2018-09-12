@@ -8,7 +8,8 @@ import {
   MarketService,
   MessagesService,
   OrdersService,
-  TradesService
+  TradesService,
+  Configuration
 } from '../../module/pb-api';
 import {
   SignalInterface,
@@ -28,7 +29,15 @@ import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { BarStateEnum } from '../../entity/bar-state.entity';
 import { NgForage, NgForageCache, NgForageConfig, CachedItem, NgForageModule } from 'ngforage';
 import { PbAppStorageConst } from '../../app.storage.const';
+import { Observable, Subscription } from 'rxjs';
 
+/**
+ * Enum for defining the available API environments
+ */
+export enum ConnectionType {
+  'Production',
+  'Test'
+}
 /**
  * DataService -
  * Service providing interface to fetch, access and
@@ -42,15 +51,22 @@ export class PbDataService {
    */
   public $powerbot: PowerBotEntity;
   /**
+   * Flag indicating the api-environment to use
+   */
+  protected environement: boolean | ConnectionType = false;
+  /**
    * TODO: Should keep track of the number of called api
    * requests used to display loading state for parallel
    * sets of requests
    */
-  public openCalls: number = 0;
+  protected openCalls: number = 0;
   /** Member-variable to hold instance of
    * polling-timer observable
    */
-  protected $pollingTimer: TimerObservable<any>;
+  protected pollingTimer$: TimerObservable<any>;
+  /**
+   *
+   */
   /**
    * Constructor
    */
@@ -96,39 +112,134 @@ export class PbDataService {
      * Provides access to powerbot trade-object service
      */
     public $storage: NgForage,
-  ) {}
-  // async getPowerBotConfig() Promise<PowerBotEntity> {
-  //   return // Init Powerbot from store if data is available
-
-  //   });
-  // }
+  ) {
+    const errorFn = error => {
+      this.$log.error('HANDLE ALL THE ERRORS');
+      this.$log.error(error.message);
+    };
+    // Decorate services to call errorFn on error
+    this.$auth = this.wrapApiServiceMethodes( $auth, errorFn );
+    this.$contracts = this.wrapApiServiceMethodes( $contracts, errorFn );
+    this.$market = this.wrapApiServiceMethodes( $market, errorFn );
+    this.$messages = this.wrapApiServiceMethodes( $messages, errorFn );
+    this.$orders = this.wrapApiServiceMethodes( $orders, errorFn );
+    this.$signals = this.wrapApiServiceMethodes( $signals, errorFn );
+    this.$trades = this.wrapApiServiceMethodes( $trades, errorFn );
+    // Override api-service configuration with empty config
+    // to prevent services to use hard-coded test-environment
+    // before ConnectionType is explicitly set
+    this.setServiceConfiguration( new Configuration() );
+  }
+  /**
+   * Set the api environent type to use
+   * @param type  ConnectionType Enum
+   */
+  setApiConfiguration( type: ConnectionType ) {
+    let configuration: Configuration = new Configuration();
+    try {
+      this.environement = type;
+      switch ( this.environement ) {
+        case ConnectionType.Production:
+          configuration.apiKeys = { 'api_key': this.$powerbot.config.prodConfig.apiKey };
+          configuration.basePath = this.$powerbot.config.prodConfig.serverUrl;
+        break;
+        case ConnectionType.Test:
+          configuration.apiKeys = { 'api_key': this.$powerbot.config.testConfig.apiKey };
+          configuration.basePath = this.$powerbot.config.testConfig.serverUrl;
+        break;
+        default:
+          this.environement = false;
+        break;
+      }
+      // Set api-services configuration
+      this.setServiceConfiguration( configuration );
+    } catch ( error ) {
+      this.$log.warn( 'Api-server environment not available!' );
+    }
+  }
+  /**
+   * Set the configutation property of api-services
+   * @param config Api Configuration object
+   */
+  setServiceConfiguration( config: Configuration ) {
+    this.$auth.configuration = config;
+    this.$contracts.configuration = config;
+    this.$logs.configuration = config;
+    this.$market.configuration = config;
+    this.$messages.configuration = config;
+    this.$orders.configuration = config;
+    this.$signals.configuration = config;
+    this.$trades.configuration = config;
+  }
   /**
    * Return observable polling timer-object
    * @param delay The delay before timer dispatches first event
    * @param tick The intervall in which the timer dispatches it's event
    */
   getPollingTimer( delay: number = 0, tick: number = 10000 ): TimerObservable<any> {
-    if (!this.$pollingTimer) {
-      this.$pollingTimer = TimerObservable.create(delay, tick);
+    if (!this.pollingTimer$) {
+      this.pollingTimer$ = TimerObservable.create(delay, tick);
     }
-    return  this.$pollingTimer;
+    return  this.pollingTimer$;
   }
   /**
-   * TODO: Wrap a api-request function to automatically keep track
-   * of parallel requests loading state
-   * @param fn
+   * TODO: Wrap a api-service methode into a try-catch block
+   * to switch to backup-server if request fails. This can be
+   * used on any methode, the wrapper-function keeps arguments and
+   * return types intact.
+   * ----------------------
+   * Refer to https://stackoverflow.com/questions/38598280/is-it-possible-to-wrap-a-function-and-retain-its-types
+   * @param fn The function to wrap
    */
-  async fetch<T extends Function>(fn: T): Promise<T> {
-    return <any>function (...args) {
-      this.openCalls++;
-      console.log(this.openCalls);
-      return fn(...args);
+   protected wrapMethode<T extends Function>(fn: T, errorFn: (error: Error) => void): T {
+    return <any>function (args) {
+      try {
+        const returnType = fn(args);
+        if ( returnType instanceof Observable ) {
+          // Return type is Observable
+          const subscribtion: Subscription = returnType.subscribe(
+            value => {
+              // do nothing
+            },
+            err => {
+              errorFn(err);
+            },
+            () => {
+              console.log('UNSUBSCRIBE');
+              subscribtion.unsubscribe();
+            });
+          } else if ( returnType instanceof Promise ) {
+            // Returntype is Promise
+            returnType.catch( err => {
+              errorFn(err);
+          });
+        }
+        return returnType;
+      } catch ( error  ) {
+        errorFn(error);
+      }
     };
+  }
+  /**
+   * Wrap the methodes of an api-service, to catch errors
+   * @param $service The api service for which the methods should be wrapped
+   * ----------------------
+   * Refer to https://stackoverflow.com/questions/30881632/es6-iterate-over-class-methods
+   * and https://stackoverflow.com/questions/41452179/check-if-object-is-an-rxjs5-observable
+   * and https://stackoverflow.com/questions/15094127/how-do-you-iterate-over-all-methods-in-a-javascript-pseudoclass-regardless-of-w
+   */
+   protected wrapApiServiceMethodes($service: any, errorFn: (error: Error) => void ): any {
+    Object.getOwnPropertyNames( Object.getPrototypeOf( $service ) ).forEach( fnKey => {
+      if ( fnKey !== 'constructor' ) {
+        $service[fnKey] = this.wrapMethode($service[fnKey], errorFn);
+      }
+    } );
+    return $service;
   }
   /**
    * Fetch full set of application-data from backend
    */
-  async fetchApplicationData(): Promise<PowerBotEntity> { // Promise<PowerBot> {
+  async fetchApplicationData(): Promise<PowerBotEntity> {
     // Set app loading-State when starting fetching data
     this.$powerbot.state.appState = BarStateEnum.Loading;
     try {
@@ -163,6 +274,13 @@ export class PbDataService {
     } catch (error) {
       // Set connection-state to offline error appeared requesting data
       this.$powerbot.state.connectionState = BarStateEnum.Error;
+      // If environment is production try fetching data from backup-server
+      if ( this.environement === ConnectionType.Production ) {
+        let configuration = new Configuration();
+        configuration.apiKeys = {'api_key': this.$powerbot.config.prodConfig.apiKey };
+        configuration.basePath = this.$powerbot.config.prodConfig.backupUrl;
+        this.setServiceConfiguration( configuration );
+      }
     }
     // Disable app loading-state when data-fetching is finished
     this.$powerbot.state.appState = BarStateEnum.Disabled;
