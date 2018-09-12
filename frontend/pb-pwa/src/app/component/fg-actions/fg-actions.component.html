@@ -1,6 +1,5 @@
 <div
   class="fg-actions"
-  tabindex="0"
   fxLayout="row"
   fxLayoutAlign="end center"
   fxLayoutGap="5px"
@@ -13,6 +12,7 @@
         mat-mini-fab
         matBadge="{{action.key}}"
         matBadgePosition="below after"
+        matBadgeColor="primary"
         matTooltip="{{action.label}}"
         color="{{action.color}}"
         (click)="this.entity.emitEvent(action.event)"

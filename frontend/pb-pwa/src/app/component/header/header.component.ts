@@ -22,10 +22,10 @@ export class HeaderComponent extends FgComponentBaseComponent {
       // new FgAction(new FgEvent(FgComponentBaseEvent.CREATE), 'accent', 'Add', 'add_box', 'Q'),
       // new FgAction(new FgEvent(FgComponentBaseEvent.EDIT), 'accent', 'Edit', 'edit', 'E'),
       // new FgAction(new FgEvent(FgComponentBaseEvent.LOCK), 'accent', 'Lock', 'lock', 'R'),
-      new FgAction(new FgEvent(FgComponentBaseEvent.EXPORT), 'accent', 'Export', 'import_export', 'Y'),
-      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT), 'accent', 'Print', 'print', 'P'),
-      new FgAction(new FgEvent(FgComponentBaseEvent.DELETE), 'accent', 'Delete', 'brightness_3', 'F'),
-      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT), 'accent', 'Help', 'live_help', 'H'),
+      new FgAction(new FgEvent(FgComponentBaseEvent.EXPORT), 'primary', 'Export', 'import_export', 'E'),
+      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT), 'primary', 'Print', 'print', 'P'),
+      new FgAction(new FgEvent(FgComponentBaseEvent.DELETE), 'primary', 'Delete', 'brightness_3', 'F'),
+      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT), 'primary', 'Help', 'live_help', 'H'),
     ];
   }
   /**

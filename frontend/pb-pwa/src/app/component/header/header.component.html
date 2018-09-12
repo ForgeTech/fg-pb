@@ -10,7 +10,8 @@
       </div>
       <div fxFlex="10 150px">
         <button
-          mat-stroked-button
+          mat-raised-button
+          color="primary"
           [matMenuTriggerFor]="connection"
         >
           <mat-icon>power_setting_new</mat-icon>
@@ -36,8 +37,10 @@
             <span>Disconnect</span>
           </button>
         </mat-menu>
+        &nbsp;
         <button
-          mat-stroked-button
+          mat-raised-button
+          color="primary"
           [matMenuTriggerFor]="market"
         >
           <mat-icon>timeline</mat-icon>
