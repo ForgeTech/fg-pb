@@ -1231,7 +1231,7 @@
 </nav>
                </div>
                <!-- START CONTENT -->
-               <div class="content interface">
+               <div class="content pipe">
                    <div class="content-data">
 
 
@@ -1241,11 +1241,9 @@
 
 
 
-
-
 <ol class="breadcrumb">
-  <li>Interfaces</li>
-  <li>Signal</li>
+  <li>Pipes</li>
+  <li>FgEnumPipe</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -1259,396 +1257,169 @@
 
 <div class="tab-content">
     <div class="tab-pane fade active in" id="c-info">
+
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/module/pb-api/model/signal.ts</code>
+            <code>src/app/pipe/fg-enum/fg-enum.pipe.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Powerbot-Trading Api</p>
-<h1 id="terms-and-conditions-the-powerbot-trading-rest-api-provide-b2b-services-for-trading-with-the-epex-intraday-market-by-using-the-powerbot-trading-rest-api-each-user-agrees-to-the-terms-and-conditions-of-this-licence-1-the-user-will-comply-with-the-epex-spot-market-rules-and-will-not-endanger-the-epex-system-m7-at-any-time-with-heavy-load-from-trading-algorithms-2-the-user-is-aware-of-the-otr-limits-by-epex-introduction-the-powerbot-trading-api-is-a-web-based-software-service-enabling-algorithmic-trading-on-power-exchanges-such-as-epex-hupx-or-bsp-southpool-the-service-is-straightforward-to-integrate-in-an-existing-software-environment-and-provides-a-variety-of-programming-interfaces-for-development-of-individual-trading-algorithms-and-software-tools-besides-enabling-a-fully-automated-intraday-trading-strategy-powerbot-can-be-used-to-create-support-tools-for-traders-providing-relevant-information-and-trading-opportunities-for-further-details-see-http-powerbot-trading-com-in-addition-to-this-api-guide-there-is-a-playground-where-you-can-try-out-the-api-calls-directly-from-your-web-browser-in-order-to-access-the-playground-you-will-need-an-api-key-which-you-can-request-from-inercomp-please-contact-us-at-helmut-spindler-inercomp-com-endpoints-the-powerbot-trading-rest-api-is-available-at-the-following-rest-endpoints-instance-base-url-for-rest-endpoints-test-https-playground-powerbot-trading-com-api-v0-staging-production-provided-on-request-access-to-endpoints-is-secured-via-an-api-key-which-needs-to-be-passed-as-an-api_key-header-in-each-request-notes-on-api-keys-api-keys-are-specific-to-test-staging-or-production-an-api-key-is-associated-with-a-user-account-and-needs-to-requested-please-contact-us-by-email-at-helmut-spindler-inercomp-com-to-request-an-api-key-errors-the-api-uses-standard-http-status-codes-to-indicate-the-success-or-failure-of-the-api-call-the-body-of-the-response-will-be-in-json-format-as-follows-message-an-error-message-paging-the-api-uses-offset-and-limit-parameters-for-paged-operations-an-x-total-count-header-is-added-to-responses-to-indicate-the-total-number-of-items-in-a-paged-response-cross-origin-resource-sharing-this-api-features-cross-origin-resource-sharing-cors-implemented-in-compliance-with-w3c-spec-this-allows-cross-domain-communication-from-the-browser-all-responses-have-a-wildcard-same-origin-which-makes-them-completely-public-and-accessible-to-everyone-including-any-code-on-any-site-additional-code-samples-additional-information-and-code-samples-demonstrating-the-use-of-the-api-can-be-found-at-https-github-com-powerbot-trading-python-samples-">TERMS AND CONDITIONS The Powerbot Trading REST API provide B2B services for trading with the EPEX intraday market. By using the Powerbot Trading REST API , each user agrees to the terms and conditions of this licence: 1. The user will comply with the <a href="https://www.epexspot.com/en/extras/download-center/documentation">EPEX Spot Market Rules</a> and will not endanger the EPEX system (M7) at any time with heavy load from trading algorithms. 2. The user is aware of the OTR limits by EPEX  # INTRODUCTION The Powerbot-Trading Api is a web-based software service enabling algorithmic trading on power exchanges such as EPEX, HUPX or BSP Southpool.  The service is straightforward to integrate in an existing software environment and provides a variety of programming interfaces for development of  individual trading algorithms and software tools. Besides enabling a fully automated intraday trading strategy,  PowerBot can be used to create support tools for traders providing relevant information and trading opportunities.  For further details see <a href="http://powerbot-trading.com">http://powerbot-trading.com</a>  In addition to this API guide, there is a <a href="https://playground.powerbot-trading.com">playground</a> where you can try out the API calls directly from your web browser.  In order to access the playground, you will need an API key which you can request from Inercomp. Please contact us at <a href="mailto:helmut.spindler@inercomp.com">helmut.spindler@inercomp.com</a>    ## Endpoints The Powerbot Trading REST API is available at the following REST endpoints:  | Instance                | Base URL for REST Endpoints                     | |-------------------------|-------------------------------------------------| | Test                    | <a href="https://playground.powerbot-trading.com/api/v0">https://playground.powerbot-trading.com/api/v0</a>  | | Staging, Production     | Provided on request                     |  Access to endpoints is secured via an API Key, which needs to be passed as an  \&quot;api_key\&quot; header in each request.     Notes on API Keys:  <em> API keys are specific to Test, Staging or Production.  </em> An API key is associated with a user account and needs to requested. Please contact us by email at <a href="mailto:helmut.spindler@inercomp.com">helmut.spindler@inercomp.com</a> to request an API key.  ## Errors The API uses standard HTTP status codes to indicate the success or failure of the API call. The body of the response will be in JSON format as follows:  <code>{   \&quot;message\&quot;: \&quot;... an error message ...\&quot; }</code>  ## Paging The API uses offset and limit parameters for paged operations. An X-Total-Count header is added to responses to indicate the total number of items in a paged response.     ## Cross-Origin Resource Sharing This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  <a href="https://www.w3.org/TR/cors/">W3C spec</a>. This allows cross-domain communication from the browser. All responses have a wildcard same-origin which makes them completely public and accessible to everyone, including any code on any site.  ## Additional code samples Additional information and code samples demonstrating the use of the API can be found at <a href="https://github.com/powerbot-trading/python-samples">https://github.com/powerbot-trading/python-samples</a>.</h1>
-<p>OpenAPI spec version: 1.1.0</p>
-<p>NOTE: This class is auto generated by the swagger code generator program.
-<a href="https://github.com/swagger-api/swagger-codegen.git">https://github.com/swagger-api/swagger-codegen.git</a>
-Do not edit the class manually.</p>
+                <p>Pipe for transforming typescript enums for
+consumation with ngFor-directive</p>
 
             </p>
 
 
         <section>
-            <h3 id="index">Index</h3>
-            <table class="table table-sm table-bordered index-table">
+            <h3>Metadata</h3>
+            <table class="table table-sm table-hover">
                 <tbody>
                     <tr>
-                        <td class="col-md-4">
-                            <h6><b>Properties</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#deliveryEnd">deliveryEnd</a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#deliveryStart">deliveryStart</a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#id">id</a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#receivedAt">receivedAt</a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#revision">revision</a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#source">source</a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#value">value</a>
-                                </li>
-                            </ul>
-                        </td>
+                        <td class="col-md-3">name</td>
+                        <td class="col-md-9">fgEnum</td>
                     </tr>
                 </tbody>
             </table>
         </section>
 
-
-
             <section>
-                <h3 id="inputs">Properties</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="deliveryEnd"></a>
-                                        <span class="name"><b>deliveryEnd</b><a href="#deliveryEnd"><span class="fa fa-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>deliveryEnd:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-</code>
-                                    </td>
-                                </tr>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="transform"></a>
+                        <span class="name">
+                            <b>
+                            transform
+                            </b>
+                            <a href="#transform"><span class="fa fa-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>transform(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>, args?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
 
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pipe/fg-enum/fg-enum.pipe.ts:16</a></div>
+                            </td>
+                        </tr>
 
 
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Together with delivery_start and delivery_end specify the delivery period in which the signal is valid</p>
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Transform typescript enum-objects into an array that can
+be iterated with ngFor-directive</p>
 </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="deliveryStart"></a>
-                                        <span class="name"><b>deliveryStart</b><a href="#deliveryStart"><span class="fa fa-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>deliveryStart:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>value</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" >Object</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            no
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>Typescript enum-object</p>
 </code>
-                                    </td>
-                                </tr>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>args</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            yes
+                                                    </td>
+                                                    
 
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Together with delivery_start and delivery_end specify the delivery period in which the signal is valid</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="id"></a>
-                                        <span class="name"><b>id</b><a href="#id"><span class="fa fa-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>id:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        <td>
+                                                                <code><p>(optional) args are not used in this pipe</p>
 </code>
-                                    </td>
-                                </tr>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>The unique id of the signal (within the namespace of the emitting source)</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="receivedAt"></a>
-                                        <span class="name"><b>receivedAt</b><a href="#receivedAt"><span class="fa fa-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>receivedAt:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>The timestamp when the signal was received by PowerBot</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="revision"></a>
-                                        <span class="name"><b>revision</b><a href="#revision"><span class="fa fa-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>revision:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>The number of times the signal has been updated. If the signal has never received any updates, then revision is 0.</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="source"></a>
-                                        <span class="name"><b>source</b><a href="#source"><span class="fa fa-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>source:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>The identifier of the system which emitted the signal</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="value"></a>
-                                        <span class="name"><b>value</b><a href="#value"><span class="fa fa-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>value:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>The content of the signal</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-            </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Signal {
-    /**
-     * The unique id of the signal (within the namespace of the emitting source)
-     */
-    id?: string;
-    /**
-     * The identifier of the system which emitted the signal
-     */
-    source?: string;
-    /**
-     * The timestamp when the signal was received by PowerBot
-     */
-    receivedAt?: Date;
-    /**
-     * The number of times the signal has been updated. If the signal has never received any updates, then revision is 0.
-     */
-    revision?: number;
-    /**
-     * Together with delivery_start and delivery_end specify the delivery period in which the signal is valid
-     */
-    deliveryStart?: Date;
-    /**
-     * Together with delivery_start and delivery_end specify the delivery period in which the signal is valid
-     */
-    deliveryEnd?: Date;
-    /**
-     * The content of the signal
-     */
-    value?: any;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
+/**
+ * Pipe for transforming typescript enums for
+ * consumation with ngFor-directive
+ */
+@Pipe({
+  name: &#x27;fgEnum&#x27;
+})
+export class FgEnumPipe implements PipeTransform {
+  /**
+   * Transform typescript enum-objects into an array that can
+   * be iterated with ngFor-directive
+   * @param value Typescript enum-object
+   * @param args (optional) args are not used in this pipe
+   */
+  transform(value: Object, args?: any): any {
+    let keys &#x3D; Object.keys(value);
+    keys &#x3D; keys.slice(keys.length / 2);
+    return keys;
+  }
+
 }
 </code></pre>
     </div>
+
 </div>
+
+
 
 
 
@@ -1679,8 +1450,8 @@ Do not edit the class manually.</p>
 
         <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'Signal.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'pipe';
+            var COMPODOC_CURRENT_PAGE_URL = 'FgEnumPipe.html';
         </script>
 
        <script src="../js/search/search.js"></script>
