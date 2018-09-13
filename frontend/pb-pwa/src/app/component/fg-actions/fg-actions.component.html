@@ -15,7 +15,7 @@
         matBadgeColor="primary"
         matTooltip="{{action.label}}"
         color="{{action.color}}"
-        (click)="this.entity.emitEvent(action.event)"
+        (click)="this.handleChildEvents(action.event)"
       >
         <!-- disabled="this.getDisabledState()" -->
         <mat-icon>{{ action.icon }}</mat-icon>

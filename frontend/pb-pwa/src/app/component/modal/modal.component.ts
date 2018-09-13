@@ -43,5 +43,4 @@ export class ModalComponent extends FgComponentBaseComponent {
   closeModal($event?: Event ): void {
     this.modalRef.close('CLOSE MODAL');
   }
-
 }

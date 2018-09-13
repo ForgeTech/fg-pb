@@ -40,4 +40,8 @@ export class PbAppEvent {
     * Event to be thrown when application should open add-order modal
     */
     public static readonly OPEN_HELP_MODAL = 'Event_PbApp_Open_Help_Modal';
+    /**
+    * Event to be thrown when application should switch color-theme
+    */
+    public static readonly SWITCH_THEME = 'Event_PbApp_Switch_Theme';
 }

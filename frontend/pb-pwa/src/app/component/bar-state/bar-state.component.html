@@ -12,12 +12,11 @@
   <div class="bar-status--label">
     <!-- Connection States -->
     <mat-chip-list
+
       [ngSwitch]="this.entity.state.connectionState"
-      tabindex="-1"
     >
       <mat-chip
-      *ngSwitchCase="BarStateEnum.Loading"
-        disabled
+        *ngSwitchCase="BarStateEnum.Loading"
         color="accent"
         selected
       >
@@ -29,7 +28,6 @@
       </mat-chip>
       <mat-chip
         *ngSwitchCase="BarStateEnum.Online"
-        disabled
         color="primary"
         selected
       >
@@ -41,7 +39,6 @@
       </mat-chip>
       <mat-chip
         *ngSwitchCase="BarStateEnum.Warning"
-        disabled
         color="warn"
         selected
       >
@@ -53,7 +50,6 @@
       </mat-chip>
       <mat-chip
         *ngSwitchCase="BarStateEnum.Error"
-        disabled
         color="warn"
         selected
       >
@@ -65,7 +61,6 @@
       </mat-chip>
       <mat-chip
         *ngSwitchDefault
-        disabled
         color="warn"
         selected
       >
@@ -78,7 +73,7 @@
     </mat-chip-list>
   </div>
   <div
-    class="bar-status--settings"
+    class="bar-status--btn-bar"
   >
     <!-- Connection-State Button -->
     <button

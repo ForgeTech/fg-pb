@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { PowerBotEntity } from '../../entity/powerbot.entity';
-import { ModalMarketComponent } from '../modal-market/modal-market.component';
-import { ModalSettingsComponent } from '../modal-settings/modal-settings.component';
 import { BarStateEntity, BarStateEnum } from '../../entity/bar-state.entity';
 import { PbAppEvent } from '../../event/pb-app.event';
 import { FgEvent } from '../../class/fg-event.class';
@@ -19,10 +17,16 @@ import { FgEvent } from '../../class/fg-event.class';
   styleUrls: ['./bar-state.component.scss']
 })
 export class BarStateComponent  extends FgComponentBaseComponent {
+  /**
+   * Override type of FgComponentbaseEntity
+   */
   entity: PowerBotEntity;
+  /**
+   * Make BarStateEnums available in template
+   */
   public BarStateEnum = BarStateEnum;
   /**
-   * Constructor
+   * CONSTRUCTOR
    */
   constructor( $component: FgComponentBaseService ) {
     super(
@@ -41,7 +45,10 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   public openConnectionModal($event: Event): void {
     this.$component.$event.emit( new FgEvent( PbAppEvent.OPEN_CONNECTION_MODAL ) );
   }
-
+  /**
+   * Return color according to passed state
+   * @param state connection/market state
+   */
   public getStateColor( state: BarStateEnum ): string {
     let color = '';
     switch (state) {
@@ -57,7 +64,10 @@ export class BarStateComponent  extends FgComponentBaseComponent {
     }
     return color;
   }
-
+  /**
+   * Retutn text-label according to passed state
+   * @param state connection/market state
+   */
   getStateLabel( state: BarStateEnum ): string {
     let label = '';
     switch (state) {

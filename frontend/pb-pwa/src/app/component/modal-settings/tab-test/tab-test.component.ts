@@ -65,11 +65,13 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   /**
    * Persist logging-config in browser
    */
-  private storeLoggingConfig() {
+  private storeLoggingConfig(): ConfigTestConnection {
+    const config = this.getFormData();
     this.$component.$data.$storage.setItem(
       PbAppStorageConst.CONFIG_TEST,
-      this.getFormData()
+      config
     );
+    return config;
   }
   /**
   * If checkbox for store configuration is set to false, delete
@@ -90,7 +92,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    */
   public action($event: any = false) {
     if (!this.form.errors && this.form.controls.store.value === true) {
-      this.storeLoggingConfig();
+      this.$component.$data.$powerbot.config.testConfig = this.storeLoggingConfig();
     }
     this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API_TEST, this));
   }

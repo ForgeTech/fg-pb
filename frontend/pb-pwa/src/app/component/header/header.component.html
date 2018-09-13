@@ -67,7 +67,7 @@
         <pb-bar-state [entity]="this.entity"></pb-bar-state>
       </div>
       <div fx-flex="10 150px">
-        <fg-actions [entity]="this"></fg-actions>
+        <fg-actions [entity]="this" (event)="handleActionBarEvent($event)"></fg-actions>
       </div>
     </div>
   </mat-toolbar-row>

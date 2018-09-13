@@ -51,15 +51,6 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
     );
   }
   /**
-   * Helper-Methode to provide log-level values
-   * in a way they can be used with ngFor-directive
-   */
-  // public logLevelsKeys(): Array<string> {
-  //   let keys = Object.keys(this.logLevels);
-  //   keys = keys.slice(keys.length / 2);
-  //   return keys;
-  // }
-  /**
    * Create logging-config from form-data
    */
   private getLoggingConfig(): ConfigLoggingConnection {
@@ -73,11 +64,13 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
   /**
    * Persist logging-config in browser
    */
-  private storeLoggingConfig() {
+  private storeLoggingConfig(): ConfigLoggingConnection {
+    const config = this.getLoggingConfig();
     this.$component.$data.$storage.setItem(
       PbAppStorageConst.CONFIG_LOGGING,
-      this.getLoggingConfig()
+      config
     );
+    return config;
   }
   /**
    * If checkbox for store configuration is set to false, delete
@@ -94,13 +87,13 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    * store config when cacheForm is true
    */
   public action($event: any = false) {
+    let config;
     if ( !this.form.errors &&  this.form.controls.store.value === true) {
-      this.storeLoggingConfig();
+      config = this.storeLoggingConfig();
     }
-    let config = this.getLoggingConfig();
     let currentConfig: LoggerConfig = this.$component.$log.getConfigSnapshot();
     currentConfig.serverLoggingUrl = config.logUrl;
-    currentConfig.serverLogLevel = this.logLevels[config.logLevel];
+    currentConfig.serverLogLevel = config.logLevel;
     // this.$component.$log.updateConfig( currentConfig );
   }
 

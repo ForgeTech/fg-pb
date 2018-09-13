@@ -61,11 +61,13 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
   /**
    * Persist production-config in browser
    */
-  private storeProductionConfig() {
+  private storeProductionConfig(): ConfigProductionConnection {
+    const config = this.getProductionConfig();
     this.$component.$data.$storage.setItem(
       PbAppStorageConst.CONFIG_PRODUCTION,
-      this.getProductionConfig()
+      config
     );
+    return config;
   }
   /**
    * If checkbox for store configuration is set to false, delete
@@ -87,7 +89,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    */
   public action( $event: any = false ) {
     if (!this.form.errors && this.form.controls.store.value === true) {
-      this.storeProductionConfig();
+      this.$component.$data.$powerbot.config.prodConfig = this.storeProductionConfig();
     }
     this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API_PROD, this));
   }

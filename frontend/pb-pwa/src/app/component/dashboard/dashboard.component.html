@@ -44,32 +44,30 @@
         <!-- [style.overflow]="'auto'" -->
         <!-- [style.height.px]="'300'" -->
         <div tabindex="0">
-          <!-- <ng-container *ngTemplateOutlet="orders"></ng-container> -->
-          <!-- <ng-container *ngTemplateOutlet="templates['{{card.title}}']"></ng-container> -->
           <ng-container [ngSwitch]="card.template">
             <ng-container *ngSwitchCase="'orders'">
-              <ng-container *ngTemplateOutlet="orders"></ng-container>
+              <pb-table-orders [entity]="this.$component.$data.$powerbot"></pb-table-orders>
             </ng-container>
             <ng-container *ngSwitchCase="'trades'">
-              <ng-container *ngTemplateOutlet="trades"></ng-container>
+              <pb-table-trades [entity]="this.$component.$data.$powerbot"></pb-table-trades>
             </ng-container>
             <ng-container *ngSwitchCase="'portfolio'">
-              <ng-container *ngTemplateOutlet="graphPortfolio"></ng-container>
+              <pb-graph-portfolio [entity]="this.$component.$data.$powerbot"></pb-graph-portfolio>
             </ng-container>
             <ng-container *ngSwitchCase="'orderbook'">
-              <ng-container *ngTemplateOutlet="orderbook"></ng-container>
+              <pb-table-orderbook [entity]="this.$component.$data.$powerbot"></pb-table-orderbook>
             </ng-container>
             <ng-container *ngSwitchCase="'producthistory'">
-              <ng-container *ngTemplateOutlet="productHistory"></ng-container>
+              <pb-graph-product-history [entity]="this.$component.$data.$powerbot"></pb-graph-product-history>
             </ng-container>
             <ng-container *ngSwitchCase="'bids'">
-              <ng-container *ngTemplateOutlet="bids"></ng-container>
+              <pb-table-bids [entity]="this.$component.$data.$powerbot"></pb-table-bids>
             </ng-container>
             <ng-container *ngSwitchCase="'asks'">
-              <ng-container *ngTemplateOutlet="asks"></ng-container>
+              <pb-table-asks [entity]="this.$component.$data.$powerbot"></pb-table-asks>
             </ng-container>
             <ng-container *ngSwitchCase="'signals'">
-              <ng-container *ngTemplateOutlet="signals"></ng-container>
+              <pb-table-signals [entity]="this.$component.$data.$powerbot"></pb-table-signals>
             </ng-container>
             <ng-container *ngSwitchDefault>
               Template {{card.title}}  not found!
@@ -80,32 +78,3 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
-
-<!-- PowerBot Dashboard Temlates -->
-<!-- PowerBot Dashboard Temlates -->
-<ng-template #orders>
-  <pb-table-orders [entity]="this.$component.$data.$powerbot"></pb-table-orders>
-</ng-template>
-<ng-template #trades>
-  <pb-table-trades [entity]="this.$component.$data.$powerbot"></pb-table-trades>
-</ng-template>
-<ng-template #portfolio>
-  <pb-graph-portfolio [entity]="this.$component.$data.$powerbot"></pb-graph-portfolio>
-</ng-template>
-<ng-template #orderbook>
-  <pb-table-orderbook [entity]="this.$component.$data.$powerbot"></pb-table-orderbook>
-</ng-template>
-<ng-template #producthistory>
-  <pb-graph-product-history [entity]="this.$component.$data.$powerbot"></pb-graph-product-history>
-</ng-template>
-<ng-template #bids>
-  <pb-table-bids [entity]="this.$component.$data.$powerbot"></pb-table-bids>
-</ng-template>
-<ng-template #asks>
-  <pb-table-asks [entity]="this.$component.$data.$powerbot"></pb-table-asks>
-</ng-template>
-<ng-template #signals>
-  <pb-table-signals [entity]="this.$component.$data.$powerbot"></pb-table-signals>
-</ng-template>
-
-

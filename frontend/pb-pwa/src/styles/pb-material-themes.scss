@@ -25,12 +25,6 @@ $light-modal: $white;
 body {
   background-color: $light-body;
 }
-.mat-progress-bar {
-  opacity: 0.3 !important;
-  .mat-mini-fab {
-    box-shadow: none !important;
-  }
-}
 .datatable-pager {
   display: none;
 }
@@ -39,18 +33,10 @@ body {
 }
 .btn-bar {
   .mat-mini-fab {
-    background-color: transparent !important;
-    box-shadow: none !important;
     .mat-icon {
       color: $black;
     }
   }
-}
-.mat-tab-body {
-  padding: 0 15px 0 15px;
-}
-.mat-checkbox-layout {
-  padding-left: 15px;
 }
 .mat-dialog-container {
   background-color: transparent !important;
@@ -65,11 +51,20 @@ body {
   0 24px 38px 3px rgba(0, 0, 0, .14),
   0 9px 46px 8px rgba(0, 0, 0, .12);
 }
+.mat-tab-body {
+    padding: 0 15px 0 15px;
+}
+.mat-checkbox-layout {
+  padding-left: 15px;
+}
 .mat-form-field {
   width: 100%;
 }
 .mat-menu-panel {
   width: 250px;
+}
+.modal-actions {
+
 }
 .mat-tooltip-prettyjson {
   white-space: pre;

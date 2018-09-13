@@ -1,10 +1,8 @@
 import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, SimpleChanges } from '@angular/core';
-// import { Routes, Router } from '@angular/router';
 import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
 import { FgAppService } from './app.service';
 import { environment } from './../environments/environment';
 import { FgEvent } from './class/fg-class.export';
-// import { FgEventSubscriber } from './service/fg-event/fg-event-subscriber.abstract-class';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import {
   FgComponentBaseEvent,
@@ -86,14 +84,12 @@ export class AppComponent // extends FgEventSubscriber
     // $router: Router,
     $app: FgAppService,
     $log: FgLogService,
-    $component: FgComponentBaseService
   ) {
     // super(
     //   $log,
     //   $component.$event
     // );
     this.$dialog = $dialog;
-    this.$component = $component;
     this.$app = $app;
     // this.$router = $router;
     // this.eventsToSubscribe = [
@@ -125,35 +121,35 @@ export class AppComponent // extends FgEventSubscriber
       width: '90vmax',
     };
     // Register event to open connection modal
-    this.$component.$event.event$
+    this.$app.$event.event$
     .filter( event => event.signature === PbAppEvent.OPEN_CONNECTION_MODAL )
     .subscribe( event => {
       this.$app.$log.warn('OPEN CONNECTION MODAL');
       this.$dialog.open( ModalSettingsComponent, modal_config );
     });
     // Register event to open market modal
-    this.$component.$event.event$
+    this.$app.$event.event$
     .filter( event => event.signature === PbAppEvent.OPEN_MARKET_MODAL )
     .subscribe( event => {
       this.$app.$log.warn('OPEN MARKET MODAL!');
       this.$dialog.open( ModalMarketComponent, modal_config );
     });
     // Register event to open add-order modal
-    this.$component.$event.event$
+    this.$app.$event.event$
     .filter( event => event.signature === PbAppEvent.OPEN_ADD_ORDER_MODAL )
     .subscribe( event => {
       this.$app.$log.warn('OPEN ADD-ORDER MODAL!');
       this.$dialog.open( ModalAddOrderComponent, modal_config );
     });
     // Register event to open help modal
-    this.$component.$event.event$
+    this.$app.$event.event$
     .filter( event => event.signature === PbAppEvent.OPEN_HELP_MODAL )
     .subscribe( event => {
       this.$app.$log.warn('OPEN HELP MODAL!');
       this.$dialog.open( ModalHelpComponent, modal_config );
     });
     // Register event for connecting to API
-    this.$component.$event.event$
+    this.$app.$event.event$
     .filter(event => event.signature === PbAppEvent.CONNECT_API_TEST)
     .subscribe( event => {
       this.$app.$log.warn('CONNECT API TEST!');
@@ -162,7 +158,7 @@ export class AppComponent // extends FgEventSubscriber
       this.startDataPolling();
     });
     // Register event for connecting to API
-    this.$component.$event.event$
+    this.$app.$event.event$
     .filter(event => event.signature === PbAppEvent.CONNECT_API_PROD)
     .subscribe( event => {
       this.$app.$log.warn('CONNECT API PRODUCTION!');
@@ -171,25 +167,25 @@ export class AppComponent // extends FgEventSubscriber
       this.startDataPolling();
     });
     // Register event to disconnect from API
-    this.$component.$event.event$
+    this.$app.$event.event$
     .filter(event => event.signature === PbAppEvent.DISCONNECT_API)
     .subscribe( event => {
       this.$app.$log.warn('DISCONNECT API!');
     });
     // Register event to connect to market
-    this.$component.$event.event$
+    this.$app.$event.event$
     .filter(event => event.signature === PbAppEvent.CONNECT_MARKET)
     .subscribe( event => {
       this.$app.$log.warn('CONNECT MARKET!');
     });
     // Register event to disconnect from market
-    this.$component.$event.event$
+    this.$app.$event.event$
     .filter(event => event.signature === PbAppEvent.DISCONNECT_MARKET)
     .subscribe( event => {
       this.$app.$log.warn('DISCONNECT MARKET!');
     });
     // Register the events that should be logged from emit-funciton
-    this.$component.$event.registerEventsToLog([
+    this.$app.$event.registerEventsToLog([
       PbAppEvent.CONNECT_API_TEST,
       PbAppEvent.CONNECT_API_PROD,
       PbAppEvent.CONNECT_MARKET,
@@ -239,7 +235,7 @@ export class AppComponent // extends FgEventSubscriber
    * Implements methode for component life-cycle OnInit-Interface.
    */
   public ngOnInit() {
-    this.$component.$log.log('ngOnInit: ');
+    this.$app.$log.log('ngOnInit: ');
     this.logComponentInfoToConsole();
     this.emitEvent(FgComponentBaseEvent.ON_INIT, this, this);
   }
@@ -247,8 +243,8 @@ export class AppComponent // extends FgEventSubscriber
    * Implements methode for component life-cycle AfterViewInit-Interface.
    */
   public ngAfterViewInit() {
-    this.$component.$log.log('ngAfterViewInit: ');
-    // this.$component.$log.info(this._FORGE);
+    this.$app.$log.log('ngAfterViewInit: ');
+    // this.$app.$log.info(this._FORGE);
     this.logComponentInfoToConsole();
     this.emitEvent(FgComponentBaseEvent.AFTER_VIEW, this, this);
   }
@@ -257,7 +253,7 @@ export class AppComponent // extends FgEventSubscriber
    * @param changes
    */
   public ngOnChanges(changes: SimpleChanges) {
-    this.$component.$log.log('ngOnChanges: ');
+    this.$app.$log.log('ngOnChanges: ');
     this.logComponentInfoToConsole();
     this.emitEvent(FgComponentBaseEvent.ON_CHANGES, this, changes);
     this.emitEvent(FgEntityEvent.SYNC, this, this);
@@ -266,7 +262,7 @@ export class AppComponent // extends FgEventSubscriber
    * Implements methode for component life-cycle OnInit-Interface.
    */
   public ngOnDestroy() {
-    this.$component.$log.log('ngOnDestroy: ');
+    this.$app.$log.log('ngOnDestroy: ');
     this.logComponentInfoToConsole();
     this.emitEvent(FgComponentBaseEvent.ON_DESTROY, this, this);
   }
@@ -274,7 +270,7 @@ export class AppComponent // extends FgEventSubscriber
    * Methode prints value of a components common information to console.
    */
   private logComponentInfoToConsole() {
-    this.$component.$log.log(this);
+    this.$app.$log.log(this);
   }
   /**
    * Dispatch an event via global event-service and component event-emitter
@@ -282,7 +278,7 @@ export class AppComponent // extends FgEventSubscriber
   // protected emitEvent(signature: string, dispatcher: any, data: any = false, options: any = false) {
   //   const eventToDispatch: FgEvent = new FgEvent(signature, dispatcher, data, options);
   //   // Emit global event-service
-  //   this.$component.$event.emit(eventToDispatch);
+  //   this.$app.$event.emit(eventToDispatch);
   // }
   protected emitEvent(signature: string, dispatcher: any, data: any = false, options: any = false) {
     console.log();

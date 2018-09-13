@@ -3,7 +3,11 @@ import { MatPaginator, MatSort } from '@angular/material';
 import { TableDataSource } from './table-datasource';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-
+/**
+ * FgTableComponent -
+ * Component is used to render datatables within powerbot
+ * application.
+ */
 @Component({
   selector: 'pb-table',
   templateUrl: './table.component.html',

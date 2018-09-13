@@ -7,7 +7,9 @@ import {
   FgEntityEvent
 } from '../../event/fg-events.export';
 /**
- * TODO: FgActionsComponent
+ * FgActionsComponent -
+ * Component renders passed entities set of actions as buttons
+ * and dispatches their events on user-interaction
  */
 @Component({
   selector: 'fg-actions',
@@ -26,6 +28,6 @@ export class FgActionsComponent extends FgComponentBaseComponent  {
    * @param event Instance of FgEvent
    */
   public handleChildEvents( event: FgEvent ): void {
-    this.$component.$log.error('ACTION-HANDLE-EVENT');
+    this.emitEvent(event);
   }
 }

@@ -6,34 +6,40 @@ import { FgEvent } from '../../class/fg-event.class';
 import { PbAppEvent } from '../../event/pb-app.event';
 import { FgComponentBaseEvent } from '../../event/fg-events.export';
 import { FgAction } from '../../class/fg-action.class';
-
+import { FgEventService } from '../../service/fg-event/fg-event.service';
+/**
+ * FgHeaderComponent -
+ * Component renders powerbot application header
+ */
 @Component({
   selector: 'pb-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent extends FgComponentBaseComponent {
-
-  constructor($component: FgComponentBaseService) {
+  /**
+   * CONSTRUCTOR
+   */
+  constructor(
+    $component: FgComponentBaseService
+  ) {
     super(
       $component
     );
     this.actions = [
-      // new FgAction(new FgEvent(FgComponentBaseEvent.CREATE), 'accent', 'Add', 'add_box', 'Q'),
-      // new FgAction(new FgEvent(FgComponentBaseEvent.EDIT), 'accent', 'Edit', 'edit', 'E'),
-      // new FgAction(new FgEvent(FgComponentBaseEvent.LOCK), 'accent', 'Lock', 'lock', 'R'),
-      new FgAction(new FgEvent(FgComponentBaseEvent.EXPORT), 'primary', 'Export', 'import_export', 'E'),
-      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT), 'primary', 'Print', 'print', 'P'),
-      new FgAction(new FgEvent(FgComponentBaseEvent.DELETE), 'primary', 'Delete', 'brightness_3', 'F'),
-      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT), 'primary', 'Help', 'live_help', 'H'),
+      new FgAction(new FgEvent(FgComponentBaseEvent.EXPORT, this), 'primary', 'Export', 'import_export', 'E'),
+      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT, this), 'primary', 'Print', 'print', 'P'),
+      new FgAction(new FgEvent(PbAppEvent.SWITCH_THEME, this, false, false, true), 'primary', 'Switch Theme', 'brightness_3', 'T'),
+      new FgAction(new FgEvent(PbAppEvent.OPEN_HELP_MODAL, this), 'primary', 'Help', 'live_help', 'H'),
     ];
   }
   /**
-   * Methode to dispatch event to open Api-Settings Modal
+   * Handle events received from action-bar
    */
-  // openHelpModal($event: Event): void {
-  //   this.$component.$event.emit( new FgEvent( PbAppEvent.OPEN_HELP_MODAL ) );
-  // }
+  handleActionBarEvent($event: Event): void {
+    this.$component.$log.warn('ACTION', $event);
+    this.$component.$data.$powerbot.darkTheme = !this.$component.$data.$powerbot.darkTheme;
+  }
   /**
    * Methode to dispatch event to open Api-Settings Modal
    */
@@ -56,7 +62,7 @@ export class HeaderComponent extends FgComponentBaseComponent {
    * Methode to dispatch event for disconnecting from api
    */
   disconnectApi($event: Event): void {
-    this.emitEvent(PbAppEvent.DISCONNECT_API, this);
+    this.emitEvent(new FgEvent(PbAppEvent.DISCONNECT_API, this));
   }
   /**
    * Methode to dispatch event to open Market-Settings Modal
@@ -68,6 +74,6 @@ export class HeaderComponent extends FgComponentBaseComponent {
    * Methode to dispatch event for to disconnect from market
    */
   disconnectMarket($event: Event): void {
-    this.emitEvent(PbAppEvent.DISCONNECT_MARKET, this);
+    this.emitEvent(new FgEvent(PbAppEvent.DISCONNECT_MARKET));
   }
 }

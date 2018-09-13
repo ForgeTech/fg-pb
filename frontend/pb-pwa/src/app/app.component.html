@@ -1,12 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div [ngClass]="{
-  'pb-dark-theme': this.$component.$data.$powerbot.darkTheme
+  'pb-dark-theme': this.$app.$data.$powerbot.darkTheme
 }">
-  <pb-header [entity]="this.$component.$data.$powerbot"></pb-header>
-  <!-- <pb-bar-action
-    [entity]="this.$component.$data.$powerbot">
-  </pb-bar-action> -->
+  <pb-header [entity]="this.$app.$data.$powerbot"></pb-header>
   <router-outlet></router-outlet>
-  <pb-footer [entity]="this.$component.$data.$powerbot"></pb-footer>
+  <pb-footer [entity]="this.$app.$data.$powerbot"></pb-footer>
 </div>
 

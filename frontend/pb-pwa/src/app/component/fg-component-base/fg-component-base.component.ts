@@ -24,26 +24,6 @@ import { FgEvent, FgAction } from '../../class/fg-class.export';
 export class FgComponentBaseComponent // extends FgEventSubscriber
 implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, OnDestroy {
   /**
-   * Contains the identifier of a components dp-entity
-   */
-  protected _id: number;
-  /**
-   * GETTER for protected member _id
-   */
-  get id(): number {
-    return this._id;
-  }
-  /**
-   * Contains the identifier of a components dp-entity
-   */
-  protected _persist: boolean;
-  /**
-   * GETTER for protected member _persist
-   */
-  get persist(): boolean {
-    return this._persist || false;
-  }
-  /**
    * Contains key flagging the current state of a component
    */
   protected _state: string;
@@ -61,7 +41,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * Contains a EventEmitter instance and uses it to publish
    * a components events to their parent-component
    */
-  @Output() event: EventEmitter<FgEvent>;
+  @Output() event: EventEmitter<FgEvent> = new EventEmitter<FgEvent>();
   /**
    * CAUTION! MAKE SURE THIS IS NOT INITIALIZED IN
    * COMPONENT-BASE-COMPONENT CONSTRUCTOR!
@@ -83,8 +63,8 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   @HostListener( 'click', [ '$event' ])
   protected onClick( $event ) {
     event.stopPropagation();
-    this.emitEvent( FgComponentBaseEvent.CLICK, this, this.entity );
-    this.emitEvent( FgComponentBaseEvent.SELECTED, this, this.entity );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.CLICK, this, this.entity ) );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.SELECTED, this, this.entity ) );
   }
   /**
    * Dispatch focus-in event
@@ -92,13 +72,13 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   @HostListener( 'focusin', [ '$event' ])
   protected onFocusIn( $event ) {
     event.stopPropagation();
-    this.emitEvent( FgComponentBaseEvent.FOCUS_IN, this, this.entity );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.FOCUS_IN, this, this.entity ) );
     /**
      * TODO: Implement selectable propertie to allow ignoring selection
      * on elements
      */
     // if ( this.entity && this.entity.selectable ) {
-      this.emitEvent( FgComponentBaseEvent.SELECTED, this, this.entity );
+      this.emitEvent( new FgEvent( FgComponentBaseEvent.SELECTED, this, this.entity ) );
     // }
   }
   /**
@@ -107,33 +87,20 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   @HostListener( 'focusout' , [ '$event' ] )
   protected onFocusout( $event ) {
     event.stopPropagation();
-    this.emitEvent( FgComponentBaseEvent.FOCUS_OUT, this, this.entity );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.FOCUS_OUT, this, this.entity ) );
   }
   /**
    * CONSTRUCTOR
    */
   constructor(
-    // $el: ElementRef,
     public $component: FgComponentBaseService,
-  ) {
-    this.event = new EventEmitter<FgEvent>();
-    // Default set of component ui-actions
-    this.actions = [
-      // new FgAction( new FgEvent( FgComponentBaseEvent.CREATE ), 'accent', 'Add', 'add_box', 'Q', /* $component.disableCreateAction */ ),
-      // new FgAction( new FgEvent(FgComponentBaseEvent.EDIT), 'accent', 'Edit', 'edit', 'E', /* $component.disableEditableAction */ ),
-      // new FgAction( new FgEvent(FgComponentBaseEvent.LOCK), 'accent', 'Lock', 'lock', 'R', /* $component.disableLockAction */ ),
-      // new FgAction( new FgEvent(FgComponentBaseEvent.DELETE), 'accent', 'Delete', 'delete_forever', 'F', /* $component.disableDeleteAction */ ),
-      // new FgAction( new FgEvent(FgComponentBaseEvent.EXPORT), 'accent', 'Export', 'import_export', 'Y', /* $component.disableExportAction */ ),
-      // new FgAction( new FgEvent(FgComponentBaseEvent.PRINT), 'accent', 'Print', 'print', 'P', /* $component.disablePrintAction */ ),
-    ];
-  }
+  ) {}
   /**
    * Dispatch an event via global event-service and component event-emitter
    */
-  public emitEvent( signature: string , dispatcher: any, data: any = false, options: any = false, bubble = false ) {
-    const eventToDispatch: FgEvent = new FgEvent( signature, dispatcher, data, options, bubble );
+  public emitEvent( eventToDispatch: FgEvent ) {
     // Emit component-event using angular event-emitter
-    if ( eventToDispatch.bubble) {
+    if ( eventToDispatch.bubble ) {
       this.event.emit( eventToDispatch );
     }
     // Emit global-event via event-service
@@ -145,7 +112,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   public ngOnInit() {
     this.$component.$log.log( 'ngOnInit ' );
     this.logComponentInfoToConsole();
-    this.emitEvent( FgComponentBaseEvent.ON_INIT, this, this.entity );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.ON_INIT, this, this.entity ) );
   }
   /**
    * Implements methode for component life-cycle AfterViewInit-Interface.
@@ -156,7 +123,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
       this.entity.parent = this.parent;
     }
     this.logComponentInfoToConsole();
-    this.emitEvent( FgComponentBaseEvent.AFTER_VIEW, this, this.entity );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.AFTER_VIEW, this, this.entity ) );
   }
   /**
    * Implements methode for component life-cycle OnChange-Interface.
@@ -165,8 +132,8 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   public ngOnChanges( changes: SimpleChanges ) {
     this.$component.$log.log( 'ngOnChanges' );
     this.logComponentInfoToConsole();
-    this.emitEvent( FgComponentBaseEvent.ON_CHANGES, this, changes );
-    this.emitEvent( FgEntityEvent.SYNC, this, this.entity );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.ON_CHANGES, this, changes ) );
+    this.emitEvent( new FgEvent( FgEntityEvent.SYNC, this, this.entity ) );
   }
   /**
    * Implements methode for component life-cycle OnInit-Interface.
@@ -174,20 +141,7 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   public ngOnDestroy() {
     this.$component.$log.log( 'ngOnDestroy' );
     this.logComponentInfoToConsole();
-    this.emitEvent( FgComponentBaseEvent.ON_DESTROY, this.entity );
-  }
-  /**
-   * Methode to handle events emitted from component output event-emmitter
-   * @param event Instance of FgEvent
-   */
-  public handleChildEvents( event: any /* FgEvent */ ): void {
-    this.$component.$log.warn( 'handleChildEvents:' );
-    this.$component.$log.warn( `
-      CAUTION:
-      Called from fgComponentBaseComponent -
-      but should must likely being overwritten by extending fgComponent!
-      Make sure this is not a error!
-    ` );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.ON_DESTROY, this.entity ) );
   }
   /**
    * Methode prints value of a components common information to console.

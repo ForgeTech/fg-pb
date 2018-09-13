@@ -7,11 +7,11 @@ import { MatDialog } from '@angular/material';
 // import { FgKeyboardService } from './../../service/fg-keyboard/fg-keyboard.service';
 // import { FgZindexService } from './../../service/fg-zindex/fg-zindex.service';
 // import { IFgStateEntityInterface } from '../../../../../../fg-shared/interface/fg-interfaces.export';
-  /**
-  * FgComponentBaseService -
-  * Service provides forge-components with all commonly needed
-  * functionality
-  */
+/**
+ * FgComponentBaseService -
+ * Service provides forge-components with all commonly needed
+ * functionality
+ */
 @Injectable()
 export class FgComponentBaseService {
   /**

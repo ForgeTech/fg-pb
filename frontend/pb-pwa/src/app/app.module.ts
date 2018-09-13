@@ -60,7 +60,6 @@ import { TableOrderbookComponent } from './component/table-orderbook/table-order
 import { TableOrdersComponent } from './component/table-orders/table-orders.component';
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
-import { BarActionComponent } from './component/bar-action/bar-action.component';
 import { PwaInstallComponent } from './component/pwa-install/pwa-install.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { TableAddOrderComponent } from './component/table-add-order/table-add-order.component';
@@ -155,7 +154,6 @@ const appRoutes: Routes = [
     TableOrdersComponent,
     TableSignalsComponent,
     TableOrderbookComponent,
-    BarActionComponent,
     PwaInstallComponent,
     TableAddOrderComponent,
     PbSidePipe,
