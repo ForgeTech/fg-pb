@@ -1,5 +1,4 @@
 import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, SimpleChanges } from '@angular/core';
-import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
 import { FgAppService } from './app.service';
 import { environment } from './../environments/environment';
 import { FgEvent } from './class/fg-class.export';
@@ -55,13 +54,9 @@ export class AppComponent // extends FgEventSubscriber
    */
   // protected $router: Router;
   /**
-   * Holds a reference to the basic forge component-service
-   */
-  public $component: FgComponentBaseService;
-  /**
    * Holds a reference to the basic forge init-service
    */
-  protected $app: FgAppService;
+  public $app: FgAppService;
   /**
    * Holds reference to the currently active-component entity.
    * The active-component is the component that currently holds focus
