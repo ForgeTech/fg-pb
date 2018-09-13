@@ -53,10 +53,10 @@ export class BarStateComponent  extends FgComponentBaseComponent {
     let color = '';
     switch (state) {
       case BarStateEnum.Online:
-        color = 'primary';
+        color = 'accent';
       break;
       case BarStateEnum.Warning:
-        color = 'accent';
+        color = 'primary';
       break;
       default:
         color = 'warn';

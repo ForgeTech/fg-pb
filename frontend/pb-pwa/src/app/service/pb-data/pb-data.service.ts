@@ -162,6 +162,7 @@ export class PbDataService {
    * @param config Api Configuration object
    */
   setServiceConfiguration( config: Configuration ) {
+    this.$log.warn('CONFIG', config);
     this.$auth.configuration = config;
     this.$contracts.configuration = config;
     this.$logs.configuration = config;
@@ -202,11 +203,8 @@ export class PbDataService {
               // do nothing
             },
             err => {
-              errorFn(err);
-            },
-            () => {
-              console.log('UNSUBSCRIBE');
               subscribtion.unsubscribe();
+              errorFn(err);
             });
           } else if ( returnType instanceof Promise ) {
             // Returntype is Promise
@@ -231,7 +229,7 @@ export class PbDataService {
    protected wrapApiServiceMethodes($service: any, errorFn: (error: Error) => void ): any {
     Object.getOwnPropertyNames( Object.getPrototypeOf( $service ) ).forEach( fnKey => {
       if ( fnKey !== 'constructor' ) {
-        $service[fnKey] = this.wrapMethode($service[fnKey], errorFn);
+        $service[fnKey] = this.wrapMethode($service[fnKey].bind($service), errorFn);
       }
     } );
     return $service;

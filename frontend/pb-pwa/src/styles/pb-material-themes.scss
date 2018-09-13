@@ -33,6 +33,8 @@ body {
 }
 .btn-bar {
   .mat-mini-fab {
+    box-shadow: none !important;
+    background-color: transparent !important;
     .mat-icon {
       color: $black;
     }
@@ -63,13 +65,11 @@ body {
 .mat-menu-panel {
   width: 250px;
 }
-.modal-actions {
-
-}
 .mat-tooltip-prettyjson {
   white-space: pre;
 }
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-accent,
 .mat-checkbox .mat-icon
 .mat-flat-button,
 .mat-raised-button,
@@ -79,10 +79,6 @@ body {
   &.mat-accent {
     color: $white;
   }
-}
-.datatable {
-  color: $black;
-  background-color: red;
 }
 
 // Include the alternative theme styles inside of a block with a CSS class. You can make this
@@ -112,6 +108,7 @@ body {
     color: $white;
   }
   .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
+  .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent,
   .mat-checkbox .mat-icon
   .mat-flat-button,
   .mat-raised-button,
@@ -123,7 +120,18 @@ body {
     }
   }
   .datatable {
-    color: $white;
+    .datatable-header-cell,
+    .datatable-body-cell,
+    .datatable-footer-inner,
+    .datatable-inner {
+      color: $white !important;
+    }
+    .datatable-row-center:hover {
+      .datatable-body-cell {
+        color: $black !important;
+      }
+    }
+    // border: 1px solid $white;
     background-color: $dark-body;
   }
 }

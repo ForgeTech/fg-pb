@@ -26,6 +26,7 @@ import { ModalSettingsComponent } from './component/modal-settings/modal-setting
 import { ModalHelpComponent } from './component/modal-help/modal-help.component';
 import { ModalMarketComponent } from './component/modal-market/modal-market.component';
 import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
+import { ConnectionType } from './service/pb-data/pb-data.service';
 
 /**
   * The application-component loaded by angular-module bootstrap
@@ -155,7 +156,7 @@ export class AppComponent // extends FgEventSubscriber
       this.$app.$log.warn('CONNECT API TEST!');
       console.log( event );
       // Start polling data from backend
-      this.startDataPolling();
+      this.startDataPolling( ConnectionType.Test );
     });
     // Register event for connecting to API
     this.$app.$event.event$
@@ -164,7 +165,7 @@ export class AppComponent // extends FgEventSubscriber
       this.$app.$log.warn('CONNECT API PRODUCTION!');
       console.log( event );
       // Start polling data from backend
-      this.startDataPolling();
+      this.startDataPolling( ConnectionType.Production );
     });
     // Register event to disconnect from API
     this.$app.$event.event$
@@ -220,7 +221,11 @@ export class AppComponent // extends FgEventSubscriber
   /**
    * Setup and subscribe to polling application-data
    */
-  protected startDataPolling(): void {
+  protected startDataPolling( connectionType: ConnectionType ): void {
+    this.$app.$data.setApiConfiguration( connectionType );
+    if ( this.timerSubscribtion ) {
+      this.timerSubscribtion.unsubscribe();
+    }
     this.timerSubscribtion = this.$app.$data.getPollingTimer().subscribe(x => {
       this.fetchAppData();
     });

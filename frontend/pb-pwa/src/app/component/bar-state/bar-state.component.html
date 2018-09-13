@@ -17,18 +17,18 @@
     >
       <mat-chip
         *ngSwitchCase="BarStateEnum.Loading"
-        color="accent"
+        color="primary"
         selected
       >
         <mat-icon>refresh</mat-icon>
         &nbsp;
         <span>
-          Checking Connection
+          Connecting
         </span>
       </mat-chip>
       <mat-chip
         *ngSwitchCase="BarStateEnum.Online"
-        color="primary"
+        color="accent"
         selected
       >
         <mat-icon>signal_wifi_4_bar</mat-icon>
@@ -39,13 +39,13 @@
       </mat-chip>
       <mat-chip
         *ngSwitchCase="BarStateEnum.Warning"
-        color="warn"
+        color="primary"
         selected
       >
         <mat-icon>signal_wifi_off</mat-icon>
         &nbsp;
         <span>
-          Connection Warning
+          Warning
         </span>
       </mat-chip>
       <mat-chip
@@ -56,7 +56,7 @@
         <mat-icon>signal_wifi_off</mat-icon>
         &nbsp;
         <span>
-          Connection Error
+          Error
         </span>
       </mat-chip>
       <mat-chip

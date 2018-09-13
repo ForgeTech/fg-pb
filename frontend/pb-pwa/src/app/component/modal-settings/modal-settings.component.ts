@@ -129,6 +129,10 @@ export class ModalSettingsComponent extends ModalComponent {
    * Metode executing the active tabs action
    */
   action( $event ) {
-    this.activeTab.action();
+    this.activeTab.action( $event );
+    // Close modal for all tabs but api
+    if ( this.activeTabIndex !== ConnectionTabEnum.ApiTab ) {
+      this.closeModal();
+    }
   }
 }

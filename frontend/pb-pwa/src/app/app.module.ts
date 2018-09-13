@@ -10,6 +10,7 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { PrettyJsonModule } from 'angular2-prettyjson';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgForageModule, NgForageConfig } from 'ngforage';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
@@ -66,23 +67,6 @@ import { TableAddOrderComponent } from './component/table-add-order/table-add-or
 import { PbSidePipe } from './pipe/pb-side/pb-side.pipe';
 import { FgEnumPipe } from './pipe/fg-enum/fg-enum.pipe';
 
-/**
- * Define Configuration for swagger-codegen api-module
- */
-export function apiConfigFactory(): Configuration {
-  const params: ConfigurationParameters = {
-    // set configuration parameters here.
-    apiKeys: {'api_key' : '44fc8162-d2c6-432a-8279-d8d40e5c0e1b'},
-    // apiKeys: {'api_key' : '44fc8162-d2c6-432a-8-error'},
-    // apiKeys?: { [key: string ]: string };
-    // username?: string;
-    // password?: string;
-    // accessToken?: string | (() => string);
-    basePath: 'https://playground.powerbot-trading.com/api/v0'
-    // withCredentials?: boolean;
-  };
-  return new Configuration(params);
-}
 /**
  * Routes for PowerBot application
  */
@@ -163,6 +147,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    PerfectScrollbarModule,
     PrettyJsonModule,
     NgxDatatableModule,
     ChartModule,
