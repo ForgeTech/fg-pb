@@ -98,6 +98,6 @@ export class AppStateEntity {
     /**
      * Flags if the application has active requests
      */
-    public requestState: RequestState = RequestState.Inactive;
+    public requestState: RequestState = RequestState.Inactive
   ) { }
 }

@@ -59,7 +59,7 @@ export class FgComponentBaseService {
     this.$log = $log;
     this.$event = $event;
     this.$data = $data;
-    this.$modal = $modal;
+    // this.$modal = $modal;
     // this.$gesture = $gesture;
     // this.$keyboard = $keyboard;
     // this.$zindex = $zindex;

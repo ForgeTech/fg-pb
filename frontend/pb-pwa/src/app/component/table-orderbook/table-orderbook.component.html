@@ -25,4 +25,9 @@
   >
     <mat-icon>library_add</mat-icon>
   </button>
+  <mat-select placeholder="Market">
+    <mat-option *ngFor="let market of ['market1','market2']" [value]="market">
+      {{market}}
+    </mat-option>
+  </mat-select>
 </div>

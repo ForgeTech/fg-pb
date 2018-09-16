@@ -50,16 +50,21 @@ export class HeaderComponent extends FgComponentBaseComponent {
     if (
       this.entity.state.connectionState === ConnectionState.Offline
       && this.entity.state.appEnv !== AppEnv.Live_Prod
-    ) {
-      disabled = false;
+      && this.entity.config.prodConfig.apiKey
+      && this.entity.config.prodConfig.serverUrl
+      && this.entity.config.prodConfig.backupUrl
+      ) {
+        disabled = false;
+      }
+      return disabled;
     }
-    return disabled;
-  }
-  getTestDisabled(): boolean {
-    let disabled: boolean = true;
-    if (
-      this.entity.state.connectionState === ConnectionState.Offline
-      && this.entity.state.appEnv !== AppEnv.Live_Test
+    getTestDisabled(): boolean {
+      let disabled: boolean = true;
+      if (
+        this.entity.state.connectionState === ConnectionState.Offline
+        && this.entity.state.appEnv !== AppEnv.Live_Test
+        && this.entity.config.testConfig.apiKey
+        && this.entity.config.testConfig.serverUrl
     ) {
       disabled = false;
     }

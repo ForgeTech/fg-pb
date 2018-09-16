@@ -1,0 +1,47 @@
+.header {
+  &.mat-toolbar {
+    height: 55px;
+    min-height: 55px;
+  }
+  .mat-toolbar-row {
+    height: 100%;
+  }
+}
+.dashboard-card.mat-card {
+  padding: 10px 15px !important;
+}
+.dashboard-card-menu-button {
+  position: absolute;
+  top: -2px !important;
+  right: -5px !important;
+}
+.btn-bar {
+  position: absolute;
+  top: -4px !important;
+  right: 50px !important;
+  .mat-select {
+    margin: 0 5px;
+    padding: 4px 10px;
+    width: 100px;
+    height: 18px;
+    background: $white;
+  }
+}
+// .graph-container,
+.ngx-datatable.material {
+  position: absolute !important;
+  top: 35px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  box-shadow: none;
+}
+.footer {
+  &.mat-toolbar {
+    height: 35px;
+    min-height: 35px;
+  }
+  .mat-toolbar-row {
+    height: 100%;
+  }
+}

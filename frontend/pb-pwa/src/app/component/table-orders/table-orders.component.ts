@@ -15,34 +15,50 @@ import { FgEvent } from '../../class/fg-event.class';
 })
 export class TableOrdersComponent extends FgComponentBaseComponent {
   config: any = {
+    columnMode: 'force',
+    headerHeight: 50,
+    rowHeight: 50,
+    footerHeight: 25,
+    scrollbarV: true,
+    scrollbarH: true,
     columns: [
       {
         name: 'dlvry Start',
-        prop: 'contract_details.dlvryStart'
+        prop: 'contract_details.dlvryStart',
+        display: true,
+        width: 50
       },
       {
         name: 'dlvry End',
-        prop: 'contract_details.dlvryEnd'
+        prop: 'contract_details.dlvryEnd',
+        display: true,
+        width: 50
       },
       {
         name: 'Side',
-        prop: 'name'
+        prop: 'name',
+        display: true,
+        width: 50
       },
       {
         name: 'Qty [MW]',
-        prop: 'name'
+        prop: 'name',
+        display: true,
+        width: 50
       },
       {
         name: 'Price [EUR]',
-        prop: 'name'
+        prop: 'name',
+        display: true,
+        width: 50
       },
       {
         name: 'Note',
-        prop: 'name'
+        prop: 'name',
+        display: true,
+        width: 50
       }
-    ],
-    size: 50,
-    sizeOptions: [25, 50, 100, 250]
+    ]
   };
   /**
    * CONSTRUCTION

@@ -44,6 +44,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { GraphComponent } from './component/graph/graph.component';
 import { GraphPortfolioComponent } from './component/graph-portfolio/graph-portfolio.component';
 import { GraphProductHistoryComponent } from './component/graph-product-history/graph-product-history.component';
+import { GraphSignalHistoryComponent } from './component/graph-signal-history/graph-signal-history.component';
 import { HeaderComponent } from './component/header/header.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
@@ -61,6 +62,8 @@ import { TableOrderbookComponent } from './component/table-orderbook/table-order
 import { TableOrdersComponent } from './component/table-orders/table-orders.component';
 import { TableSignalsComponent } from './component/table-signals/table-signals.component';
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
+import { TableLogsComponent } from './component/table-logs/table-logs.component';
+import { TableContractDetailsComponent } from './component/table-contract-details/table-contract-details.component';
 import { PwaInstallComponent } from './component/pwa-install/pwa-install.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { TableAddOrderComponent } from './component/table-add-order/table-add-order.component';
@@ -120,6 +123,7 @@ const appRoutes: Routes = [
     GraphComponent,
     GraphPortfolioComponent,
     GraphProductHistoryComponent,
+    GraphSignalHistoryComponent,
     HeaderComponent,
     ModalComponent,
     ModalAddOrderComponent,
@@ -131,7 +135,6 @@ const appRoutes: Routes = [
       TabLoggingComponent,
       TabProductionComponent,
       TabTestComponent,
-
     TableComponent,
     TableTradesComponent,
     TableAsksComponent,
@@ -144,6 +147,8 @@ const appRoutes: Routes = [
     PbSidePipe,
     FgEnumPipe,
     FgInputComponent,
+    TableLogsComponent,
+    TableContractDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 <div class="bar-status--container">
   <mat-progress-bar
     class="bar-status--progress"
-    mode="getProgressBarMode()"
+    mode="{{ getProgressBarMode() }}"
     matTooltip="{{ entity.market | json:4 }}"
     matTooltipClass="mat-tooltip-prettyjson"
     color="accent">

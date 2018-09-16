@@ -31,6 +31,6 @@ export class ConfigPowerbot {
     /**
      * Holds powerbot test-server connection-configuration
      */
-    public testConfig: ConfigTestConnection = new ConfigTestConnection();
+    public testConfig: ConfigTestConnection = new ConfigTestConnection()
   ) {}
 }

@@ -9,7 +9,7 @@ import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base
 @Component({
   selector: 'pb-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent extends FgComponentBaseComponent {
   /**

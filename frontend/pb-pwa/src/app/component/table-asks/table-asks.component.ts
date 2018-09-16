@@ -17,29 +17,17 @@ export class TableAsksComponent extends FgComponentBaseComponent {
     scrollbarH: true,
     columns: [
       {
-        name: 'Name',
-        prop: 'name',
+        name: 'Qty [Mw]',
+        prop: '',
         display: true,
         width: 100
       },
       {
-        name: 'Best Bid',
-        prop: 'bestBidPrice',
+        name: 'Price [Eur]',
+        prop: '',
         display: true,
         width: 100
       },
-      {
-        name: 'Bid Qty',
-        prop: 'bestBidQuantity',
-        display: true,
-        width: 100
-      },
-      {
-        name: 'Best Ask',
-        prop: 'bestAskPrice',
-        display: true,
-        width: 100
-      }
     ]
   };
 

@@ -43,7 +43,7 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   }
   getProgressBarMode(): string {
     let mode: string = '';
-    if ( RequestState.Active) {
+    if ( this.entity.state.requestState === RequestState.Active) {
       mode = 'indeterminate';
     }
     return mode;
@@ -123,9 +123,15 @@ export class BarStateComponent  extends FgComponentBaseComponent {
     }
     return label;
   }
+  /**
+   * Returns flag if environment chip should be displaced
+   */
   viewEnvironment(): boolean {
     return this.entity.state.appEnv === AppEnv.Offline ? false : true;
   }
+  /**
+   * Returns environment label
+   */
   getEnvironmentLabel() {
     return AppEnv[ this.entity.state.appEnv ];
   }

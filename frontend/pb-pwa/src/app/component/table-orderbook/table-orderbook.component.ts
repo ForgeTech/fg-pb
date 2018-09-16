@@ -8,6 +8,7 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
   styleUrls: ['./table-orderbook.component.scss']
 })
 export class TableOrderbookComponent extends FgComponentBaseComponent {
+  // contracts: [];
   config: any = {
     columnMode: 'force',
     headerHeight: 50,

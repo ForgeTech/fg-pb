@@ -37,15 +37,15 @@ export class PowerBotEntity {
     /**
      * Holds current powerbot contract data
      */
-    public contracts?: ContractInterface[],
+    public contracts: ContractInterface[] = [],
     /**
      * Holds current powerbot contract data
      */
-    public logs?: LogInterface[],
+    public logs: LogInterface[] = [],
     /**
      * Holds current powerbot contract data
      */
-    public messages?: MessageInterface[],
+    public messages: MessageInterface[] = [],
     /**
      * Holds current powerbot orderbook data
      */
@@ -53,26 +53,26 @@ export class PowerBotEntity {
     /**
      * Holds current powerbot products data
      */
-    public products?: any[],
+    public products: any[] = [],
     /**
      * Holds current powerbot asks data
      */
-    public asks?: any[],
+    public asks: any[] = [],
     /**
      * Holds current powerbot asks data
      */
-    public bids?: any[],
+    public bids: any[] = [],
     /**
      * Holds current powerbot contract data
      */
-    public orders?: any[],
+    public orders: any[] = [],
     /**
      * Holds current powerbot contract data
      */
-    public signals?: any[],
+    public signals: any[] = [],
     /**
      * Holds current powerbot contract data
      */
-    public trades?: TradeInterface[],
+    public trades: TradeInterface[] = [],
   ) {}
 }

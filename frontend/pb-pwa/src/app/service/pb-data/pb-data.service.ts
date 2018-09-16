@@ -98,8 +98,19 @@ export class PbDataService {
   ) {
     const errorFn = error => {
       this.$log.error('HANDLE ALL THE ERRORS');
-      this.app.state.connectionState = ConnectionState.Error;
-      this.app.state.marketState = ConnectionState.Error;
+      // If request fails in production-environment, try connecting
+      // to backup-environment
+      if ( this.app.state.appEnv === AppEnv.Live_Prod ) {
+        this.app.state.connectionState = ConnectionState.Warning;
+        this.app.state.appEnv = AppEnv.Live_Backup;
+        this.setAppEnvConfiguration(this.app.state.appEnv);
+        // TODO: Implement methode that tries to reconnect to production-environment
+        // after a random time between 5 and 10 minutes
+      } else {
+        this.app.state.connectionState = ConnectionState.Error;
+        this.app.state.marketState = ConnectionState.Error;
+      }
+      this.app.state.requestState = RequestState.Inactive;
       this.$log.error(error.message);
     };
     // Decorate services to call errorFn on error
@@ -234,7 +245,9 @@ export class PbDataService {
    */
   public disconnect(): void {
     this.appSubscrption.unsubscribe();
+    this.app.state.appEnv = AppEnv.Offline;
     this.app.state.connectionState = ConnectionState.Offline;
+    this.app.state.requestState = RequestState.Inactive;
   }
   /**
    * Fetch full set of application-data from backend

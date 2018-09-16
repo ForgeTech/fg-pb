@@ -11,15 +11,8 @@
   right: 0;
   bottom: 0;
 }
-
 .dashboard-card-menu-button {
-  // display: none;
   position: absolute;
-  top: 5px;
-  right: 10px;
-}
-:focus{
-  .dashboard-card-menu-button {
-    display: inline-block;
-  }
+  top: -2px;
+  right: -5px;
 }

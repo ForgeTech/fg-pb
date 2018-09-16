@@ -13,6 +13,70 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent extends FgComponentBaseComponent {
+  config = {
+    grid: {
+      cols: 32,
+      rowHeight: '25px',
+      gutterSize: '10px'
+    },
+    cards: [
+      {
+        title: 'Orders',
+        template: 'orders',
+        cols: 7, rows: 7
+      },
+      {
+        title: 'Orderbook',
+        template: 'orderbook',
+        cols: 14, rows: 14
+      },
+      {
+        title: 'Contract Details',
+        template: 'contractdetails',
+        cols: 7, rows: 7
+      },
+      {
+        title: 'Bids',
+        template: 'bids',
+        cols: 4, rows: 7
+      },
+      {
+        title: 'Trades',
+        template: 'trades',
+        cols: 7, rows: 7
+      },
+      {
+        title: 'Signals',
+        template: 'signals',
+        cols: 7, rows: 7
+      },
+      {
+        title: 'Asks',
+        template: 'asks',
+        cols: 4, rows: 7
+      },
+      {
+        title: 'Portfolio',
+        template: 'portfolio',
+        cols: 7, rows: 7
+      },
+      {
+        title: 'Product history',
+        template: 'producthistory',
+        cols: 14, rows: 14
+      },
+      {
+        title: 'Signal History',
+        template: 'signalhistory',
+        cols: 11, rows: 14
+      },
+      {
+        title: 'Logs',
+        template: 'logs',
+        cols: 7, rows: 7
+      },
+    ]
+  };
   /**
    * CONSTRUCTOR
    */
@@ -29,35 +93,35 @@ export class DashboardComponent extends FgComponentBaseComponent {
           {
             title: 'Orders',
             template: 'orders',
-            cols: 4, rows: 1 },
+            cols: 32, rows: 7 },
           {
             title: 'Orderbook',
             template: 'orderbook',
-            cols: 4, rows: 2 },
+            cols: 32, rows: 14 },
           {
             title: 'Bids',
             template: 'bids',
-            cols: 4, rows: 1 },
+            cols: 32, rows: 7 },
           {
             title: 'Trades',
             template: 'trades',
-            cols: 4, rows: 1 },
+            cols: 32, rows: 7 },
           {
             title: 'Asks',
             template: 'asks',
-            cols: 4, rows: 1 },
+            cols: 32, rows: 7 },
           {
             title: 'Portfolio',
             template: 'portfolio',
-            cols: 4, rows: 1 },
+            cols: 32, rows: 7 },
           {
             title: 'Product History',
             template: 'productHistory',
-            cols: 4, rows: 1 },
+            cols: 32, rows: 7 },
           {
             title: 'Signals',
             template: 'signals',
-            cols: 4, rows: 1 },
+            cols: 32, rows: 7 },
         ];
       }
 
@@ -65,35 +129,47 @@ export class DashboardComponent extends FgComponentBaseComponent {
         {
           title: 'Orders',
           template: 'orders',
-          cols: 1, rows: 1 },
+          cols: 7, rows: 7 },
         {
           title: 'Orderbook',
           template: 'orderbook',
-          cols: 2, rows: 2 },
+          cols: 14, rows: 14 },
+        {
+          title: 'Contract Details',
+          template: 'contractdetails',
+          cols: 7, rows: 7 },
         {
           title: 'Bids',
           template: 'bids',
-          cols: 1, rows: 1 },
+          cols: 4, rows: 7 },
         {
           title: 'Trades',
           template: 'trades',
-          cols: 1, rows: 1 },
+          cols: 7, rows: 7 },
+        {
+          title: 'Signals',
+          template: 'Signals',
+          cols: 7, rows: 7 },
         {
           title: 'Asks',
           template: 'asks',
-          cols: 1, rows: 1 },
+          cols: 4, rows: 7 },
         {
           title: 'Portfolio',
           template: 'portfolio',
-          cols: 1, rows: 1 },
-        {
-          title: 'Product history',
-          template: 'producthistory',
-          cols: 2, rows: 1 },
-        {
-          title: 'Signals',
-          template: 'signals',
-          cols: 1, rows: 1 },
+          cols: 7, rows: 7 },
+          {
+            title: 'Product history',
+            template: 'producthistory',
+            cols: 14, rows: 14 },
+          {
+            title: 'Signal History',
+            template: 'signalhistory',
+            cols: 11, rows: 14 },
+          {
+            title: 'Logs',
+            template: 'logs',
+            cols: 7, rows: 7 },
       ];
     })
   );
