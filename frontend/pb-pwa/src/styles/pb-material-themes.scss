@@ -5,8 +5,7 @@
 // **Be sure that you only ever include this mixin once!**
 @include mat-core();
 
-$white: #fff;
-$black: #000;
+
 // Define the default theme (same as the example above).
 // $light-primary: mat-palette($mat-indigo);
 // $light-accent: mat-palette($mat-pink, A200, A100, A400);
@@ -15,7 +14,7 @@ $light-primary: mat-palette($mat-blue-grey, 100);
 $light-accent: mat-palette($mat-teal, A700, 500, 800);
 $light-warn: mat-palette($mat-orange, A400);
 $light-theme: mat-light-theme($light-primary, $light-accent, $light-warn);
-$light-body: #929292;
+$light-body: $light-grey;
 $light-modal: $white;
 
 // Include the default theme styles.
@@ -25,8 +24,8 @@ $light-modal: $white;
 body {
   background-color: $light-body;
 }
-.datatable-pager {
-  display: none;
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.8);
 }
 .mat-card {
   background-color: #cfd8dc;
@@ -90,8 +89,8 @@ body {
   $dark-accent : mat-palette($mat-teal, 400, A100, A400);
   $dark-warn : mat-palette($mat-orange, A200);
   $dark-theme : mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
-  $dark-body: #929292;
-  $dark-modal: #525252;
+  $dark-body: $light-grey;
+  $dark-modal: $dark-grey;
   @include angular-material-theme($dark-theme);
   body {
     background-color: $dark-body;
@@ -118,20 +117,5 @@ body {
     &.mat-accent {
       color: $white;
     }
-  }
-  .datatable {
-    .datatable-header-cell,
-    .datatable-body-cell,
-    .datatable-footer-inner,
-    .datatable-inner {
-      color: $white !important;
-    }
-    .datatable-row-center:hover {
-      .datatable-body-cell {
-        color: $black !important;
-      }
-    }
-    // border: 1px solid $white;
-    background-color: $dark-body;
   }
 }

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { ModalHelpComponent } from '../modal-help/modal-help.component';
 import { FgEvent } from '../../class/fg-event.class';
 import { PbAppEvent } from '../../event/pb-app.event';
 import { FgComponentBaseEvent } from '../../event/fg-events.export';
 import { FgAction } from '../../class/fg-action.class';
-import { FgEventService } from '../../service/fg-event/fg-event.service';
+import { PowerBotEntity } from '../../entity/entity.export';
+import { ConnectionState, AppEnv } from '../../entity/app-state.entity';
 /**
  * FgHeaderComponent -
  * Component renders powerbot application header
@@ -17,6 +17,7 @@ import { FgEventService } from '../../service/fg-event/fg-event.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent extends FgComponentBaseComponent {
+  entity: PowerBotEntity;
   /**
    * CONSTRUCTOR
    */
@@ -29,7 +30,11 @@ export class HeaderComponent extends FgComponentBaseComponent {
     this.actions = [
       new FgAction(new FgEvent(FgComponentBaseEvent.EXPORT, this), 'primary', 'Export', 'import_export', 'E'),
       new FgAction(new FgEvent(FgComponentBaseEvent.PRINT, this), 'primary', 'Print', 'print', 'P'),
-      new FgAction(new FgEvent(PbAppEvent.SWITCH_THEME, this, false, false, true), 'primary', 'Switch Theme', 'brightness_3', 'T'),
+      new FgAction(new FgEvent(PbAppEvent.SWITCH_THEME, this, false, false, true), 'primary', (): string => {
+        return 'Switch to '.concat( this.$component.$data.app.config.darkTheme ? 'bright' : 'dark', ' theme' );
+      }, (): string => {
+        return this.$component.$data.app.config.darkTheme ? 'brightness_7' : 'brightness_3';
+      }, 'T'),
       new FgAction(new FgEvent(PbAppEvent.OPEN_HELP_MODAL, this), 'primary', 'Help', 'live_help', 'H'),
     ];
   }
@@ -38,7 +43,46 @@ export class HeaderComponent extends FgComponentBaseComponent {
    */
   handleActionBarEvent($event: Event): void {
     this.$component.$log.warn('ACTION', $event);
-    this.$component.$data.$powerbot.darkTheme = !this.$component.$data.$powerbot.darkTheme;
+    this.$component.$data.app.config.darkTheme = !this.$component.$data.app.config.darkTheme;
+  }
+  getProductionDisabled(): boolean {
+    let disabled: boolean = true;
+    if (
+      this.entity.state.connectionState === ConnectionState.Offline
+      && this.entity.state.appEnv !== AppEnv.Live_Prod
+    ) {
+      disabled = false;
+    }
+    return disabled;
+  }
+  getTestDisabled(): boolean {
+    let disabled: boolean = true;
+    if (
+      this.entity.state.connectionState === ConnectionState.Offline
+      && this.entity.state.appEnv !== AppEnv.Live_Test
+    ) {
+      disabled = false;
+    }
+    return disabled;
+  }
+  getDisconnectDisabled(): boolean {
+    let disabled: boolean = true;
+    if (
+      this.entity.state.connectionState !== ConnectionState.Offline
+      && this.entity.state.appEnv !== AppEnv.Offline
+    ) {
+      disabled = false;
+    }
+    return disabled;
+  }
+  getMarketDisabled(): boolean {
+    let disabled: boolean = true;
+    if (
+      this.entity.state.marketState !== ConnectionState.Offline
+    ) {
+      disabled = false;
+    }
+    return disabled;
   }
   /**
    * Methode to dispatch event to open Api-Settings Modal

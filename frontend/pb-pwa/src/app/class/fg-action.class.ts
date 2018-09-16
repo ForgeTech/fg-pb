@@ -20,7 +20,7 @@ export class FgAction /* implements IFgActionEntityInterface */ {
   * 'state'-keys and the icon-name to be displayed for
   * this state
   */
-  icon: string | any;
+  icon: string | Function;
   /**
    * TODO
    */
@@ -37,7 +37,7 @@ export class FgAction /* implements IFgActionEntityInterface */ {
   * The label that should be displayed for this action
   * TODO: Replace this with an FgContent-Instance
   */
-  label: string;
+  label: string | Function;
   /**
   * Holds the keyboard-navigation action-shortcut key-values/combinations
   * to use to activate this action
@@ -48,15 +48,14 @@ export class FgAction /* implements IFgActionEntityInterface */ {
   * validate if action should be disabled
   */
   disabled: (any) => boolean;
-
   /**
   * CONSTRUCTOR
   */
   constructor(
     event: FgEvent,
     color: string,
-    label: string,
-    icon: string | any,
+    label: string | Function,
+    icon: string | Function,
     key: string = 'none',
     animation: any = 'none',
     disabled = (x => true),

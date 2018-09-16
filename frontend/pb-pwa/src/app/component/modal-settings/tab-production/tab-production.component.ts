@@ -3,7 +3,7 @@ import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-b
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfigProductionConnection } from '../../../entity/entity.export';
-import { PbAppStorageConst } from '../../../app.storage.const';
+import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 import { FgEvent } from '../../../class/fg-event.class';
 import { PbAppEvent } from '../../../event/pb-app.event';
@@ -43,9 +43,11 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * Set form-data from powerbot storage
    */
   private setFormData(): void {
-    this.form.patchValue(
-      this.$component.$data.$powerbot.config.prodConfig
-    );
+    if (this.$component.$data.app.config.prodConfig ) {
+      this.form.patchValue(
+        this.$component.$data.app.config.prodConfig
+      );
+    }
   }
   /**
    * Create production-config from form-data
@@ -88,10 +90,13 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * configuration
    */
   public action( $event: any = false ) {
-    if (!this.form.errors && this.form.controls.store.value === true) {
-      this.$component.$data.$powerbot.config.prodConfig = this.storeProductionConfig();
+    const config = this.getProductionConfig();
+    if ( !this.form.errors && this.form.controls.store.value === true ) {
+      this.storeProductionConfig();
     }
-    this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API_PROD, this));
+    if ( !this.form.errors ) {
+      this.$component.$data.app.config.prodConfig = config;
+      this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API_PROD, this));
+    }
   }
-
 }

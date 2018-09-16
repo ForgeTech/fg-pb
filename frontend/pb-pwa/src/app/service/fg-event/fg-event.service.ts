@@ -11,6 +11,10 @@ import { Subject } from 'rxjs';
  */
 @Injectable()
 export class FgEventService {
+  /**
+   * The observable subject used to push events
+   * within the angular application
+   */
   public event$: Subject<FgEvent>;
   /**
    * Instance of Forge Log-Service

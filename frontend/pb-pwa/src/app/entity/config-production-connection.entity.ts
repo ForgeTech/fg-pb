@@ -1,3 +1,4 @@
+import { PbAppEntityConst } from './../app.const';
 /**
  * ConfigProductionConnection -
  * Entity-Class used to hold configuration
@@ -16,11 +17,11 @@ export class ConfigProductionConnection {
     /**
      * The url-address of the PowerBot production-server
      */
-    public serverUrl: string = '',
+    public serverUrl: string = '', // PbAppEntityConst.SERVER_URL_NOT_SET,
     /**
      * The url-address of the PowerBot backup-server
      */
-    public backupUrl: string = '',
+    public backupUrl: string = '', // PbAppEntityConst.SERVER_URL_NOT_SET,
     /**
      * Flag signaling if it's allowed to
      * store the connection configuration

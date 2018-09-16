@@ -1,73 +1,33 @@
 <div class="bar-status--container">
   <mat-progress-bar
     class="bar-status--progress"
-    mode="{{
-      this.entity.state.appState === BarStateEnum.Loading
-      ? 'indeterminate' : 'determindate'
-    }}"
+    mode="getProgressBarMode()"
     matTooltip="{{ entity.market | json:4 }}"
     matTooltipClass="mat-tooltip-prettyjson"
     color="accent">
   </mat-progress-bar>
   <div class="bar-status--label">
     <!-- Connection States -->
-    <mat-chip-list
-
-      [ngSwitch]="this.entity.state.connectionState"
-    >
+    <mat-chip-list>
       <mat-chip
-        *ngSwitchCase="BarStateEnum.Loading"
-        color="primary"
+        color="{{ getStateColor() }}"
         selected
       >
-        <mat-icon>refresh</mat-icon>
+        <mat-icon>{{ getStateIcon() }}</mat-icon>
         &nbsp;
         <span>
-          Connecting
+          {{ getStateLabel() }}
         </span>
       </mat-chip>
       <mat-chip
-        *ngSwitchCase="BarStateEnum.Online"
+        *ngIf="viewEnvironment()"
         color="accent"
         selected
       >
-        <mat-icon>signal_wifi_4_bar</mat-icon>
+        <mat-icon>error</mat-icon>
         &nbsp;
         <span>
-          Connected
-        </span>
-      </mat-chip>
-      <mat-chip
-        *ngSwitchCase="BarStateEnum.Warning"
-        color="primary"
-        selected
-      >
-        <mat-icon>signal_wifi_off</mat-icon>
-        &nbsp;
-        <span>
-          Warning
-        </span>
-      </mat-chip>
-      <mat-chip
-        *ngSwitchCase="BarStateEnum.Error"
-        color="warn"
-        selected
-      >
-        <mat-icon>signal_wifi_off</mat-icon>
-        &nbsp;
-        <span>
-          Error
-        </span>
-      </mat-chip>
-      <mat-chip
-        *ngSwitchDefault
-        color="warn"
-        selected
-      >
-        <mat-icon>signal_wifi_off</mat-icon>
-        &nbsp;
-        <span>
-          Offline
+          {{ getEnvironmentLabel() }}
         </span>
       </mat-chip>
     </mat-chip-list>

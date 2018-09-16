@@ -1,0 +1,31 @@
+@import '@swimlane/ngx-datatable/release/index.css';
+@import '@swimlane/ngx-datatable/release/themes/material.css';
+@import '@swimlane/ngx-datatable/release/assets/icons.css';
+
+.ngx-datatable.material {
+  position: absolute;
+  top: 55px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  box-shadow: none;
+}
+.datatable-pager {
+  display: none;
+}
+.pb-dark-theme {
+  .datatable {
+    .datatable-header-cell,
+    .datatable-body-cell,
+    .datatable-footer-inner,
+    .datatable-inner {
+      color: $white !important;
+    }
+    .datatable-row-center:hover {
+      .datatable-body-cell {
+        color: $black !important;
+      }
+    }
+    background-color: $dark-grey;
+  }
+}

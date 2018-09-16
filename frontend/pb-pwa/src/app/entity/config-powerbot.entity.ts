@@ -13,6 +13,10 @@ export class ConfigPowerbot {
   /** Constructor */
   constructor(
     /**
+    * Flag indicating dark-theme mode
+    */
+    public darkTheme: boolean = false,
+    /**
      * Holds logging-service connection-configuration
      */
     public logConfig: ConfigLoggingConnection = new ConfigLoggingConnection(),
@@ -27,6 +31,6 @@ export class ConfigPowerbot {
     /**
      * Holds powerbot test-server connection-configuration
      */
-    public testConfig: ConfigTestConnection = new ConfigTestConnection()
+    public testConfig: ConfigTestConnection = new ConfigTestConnection();
   ) {}
 }

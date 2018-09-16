@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SwitchDayNightComponent } from './switch-day-night.component';
+import { FgInputComponent } from './fg-input.component';
 
-describe('SwitchDayNightComponent', () => {
-  let component: SwitchDayNightComponent;
-  let fixture: ComponentFixture<SwitchDayNightComponent>;
+describe('FgInputComponent', () => {
+  let component: FgInputComponent;
+  let fixture: ComponentFixture<FgInputComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SwitchDayNightComponent ]
+      declarations: [ FgInputComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SwitchDayNightComponent);
+    fixture = TestBed.createComponent(FgInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

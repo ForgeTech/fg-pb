@@ -27,8 +27,17 @@ export class ModalComponent extends FgComponentBaseComponent {
    * @param data The optional data-object that can be passed via dialog-config
    */
   constructor(
+    /**
+     * Reference to this modal-dialog
+     */
     public modalRef: MatDialogRef<any>,
+    /**
+     * Injects reference to modal data passed when opening modal-window
+     */
     @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
+    /**
+     * Reference to component base-service
+     */
     public $component: FgComponentBaseService
   ) {
     super(

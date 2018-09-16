@@ -10,15 +10,15 @@
     <div fxFlex="50px" *ngFor="let action of this.entity.actions">
       <button
         mat-mini-fab
-        matBadge="{{action.key}}"
+        matBadge="{{ action.key }}"
         matBadgePosition="below after"
         matBadgeColor="primary"
-        matTooltip="{{action.label}}"
-        color="{{action.color}}"
-        (click)="this.handleChildEvents(action.event)"
+        matTooltip="{{ getActionLabel( action.label ) }}"
+        color="{{ action.color }}"
+        (click)="handleChildEvents(action.event)"
       >
         <!-- disabled="this.getDisabledState()" -->
-        <mat-icon>{{ action.icon }}</mat-icon>
+        <mat-icon>{{ getActionIcon( action.icon ) }}</mat-icon>
       </button>
     </div>
   </ng-container>

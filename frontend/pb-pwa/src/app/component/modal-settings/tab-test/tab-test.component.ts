@@ -3,7 +3,7 @@ import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-b
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfigTestConnection } from '../../../entity/entity.export';
-import { PbAppStorageConst } from '../../../app.storage.const';
+import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 import { FgEvent } from '../../../class/fg-event.class';
 import { PbAppEvent } from '../../../event/pb-app.event';
@@ -47,15 +47,16 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    * Set form-data from powerbot storage
    */
   private setFormData(): void {
-    this.$component.$log.warn('SET DATA!!!');
-    this.form.patchValue(
-      this.$component.$data.$powerbot.config.testConfig
-    );
+    if (this.$component.$data.app.config.testConfig ) {
+      this.form.patchValue(
+        this.$component.$data.app.config.testConfig
+      );
+    }
   }
   /**
    * Create logging-config from form-data
    */
-  private getFormData(): ConfigTestConnection {
+  private getTestData(): ConfigTestConnection {
     let config: ConfigTestConnection = new ConfigTestConnection();
     config.serverUrl = this.form.controls.serverUrl.value;
     config.apiKey = this.form.controls.apiKey.value;
@@ -65,8 +66,8 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   /**
    * Persist logging-config in browser
    */
-  private storeLoggingConfig(): ConfigTestConnection {
-    const config = this.getFormData();
+  private storeTestConfig(): ConfigTestConnection {
+    const config = this.getTestData();
     this.$component.$data.$storage.setItem(
       PbAppStorageConst.CONFIG_TEST,
       config
@@ -91,9 +92,13 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    * store config when cacheForm is true
    */
   public action($event: any = false) {
+    const config = this.getTestData();
     if (!this.form.errors && this.form.controls.store.value === true) {
-      this.$component.$data.$powerbot.config.testConfig = this.storeLoggingConfig();
+      this.storeTestConfig();
     }
-    this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API_TEST, this));
+    if (!this.form.errors) {
+      this.$component.$data.app.config.testConfig = config;
+      this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API_TEST, this));
+    }
   }
 }

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { PowerBotEntity } from '../../entity/powerbot.entity';
-import { BarStateEntity, BarStateEnum } from '../../entity/bar-state.entity';
 import { PbAppEvent } from '../../event/pb-app.event';
 import { FgEvent } from '../../class/fg-event.class';
+import { ConnectionState, RequestState, AppEnv } from '../../entity/app-state.entity';
 
 /**
  * BarStatusComponent -
@@ -21,10 +21,6 @@ export class BarStateComponent  extends FgComponentBaseComponent {
    * Override type of FgComponentbaseEntity
    */
   entity: PowerBotEntity;
-  /**
-   * Make BarStateEnums available in template
-   */
-  public BarStateEnum = BarStateEnum;
   /**
    * CONSTRUCTOR
    */
@@ -45,21 +41,56 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   public openConnectionModal($event: Event): void {
     this.$component.$event.emit( new FgEvent( PbAppEvent.OPEN_CONNECTION_MODAL ) );
   }
+  getProgressBarMode(): string {
+    let mode: string = '';
+    if ( RequestState.Active) {
+      mode = 'indeterminate';
+    }
+    return mode;
+  }
+  /**
+   * Return icon according to passe state
+   * @param state connection/market state
+   */
+  public getStateIcon(): string {
+    let icon = '';
+    switch (this.entity.state.connectionState) {
+      case ConnectionState.Offline:
+        icon = 'signal_wifi_off';
+        break;
+      case ConnectionState.Connecting:
+        icon = 'refresh';
+        break;
+      case ConnectionState.Online:
+        icon = 'signal_wifi_4_bar';
+        break;
+      case ConnectionState.Warning:
+        icon = 'warning';
+        break;
+      case ConnectionState.Error:
+        icon = 'error';
+        break;
+      default:
+        icon = 'signal_wifi_off';
+        break;
+    }
+    return icon;
+  }
   /**
    * Return color according to passed state
    * @param state connection/market state
    */
-  public getStateColor( state: BarStateEnum ): string {
+  public getStateColor(): string {
     let color = '';
-    switch (state) {
-      case BarStateEnum.Online:
+    switch (this.entity.state.connectionState) {
+      case ConnectionState.Online:
         color = 'accent';
       break;
-      case BarStateEnum.Warning:
-        color = 'primary';
+      case ConnectionState.Error:
+        color = 'warn';
       break;
       default:
-        color = 'warn';
+        color = 'primary';
       break;
     }
     return color;
@@ -68,19 +99,22 @@ export class BarStateComponent  extends FgComponentBaseComponent {
    * Retutn text-label according to passed state
    * @param state connection/market state
    */
-  getStateLabel( state: BarStateEnum ): string {
+  getStateLabel(): string {
     let label = '';
-    switch (state) {
-      case BarStateEnum.Offline:
+    switch (this.entity.state.connectionState) {
+      case ConnectionState.Offline:
         label = 'Offline';
       break;
-      case BarStateEnum.Online:
+      case ConnectionState.Connecting:
+        label = 'Connecting';
+      break;
+      case ConnectionState.Online:
         label = 'Online';
       break;
-      case BarStateEnum.Warning:
+      case ConnectionState.Warning:
         label = 'Warning';
       break;
-      case BarStateEnum.Error:
+      case ConnectionState.Error:
         label = 'Error';
       break;
       default:
@@ -89,5 +123,10 @@ export class BarStateComponent  extends FgComponentBaseComponent {
     }
     return label;
   }
-
+  viewEnvironment(): boolean {
+    return this.entity.state.appEnv === AppEnv.Offline ? false : true;
+  }
+  getEnvironmentLabel() {
+    return AppEnv[ this.entity.state.appEnv ];
+  }
 }

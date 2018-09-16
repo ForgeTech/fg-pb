@@ -3,6 +3,14 @@
 * Provides keys for storing and identifing objects
 * when put into or are received from browser storage
 */
+export class PbAppEntityConst {
+  /**
+  * This constant is used to indicate that server url is not set on
+  * config entities, this is needed as generated api-service fall back
+  * to test server-url when property is empty
+  */
+  public static readonly NOT_SET = 'pb_not_set';
+}
 export class PbAppStorageConst {
     /**
     * Identifier that should be used as powerbot main browser

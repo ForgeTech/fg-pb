@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, SimpleChanges, HostListener } from '@angular/core';
 import { FgAppService } from './app.service';
 import { environment } from './../environments/environment';
 import { FgEvent } from './class/fg-class.export';
@@ -25,7 +25,7 @@ import { ModalSettingsComponent } from './component/modal-settings/modal-setting
 import { ModalHelpComponent } from './component/modal-help/modal-help.component';
 import { ModalMarketComponent } from './component/modal-market/modal-market.component';
 import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
-import { ConnectionType } from './service/pb-data/pb-data.service';
+import { AppEnv } from './entity/app-state.entity';
 
 /**
   * The application-component loaded by angular-module bootstrap
@@ -50,10 +50,6 @@ export class AppComponent // extends FgEventSubscriber
    */
   protected $dialog: MatDialog;
   /**
-   * Hold reference to angular router-service instance
-   */
-  // protected $router: Router;
-  /**
    * Holds a reference to the basic forge init-service
    */
   public $app: FgAppService;
@@ -71,6 +67,26 @@ export class AppComponent // extends FgEventSubscriber
    */
   public selectedComponent: FgComponentBaseComponent;
   public selectedComponentEntity: any; // IFgComponentBaseAbstractEntityInterface;
+  /**
+   * Listen to keyboard-events on global window-object and forward
+   * them to keyboard-event filter who will publish them to
+   * event-service observable according to object defined logic
+   * @param event KeyboardEvent
+   */
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    this.$app.$log.warn('KeyDown-Event:', event.key);
+  }
+  /**
+   * Listen to keyboard-events on global window-object and forward
+   * them to keyboard-event filter who will publish them to
+   * event-service observable according to object defined logic
+   * @param event KeyboardEvent
+   */
+  @HostListener('window:keyup', ['$event'])
+  handleKeyUp(event: KeyboardEvent) {
+    this.$app.$log.warn('KeyUp-Event:', event.key);
+  }
   /**
   * CONSTRUCTOR
   */
@@ -94,27 +110,23 @@ export class AppComponent // extends FgEventSubscriber
 
     // Initialize powerbot-application
     // Set powerbot-config on at dataservice
-    this.$app.$data.initConfigFromStorage().then( powerbot => {
+    this.$app.$data.recoverFromStorage().then( powerbot => {
       try {
         Object.assign( powerbot.config, environment.powerbot.config );
         this.$app.$log.warn( 'Powerbot configuration set from environment-file!' );
-        console.log(environment);
-        console.log(this.$app.$data.$powerbot.config);
+        console.log(this.$app.$data.app.config);
       } catch ( error ) {
-        this.$app.$log.info( `Environment didn't overreide Powerbot configuration!` );
+        this.$app.$log.info( `Environment didn't override powerbot configuration!` );
       }
-      this.$app.$event.emit( new FgEvent( PbAppEvent.OPEN_CONNECTION_MODAL ) );
     } );
-    /**
-     * TODO Only open modal when connection config data isn't set
-     */
-    // this.$app.$log.warn('Dispatch Connect_API');
-    // this.$app.$event.emit( new FgEvent( PbAppEvent.CONNECT_API ) );
+    // Open Connection-Modal on application startup
+    this.$app.$event.emit( new FgEvent( PbAppEvent.OPEN_CONNECTION_MODAL ) );
 
     const modal_config = {
-      // panelClass: 'pb-panel',
+      panelClass: 'pb-panel',
       height: '90vmin',
       width: '90vmax',
+      data: {}
     };
     // Register event to open connection modal
     this.$app.$event.event$
@@ -151,7 +163,7 @@ export class AppComponent // extends FgEventSubscriber
       this.$app.$log.warn('CONNECT API TEST!');
       console.log( event );
       // Start polling data from backend
-      this.startDataPolling( ConnectionType.Test );
+      this.$app.$data.connect( AppEnv.Live_Test );
     });
     // Register event for connecting to API
     this.$app.$event.event$
@@ -160,13 +172,14 @@ export class AppComponent // extends FgEventSubscriber
       this.$app.$log.warn('CONNECT API PRODUCTION!');
       console.log( event );
       // Start polling data from backend
-      this.startDataPolling( ConnectionType.Production );
+      this.$app.$data.connect( AppEnv.Live_Prod );
     });
     // Register event to disconnect from API
     this.$app.$event.event$
     .filter(event => event.signature === PbAppEvent.DISCONNECT_API)
     .subscribe( event => {
       this.$app.$log.warn('DISCONNECT API!');
+      this.$app.$data.disconnect();
     });
     // Register event to connect to market
     this.$app.$event.event$
@@ -198,38 +211,6 @@ export class AppComponent // extends FgEventSubscriber
       // FgComponentBaseEvent.EXPORT,
       // FgComponentBaseEvent.PRINT,
     ]);
-  }
-  /**
-   * Fetch and set application-data
-   */
-  protected fetchAppData(): void {
-    this.$app.$data.fetchApplicationData().then(appData => {
-      this.$app.$log.info('Received Polling-Data:');
-      this.$app.$log.info(appData);
-      // Merge and override $powerbot data
-      // https://stackoverflow.com/questions/36384351/angular-2-merging-extending-objects
-      this.$app.$data.$powerbot = { ...this.$app.$data.$powerbot, ...appData };
-    }).catch(error => {
-      this.$app.$log.error(error);
-    });
-  }
-  /**
-   * Setup and subscribe to polling application-data
-   */
-  protected startDataPolling( connectionType: ConnectionType ): void {
-    this.$app.$data.setApiConfiguration( connectionType );
-    if ( this.timerSubscribtion ) {
-      this.timerSubscribtion.unsubscribe();
-    }
-    this.timerSubscribtion = this.$app.$data.getPollingTimer().subscribe(x => {
-      this.fetchAppData();
-    });
-  }
-  /**
-   * Unsubscribe from polling application-data
-   */
-  protected stopDataPolling(): void {
-    this.timerSubscribtion.unsubscribe();
   }
   /**
    * Implements methode for component life-cycle OnInit-Interface.

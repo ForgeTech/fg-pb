@@ -3,7 +3,7 @@ import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-b
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfigLoggingConnection } from '../../../entity/entity.export';
-import { PbAppStorageConst } from '../../../app.storage.const';
+import { PbAppStorageConst } from '../../../app.const';
 import { NgxLoggerLevel, LoggerConfig } from 'ngx-logger';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 
@@ -46,9 +46,11 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    * Set form-data from powerbot storage
    */
   private setFormData(): void {
-    this.form.patchValue(
-      this.$component.$data.$powerbot.config.logConfig
-    );
+    if ( this.$component.$data.app.config.logConfig ) {
+      this.form.patchValue(
+        this.$component.$data.app.config.logConfig
+      );
+    }
   }
   /**
    * Create logging-config from form-data
@@ -87,14 +89,16 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    * store config when cacheForm is true
    */
   public action($event: any = false) {
-    let config;
+    const config = this.getLoggingConfig();
     if ( !this.form.errors &&  this.form.controls.store.value === true) {
-      config = this.storeLoggingConfig();
+      this.storeLoggingConfig();
     }
-    let currentConfig: LoggerConfig = this.$component.$log.getConfigSnapshot();
-    currentConfig.serverLoggingUrl = config.logUrl;
-    currentConfig.serverLogLevel = config.logLevel;
-    // this.$component.$log.updateConfig( currentConfig );
+    if ( !this.form.errors ){
+      let currentConfig: LoggerConfig = this.$component.$log.getConfigSnapshot();
+      currentConfig.serverLoggingUrl = config.logUrl;
+      currentConfig.serverLogLevel = this.logLevels[config.logLevel];
+      // this.$component.$log.updateConfig( currentConfig );
+    }
   }
 
 }

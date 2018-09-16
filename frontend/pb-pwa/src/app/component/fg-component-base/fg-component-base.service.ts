@@ -3,6 +3,7 @@ import { FgEventService } from '../../service/fg-event/fg-event.service';
 import { NGXLogger as FgLogService } from 'ngx-logger';
 import { PbDataService } from '../../service/pb-data/pb-data.service';
 import { MatDialog } from '@angular/material';
+import { FgKeyboardService } from '../../service/fg-keyboard/fg-keyboard.service';
 // import { FgGestureService } from './../../service/fg-gesture/fg-gesture.service';
 // import { FgKeyboardService } from './../../service/fg-keyboard/fg-keyboard.service';
 // import { FgZindexService } from './../../service/fg-zindex/fg-zindex.service';
@@ -29,7 +30,7 @@ export class FgComponentBaseService {
   /**
   * Gives access to PbModalService-methodes
   */
-  public $modal: MatDialog;
+  // public $modal: MatDialog;
   /**
   * Gives access to FgGestureService-methodes
   */
@@ -37,7 +38,7 @@ export class FgComponentBaseService {
   /**
   * Gives access to FgKeyboardService-methodes
   */
-  // public $keyboard: FgKeyboardService;
+  public $keyboard: FgKeyboardService;
   /**
   * Gives access to FgZindexService-methodes
   */

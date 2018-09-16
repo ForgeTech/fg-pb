@@ -1,31 +1,52 @@
-<perfect-scrollbar
->
-<!-- [config]="config" -->
-  <ngx-datatable
-  class="datatable material fullscreen"
+<!-- <perfect-scrollbar> -->
+  <!--
+columnMode: 'standard',
+headerHeight: 50,
+rowHeight: 50,
+footerHeight: 25,
+scrollbarV: true,
+scrollbarH: true,
+   -->
+<ngx-datatable
+  class="datatable material dark"
   [rows]="entity"
-  [columnMode]="'flex'"
-  [headerHeight]="50"
-  [rowHeight]="50"
-  [footerHeight]="25"
-  [scrollbarV]="true"
-  [scrollbarH]="true"
-  >
-  <!-- (page)="onPage($event)" -->
-  <ngx-datatable-column
-    *ngFor="let columnConfig of config.columns"
-    name="{{ columnConfig.name }}"
-  >
-    <ng-template let-value="value" ngx-datatable-cell-template>
-      <strong>{{value}}</strong>
-    </ng-template>
-  </ngx-datatable-column>
-  <!-- <ngx-datatable-column name="Gender" width="300">
-    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-      <i>{{value}}</i>
-    </ng-template>
-  </ngx-datatable-column>
-  <ngx-datatable-column name="Row Height" prop="height" width="80">
-  </ngx-datatable-column> -->
-  </ngx-datatable>
-</perfect-scrollbar>
+  [columns]="config.columns"
+  [columnMode]="config.columnMode"
+  [headerHeight]="config.headerHeight"
+  [footerHeight]="config.footerHeight"
+  [rowHeight]="config.rowHeight"
+  [scrollbarV]="config.scrollbarV"
+  [scrollbarH]="config.scrollbarH"
+>
+  <!-- [columns]="joinColumn( config.columns | keyvalue )" -->
+    <!-- <ngx-datatable-column *ngFor="columnConfig of this.config.columns" name="name">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+      >
+        <span>{{ row }}</span>
+      </ng-template>
+    </ngx-datatable-column> -->
+
+    <!-- <ngx-datatable-column [name]="col.name" *ngFor="let col of config.columns">
+      <ng-template
+        ngx-datatable-cell-template
+        let-row="row"
+        let-expanded="expanded"
+        let-value="col"
+      >
+        {{ row[ col.prop ] }}
+      </ng-template>
+    </ngx-datatable-column> -->
+
+</ngx-datatable>
+
+<ng-template #hdrTpl let-column="column">
+  <strong>aaaaa</strong>
+</ng-template>
+
+<ng-template #editTmpl let-row="row" let-value="value">
+    bbbbb
+</ng-template>
+
+<!-- </perfect-scrollbar> -->

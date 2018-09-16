@@ -24,6 +24,7 @@ import { FgEventService } from './service/fg-event/fg-event.service';
 import { FgActionsComponent } from './component/fg-actions/fg-actions.component';
 
 import { FgAppService } from './app.service';
+import { FgKeyboardService } from './service/fg-keyboard/fg-keyboard.service';
 import { PbDataService } from './service/pb-data/pb-data.service';
 
 import { AppComponent } from './app.component';
@@ -53,7 +54,6 @@ import { ModalSettingsComponent } from './component/modal-settings/modal-setting
   import { TabLoggingComponent } from './component/modal-settings/tab-logging/tab-logging.component';
   import { TabProductionComponent } from './component/modal-settings/tab-production/tab-production.component';
   import { TabTestComponent } from './component/modal-settings/tab-test/tab-test.component';
-import { SwitchDayNightComponent } from './component/switch-day-night/switch-day-night.component';
 import { TableComponent } from './component/table/table.component';
 import { TableAsksComponent } from './component/table-asks/table-asks.component';
 import { TableBidsComponent } from './component/table-bids/table-bids.component';
@@ -66,6 +66,7 @@ import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { TableAddOrderComponent } from './component/table-add-order/table-add-order.component';
 import { PbSidePipe } from './pipe/pb-side/pb-side.pipe';
 import { FgEnumPipe } from './pipe/fg-enum/fg-enum.pipe';
+import { FgInputComponent } from './component/fg-input/fg-input/fg-input.component';
 
 /**
  * Routes for PowerBot application
@@ -130,7 +131,7 @@ const appRoutes: Routes = [
       TabLoggingComponent,
       TabProductionComponent,
       TabTestComponent,
-    SwitchDayNightComponent,
+
     TableComponent,
     TableTradesComponent,
     TableAsksComponent,
@@ -142,6 +143,7 @@ const appRoutes: Routes = [
     TableAddOrderComponent,
     PbSidePipe,
     FgEnumPipe,
+    FgInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -185,7 +187,8 @@ const appRoutes: Routes = [
     FgComponentBaseService,
     FgAppService,
     FgEventService,
-    PbDataService
+    PbDataService,
+    FgKeyboardService
   ],
   entryComponents: [
     ModalAddOrderComponent,

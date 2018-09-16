@@ -42,6 +42,7 @@
     "highcharts": "6.1.1",
     "localforage": "1.7.2",
     "material-colors": "1.2.6",
+    "material-design-colors": "^1.0.2",
     "material-design-icons": "3.0.1",
     "ngforage": "3.4.0",
     "ngx-logger": "3.0.5",

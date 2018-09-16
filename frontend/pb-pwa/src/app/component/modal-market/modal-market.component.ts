@@ -5,7 +5,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 import { ModalComponent } from '../modal/modal.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PowerBotEntity, ConfigMarketConnection } from '../../entity/entity.export';
-import { PbAppStorageConst } from '../../app.storage.const';
+import { PbAppStorageConst } from '../../app.const';
 
 @Component({
   selector: 'pb-modal-market',
@@ -44,9 +44,11 @@ export class ModalMarketComponent extends ModalComponent {
    * Set form-data from powerbot storage
    */
   private setFormData(): void {
-    this.form.patchValue(
-      this.$component.$data.$powerbot.config.marketConfig
-    );
+    if ( this.$component.$data.app.config.marketConfig ) {
+      this.form.patchValue(
+        this.$component.$data.app.config.marketConfig
+      );
+    }
   }
   /**
   * Create market-config from form-data

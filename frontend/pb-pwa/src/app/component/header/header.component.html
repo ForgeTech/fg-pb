@@ -24,15 +24,15 @@
             <mat-icon>settings</mat-icon>
             <span>Configuration</span>
           </button>
-          <button mat-menu-item (click)="connectProduction($event)">
+          <button mat-menu-item [disabled]="getProductionDisabled()" (click)="connectProduction($event)">
             <mat-icon>flash_on</mat-icon>
             <span>Connect Production</span>
           </button>
-          <button mat-menu-item (click)="connectTest($event)">
+          <button mat-menu-item [disabled]="getTestDisabled()" (click)="connectTest($event)">
             <mat-icon>flash_on</mat-icon>
             <span>Connect Test</span>
           </button>
-          <button mat-menu-item (click)="disconnectApi($event)">
+          <button mat-menu-item [disabled]="getDisconnectDisabled()" (click)="disconnectApi($event)">
             <mat-icon>flash_off</mat-icon>
             <span>Disconnect</span>
           </button>
@@ -53,11 +53,11 @@
             <mat-icon>settings</mat-icon>
             <span>Configuration</span>
           </button>
-          <button mat-menu-item (click)="openMarketModal($event)">
+          <button mat-menu-item [disabled]="getMarketDisabled()" (click)="openMarketModal($event)">
             <mat-icon>flash_on</mat-icon>
             <span>Connect Market</span>
           </button>
-          <button mat-menu-item (click)="disconnectMarket($event)">
+          <button mat-menu-item [disabled]="!getMarketDisabled()" (click)="disconnectMarket($event)">
             <mat-icon>flash_off</mat-icon>
             <span>Disconnect Market</span>
           </button>

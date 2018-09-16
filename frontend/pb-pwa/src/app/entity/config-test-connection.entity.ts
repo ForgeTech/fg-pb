@@ -1,3 +1,4 @@
+import { PbAppEntityConst } from './../app.const';
 /**
  * ConfigTestConnection -
  * Entity-Class used to hold configuration
@@ -16,7 +17,7 @@ export class ConfigTestConnection {
     /**
      * The url-address of the PowerBot test-server
      */
-    public serverUrl: string = '',
+    public serverUrl: string = '', // PbAppEntityConst.SERVER_URL_NOT_SET,
     /**
      * Flag signaling if it's allowed to
      * store the connection configuration
