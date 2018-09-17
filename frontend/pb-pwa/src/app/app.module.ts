@@ -78,7 +78,7 @@ const appRoutes: Routes = [
   /**
    * Empty route goes to dashboard
    */
-  { path: '', component: DashboardViewComponent },
+  { path: '/', component: DashboardViewComponent },
   /**
    * Routes to dashboard-components full-page views
    */

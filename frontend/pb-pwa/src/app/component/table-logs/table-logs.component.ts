@@ -9,10 +9,9 @@ import { LogEntity } from '../../entity/log.entity';
   styleUrls: ['./table-logs.component.scss']
 })
 export class TableLogsComponent extends FgComponentBaseComponent {
-  entity: LogEntity;
   config: any = {
     columnMode: 'force',
-    headerHeight: 20,
+    headerHeight: 50,
     rowHeight: 50,
     footerHeight: 25,
     scrollbarV: true,

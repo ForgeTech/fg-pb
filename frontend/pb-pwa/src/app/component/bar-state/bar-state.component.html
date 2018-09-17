@@ -24,7 +24,7 @@
         color="accent"
         selected
       >
-        <mat-icon>error</mat-icon>
+        <mat-icon>{{ getEnvironmentIcon() }}</mat-icon>
         &nbsp;
         <span>
           {{ getEnvironmentLabel() }}
@@ -39,8 +39,8 @@
     <button
       class="btn-connection-settings"
       mat-mini-fab
-      matTooltip="Connection State ( {{ getStateLabel( this.entity.state.connectionState ) }} )"
-      color="{{ getStateColor( this.entity.state.connectionState ) }}"
+      matTooltip="Connection State ( {{ getStateLabel() }} )"
+      color="{{ getStateColor() }}"
       (click)="openConnectionModal($event)"
     >
       <mat-icon>power_setting_new</mat-icon>
@@ -49,8 +49,8 @@
     <button
       class="btn-market-settings"
       mat-mini-fab
-      matTooltip="Market State ( {{ getStateLabel( this.entity.state.marketState ) }} )"
-      color="{{ getStateColor( this.entity.state.marketState ) }}"
+      matTooltip="Market State ( {{ getStateLabel() }} )"
+      color="{{ getStateColor() }}"
       (click)="openMarketModal( $event )"
     >
       <mat-icon>timeline</mat-icon>

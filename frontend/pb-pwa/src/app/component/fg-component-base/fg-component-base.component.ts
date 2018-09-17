@@ -64,7 +64,6 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   protected onClick( $event ) {
     event.stopPropagation();
     this.emitEvent( new FgEvent( FgComponentBaseEvent.CLICK, this, this.entity ) );
-    this.emitEvent( new FgEvent( FgComponentBaseEvent.SELECTED, this, this.entity ) );
   }
   /**
    * Dispatch focus-in event
@@ -72,6 +71,9 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   @HostListener( 'focusin', [ '$event' ])
   protected onFocusIn( $event ) {
     event.stopPropagation();
+    if ( this.config && this.config.selectable ) {
+      this.emitEvent( new FgEvent( FgComponentBaseEvent.SELECTED, this, this.entity ) );
+    }
     this.emitEvent( new FgEvent( FgComponentBaseEvent.FOCUS_IN, this, this.entity ) );
     /**
      * TODO: Implement selectable propertie to allow ignoring selection

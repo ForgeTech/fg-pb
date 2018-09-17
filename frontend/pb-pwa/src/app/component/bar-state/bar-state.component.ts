@@ -135,4 +135,19 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   getEnvironmentLabel() {
     return AppEnv[ this.entity.state.appEnv ];
   }
+  /**
+   * Get environment label icon-string
+   */
+  getEnvironmentIcon() {
+    let icon = 'cloud_queue';
+    switch (this.entity.state.appEnv) {
+      case AppEnv.Offline_Test:
+        icon = 'cloud_off';
+        break;
+      default:
+        icon = 'cloud_queue';
+        break;
+    }
+    return icon;
+  }
 }

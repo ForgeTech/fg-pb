@@ -7,13 +7,36 @@
 
 export const environment = {
   name: 'GitHub-Page',
+  debug: true,
   production: true,
   // Use Powerbot variable to preset application-data
   // for development environment
   powerbot: {
     config: {
+      view: {
+        dashboard: {
+          breakpoint: {
+            large: {
+              table: {
+                columnMode: 'force',
+                headerHeight: 25,
+                rowHeight: 25,
+                footerHeight: 25,
+                scrollbarV: true,
+                scrollbarH: true,
+              }
+            }
+          }
+        }
+      },
       testConfig: {
         serverUrl: 'https://playground.powerbot.config-trading.com/api/v0',
+        apiKey: '44fc8162-d2c6-432a-8279-d8d40e5c0e1b',
+        store: true
+      },
+      prodConfig: {
+        serverUrl: 'https://playground.powerbot.config-trading.com/api/error',
+        backupUrl: 'https://playground.powerbot.config-trading.com/api/v0',
         apiKey: '44fc8162-d2c6-432a-8279-d8d40e5c0e1b',
         store: true
       }

@@ -23,6 +23,70 @@ export class DashboardComponent extends FgComponentBaseComponent {
       {
         title: 'Orders',
         template: 'orders',
+        cols: 16, rows: 7
+      },
+      {
+        title: 'Trades',
+        template: 'trades',
+        cols: 16, rows: 7
+      },
+      {
+        title: 'Orderbook',
+        template: 'orderbook',
+        cols: 24, rows: 14
+      },
+      {
+        title: 'Bids',
+        template: 'bids',
+        cols: 8, rows: 7
+      },
+      {
+        title: 'Asks',
+        template: 'asks',
+        cols: 8, rows: 7
+      },
+      {
+        title: 'Portfolio',
+        template: 'portfolio',
+        cols: 16, rows: 7
+      },
+      {
+        title: 'Contract Details',
+        template: 'contractdetails',
+        cols: 16, rows: 7
+      },
+      {
+        title: 'Product history',
+        template: 'producthistory',
+        cols: 16, rows: 7
+      },
+      {
+        title: 'Signals',
+        template: 'signals',
+        cols: 16, rows: 7
+      },
+      {
+        title: 'Logs',
+        template: 'logs',
+        cols: 16, rows: 7
+      },
+      {
+        title: 'Signal History',
+        template: 'signalhistory',
+        cols: 16, rows: 7
+      },
+    ]
+  };
+  configLarge = {
+    grid: {
+      cols: 32,
+      rowHeight: '25px',
+      gutterSize: '10px'
+    },
+    cards: [
+      {
+        title: 'Orders',
+        template: 'orders',
         cols: 7, rows: 7
       },
       {
@@ -86,91 +150,91 @@ export class DashboardComponent extends FgComponentBaseComponent {
     );
   }
   /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          {
-            title: 'Orders',
-            template: 'orders',
-            cols: 32, rows: 7 },
-          {
-            title: 'Orderbook',
-            template: 'orderbook',
-            cols: 32, rows: 14 },
-          {
-            title: 'Bids',
-            template: 'bids',
-            cols: 32, rows: 7 },
-          {
-            title: 'Trades',
-            template: 'trades',
-            cols: 32, rows: 7 },
-          {
-            title: 'Asks',
-            template: 'asks',
-            cols: 32, rows: 7 },
-          {
-            title: 'Portfolio',
-            template: 'portfolio',
-            cols: 32, rows: 7 },
-          {
-            title: 'Product History',
-            template: 'productHistory',
-            cols: 32, rows: 7 },
-          {
-            title: 'Signals',
-            template: 'signals',
-            cols: 32, rows: 7 },
-        ];
-      }
+  // cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  //   map(({ matches }) => {
+  //     if (matches) {
+  //       return [
+  //         {
+  //           title: 'Orders',
+  //           template: 'orders',
+  //           cols: 32, rows: 7 },
+  //         {
+  //           title: 'Orderbook',
+  //           template: 'orderbook',
+  //           cols: 32, rows: 14 },
+  //         {
+  //           title: 'Bids',
+  //           template: 'bids',
+  //           cols: 32, rows: 7 },
+  //         {
+  //           title: 'Trades',
+  //           template: 'trades',
+  //           cols: 32, rows: 7 },
+  //         {
+  //           title: 'Asks',
+  //           template: 'asks',
+  //           cols: 32, rows: 7 },
+  //         {
+  //           title: 'Portfolio',
+  //           template: 'portfolio',
+  //           cols: 32, rows: 7 },
+  //         {
+  //           title: 'Product History',
+  //           template: 'productHistory',
+  //           cols: 32, rows: 7 },
+  //         {
+  //           title: 'Signals',
+  //           template: 'signals',
+  //           cols: 32, rows: 7 },
+  //       ];
+  //     }
 
-      return [
-        {
-          title: 'Orders',
-          template: 'orders',
-          cols: 7, rows: 7 },
-        {
-          title: 'Orderbook',
-          template: 'orderbook',
-          cols: 14, rows: 14 },
-        {
-          title: 'Contract Details',
-          template: 'contractdetails',
-          cols: 7, rows: 7 },
-        {
-          title: 'Bids',
-          template: 'bids',
-          cols: 4, rows: 7 },
-        {
-          title: 'Trades',
-          template: 'trades',
-          cols: 7, rows: 7 },
-        {
-          title: 'Signals',
-          template: 'Signals',
-          cols: 7, rows: 7 },
-        {
-          title: 'Asks',
-          template: 'asks',
-          cols: 4, rows: 7 },
-        {
-          title: 'Portfolio',
-          template: 'portfolio',
-          cols: 7, rows: 7 },
-          {
-            title: 'Product history',
-            template: 'producthistory',
-            cols: 14, rows: 14 },
-          {
-            title: 'Signal History',
-            template: 'signalhistory',
-            cols: 11, rows: 14 },
-          {
-            title: 'Logs',
-            template: 'logs',
-            cols: 7, rows: 7 },
-      ];
-    })
-  );
+  //     return [
+  //       {
+  //         title: 'Orders',
+  //         template: 'orders',
+  //         cols: 7, rows: 7 },
+  //       {
+  //         title: 'Orderbook',
+  //         template: 'orderbook',
+  //         cols: 14, rows: 14 },
+  //       {
+  //         title: 'Contract Details',
+  //         template: 'contractdetails',
+  //         cols: 7, rows: 7 },
+  //       {
+  //         title: 'Bids',
+  //         template: 'bids',
+  //         cols: 4, rows: 7 },
+  //       {
+  //         title: 'Trades',
+  //         template: 'trades',
+  //         cols: 7, rows: 7 },
+  //       {
+  //         title: 'Signals',
+  //         template: 'Signals',
+  //         cols: 7, rows: 7 },
+  //       {
+  //         title: 'Asks',
+  //         template: 'asks',
+  //         cols: 4, rows: 7 },
+  //       {
+  //         title: 'Portfolio',
+  //         template: 'portfolio',
+  //         cols: 7, rows: 7 },
+  //         {
+  //           title: 'Product history',
+  //           template: 'producthistory',
+  //           cols: 14, rows: 14 },
+  //         {
+  //           title: 'Signal History',
+  //           template: 'signalhistory',
+  //           cols: 11, rows: 14 },
+  //         {
+  //           title: 'Logs',
+  //           template: 'logs',
+  //           cols: 7, rows: 7 },
+  //     ];
+  //   })
+  // );
 }

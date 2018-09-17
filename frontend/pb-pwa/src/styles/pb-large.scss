@@ -22,9 +22,9 @@
   .mat-select {
     margin: 0 5px;
     padding: 4px 10px;
-    width: 100px;
+    width: 90px;
     height: 18px;
-    background: $white;
+    background: $mat-grey-400;
   }
 }
 // .graph-container,
@@ -35,6 +35,12 @@
   left: 10px;
   right: 10px;
   box-shadow: none;
+  .datatable-header .datatable-header-cell
+  .datatable-body .datatable-body-cell
+  {
+    text-align: center;
+    padding: 10px 15px;
+  }
 }
 .footer {
   &.mat-toolbar {

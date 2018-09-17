@@ -2,7 +2,8 @@ import {
   ConfigLoggingConnection,
   ConfigMarketConnection,
   ConfigProductionConnection,
-  ConfigTestConnection
+  ConfigTestConnection,
+  ConfigView
  } from './entity.export';
 /**
  * ConfigPowerBot -
@@ -31,6 +32,10 @@ export class ConfigPowerbot {
     /**
      * Holds powerbot test-server connection-configuration
      */
-    public testConfig: ConfigTestConnection = new ConfigTestConnection()
+    public testConfig: ConfigTestConnection = new ConfigTestConnection(),
+    /**
+     * Holds powerbot test-server connection-configuration
+     */
+    public view: ConfigView[] = []
   ) {}
 }

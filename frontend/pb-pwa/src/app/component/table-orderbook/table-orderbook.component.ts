@@ -11,8 +11,8 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
   // contracts: [];
   config: any = {
     columnMode: 'force',
-    headerHeight: 50,
-    rowHeight: 50,
+    headerHeight: 25,
+    rowHeight: 25,
     footerHeight: 25,
     scrollbarV: true,
     scrollbarH: true,
