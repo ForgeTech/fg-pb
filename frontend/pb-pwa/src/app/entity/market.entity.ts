@@ -1,4 +1,4 @@
-import { MarketInterface, InlineResponse20012Options } from '../module/pb-api/model/interfaces.export';
+import { MarketInterface } from '../module/pb-api/model/interfaces.export';
 /**
  * Market -
  * Entity-Class used to hold
@@ -17,7 +17,7 @@ export class MarketEntity implements MarketInterface {
      * The timestamp when the status of the market was last checked.
      */
     public apiTimestamp?: Date,
-    public options?: InlineResponse20012Options,
+    public options?: any,
     /**
      * The urls of EPEX's backand system Powerbot is connected to
      */
