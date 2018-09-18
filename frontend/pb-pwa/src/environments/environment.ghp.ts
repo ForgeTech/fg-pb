@@ -13,6 +13,7 @@ export const environment = {
   // Use Powerbot variable to preset application-data
   // for development environment
   powerbot: {
+    languages: ['en', 'master'],
     lang: 'en',
     config: {
       view: {

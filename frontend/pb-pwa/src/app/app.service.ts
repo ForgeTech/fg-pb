@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
-// import { FgProjectComponent } from './component/fg-project/fg-project.component';
 import { FgEventService } from './service/fg-event/fg-event.service';
-// import { FgImportService } from './service/fg-import/fg-import.service';
 import { FgEvent } from './class/fg-class.export';
 // import { FgEventSubscriber } from './service/fg-event/fg-event-subscriber.abstract-class';
 import {
   FgEntityEvent,
   FgComponentBaseEvent
 } from './event/fg-events.export';
-// import { FgSassService } from './service/fg-sass/fg-sass.service';
 import { NGXLogger as FgLogService } from 'ngx-logger';
 import { environment } from '../environments/environment';
 import { PbDataService } from './service/pb-data/pb-data.service';
-import { TranslateService } from '@ngx-translate/core';
 import { I18n } from '@ngx-translate/i18n-polyfill';
+import { TranslateService } from '@ngx-translate/core';
 /**
 * FgAppService -
 * Service provides the functionality needed
@@ -23,7 +20,6 @@ import { I18n } from '@ngx-translate/i18n-polyfill';
 @Injectable()
 export class FgAppService // extends FgEventSubscriber
 {
-
   /**
   * CONSTRUCTOR
   */
@@ -41,14 +37,13 @@ export class FgAppService // extends FgEventSubscriber
     */
     public $log: FgLogService,
     /**
-    * Gives access to ngx-translate TranslateService Instance
-    */
-    public $translate: TranslateService,
-    /**
     * Gives access to ngx-translate I18n-pollyfill instance
     */
     public $I18n: I18n,
-
+    /**
+    * Gives access to ngx-translate TranslateService Instance
+    */
+    public $translate: TranslateService,
   ) {
 
     // In production - setup the graphql-client to connect to remote

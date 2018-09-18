@@ -12,7 +12,7 @@
     "i18n_extract_template": "ng xi18n --output-path assets/i18n --out-file master.xlf --i18n-format xlf --i18n-locale en",
     "i18n_extract_code": "./node_modules/.bin/ngx-extractor -i \"./src/**/*.ts\" -f xlf -o src/assets/i18n/master.xlf",
     "i18n": "npm run i18n_extract_template && npm run i18n_extract_code",
-    "translate_extract": "ngx-translate-extract -i ./src -o ./src/assets/i18n/master.json --format-indentation $'\t'",
+        "translate_extract": "ngx-translate-extract -i ./src -o ./src/assets/i18n/master.json -m _",
     "ghp-build": "ng build --prod --base-href /PowerBot/ --configuration=ghp",
     "ghp-push": "./node_modules/.bin/angular-cli-ghpages --repo=https://6d96ad8b1251092dee67ef8e6defa64d795cc336@github.com/ForgeTech/PowerBot.git",
     "ghp-deploy": "npm run ghp-build & npm run ghp-push",

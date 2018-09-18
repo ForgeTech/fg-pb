@@ -88,8 +88,6 @@ export class AppComponent // extends FgEventSubscriber
   handleKeyUp(event: KeyboardEvent) {
     this.$app.$log.warn('KeyUp-Event:', event.key);
   }
-  // TODO: Translation test
-  public param = { value: 'world' };
   /**
   * CONSTRUCTOR
   */
@@ -106,10 +104,15 @@ export class AppComponent // extends FgEventSubscriber
     // );
     this.$dialog = $dialog;
     this.$app = $app;
+
     // This language will be used as a fallback when a
     // translation isn't found in the current language
-    this.$app.$log.warn('Set default language from environment-file');
+    this.$app.$log.warn('LANGUAGE SETUP');
+    this.$app.$translate.addLangs(environment.languages);
     this.$app.$translate.setDefaultLang(environment.lang);
+    const browserLang = this.$app.$translate.getBrowserLang();
+    this.$app.$translate.setDefaultLang(environment.lang);
+    // this.$app.$translate.use(browserLang.match(/en|master/) ? browserLang : environment.lang);
 
     // Initialize powerbot-application
     // Set powerbot-config on at dataservice
@@ -120,8 +123,11 @@ export class AppComponent // extends FgEventSubscriber
         console.log(this.$app.$data.app.config);
         // the lang to use, if the lang isn't available,
         // it will use the current loader to get them
-        this.$app.$log.warn( 'Set language from powerbot configuration' );
-        this.$app.$translate.use(this.$app.$data.app.config.lang);
+        this.$app.$log.warn( 'SWITCH TO CONFIG LANGUAGE:' );
+        this.$app.$translate.use(this.$app.$data.app.config.lang).subscribe(lang => {
+          this.$app.$log.warn('Should switch language to: ', this.$app.$data.app.config.lang);
+          console.log(lang);
+        });
       } catch ( error ) {
         this.$app.$log.info( `Environment didn't override powerbot configuration!` );
       }
@@ -139,7 +145,7 @@ export class AppComponent // extends FgEventSubscriber
     this.$app.$event.event$
     .filter( event => event.signature === PbAppEvent.OPEN_CONNECTION_MODAL )
     .subscribe( event => {
-      this.$app.$log.warn('OPEN CONNECTION MODAL');
+      this.$app.$log.warn( 'OPEN CONNECTION MODAL' );
       this.$dialog.open( ModalSettingsComponent, modal_config );
     });
     // Register event to open market modal

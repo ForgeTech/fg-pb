@@ -107,7 +107,7 @@ const appRoutes: Routes = [
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
-  return new TranslateHttpLoader(httpClient, '../assets/i18n/', '.xlf');
+  return new TranslateHttpLoader(httpClient, '../assets/i18n/', '.json');
 }
 
 export class PbMissingTranslationHandler implements MissingTranslationHandler {
