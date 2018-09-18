@@ -10,6 +10,6 @@ export class ConfigMetaData {
     /**
      * A set of common configuration-data
      */
-    public meta: any,
+    public meta: any = {},
   ) { }
 }

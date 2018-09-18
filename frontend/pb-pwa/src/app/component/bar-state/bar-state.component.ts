@@ -5,6 +5,7 @@ import { PowerBotEntity } from '../../entity/powerbot.entity';
 import { PbAppEvent } from '../../event/pb-app.event';
 import { FgEvent } from '../../class/fg-event.class';
 import { ConnectionState, RequestState, AppEnv } from '../../entity/app-state.entity';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 /**
  * BarStatusComponent -
@@ -24,7 +25,7 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   /**
    * CONSTRUCTOR
    */
-  constructor( $component: FgComponentBaseService ) {
+  constructor($component: FgComponentBaseService, protected $I18n: I18n ) {
     super(
       $component
     );
@@ -102,23 +103,20 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   getStateLabel(): string {
     let label = '';
     switch (this.entity.state.connectionState) {
-      case ConnectionState.Offline:
-        label = 'Offline';
-      break;
       case ConnectionState.Connecting:
-        label = 'Connecting';
+        label = this.$I18n('Connecting');
       break;
       case ConnectionState.Online:
-        label = 'Online';
+        label = this.$I18n('Online');
       break;
       case ConnectionState.Warning:
-        label = 'Warning';
+        label = this.$I18n('Warning');
       break;
       case ConnectionState.Error:
-        label = 'Error';
+        label = this.$I18n('Error');
       break;
       default:
-        label = 'Offline';
+        label = this.$I18n('Offline');
       break;
     }
     return label;
@@ -133,7 +131,22 @@ export class BarStateComponent  extends FgComponentBaseComponent {
    * Returns environment label
    */
   getEnvironmentLabel() {
-    return AppEnv[ this.entity.state.appEnv ];
+    let label = '';
+    switch ( this.entity.state.appEnv ) {
+      case AppEnv.Live_Backup:
+        label = this.$I18n('Backup');
+      break;
+      case AppEnv.Live_Prod:
+        label = this.$I18n('Production');
+      break;
+      case AppEnv.Live_Test:
+        label = this.$I18n('Test');
+      break;
+      case AppEnv.Offline_Test:
+        label = this.$I18n('Development');
+      break;
+    }
+    return label;
   }
   /**
    * Get environment label icon-string
@@ -143,10 +156,10 @@ export class BarStateComponent  extends FgComponentBaseComponent {
     switch (this.entity.state.appEnv) {
       case AppEnv.Offline_Test:
         icon = 'cloud_off';
-        break;
+      break;
       default:
         icon = 'cloud_queue';
-        break;
+      break;
     }
     return icon;
   }

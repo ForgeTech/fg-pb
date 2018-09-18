@@ -7,6 +7,7 @@ import { FgComponentBaseEvent } from '../../event/fg-events.export';
 import { FgAction } from '../../class/fg-action.class';
 import { PowerBotEntity } from '../../entity/entity.export';
 import { ConnectionState, AppEnv } from '../../entity/app-state.entity';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 /**
  * FgHeaderComponent -
  * Component renders powerbot application header
@@ -22,20 +23,23 @@ export class HeaderComponent extends FgComponentBaseComponent {
    * CONSTRUCTOR
    */
   constructor(
-    $component: FgComponentBaseService
+    $component: FgComponentBaseService,
+    protected $I18n: I18n
   ) {
     super(
       $component
     );
     this.actions = [
-      new FgAction(new FgEvent(FgComponentBaseEvent.EXPORT, this), 'primary', 'Export', 'import_export', 'E'),
-      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT, this), 'primary', 'Print', 'print', 'P'),
+      new FgAction(new FgEvent(FgComponentBaseEvent.EXPORT, this), 'primary', this.$I18n('Export'), 'import_export', 'E'),
+      new FgAction(new FgEvent(FgComponentBaseEvent.PRINT, this), 'primary', this.$I18n('Print'), 'print', 'P'),
       new FgAction(new FgEvent(PbAppEvent.SWITCH_THEME, this, false, false, true), 'primary', (): string => {
-        return 'Switch to '.concat( this.$component.$data.app.config.darkTheme ? 'bright' : 'dark', ' theme' );
+        return this.$I18n('Switch to ').concat(
+          this.$component.$data.app.config.darkTheme ? this.$I18n('bright') : this.$I18n('dark'),
+          this.$I18n(' theme') );
       }, (): string => {
         return this.$component.$data.app.config.darkTheme ? 'brightness_7' : 'brightness_3';
       }, 'T'),
-      new FgAction(new FgEvent(PbAppEvent.OPEN_HELP_MODAL, this), 'primary', 'Help', 'live_help', 'H'),
+      new FgAction(new FgEvent(PbAppEvent.OPEN_HELP_MODAL, this), 'primary', this.$I18n('Help'), 'live_help', 'H'),
     ];
   }
   /**

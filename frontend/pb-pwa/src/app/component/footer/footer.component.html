@@ -5,17 +5,17 @@
         <a mat-button href="https://forgetech.github.io/">
           &copy; 2018
           &nbsp;
-          <img height="16px" alt="ForgeTech Logo" src="./assets/forgetech/logo--small.png" />
+          <img height="16px" alt="ForgeTech Logo" i18n-alt="@@logo_alt" src="./assets/forgetech/logo--small.png" />
           &nbsp;
-          <img height="16px" alt="ForgeTech Text" src="./assets/forgetech/text--small.png" />
+          <img height="16px" i18n-alt="ForgeTech Logo| Alternative text displayed if ForgeTech Logo is not loaded>@@forgetech_logo_alt" alt="ForgeTech Text" src="./assets/forgetech/text--small.png" />
         </a>
       </div>
     <div fxFlex="">
     </div>
     <div fxFlex="300px 30px">
-      <a mat-button href="https://creativecommons.org/licenses/by-nc/3.0/at/">
-        <img height="25px" alt="Licence BY-NC Logo" src="./assets/licence/by-nd.png" />
-        Licenced under BY-NC 3.0 AT
+      <a mat-button i18n-href="Licence Link | Link to creativecommons licence, according to set language@@creative_commons_link" href="https://creativecommons.org/licenses/by-nc/3.0/at/">
+        <img height="25px" i18n-alt="Licence Logo | Alternative Text displayed if licence logo cannot be loaded@@creative_commons_logo_alt" alt="Licence BY-NC Logo" src="./assets/licence/by-nd.png" />
+        <ng-container i18n="Licence Text | Label stating the used creative commons licence@@creative_commons_text">Licenced under BY-NC 3.0 AT</ng-container>
       </a>
     </div>
   </div>

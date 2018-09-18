@@ -2,8 +2,10 @@ export const environment = {
   name: 'Production',
   debug: false,
   production: true,
+  lang: 'en',
   powerbot: {
     config: {
+      lang: 'en',
       view: [
         {
           dashboard: {

@@ -1,10 +1,10 @@
 <pb-modal [entity]="this.entity">
-  <div title >
+  <div title i18n="@@help_modal_label">
     Help / Guides
   </div>
   <div content>
     <mat-tab-group color="{{ inputThemeColor }}">
-      <mat-tab label="Topics">
+      <mat-tab label="Topics" i18n="@@help_modal_tab_topicslabel">
         Topics
       </mat-tab>
     </mat-tab-group>
@@ -14,6 +14,7 @@
     mat-raised-button
     color="accent"
     (click)="closeModal($event)"
+    i18n="@@help_modal_close_button_label"
     >
       Close
     </button>

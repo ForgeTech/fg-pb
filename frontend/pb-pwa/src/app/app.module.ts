@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, NgTemplateOutlet } from '@angular/common';
+import { NgModule, TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID, MissingTranslationStrategy } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -11,18 +11,25 @@ import { PrettyJsonModule } from 'angular2-prettyjson';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgForageModule, NgForageConfig } from 'ngforage';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-
+import { TranslateModule,
+  TranslateLoader,
+  TranslateService,
+  MissingTranslationHandler,
+  MissingTranslationHandlerParams
+} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { I18n, MISSING_TRANSLATION_STRATEGY } from '@ngx-translate/i18n-polyfill';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { ChartModule } from 'angular-highcharts';
 import { FgMaterialModule } from './module/fg-material/fg-material.module';
-import { ApiModule, ConfigurationParameters, Configuration } from './module/pb-api';
+import { ApiModule } from './module/pb-api';
 
 import { FgGlobalScopeModule } from './module/fg-global-scope/fg-global-scope.module';
 import { FgComponentBaseService } from './component/fg-component-base/fg-component-base.service';
 import { FgEventService } from './service/fg-event/fg-event.service';
 import { FgActionsComponent } from './component/fg-actions/fg-actions.component';
-
 import { FgAppService } from './app.service';
 import { FgKeyboardService } from './service/fg-keyboard/fg-keyboard.service';
 import { PbDataService } from './service/pb-data/pb-data.service';
@@ -78,7 +85,7 @@ const appRoutes: Routes = [
   /**
    * Empty route goes to dashboard
    */
-  { path: '/', component: DashboardViewComponent },
+  { path: '', component: DashboardViewComponent },
   /**
    * Routes to dashboard-components full-page views
    */
@@ -97,6 +104,21 @@ const appRoutes: Routes = [
    */
   { path: '**', redirectTo: ''}
 ];
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, '../assets/i18n/', '.xlf');
+}
+
+export class PbMissingTranslationHandler implements MissingTranslationHandler {
+  handle(params: MissingTranslationHandlerParams) {
+    return 'Translation not found!';
+  }
+}
+
+declare const require; // Use the require method provided by webpack
+export const translations = require(`raw-loader!./../assets/i18n/en.xlf`);
+
 /**
  * PowerBot Application Module -
  * The angular-applications main angular-module bundeling
@@ -153,6 +175,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     PerfectScrollbarModule,
     PrettyJsonModule,
@@ -162,6 +185,17 @@ const appRoutes: Routes = [
     FgMaterialModule,
     FlexLayoutModule,
     FgGlobalScopeModule.forBrowser(),
+    TranslateModule.forRoot({
+      missingTranslationHandler: {
+        provide: MissingTranslationHandler, useClass: PbMissingTranslationHandler
+      },
+      useDefaultLang: false,
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     NgForageModule.forRoot(),
     // NgForageModule.forRoot({
       // name: 'PowerBot',
@@ -172,9 +206,7 @@ const appRoutes: Routes = [
     // }),
     ApiModule,
     LoggerModule.forRoot({
-      // serverLoggingUrl: '/api/logs',
       level: environment.production ? NgxLoggerLevel.ERROR : NgxLoggerLevel.WARN,
-      // serverLogLevel: NgxLoggerLevel.ERROR
     }),
     RouterModule.forRoot(
       appRoutes,
@@ -193,7 +225,13 @@ const appRoutes: Routes = [
     FgAppService,
     FgEventService,
     PbDataService,
-    FgKeyboardService
+    FgKeyboardService,
+    TranslateService,
+    { provide: LOCALE_ID, useValue: environment.lang },
+    { provide: TRANSLATIONS_FORMAT, useValue: 'xlf' },
+    { provide: TRANSLATIONS, useValue: translations },
+    { provide: MISSING_TRANSLATION_STRATEGY, useValue: MissingTranslationStrategy.Warning },
+    I18n
   ],
   entryComponents: [
     ModalAddOrderComponent,

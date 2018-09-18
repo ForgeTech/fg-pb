@@ -3,6 +3,7 @@ import { FgAppService } from './app.service';
 import { environment } from './../environments/environment';
 import { FgEvent } from './class/fg-class.export';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+
 import {
   FgComponentBaseEvent,
   FgEntityEvent,
@@ -87,6 +88,8 @@ export class AppComponent // extends FgEventSubscriber
   handleKeyUp(event: KeyboardEvent) {
     this.$app.$log.warn('KeyUp-Event:', event.key);
   }
+  // TODO: Translation test
+  public param = { value: 'world' };
   /**
   * CONSTRUCTOR
   */
@@ -103,10 +106,10 @@ export class AppComponent // extends FgEventSubscriber
     // );
     this.$dialog = $dialog;
     this.$app = $app;
-    // this.$router = $router;
-    // this.eventsToSubscribe = [
-      // [ FgProjectEvent.SyncForge, this.addEntity() ],
-    // ];
+    // This language will be used as a fallback when a
+    // translation isn't found in the current language
+    this.$app.$log.warn('Set default language from environment-file');
+    this.$app.$translate.setDefaultLang(environment.lang);
 
     // Initialize powerbot-application
     // Set powerbot-config on at dataservice
@@ -115,6 +118,10 @@ export class AppComponent // extends FgEventSubscriber
         Object.assign( powerbot.config, environment.powerbot.config );
         this.$app.$log.warn( 'Powerbot configuration set from environment-file!' );
         console.log(this.$app.$data.app.config);
+        // the lang to use, if the lang isn't available,
+        // it will use the current loader to get them
+        this.$app.$log.warn( 'Set language from powerbot configuration' );
+        this.$app.$translate.use(this.$app.$data.app.config.lang);
       } catch ( error ) {
         this.$app.$log.info( `Environment didn't override powerbot configuration!` );
       }

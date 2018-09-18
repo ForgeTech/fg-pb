@@ -10,21 +10,23 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label>Remote Log-Server Url</mat-label>
+        <mat-label i18n="@@connection_settings_tab_logging_remote_server_label">Remote Log-Server Url</mat-label>
         <input
           matInput
+          i18n-placeholder="@@connection_settings_tab_logging_remote_server_placeholder"
           placeholder="like: https://powerbot-trading/api/logs"
           formControlName="logUrl"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Url to remote log-server</mat-hint>
+        <mat-hint i18n="@@connection_settings_tab_logging_remote_server_hint">Url to remote log-server</mat-hint>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field>
-        <mat-label>Remote Log-Level</mat-label>
+        <mat-label i18n="@@connection_settings_tab_logging_log_level_label">Remote Log-Level</mat-label>
         <mat-select
+          i18n-placeholder="@@connection_settings_tab_logging_log_level_placeholder"
           placeholder="like: Debug"
           formControlName="logLevel"
           required
@@ -33,7 +35,7 @@
             {{level}}
           </mat-option>
         </mat-select>
-        <mat-hint>Only matching logs will be sent to remote log-server</mat-hint>
+        <mat-hint i18n="@@connection_settings_tab_logging_log_level_hint">Only matching logs will be sent to remote log-server</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -41,20 +43,22 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label>Vorlon Debug-Server URL</mat-label>
+        <mat-label i18n="@@connection_settings_tab_logging_vorlon_label">Vorlon Debug-Server URL</mat-label>
         <input
           matInput
+          i18n-placeholder="@@connection_settings_tab_logging_vorlon_placeholder"
           placeholder="like: https://powerbot-trading/api/logs"
           formControlName="debugUrl"
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Url to remote log-server</mat-hint>
+        <mat-hint i18n="@@connection_settings_tab_logging_vorlon_hint">Url to remote log-server</mat-hint>
       </mat-form-field>
     </p>
     <p>
       <mat-checkbox
         formControlName="store"
         (change)="clearStore($event)"
+        i18n="@@connection_settings_tab_logging_cache_label"
       >
         Store Configuration
       </mat-checkbox>

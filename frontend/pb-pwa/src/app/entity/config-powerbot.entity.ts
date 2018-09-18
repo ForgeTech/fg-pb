@@ -18,6 +18,10 @@ export class ConfigPowerbot {
     */
     public darkTheme: boolean = false,
     /**
+    * Languguage to be used within powerbot
+    */
+    public lang: string = 'en',
+    /**
      * Holds logging-service connection-configuration
      */
     public logConfig: ConfigLoggingConnection = new ConfigLoggingConnection(),

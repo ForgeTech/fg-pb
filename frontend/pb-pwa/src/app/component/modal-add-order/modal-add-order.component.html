@@ -1,5 +1,5 @@
 <pb-modal [entity]="this.entity">
-  <div title >
+  <div title i18n="@@add-order_modal_label">
     Order
   </div>
   <div content>
@@ -17,6 +17,7 @@
       mat-flat-button
       color="primary"
       (click)="closeModal($event)"
+      i18n="@@add_order_modal_cancel_button_label"
     >
       Cancel
     </button>
@@ -24,6 +25,7 @@
       mat-raised-button
       color="accent"
       (click)="saveSettings($event)"
+      i18n="@@add_order_modal_add_button_label"
     >
       Add
     </button>

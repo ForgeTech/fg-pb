@@ -50,6 +50,6 @@ export class ModalComponent extends FgComponentBaseComponent {
    * modal-dialog window
    */
   closeModal($event?: Event ): void {
-    this.modalRef.close('CLOSE MODAL');
+    this.modalRef.close();
   }
 }

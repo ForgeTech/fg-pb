@@ -10,6 +10,7 @@ import { TabTestComponent } from './tab-test/tab-test.component';
 import { TabApiKeyComponent } from './tab-api-key/tab-api-key.component';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { PbModalTabComponentInterface } from '../../interface/pb-modal-tab-component.interface';
+import { I18n } from '@ngx-translate/i18n-polyfill';
 
 /**
  * Enum for identifing active
@@ -56,7 +57,8 @@ export class ModalSettingsComponent extends ModalComponent {
   constructor(
     public modalRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
-    $component: FgComponentBaseService
+    $component: FgComponentBaseService,
+    protected $I18n: I18n
   ) {
     super(
       modalRef,
@@ -105,10 +107,10 @@ export class ModalSettingsComponent extends ModalComponent {
       case ConnectionTabEnum.ProductionTab:
       case ConnectionTabEnum.LoggingTab:
       case ConnectionTabEnum.TestTab:
-        label = 'Connect';
+        label = this.$I18n('Connect');
       break;
       case ConnectionTabEnum.ApiTab:
-        label = 'Generate API-Key';
+        label = this.$I18n('Generate API-Key');
       break;
     }
     return label;
@@ -119,8 +121,6 @@ export class ModalSettingsComponent extends ModalComponent {
   isDisabled(): boolean {
     let disabled = true;
     if ( this.activeTab ) {
-      this.$component.$log.warn('DISABLED FROM ACTIVE TAB');
-      console.log( this.activeTab.form );
       disabled = this.activeTab.form.dirty && this.activeTab.form.errors.length === 0;
     }
     return disabled;

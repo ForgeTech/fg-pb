@@ -4,7 +4,7 @@ import { GlobalRef } from './../../module/fg-global-scope/fg-global-refs.class';
 @Component({
   selector: 'pb-pwa-install',
   templateUrl: './pwa-install.component.html',
-  styleUrls: ['./pwa-install.component.css']
+  styleUrls: ['./pwa-install.component.scss']
 })
 export class PwaInstallComponent {
   public pwaDeferredPromt: any = false;

@@ -8,15 +8,16 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label>Test Server Url</mat-label>
+        <mat-label i18n="@@connection_settings_tab_test_test_server_label">Test Server Url</mat-label>
         <input
           matInput
+          i18n-placeholder="@@connection_settings_tab_test_test_server_placeholder"
           placeholder="like: https://playground.powerbot-trading.com/api/v0"
           formControlName="serverUrl"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Url to the PowerBot Trading API</mat-hint>
+        <mat-hint i18n="@@connection_settings_tab_test_test_server_hint">Url to the PowerBot Trading API</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -24,15 +25,16 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label>API Key</mat-label>
+        <mat-label i18n="@@connection_settings_tab_test_api_key_label">API Key</mat-label>
         <input
           matInput
+          i18n-placeholder="@@connection_settings_tab_test_api_key_placeholder"
           placeholder="Like: **************"
           formControlName="apiKey"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>The Api Key you received from PowerBot Trading</mat-hint>
+        <mat-hint i18n="@@connection_settings_tab_test_api_key_hint">The Api Key you received from PowerBot Trading</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -40,7 +42,9 @@
         formControlName="store"
         (change)="clearStore($event)"
       >
-        Store Configuration
+        <ng-container i18n="@@connection_settings_tab_test_cache_label">
+          Store Configuration
+        </ng-container>
       </mat-checkbox>
     </p>
   </form>

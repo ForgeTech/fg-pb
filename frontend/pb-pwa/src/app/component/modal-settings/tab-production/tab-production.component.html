@@ -9,15 +9,16 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label>Production Server Url</mat-label>
+        <mat-label i18n="@@connection_settings_tab_production_server_url_label">Production Server Url</mat-label>
         <input
           matInput
+          i18n-placeholder="@@connection_settings_tab_production_server_url_placeholder"
           placeholder="like: https://playground.powerbot-trading.com/api/"
           formControlName="serverUrl"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Url to the PowerBot Trading API</mat-hint>
+        <mat-hint i18n="@@connection_settings_tab_production_server_url_hint">Url to the PowerBot Trading API</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -25,15 +26,16 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label>Backup Server Url</mat-label>
+        <mat-label i18n="@@connection_settings_tab_backup_server_url_label">Backup Server Url</mat-label>
         <input
           matInput
+          i18n-placeholder="@@connection_settings_tab_backup_server_url_placeholder"
           placeholder="like: https://playground.powerbot-trading.com/backup/"
           formControlName="backupUrl"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Url to the PowerBot Backup-Server</mat-hint>
+        <mat-hint i18n="@@connection_settings_tab_backup_server_url_hint">Url to the PowerBot Backup-Server</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -41,21 +43,23 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label>API Key</mat-label>
+        <mat-label i18n="@@connection_settings_tab_production_api_key_label">API Key</mat-label>
         <input
           matInput
+          i18n-placeholder="@@connection_settings_tab_production_api_key_placeholder"
           placeholder="Like: **************"
           formControlName="apiKey"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>The Api Key you received from PowerBot Trading</mat-hint>
+        <mat-hint i18n="@@connection_settings_tab_production_api_key_hint">The Api Key you received from PowerBot Trading</mat-hint>
       </mat-form-field>
     </p>
     <p>
       <mat-checkbox
         formControlName="store"
         (change)="clearStore($event)"
+        i18n="@@connection_settings_tab_production_cache_label"
       >
       Store Configuration
     </mat-checkbox>
