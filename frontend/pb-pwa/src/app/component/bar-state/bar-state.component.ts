@@ -5,7 +5,7 @@ import { PowerBotEntity } from '../../entity/powerbot.entity';
 import { PbAppEvent } from '../../event/pb-app.event';
 import { FgEvent } from '../../class/fg-event.class';
 import { ConnectionState, RequestState, AppEnv } from '../../entity/app-state.entity';
-import { I18n } from '@ngx-translate/i18n-polyfill';
+import { _ } from './../../app.utils';
 
 /**
  * BarStatusComponent -
@@ -25,7 +25,7 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   /**
    * CONSTRUCTOR
    */
-  constructor($component: FgComponentBaseService, protected $I18n: I18n ) {
+  constructor($component: FgComponentBaseService) {
     super(
       $component
     );
@@ -44,8 +44,11 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   }
   getProgressBarMode(): string {
     let mode: string = '';
-    if ( this.entity.state.requestState === RequestState.Active) {
-      mode = 'indeterminate';
+    // CAUTION! Loading progress only displayed for development
+    if ( this.$component.$data.app.config.debug) {
+      if ( this.entity.state.requestState === RequestState.Active) {
+        mode = 'indeterminate';
+      }
     }
     return mode;
   }
@@ -104,19 +107,19 @@ export class BarStateComponent  extends FgComponentBaseComponent {
     let label = '';
     switch (this.entity.state.connectionState) {
       case ConnectionState.Connecting:
-        label = this.$I18n('Connecting');
+        label = _('state_connecting');
       break;
       case ConnectionState.Online:
-        label = this.$I18n('Online');
+        label = _('state_online');
       break;
       case ConnectionState.Warning:
-        label = this.$I18n('Warning');
+        label = _('state_warning');
       break;
       case ConnectionState.Error:
-        label = this.$I18n('Error');
+        label = _('state_error');
       break;
       default:
-        label = this.$I18n('Offline');
+        label = _('state_offline');
       break;
     }
     return label;
@@ -124,7 +127,7 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   /**
    * Returns flag if environment chip should be displaced
    */
-  viewEnvironment(): boolean {
+  getEnvironment(): boolean {
     return this.entity.state.appEnv === AppEnv.Offline ? false : true;
   }
   /**
@@ -134,16 +137,16 @@ export class BarStateComponent  extends FgComponentBaseComponent {
     let label = '';
     switch ( this.entity.state.appEnv ) {
       case AppEnv.Live_Backup:
-        label = this.$I18n('Backup');
+        label = _('connection_backup');
       break;
       case AppEnv.Live_Prod:
-        label = this.$I18n('Production');
+        label = _('connection_production');
       break;
       case AppEnv.Live_Test:
-        label = this.$I18n('Test');
+        label = _('connecting_test');
       break;
       case AppEnv.Offline_Test:
-        label = this.$I18n('Development');
+        label = _('Connecting_development');
       break;
     }
     return label;
@@ -162,5 +165,9 @@ export class BarStateComponent  extends FgComponentBaseComponent {
       break;
     }
     return icon;
+  }
+  /** Return configured value of back_hours */
+  getBackHours() {
+    return this.$component.$data.app.config.backHours;
   }
 }

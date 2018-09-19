@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { I18n } from '@ngx-translate/i18n-polyfill';
+import { _ } from './../../app.utils';
 
 @Component({
   selector: 'pb-table-contract-details',
@@ -18,13 +18,13 @@ export class TableContractDetailsComponent extends FgComponentBaseComponent {
     scrollbarH: true,
     columns: [
       {
-        name: this.$I18n('Qty [Mw]'),
+        name: _('column_label_qty'),
         prop: '',
         display: true,
         width: 100
       },
       {
-        name: this.$I18n('Price [Eur]'),
+        name: _('column_label_price'),
         prop: '',
         display: true,
         width: 100
@@ -32,7 +32,7 @@ export class TableContractDetailsComponent extends FgComponentBaseComponent {
     ]
   };
 
-  constructor($component: FgComponentBaseService, protected $I18n: I18n) {
+  constructor($component: FgComponentBaseService) {
     super(
       $component
     );

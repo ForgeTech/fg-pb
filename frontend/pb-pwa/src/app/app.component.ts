@@ -3,7 +3,6 @@ import { FgAppService } from './app.service';
 import { environment } from './../environments/environment';
 import { FgEvent } from './class/fg-class.export';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-
 import {
   FgComponentBaseEvent,
   FgEntityEvent,
@@ -94,25 +93,22 @@ export class AppComponent // extends FgEventSubscriber
   constructor(
     angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
     $dialog: MatDialog,
-    // $router: Router,
     $app: FgAppService,
     $log: FgLogService,
   ) {
-    // super(
-    //   $log,
-    //   $component.$event
-    // );
     this.$dialog = $dialog;
     this.$app = $app;
 
-    // This language will be used as a fallback when a
-    // translation isn't found in the current language
-    this.$app.$log.warn('LANGUAGE SETUP');
+    // Set array of available languages
     this.$app.$translate.addLangs(environment.languages);
+    // This language will be used as a fallback when a
+    // translation for set language isn't found
     this.$app.$translate.setDefaultLang(environment.lang);
-    const browserLang = this.$app.$translate.getBrowserLang();
-    this.$app.$translate.setDefaultLang(environment.lang);
-    // this.$app.$translate.use(browserLang.match(/en|master/) ? browserLang : environment.lang);
+    // Get language configured in browser and set it if available
+    // const browserLang = this.$app.$translate.getBrowserLang();
+    // this.$app.$translate.use(
+    //   this.$app.$translate.getLangs().indexOf(browserLang) ? browserLang : environment.lang
+    // );
 
     // Initialize powerbot-application
     // Set powerbot-config on at dataservice
@@ -121,40 +117,30 @@ export class AppComponent // extends FgEventSubscriber
         Object.assign( powerbot.config, environment.powerbot.config );
         this.$app.$log.warn( 'Powerbot configuration set from environment-file!' );
         console.log(this.$app.$data.app.config);
-        // the lang to use, if the lang isn't available,
-        // it will use the current loader to get them
-        this.$app.$log.warn( 'SWITCH TO CONFIG LANGUAGE:' );
-        this.$app.$translate.use(this.$app.$data.app.config.lang).subscribe(lang => {
-          this.$app.$log.warn('Should switch language to: ', this.$app.$data.app.config.lang);
-          console.log(lang);
-        });
+        // Load Language if it's different from default language
+        if ( this.$app.$data.app.config.lang !== this.$app.$translate.getDefaultLang() ) {
+          this.$app.$translate.use(this.$app.$data.app.config.lang).subscribe(lang => {
+            console.log(lang);
+          });
+        }
       } catch ( error ) {
         this.$app.$log.info( `Environment didn't override powerbot configuration!` );
       }
     } );
-    // Open Connection-Modal on application startup
-    this.$app.$event.emit( new FgEvent( PbAppEvent.OPEN_CONNECTION_MODAL ) );
 
     const modal_config = {
       panelClass: 'pb-panel',
       height: '90vmin',
-      width: '90vmax',
+      width: '80vmax',
       data: {}
     };
     // Register event to open connection modal
-    this.$app.$event.event$
-    .filter( event => event.signature === PbAppEvent.OPEN_CONNECTION_MODAL )
-    .subscribe( event => {
-      this.$app.$log.warn( 'OPEN CONNECTION MODAL' );
-      this.$dialog.open( ModalSettingsComponent, modal_config );
-    });
-    // Register event to open market modal
-    this.$app.$event.event$
-    .filter( event => event.signature === PbAppEvent.OPEN_MARKET_MODAL )
-    .subscribe( event => {
-      this.$app.$log.warn('OPEN MARKET MODAL!');
-      this.$dialog.open( ModalMarketComponent, modal_config );
-    });
+    // this.$app.$event.event$
+    // .filter( event => event.signature === PbAppEvent.OPEN_CONNECTION_MODAL )
+    // .subscribe( event => {
+    //   this.$app.$log.warn( 'OPEN CONNECTION MODAL' );
+    //   this.$dialog.open( ModalSettingsComponent, modal_config );
+    // });
     // Register event to open add-order modal
     this.$app.$event.event$
     .filter( event => event.signature === PbAppEvent.OPEN_ADD_ORDER_MODAL )
@@ -206,6 +192,11 @@ export class AppComponent // extends FgEventSubscriber
     .subscribe( event => {
       this.$app.$log.warn('DISCONNECT MARKET!');
     });
+    // if ( !this.$app.$data.getProductionValid() || !this.$app.$data.getTestValid() ){
+      // Open Connection-Modal on application startup
+      // this.$app.$event.emit(new FgEvent(PbAppEvent.OPEN_CONNECTION_MODAL));
+    // }
+
     // Register the events that should be logged from emit-funciton
     this.$app.$event.registerEventsToLog([
       PbAppEvent.CONNECT_API_TEST,
@@ -224,6 +215,10 @@ export class AppComponent // extends FgEventSubscriber
       // FgComponentBaseEvent.EXPORT,
       // FgComponentBaseEvent.PRINT,
     ]);
+  }
+
+  public isConnected(): boolean {
+    return false;
   }
   /**
    * Implements methode for component life-cycle OnInit-Interface.

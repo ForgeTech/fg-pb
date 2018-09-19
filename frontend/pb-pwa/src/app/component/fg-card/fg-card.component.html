@@ -1,0 +1,13 @@
+<mat-card class="fg-card">
+  <mat-card-header>
+    <!-- <fg-actions [entity]="this"></fg-actions> -->
+    <mat-card-title>
+      <ng-content #title></ng-content>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="fg-card-content">
+    <ng-content #content></ng-content>
+  </mat-card-content>
+  <mat-card-footer #actions>
+  </mat-card-footer>
+</mat-card>

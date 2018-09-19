@@ -9,8 +9,8 @@ import {
 import { NGXLogger as FgLogService } from 'ngx-logger';
 import { environment } from '../environments/environment';
 import { PbDataService } from './service/pb-data/pb-data.service';
-import { I18n } from '@ngx-translate/i18n-polyfill';
 import { TranslateService } from '@ngx-translate/core';
+import { _ } from './app.utils';
 /**
 * FgAppService -
 * Service provides the functionality needed
@@ -37,10 +37,6 @@ export class FgAppService // extends FgEventSubscriber
     */
     public $log: FgLogService,
     /**
-    * Gives access to ngx-translate I18n-pollyfill instance
-    */
-    public $I18n: I18n,
-    /**
     * Gives access to ngx-translate TranslateService Instance
     */
     public $translate: TranslateService,
@@ -49,13 +45,13 @@ export class FgAppService // extends FgEventSubscriber
     // In production - setup the graphql-client to connect to remote
     // graphql api
     if (environment.production) {
-      $log.warn(this.$I18n('POWERBOT-CLIENT IN PRODUCTION ENVIRONMENT'));
+      $log.warn('POWERBOT-CLIENT IN PRODUCTION ENVIRONMENT');
       // $log.warn('CAUTION! REMOTE GRAPHQL-API FOR PRODUCTION IS NOT CONFIGRUED YET! ');
     } else {
       // Otherwise import project-configuration form local file, mock some
       // random development-data and configure the graphql-client to then only
       // run from local cache - reseting on restart
-      $log.warn(this.$I18n('POWERBOT-CLIENT IN DEVELOPMENT ENVIRONMENT'));
+      $log.warn('POWERBOT-CLIENT IN DEVELOPMENT ENVIRONMENT');
 
     }
   }

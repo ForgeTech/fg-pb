@@ -1,7 +1,7 @@
-<pb-modal [entity]="this.entity">
+<fg-card [entity]="this.entity" class="modal_login">
   <div title >
-    <ng-container i18n="Connection-Settings modal label | Label for the modal containing connection-settings forms@@modal_connection_settings">
-      Connection Settings
+    <ng-container translate>
+      modal_label_connection_setting
     </ng-container>
   </div>
   <div content>
@@ -10,35 +10,28 @@
       [selectedIndex]="activeTabIndex"
       (selectedTabChange)="onTabChange($event)"
     >
-      <mat-tab i18n-label="production tab label@@connection_settings_tab_production" label="Production">
+      <mat-tab label="{{ 'tab_label_production' | translate }}">
         <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>
       </mat-tab>
-      <mat-tab i18n-label="test tab label@@connection_settings_tab_test" label="Test">
+      <mat-tab label="{{ 'tab_label_test' | translate }}">
         <pb-tab-test #tabTest [config]="inputThemeColor"></pb-tab-test>
       </mat-tab>
-      <mat-tab i18n-label="Logging tab label@@connection_settings_tab_logging"label="Logging">
+      <mat-tab label="{{ 'tab_label_logging' | translate }}">
         <pb-tab-logging #tabLogging [config]="inputThemeColor"></pb-tab-logging>
       </mat-tab>
-      <mat-tab i18n-label="production tab api key@@connection_settings_tab_api"label="Api Key">
+      <mat-tab label="{{ 'tab_label_api_key' | translate }}">
         <pb-tab-api-key #tabApi [config]="inputThemeColor"></pb-tab-api-key>
       </mat-tab>
     </mat-tab-group>
   </div>
   <div actions>
     <button
-      mat-flat-button
-      color="primary"
-      (click)="closeModal($event)"
-    >
-      <ng-container i18n="Connection Settings Cancel Button Label@@connection_settings_button_label_cancel">Cancel</ng-container>
-    </button>
-    <button
       mat-raised-button
       color="accent"
       (click)="action($event)"
       >
       <!-- [disabled]="isDisabled()" -->
-      {{ getModalActionBtnLabel() }}
+      {{ getModalActionBtnLabel() | translate }}
     </button>
   </div>
-</pb-modal>
+</fg-card>

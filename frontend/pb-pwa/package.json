@@ -70,6 +70,7 @@
     "@types/highcharts": "5.0.27",
     "@types/jasmine": "2.8.6",
     "@types/jasminewd2": "2.0.3",
+    "@types/yargs": "^12.0.0",
     "angular-cli-ghpages": "0.5.3",
     "codelyzer": "4.2.1",
     "jasmine-core": "2.99.1",

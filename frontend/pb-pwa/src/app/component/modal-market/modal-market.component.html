@@ -1,5 +1,5 @@
 <pb-modal [entity]="this.entity">
-  <div title i18n="@@market_modal_label">
+  <div title translate>
     Market Login
   </div>
   <div content>
@@ -17,21 +17,21 @@
               <!-- [formGroup]="form" -->
               <p>
                 <mat-form-field appearance="fill" color="{{ inputThemeColor }}">
-                  <mat-label i18n="@@market_modal_epex_label">Epex</mat-label>
+                  <mat-label translate>Epex</mat-label>
                   <input
                     matInput
-                    i18n-placeholder="@@market_modal_epex_placeholder"
-                    placeholder="like: 2434234"
+                    placeholder="{{ 'like: 2434234' | translate }}"
                     formControlName="epexPass"
                     required
                   >
                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-hint i18n="@@market_modal_epex_hint">The password for connection to Epex service</mat-hint>
+                  <mat-hint translate>The password for connection to Epex service</mat-hint>
                 </mat-form-field>
               </p>
               <p>
                 <mat-checkbox
                   formControlName="store"
+                  translate
                 >
                   Store Configuration
                 </mat-checkbox>
@@ -47,6 +47,7 @@
       mat-flat-button
       color="primary"
       (click)="closeModal($event)"
+      translate
     >
       Cancel
     </button>
@@ -54,6 +55,7 @@
       mat-raised-button
       color="accent"
       (click)="action($event)"
+      translate
     >
       Login
     </button>

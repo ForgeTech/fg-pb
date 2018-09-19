@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { I18n } from '@ngx-translate/i18n-polyfill';
+import { _ } from './../../app.utils';
 /**
  * DashboardComponent -
  * Render dashboard displaying collected set of powerbot api-data
@@ -22,57 +22,57 @@ export class DashboardComponent extends FgComponentBaseComponent {
     },
     cards: [
       {
-        title: this.$I18n('Orders'),
+        title: _('component_label_orders'),
         template: 'orders',
         cols: 16, rows: 7
       },
       {
-        title: this.$I18n('Trades'),
+        title: _('component_label_trades'),
         template: 'trades',
         cols: 16, rows: 7
       },
       {
-        title: this.$I18n('Orderbook'),
+        title: _('component_label_orderbook'),
         template: 'orderbook',
         cols: 24, rows: 14
       },
       {
-        title: this.$I18n('Bids'),
+        title: _('component_label_bids'),
         template: 'bids',
         cols: 8, rows: 7
       },
       {
-        title: this.$I18n('Asks'),
+        title: _('component_label_asks'),
         template: 'asks',
         cols: 8, rows: 7
       },
       {
-        title: this.$I18n('Portfolio'),
+        title: _('component_label_portfolio'),
         template: 'portfolio',
         cols: 16, rows: 7
       },
       {
-        title: this.$I18n('Contract Details'),
+        title: _('component_label_contract_details'),
         template: 'contractdetails',
         cols: 16, rows: 7
       },
       {
-        title: this.$I18n('Product history'),
+        title: _('component_label_production_history'),
         template: 'producthistory',
         cols: 16, rows: 7
       },
       {
-        title: this.$I18n('Signals'),
+        title: _('component_label_signals'),
         template: 'signals',
         cols: 16, rows: 7
       },
       {
-        title: this.$I18n('Logs'),
+        title: _('component_label_logs'),
         template: 'logs',
         cols: 16, rows: 7
       },
       {
-        title: this.$I18n('Signal History'),
+        title: _('component_label_signal_history'),
         template: 'signalhistory',
         cols: 16, rows: 7
       },
@@ -148,7 +148,7 @@ export class DashboardComponent extends FgComponentBaseComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     $component: FgComponentBaseService,
-    protected $I18n: I18n) {
+    ) {
     super(
       $component
     );

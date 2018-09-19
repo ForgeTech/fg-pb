@@ -6,80 +6,16 @@
       fxLayoutGap="10px"
       fxFlexFill>
       <div fxFlex="10 150px">
-        <img class="pb-header-logo" i18n-alt="PowerBot Logo| Alternative text displayed if PowerBot Logo is not loaded>@@logo_alt" alt="Power Logo" src="./assets/powerbot_logo.png"/>
+        <img class="pb-header-logo" alt="PowerBot Logo" src="./assets/powerbot_logo.png"/>
       </div>
-      <div fxFlex="10 150px">
-        <button
-          mat-raised-button
-          color="primary"
-          [matMenuTriggerFor]="connection"
-        >
-          <mat-icon>power_setting_new</mat-icon>
-          <ng-container i18n="Connection-Menu button label | Label for button to open connection menu@@header_menu_connection">
-            Connection
-          </ng-container>
-        </button>
-        <mat-menu
-          #connection="matMenu"
-        >
-          <button mat-menu-item (click)="openSettingsModal($event)">
-            <mat-icon>settings</mat-icon>
-             <ng-container i18n="Configuration menu-item label | Connection-menu item used to open connection-configuration modal@@header_menu_connection_configuration">
-              Configuration
-            </ng-container>
-          </button>
-          <button mat-menu-item [disabled]="getProductionDisabled()" (click)="connectProduction($event)">
-            <mat-icon>flash_on</mat-icon>
-            <ng-container i18n="Connect-production menu-item label | Connection-menu item used to connect to production backend@@header_menu_connect_production">
-              Connect Production
-            </ng-container>
-          </button>
-          <button mat-menu-item [disabled]="getTestDisabled()" (click)="connectTest($event)">
-            <mat-icon>flash_on</mat-icon>
-            <ng-container i18n="Connect-test menu-item label | Connection-menu item used to connect to test backend@@header_menu_connect_test">
-              Connect Test
-            </ng-container>
-          </button>
-          <button mat-menu-item [disabled]="getDisconnectDisabled()" (click)="disconnectApi($event)">
-            <mat-icon>flash_off</mat-icon>
-            <ng-container i18n="disconnect menu-item label | Connection-menu item used to disconnect from backend@@header_menu_disconnect_backend">
-              Disconnect
-            </ng-container>
-          </button>
-        </mat-menu>
-        &nbsp;
-        <button
-          mat-raised-button
-          color="primary"
-          [matMenuTriggerFor]="market"
-        >
-          <mat-icon>timeline</mat-icon>
-          <ng-container i18n="Market-Menu button label | Label for button to open connection menu@@header_menu_connection">
-            Market
-          </ng-container>
-        </button>
-        <mat-menu
-          #market="matMenu"
-        >
-          <button mat-menu-item (click)="openMarketModal($event)">
-            <mat-icon>settings</mat-icon>
-            <ng-container i18n="configuration menu label | Label contained in menu for opening configuration modal@@header_menu_configuration">
-              Configuration
-            </ng-container>
-          </button>
-          <button mat-menu-item [disabled]="getMarketDisabled()" (click)="openMarketModal($event)">
-            <mat-icon>flash_on</mat-icon>
-            <ng-container i18n="connect market menu-item label | Market menu-item used to oprn connect-to-market modal@@header_menu_connect_market">
-              Connect
-            </ng-container>
-          </button>
-          <button mat-menu-item [disabled]="!getMarketDisabled()" (click)="disconnectMarket($event)">
-            <mat-icon>flash_off</mat-icon>
-            <ng-container i18n="disconnect market menu-item label | Market menu-item used to disconnect from market@@header_menu_disconnect_market">
-              Disconnect
-            </ng-container>
-          </button>
-        </mat-menu>
+      <div fxFlex="10 100px">
+      <!-- <mat-form-field> -->
+        <mat-select class="delivery_area_select">
+          <mat-option *ngFor="let market of ['market1','market2']" [value]="market">
+            {{market}}
+          </mat-option>
+        </mat-select>
+      <!-- </mat-form-field> -->
       </div>
       <div fxFlex="70">
         <pb-bar-state [entity]="this.entity"></pb-bar-state>

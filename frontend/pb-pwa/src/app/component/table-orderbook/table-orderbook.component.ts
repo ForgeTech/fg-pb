@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { I18n } from '@ngx-translate/i18n-polyfill';
+import { _ } from './../../app.utils';
 
 @Component({
   selector: 'pb-table-orderbook',
@@ -19,79 +19,79 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
     scrollbarH: true,
     columns: [
       {
-        name: this.$I18n('Name'),
+        name: _('column_label_name'),
         prop: 'name',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Best Bid'),
+        name: _('column_label_bid_best'),
         prop: 'bestBidPrice',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Bid Qty'),
+        name: _('column_label_bid_qty'),
         prop: 'bestBidQuantity',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Best Ask'),
+        name: _('column_label_ask_best'),
         prop: 'bestAskPrice',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Ask Qty'),
+        name: _('column_label_ask_qty'),
         prop: 'bestAskQuantity',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Last'),
+        name: _('column_label_last'),
         prop: 'lastPrice',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Last Qty'),
+        name: _('column_label_last_qty'),
         prop: 'lastQuantity',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('High'),
+        name: _('column_label_high'),
         prop: 'high',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Low'),
+        name: _('column_label_low'),
         prop: 'low',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Volume'),
+        name: _('column_label_volume'),
         prop: 'totalQuantity',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Updated'),
+        name: _('column_label_update'),
         prop: 'lastTradeTime',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('My Position'),
+        name: _('column_label_my_position'),
         prop: 'absolutePosition',
         display: true,
         width: 80
       },
       {
-        name: this.$I18n('My Volume'),
+        name: _('column_label_my_volume'),
         prop: 'absolutePosition',
         display: true,
         width: 80
@@ -99,7 +99,7 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
     ]
   };
 
-  constructor($component: FgComponentBaseService, protected $I18n: I18n) {
+  constructor($component: FgComponentBaseService) {
     super(
       $component
     );

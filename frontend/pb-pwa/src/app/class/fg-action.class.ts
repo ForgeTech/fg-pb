@@ -10,62 +10,47 @@ import { FgEvent } from './fg-class.export';
 */
 export class FgAction /* implements IFgActionEntityInterface */ {
   /**
-  * The event to dispatch on action activation
-  */
-  event: FgEvent;
-  /**
-  * Holds icon-key values to display icons using
-  * mat-icon component
-  * TODO: Implement any as an object containing multiple
-  * 'state'-keys and the icon-name to be displayed for
-  * this state
-  */
-  icon: string | Function;
-  /**
-   * TODO
-   */
-  color: string;
-  /**
-  * Holds animatin property-object to apply animations on action
-  * state-changes
-  * TODO: Implement any as an object containing multiple
-  * 'state'-keys and the animation-properties to be displayed for
-  * this state
-  */
-  animation: any;
-  /**
-  * The label that should be displayed for this action
-  * TODO: Replace this with an FgContent-Instance
-  */
-  label: string | Function;
-  /**
-  * Holds the keyboard-navigation action-shortcut key-values/combinations
-  * to use to activate this action
-  */
-  key: string;
-  /**
-  * Holds reference to the function that should be performed to
-  * validate if action should be disabled
-  */
-  disabled: (any) => boolean;
-  /**
   * CONSTRUCTOR
   */
   constructor(
-    event: FgEvent,
-    color: string,
-    label: string | Function,
-    icon: string | Function,
-    key: string = 'none',
-    animation: any = 'none',
-    disabled = (x => true),
-  ) {
-    this.icon = icon;
-    this.color = color;
-    this.label = label;
-    this.event = event;
-    this.key = key;
-    this.animation = animation;
-    this.disabled = disabled;
-  }
+    /**
+    * The event to dispatch on action activation
+    */
+    public event: FgEvent,
+    /**
+     * TODO
+     */
+    public color: string,
+    /**
+     * The label that should be displayed for this action
+     * TODO: Replace this with an FgContent-Instance
+     */
+    public label: string | Function,
+    /**
+    * Holds icon-key values to display icons using
+    * mat-icon component
+    * TODO: Implement any as an object containing multiple
+    * 'state'-keys and the icon-name to be displayed for
+    * this state
+    */
+    public icon: string | Function,
+    /**
+     * Holds the keyboard-navigation action-shortcut key-values/combinations
+     * to use to activate this action
+     */
+    public key?: string,
+    /**
+    * Holds animatin property-object to apply animations on action
+    * state-changes
+    * TODO: Implement any as an object containing multiple
+    * 'state'-keys and the animation-properties to be displayed for
+    * this state
+    */
+    public animation?: any,
+    /**
+    * Holds reference to the function that should be performed to
+    * validate if action should be disabled
+    */
+    public disabled?: (any) => boolean,
+  ) {}
 }

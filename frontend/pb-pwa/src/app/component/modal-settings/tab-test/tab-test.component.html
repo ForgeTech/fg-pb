@@ -8,16 +8,15 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label i18n="@@connection_settings_tab_test_test_server_label">Test Server Url</mat-label>
+        <mat-label translate>input_label_test_url</mat-label>
         <input
           matInput
-          i18n-placeholder="@@connection_settings_tab_test_test_server_placeholder"
-          placeholder="like: https://playground.powerbot-trading.com/api/v0"
+          placeholder="{{ 'input_placeholder_test' | translate }}"
           formControlName="serverUrl"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint i18n="@@connection_settings_tab_test_test_server_hint">Url to the PowerBot Trading API</mat-hint>
+        <mat-hint translate>input_hint_test_url</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -25,16 +24,15 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label i18n="@@connection_settings_tab_test_api_key_label">API Key</mat-label>
+        <mat-label translate>input_label_api_key</mat-label>
         <input
           matInput
-          i18n-placeholder="@@connection_settings_tab_test_api_key_placeholder"
-          placeholder="Like: **************"
+          placeholder="{{ 'input_placeholder_api_key' | translate }}"
           formControlName="apiKey"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint i18n="@@connection_settings_tab_test_api_key_hint">The Api Key you received from PowerBot Trading</mat-hint>
+        <mat-hint translate>input_hint_api_key</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -42,9 +40,7 @@
         formControlName="store"
         (change)="clearStore($event)"
       >
-        <ng-container i18n="@@connection_settings_tab_test_cache_label">
-          Store Configuration
-        </ng-container>
+        <ng-container translate>checkbox_label_cache</ng-container>
       </mat-checkbox>
     </p>
   </form>

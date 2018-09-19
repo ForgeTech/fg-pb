@@ -7,44 +7,41 @@
   >
     <p>
       <mat-form-field appearance="fill" color="{{ config }}">
-        <mat-label i18n="@@connection_settings_tab_api_key_robocomb_label">RoboComp Password</mat-label>
+        <mat-label translate>RoboComp Password</mat-label>
         <input
           matInput
-          i18n-placeholder="@@connection_settings_tab_api_key_robocomb_placeholder"
-          placeholder="like: ljad032234"
+          placeholder="{{ 'like: ljad032234' | translate }}"
           formControlName="roboPass"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint  i18n="@@connection_settings_tab_api_key_robocomb_hint">The password for connection to RoboComp service</mat-hint>
+        <mat-hint translate>The password for connection to RoboComp service</mat-hint>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="fill" color="{{ config }}">
-        <mat-label  i18n="@@connection_settings_tab_api_key_epex_label">Epex Password</mat-label>
+        <mat-label  translate>Epex Password</mat-label>
         <input
           matInput
-          i18n-placeholder="@@connection_settings_tab_api_key_epex_placeholder"
-          placeholder="like: 2434234"
+          placeholder="{{ 'like: 2434234' | translate }}"
           formControlName="epexPass"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint  i18n="@@connection_settings_tab_api_key_epex_hint">The password for connection to Epex service</mat-hint>
+        <mat-hint translate>The password for connection to Epex service</mat-hint>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="fill"  color="{{ config }}">
-        <mat-label  i18n="@@connection_settings_tab_api_key_name_label">Api Key Name</mat-label>
+        <mat-label translate>Api Key Name</mat-label>
         <input
           matInput
-          i18n-placeholder="@@connection_settings_tab_api_key_name_placeholder"
-          placeholder="like: Inercom Trading"
+          placeholder="{{ 'like: Inercom Trading' | translate }}"
           formControlName="apiKey"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint  i18n="@@connection_settings_tab_api_key_name_hint">Name to identify api-key</mat-hint>
+        <mat-hint translate>Name to identify api-key</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -52,7 +49,7 @@
         formControlName="canTrade"
         required
         color="{{ config }}"
-        i18n="@@connection_settings_tab_api_key_enable_trading_label"
+        translate
       >
         Enable Trading
       </mat-checkbox>
@@ -61,7 +58,7 @@
         formControlName="canSignal"
         required
         color="{{ config }}"
-        i18n="@@connection_settings_tab_api_key_enable_signaling_label"
+        translate
       >
         Enable Signaling
       </mat-checkbox>
@@ -71,7 +68,7 @@
         formControlName="envProd"
         required
         color="{{ config }}"
-        i18n="@@connection_settings_tab_api_key_enable_production_label"
+        translate
       >
         Enable Production
       </mat-checkbox>
@@ -80,7 +77,7 @@
         formControlName="envTest"
         required
         color="{{ config }}"
-        i18n="@@connection_settings_tab_api_key_enable_test_label"
+        translate
       >
         Enable Test
       </mat-checkbox>

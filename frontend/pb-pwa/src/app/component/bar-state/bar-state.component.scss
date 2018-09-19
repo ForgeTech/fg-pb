@@ -1,7 +1,6 @@
 .bar-status--container {
   position: relative;
   height: 50px;
-
 }
 .bar-status--progress {
   height: 100%;
@@ -13,19 +12,15 @@
   position: absolute;
   left: 10px;
   top: 5px;
-  pointer-events: none;
-}
-.bar-status--btn-bar {
-  position: absolute;
   right: 10px;
-  top: 5px;
+  pointer-events: none;
 }
 .btn-connection-settings {
   margin: 0 5px 0 0;
 }
 .mat-progress-bar {
-  opacity: 0.2;
+  opacity: 0.3;
 }
-.mat-mini-fab {
-  box-shadow: none;
+.mat-chip {
+  margin: 4px auto !important;
 }

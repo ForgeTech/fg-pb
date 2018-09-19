@@ -4,7 +4,7 @@ import { FgComponentBaseService } from '../fg-component-base/fg-component-base.s
 import { ModalAddOrderComponent } from '../modal-add-order/modal-add-order.component';
 import { PbAppEvent } from '../../event/pb-app.event';
 import { FgEvent } from '../../class/fg-event.class';
-import { I18n } from '@ngx-translate/i18n-polyfill';
+import { _ } from './../../app.utils';
 
 /**
  * Table-Component for displaying order-data
@@ -24,37 +24,37 @@ export class TableOrdersComponent extends FgComponentBaseComponent {
     scrollbarH: true,
     columns: [
       {
-        name: this.$I18n('dlvry Start'),
+        name: _('column_label_dlvry_start'),
         prop: 'contract_details.dlvryStart',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('dlvry End'),
+        name: _('column_label_dlvry_end'),
         prop: 'contract_details.dlvryEnd',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Side'),
+        name: _('column_label_side'),
         prop: 'name',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Qty [MW]'),
+        name: _('column_label_qty'),
         prop: 'name',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Price [EUR]'),
+        name: _('column_label_price'),
         prop: 'name',
         display: true,
         width: 50
       },
       {
-        name: this.$I18n('Note'),
+        name: _('column_label_note'),
         prop: 'name',
         display: true,
         width: 50
@@ -64,7 +64,7 @@ export class TableOrdersComponent extends FgComponentBaseComponent {
   /**
    * CONSTRUCTION
    */
-  constructor($component: FgComponentBaseService, protected $I18n: I18n) {
+  constructor($component: FgComponentBaseService) {
     super(
       $component
     );

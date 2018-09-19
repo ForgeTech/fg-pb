@@ -1,4 +1,5 @@
-import { ContractInterface, InlineResponse2002 } from '../module/pb-api/model/interfaces.export';
+import { ContractInterface } from '../module/pb-api/model/interfaces.export';
+import { SignalInterface } from '../module/pb-api/model/interfaces.export';
 
 export class ContractEntity implements ContractInterface {
   constructor(
@@ -87,6 +88,6 @@ export class ContractEntity implements ContractInterface {
     /**
      * The signals applicable for the contract
      */
-    public signals?: Array<InlineResponse2002>,
+    public signals?: Array<any>,
   ) {}
 }

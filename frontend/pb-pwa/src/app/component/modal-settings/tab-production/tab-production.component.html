@@ -9,16 +9,15 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label i18n="@@connection_settings_tab_production_server_url_label">Production Server Url</mat-label>
+        <mat-label translate>input_label_production_url</mat-label>
         <input
           matInput
-          i18n-placeholder="@@connection_settings_tab_production_server_url_placeholder"
-          placeholder="like: https://playground.powerbot-trading.com/api/"
+          placeholder="{{ 'input_placeholder_production' | translate }}"
           formControlName="serverUrl"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint i18n="@@connection_settings_tab_production_server_url_hint">Url to the PowerBot Trading API</mat-hint>
+        <mat-hint translate>tab_hint_api_key</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -26,16 +25,15 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label i18n="@@connection_settings_tab_backup_server_url_label">Backup Server Url</mat-label>
+        <mat-label translate>input_label_backup_url</mat-label>
         <input
           matInput
-          i18n-placeholder="@@connection_settings_tab_backup_server_url_placeholder"
-          placeholder="like: https://playground.powerbot-trading.com/backup/"
+          placeholder="{{ 'input_placeholder_backup' | translate }}'"
           formControlName="backupUrl"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint i18n="@@connection_settings_tab_backup_server_url_hint">Url to the PowerBot Backup-Server</mat-hint>
+        <mat-hint translate>input_hint_backup_url</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -43,26 +41,24 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label i18n="@@connection_settings_tab_production_api_key_label">API Key</mat-label>
+        <mat-label translate>input_label_api_key</mat-label>
         <input
           matInput
-          i18n-placeholder="@@connection_settings_tab_production_api_key_placeholder"
-          placeholder="Like: **************"
+          placeholder="{{ 'input_placeholder_api_key' | translate }}'"
           formControlName="apiKey"
           required
         >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint i18n="@@connection_settings_tab_production_api_key_hint">The Api Key you received from PowerBot Trading</mat-hint>
+        <mat-hint translate>input_hint_api_key</mat-hint>
       </mat-form-field>
     </p>
     <p>
       <mat-checkbox
         formControlName="store"
         (change)="clearStore($event)"
-        i18n="@@connection_settings_tab_production_cache_label"
       >
-      Store Configuration
-    </mat-checkbox>
+      {{ 'checkbox_label_cache' | translate }}
+      </mat-checkbox>
     </p>
   </form>
 </div>

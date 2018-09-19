@@ -4,7 +4,7 @@
     mode="{{ getProgressBarMode() }}"
     matTooltip="{{ entity.market | json:4 }}"
     matTooltipClass="mat-tooltip-prettyjson"
-    color="accent">
+    color="{{ getStateColor()==='primary'? 'accent': getStateColor() }}">
   </mat-progress-bar>
   <div class="bar-status--label">
     <!-- Connection States -->
@@ -16,10 +16,10 @@
         <mat-icon>{{ getStateIcon() }}</mat-icon>
         &nbsp;
         <span>
-          {{ getStateLabel() }}
+{{ getStateLabel() }} | {{ getEnvironment() ? '' : getEnvironment() }}: 24 hours +{{ getBackHours() }}
         </span>
       </mat-chip>
-      <mat-chip
+      <!-- <mat-chip
         *ngIf="viewEnvironment()"
         color="accent"
         selected
@@ -29,13 +29,12 @@
         <span>
           {{ getEnvironmentLabel() }}
         </span>
-      </mat-chip>
+      </mat-chip> -->
     </mat-chip-list>
   </div>
-  <div
+  <!-- <div
     class="bar-status--btn-bar"
   >
-    <!-- Connection-State Button -->
     <button
       class="btn-connection-settings"
       mat-mini-fab
@@ -45,7 +44,6 @@
     >
       <mat-icon>power_setting_new</mat-icon>
     </button>
-    <!-- Market-State Button -->
     <button
       class="btn-market-settings"
       mat-mini-fab
@@ -55,5 +53,5 @@
     >
       <mat-icon>timeline</mat-icon>
     </button>
-  </div>
+  </div> -->
 </div>

@@ -12,7 +12,7 @@ export const environment = {
   // for development environment
   powerbot: {
     config: {
-      lang: 'master',
+      lang: 'en',
       view: [
         {
           dashboard: {

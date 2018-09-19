@@ -168,6 +168,9 @@ export class PbDataService {
       this.$log.warn( 'Api-server environment not available!' );
     }
   }
+  public isConnecting(): boolean {
+    return false;
+  }
   /**
    * Return observable polling timer-object
    * @param delay The delay before timer dispatches first event
@@ -344,4 +347,46 @@ export class PbDataService {
         break;
     }
   }
+  /**
+  * Returns if there is a valid configuration for
+  * test-environment available
+  */
+  getProductionValid(): boolean {
+     let disabled: boolean = true;
+     if (
+       this.app.config.prodConfig.apiKey
+       && this.app.config.prodConfig.serverUrl
+       && this.app.config.prodConfig.backupUrl
+     ) {
+       disabled = false;
+     }
+     return disabled;
+   }
+   /**
+    * Returns if there is a valid configuration for
+    * test-environment available
+    */
+   getTestValid(): boolean {
+     let disabled: boolean = true;
+     if (
+       this.app.config.testConfig.apiKey
+       && this.app.config.testConfig.serverUrl
+     ) {
+       disabled = false;
+     }
+     return disabled;
+   }
+   /**
+    * Returns if disconnecting should be allowed
+    */
+   getDisconnectDisabled(): boolean {
+     let disabled: boolean = true;
+     if (
+       this.app.state.connectionState !== ConnectionState.Offline
+       && this.app.state.appEnv !== AppEnv.Offline
+     ) {
+       disabled = false;
+     }
+     return disabled;
+   }
 }

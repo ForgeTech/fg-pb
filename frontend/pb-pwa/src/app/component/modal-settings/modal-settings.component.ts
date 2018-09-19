@@ -1,16 +1,13 @@
 import { Component, Inject, ViewRef, ViewChild } from '@angular/core';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { MatDialogRef, MatTab, MatTabChangeEvent, MatTabGroup } from '@angular/material';
-import { MAT_DIALOG_DATA } from '@angular/material'
-import { ModalComponent } from '../modal/modal.component';
-import { PowerBotEntity } from '../../entity/powerbot.entity';
+import { MatTab, MatTabChangeEvent, MatTabGroup } from '@angular/material';
 import { TabProductionComponent } from './tab-production/tab-production.component';
 import { TabLoggingComponent } from './tab-logging/tab-logging.component';
 import { TabTestComponent } from './tab-test/tab-test.component';
 import { TabApiKeyComponent } from './tab-api-key/tab-api-key.component';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { PbModalTabComponentInterface } from '../../interface/pb-modal-tab-component.interface';
-import { I18n } from '@ngx-translate/i18n-polyfill';
+import { _ } from './../../app.utils';
 
 /**
  * Enum for identifing active
@@ -29,11 +26,11 @@ export enum ConnectionTabEnum {
  * application
  */
 @Component({
-  selector: 'app-modal-settings',
+  selector: 'pb-modal-settings',
   templateUrl: './modal-settings.component.html',
   styleUrls: ['./modal-settings.component.scss']
 })
-export class ModalSettingsComponent extends ModalComponent {
+export class ModalSettingsComponent extends FgComponentBaseComponent {
   @ViewChild('tabGroup') tabGroup: MatTabGroup;
   @ViewChild('tabProduction') tabProduction: TabProductionComponent;
   @ViewChild('tabTest') tabTest: TabTestComponent;
@@ -55,14 +52,10 @@ export class ModalSettingsComponent extends ModalComponent {
    * CONSTRUCTOR
    */
   constructor(
-    public modalRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
-    $component: FgComponentBaseService,
-    protected $I18n: I18n
+    $component: FgComponentBaseService
   ) {
     super(
-      modalRef,
-      data,
+
       $component
     );
   }
@@ -70,7 +63,7 @@ export class ModalSettingsComponent extends ModalComponent {
    * Override Life-cycle methode from super
    * class
    */
-  public ngAfterViewInit(): void {
+  public AfterViewInit(): void {
     super.ngAfterViewInit();
     // Initialize variables with view-references after
     // components where created
@@ -91,13 +84,6 @@ export class ModalSettingsComponent extends ModalComponent {
     this.activeTab = this.tabComponents[ this.activeTabIndex ];
   }
   /**
-   * Methode to call when add-orders modal-dialog
-   * should be canceled
-   */
-  cancelSettings($event: Event): void {
-    this.closeModal();
-  }
-  /**
    * Return ActionBtnLabel according to
    * selected Settings-Tab
    */
@@ -107,10 +93,10 @@ export class ModalSettingsComponent extends ModalComponent {
       case ConnectionTabEnum.ProductionTab:
       case ConnectionTabEnum.LoggingTab:
       case ConnectionTabEnum.TestTab:
-        label = this.$I18n('Connect');
+        label = _('button_label_connect');
       break;
       case ConnectionTabEnum.ApiTab:
-        label = this.$I18n('Generate API-Key');
+        label = _('button_label_generate_api_key');
       break;
     }
     return label;
@@ -132,7 +118,7 @@ export class ModalSettingsComponent extends ModalComponent {
     this.activeTab.action( $event );
     // Close modal for all tabs but api
     if ( this.activeTabIndex !== ConnectionTabEnum.ApiTab ) {
-      this.closeModal();
+
     }
   }
 }

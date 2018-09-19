@@ -1,12 +1,8 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<perfect-scrollbar>
+<!-- <perfect-scrollbar> -->
   <div [ngClass]="{
     'pb-dark-theme': this.$app.$data.app.config.darkTheme
   }">
-  <pb-header [entity]="this.$app.$data.app"></pb-header>
-  <div translate>Test</div>
-  <router-outlet></router-outlet>
-  <pb-footer [entity]="this.$app.$data.app"></pb-footer>
-</div>
-</perfect-scrollbar>
+    <router-outlet></router-outlet>
+  </div>
+<!-- </perfect-scrollbar> -->
 

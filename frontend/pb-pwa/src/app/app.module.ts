@@ -1,4 +1,4 @@
-import { NgModule, TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID, MissingTranslationStrategy } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +11,8 @@ import { PrettyJsonModule } from 'angular2-prettyjson';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgForageModule, NgForageConfig } from 'ngforage';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { TranslateModule,
+import {
+  TranslateModule,
   TranslateLoader,
   TranslateService,
   MissingTranslationHandler,
@@ -19,7 +20,6 @@ import { TranslateModule,
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { I18n, MISSING_TRANSLATION_STRATEGY } from '@ngx-translate/i18n-polyfill';
 import { Angulartics2Module } from 'angulartics2';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { ChartModule } from 'angular-highcharts';
@@ -44,6 +44,7 @@ import { PortfolioViewComponent } from './view/portfolio/portfolio.component';
 import { ProductHistoryViewComponent } from './view/product-history/product-history.component';
 import { SignalsViewComponent } from './view/signals/signals.component';
 import { TradesViewComponent } from './view/trades/trades.component';
+import { LoginViewComponent } from './view/login/login.component';
 
 import { BarStateComponent } from './component/bar-state/bar-state.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
@@ -77,6 +78,8 @@ import { TableAddOrderComponent } from './component/table-add-order/table-add-or
 import { PbSidePipe } from './pipe/pb-side/pb-side.pipe';
 import { FgEnumPipe } from './pipe/fg-enum/fg-enum.pipe';
 import { FgInputComponent } from './component/fg-input/fg-input/fg-input.component';
+import { ConnectedGuard } from './guard/connected-guard.service';
+import { FgCardComponent } from './component/fg-card/fg-card.component';
 
 /**
  * Routes for PowerBot application
@@ -85,24 +88,25 @@ const appRoutes: Routes = [
   /**
    * Empty route goes to dashboard
    */
-  { path: '', component: DashboardViewComponent },
+  { path: 'login', component: LoginViewComponent },
   /**
    * Routes to dashboard-components full-page views
    */
-  { path: 'asks', component: AsksViewComponent },
-  { path: 'bids', component: BidsViewComponent },
-  { path: 'orderbook', component: OrderbookViewComponent },
-  { path: 'orders', component: OrdersViewComponent },
-  { path: 'portfolio', component: PortfolioViewComponent },
-  { path: 'product-history', component: ProductHistoryViewComponent },
-  { path: 'signals', component: SignalsViewComponent },
-  { path: 'trades', component: TradesViewComponent },
+  { path: 'dashboard', component: DashboardViewComponent, canActivate: [ConnectedGuard] },
+  { path: 'asks', component: AsksViewComponent, canActivate: [ConnectedGuard] },
+  { path: 'bids', component: BidsViewComponent, canActivate: [ConnectedGuard]},
+  { path: 'orderbook', component: OrderbookViewComponent, canActivate: [ConnectedGuard] },
+  { path: 'orders', component: OrdersViewComponent, canActivate: [ConnectedGuard] },
+  { path: 'portfolio', component: PortfolioViewComponent, canActivate: [ConnectedGuard] },
+  { path: 'product-history', component: ProductHistoryViewComponent, canActivate: [ConnectedGuard] },
+  { path: 'signals', component: SignalsViewComponent, canActivate: [ConnectedGuard] },
+  { path: 'trades', component: TradesViewComponent, canActivate: [ConnectedGuard] },
   /**
    * All routes that do not match any route after
    * checking the ones above, are redirected to
    * dashboard view
    */
-  { path: '**', redirectTo: ''}
+  { path: '**', redirectTo: '/login'}
 ];
 
 // AoT requires an exported function for factories
@@ -115,9 +119,6 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     return 'Translation not found!';
   }
 }
-
-declare const require; // Use the require method provided by webpack
-export const translations = require(`raw-loader!./../assets/i18n/en.xlf`);
 
 /**
  * PowerBot Application Module -
@@ -138,6 +139,7 @@ export const translations = require(`raw-loader!./../assets/i18n/en.xlf`);
     ProductHistoryViewComponent,
     SignalsViewComponent,
     TradesViewComponent,
+    LoginViewComponent,
 
     BarStateComponent,
     DashboardComponent,
@@ -170,7 +172,8 @@ export const translations = require(`raw-loader!./../assets/i18n/en.xlf`);
     FgEnumPipe,
     FgInputComponent,
     TableLogsComponent,
-    TableContractDetailsComponent
+    TableContractDetailsComponent,
+    FgCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -227,13 +230,9 @@ export const translations = require(`raw-loader!./../assets/i18n/en.xlf`);
     PbDataService,
     FgKeyboardService,
     TranslateService,
-    { provide: LOCALE_ID, useValue: environment.lang },
-    { provide: TRANSLATIONS_FORMAT, useValue: 'xlf' },
-    { provide: TRANSLATIONS, useValue: translations },
-    { provide: MISSING_TRANSLATION_STRATEGY, useValue: MissingTranslationStrategy.Warning },
-    I18n
   ],
   entryComponents: [
+    LoginViewComponent,
     ModalAddOrderComponent,
     ModalHelpComponent,
     ModalSettingsComponent,

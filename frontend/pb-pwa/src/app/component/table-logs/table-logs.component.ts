@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { LogEntity } from '../../entity/log.entity';
-import { I18n } from '@ngx-translate/i18n-polyfill';
+import { _ } from './../../app.utils';
 
 @Component({
   selector: 'pb-table-logs',
@@ -19,13 +19,13 @@ export class TableLogsComponent extends FgComponentBaseComponent {
     scrollbarH: true,
     columns: [
       {
-        name: this.$I18n('Timestamp'),
+        name: _('column_label_timestamp'),
         prop: 'received',
         display: true,
         width: 100
       },
       {
-        name: this.$I18n('Text'),
+        name: _('column_label_message'),
         prop: 'received',
         display: true,
         width: 100
@@ -33,7 +33,7 @@ export class TableLogsComponent extends FgComponentBaseComponent {
     ]
   };
 
-  constructor($component: FgComponentBaseService, protected $I18n: I18n) {
+  constructor($component: FgComponentBaseService) {
     super(
       $component
     );
