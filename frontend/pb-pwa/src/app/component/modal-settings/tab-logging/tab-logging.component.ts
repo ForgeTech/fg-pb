@@ -35,17 +35,15 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
     this.form = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
-      logUrl: [null, [Validators.required, Validators.minLength(5)]],
+      logDir: [null, [Validators.required, Validators.minLength(5)]],
       logLevel: [null, []],
-      debugUrl: [null, []],
       store: [null, []]
     });
-    this.setFormData();
   }
   /**
    * Set form-data from powerbot storage
    */
-  private setFormData(): void {
+  public setFormData(): void {
     if ( this.$component.$data.app.config.logConfig ) {
       this.form.patchValue(
         this.$component.$data.app.config.logConfig
@@ -57,9 +55,8 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    */
   private getLoggingConfig(): ConfigLoggingConnection {
     let config: ConfigLoggingConnection = new ConfigLoggingConnection();
-    config.logUrl = this.form.controls.logUrl.value;
+    config.logFolder = this.form.controls.logUrl.value;
     config.logLevel = this.form.controls.logLevel.value;
-    config.debugUrl = this.form.controls.debugUrl.value;
     config.store = this.form.controls.store.value;
     return config;
   }
@@ -93,12 +90,12 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
     if ( !this.form.errors &&  this.form.controls.store.value === true) {
       this.storeLoggingConfig();
     }
-    if ( !this.form.errors ){
-      let currentConfig: LoggerConfig = this.$component.$log.getConfigSnapshot();
-      currentConfig.serverLoggingUrl = config.logUrl;
-      currentConfig.serverLogLevel = this.logLevels[config.logLevel];
-      // this.$component.$log.updateConfig( currentConfig );
-    }
+    // if ( !this.form.errors ){
+    //   let currentConfig: LoggerConfig = this.$component.$log.getConfigSnapshot();
+    //   currentConfig.serverLoggingUrl = config.log;
+    //   currentConfig.serverLogLevel = this.logLevels[config.logLevel];
+    //   // this.$component.$log.updateConfig( currentConfig );
+    // }
   }
 
 }

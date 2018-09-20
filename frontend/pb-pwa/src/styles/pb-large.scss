@@ -7,6 +7,23 @@
     height: 100%;
   }
 }
+.mat-tab-body {
+  padding: 0 15px 0 15px;
+}
+.mat-tab-body-content {
+  overflow: hidden !important;
+}
+.mat-radio-label,
+.mat-checkbox-layout {
+  padding-left: 15px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+.mat-menu-panel {
+  width: 250px;
+}
 .dashboard-card.mat-card {
   padding: 10px 15px !important;
 }

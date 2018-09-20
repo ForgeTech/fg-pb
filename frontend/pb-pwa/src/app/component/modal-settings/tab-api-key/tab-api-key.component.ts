@@ -28,14 +28,21 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
     this.form = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
-      roboPass: [null, [Validators.required, Validators.minLength(5)]],
+      masterPwd: [null, [Validators.required, Validators.minLength(5)]],
       epexPass: [null, [Validators.required]],
-      apiKey: [null, [Validators.required]],
+      name: [null, [Validators.required]],
       canTrade: [null, []],
       canSignal: [null, []],
       envProd: [null, []],
-      envTest: [null, []],
     });
+  }
+  // Implement to satisfy tab interface, but do not
+  public setFormData(): void {
+    if (this.$component.$data.app.config.authConfig) {
+      this.form.patchValue(
+        this.$component.$data.app.config.authConfig
+      );
+    }
   }
   /**
    * TODO: Generate and return api-key for user

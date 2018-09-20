@@ -41,7 +41,13 @@ export class PbDataService {
    * Represents the collected set of application-data
    * and provides access to it within powerbot-application
    */
-  public app: PowerBotEntity;
+  protected _app: PowerBotEntity = new PowerBotEntity();
+  set app( powerbot: PowerBotEntity ) {
+    this._app = Object.assign(this._app, powerbot);
+  }
+  get app(): PowerBotEntity {
+    return this._app;
+  }
   /** Member-variable to hold instance of
    * polling-timer observable
    */
@@ -168,8 +174,9 @@ export class PbDataService {
       this.$log.warn( 'Api-server environment not available!' );
     }
   }
+  private allow: boolean = false;
   public isConnecting(): boolean {
-    return false;
+    return this.allow;
   }
   /**
    * Return observable polling timer-object
@@ -237,16 +244,17 @@ export class PbDataService {
    * Connect application-data service
    */
   public connect( env: AppEnv ): void {
+    this.allow = true;
     this.setAppEnvConfiguration( env );
     this.appSubscrption = this.getPollingTimer().subscribe(() => {
       this.fetchApplicationData();
     });
-
   }
   /**
    * Disconnect application-data service
    */
   public disconnect(): void {
+    this.allow = false;
     this.appSubscrption.unsubscribe();
     this.app.state.appEnv = AppEnv.Offline;
     this.app.state.connectionState = ConnectionState.Offline;
@@ -304,7 +312,7 @@ export class PbDataService {
   /**
    * Initialize Powerbot from browser-storage
    */
-  public async recoverFromStorage(): Promise<PowerBotEntity> {
+   public async recoverConfigFromStorage(): Promise<PowerBotEntity> {
     this.app = new PowerBotEntity();
     let config;
     config = await this.$storage.getItem( PbAppStorageConst.CONFIG_PRODUCTION );

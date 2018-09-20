@@ -5,6 +5,8 @@ import {
   ConfigTestConnection,
   ConfigView
  } from './entity.export';
+import { ConfigDebug } from './config-debug-entity';
+import { ConfigAuth } from './config-auth.entity';
 /**
  * ConfigPowerBot -
  * Entity-Class used to hold configuration
@@ -33,6 +35,10 @@ export class ConfigPowerbot {
     */
     public darkTheme: boolean = false,
     /**
+    * Languguage available for powerbot client
+    */
+    public languages: string[] = [],
+    /**
     * Languguage to be used within powerbot
     */
     public lang: string = 'en',
@@ -55,6 +61,17 @@ export class ConfigPowerbot {
     /**
      * Holds powerbot test-server connection-configuration
      */
-    public view: ConfigView[] = []
+    public viewConfig: ConfigView[] = [],
+    /**
+     * Holds values related to api-key generation
+     * - only exist if set from environment file
+     */
+    public authConfig?: ConfigAuth,
+    /**
+     * Holds values related to web-application debugging
+     * only available when application is run in debug mode
+     * configured in environment file
+     */
+    public debugConfig?: ConfigDebug,
   ) {}
 }

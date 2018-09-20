@@ -7,41 +7,41 @@
   >
     <p>
       <mat-form-field appearance="fill" color="{{ config }}">
-        <mat-label translate>RoboComp Password</mat-label>
+        <mat-label translate>input_label_master_pwd</mat-label>
         <input
           matInput
-          placeholder="{{ 'like: ljad032234' | translate }}"
-          formControlName="roboPass"
+          placeholder="{{ 'input_placeholder_master_pwd' | translate }}"
+          formControlName="masterPwd"
           required
         >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint translate>The password for connection to RoboComp service</mat-hint>
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+<mat-hint translate>input_hint_master_pwd</mat-hint>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="fill" color="{{ config }}">
-        <mat-label  translate>Epex Password</mat-label>
+        <mat-label  translate>input_label_epex</mat-label>
         <input
           matInput
-          placeholder="{{ 'like: 2434234' | translate }}"
+          placeholder="{{ 'input_placeholder_epex' | translate }}"
           formControlName="epexPass"
           required
         >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint translate>The password for connection to Epex service</mat-hint>
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <mat-hint translate>input_hint_epex</mat-hint>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="fill"  color="{{ config }}">
-        <mat-label translate>Api Key Name</mat-label>
+        <mat-label translate>input_label_api_key_name</mat-label>
         <input
           matInput
-          placeholder="{{ 'like: Inercom Trading' | translate }}"
-          formControlName="apiKey"
+placeholder="{{ 'input_placeholder_api_key_name' | translate }}"
+          formControlName="name"
           required
         >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint translate>Name to identify api-key</mat-hint>
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <mat-hint translate>input_hint_api_key_name</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -49,38 +49,27 @@
         formControlName="canTrade"
         required
         color="{{ config }}"
-        translate
       >
-        Enable Trading
+       {{ 'checkbox_label_enable_trading' | translate }}
       </mat-checkbox>
       &nbsp;
       <mat-checkbox
         formControlName="canSignal"
         required
         color="{{ config }}"
-        translate
       >
-        Enable Signaling
+        {{ 'checkbox_label_enable_signaling' | translate}}
       </mat-checkbox>
     </p>
-    <p>
-      <mat-checkbox
-        formControlName="envProd"
-        required
-        color="{{ config }}"
-        translate
-      >
-        Enable Production
-      </mat-checkbox>
-      &nbsp;
-      <mat-checkbox
-        formControlName="envTest"
-        required
-        color="{{ config }}"
-        translate
-      >
-        Enable Test
-      </mat-checkbox>
-    </p>
+    <mat-radio-group formControlName="envProd">
+      <p>
+        <mat-radio-button value="true" >
+          {{ 'checkbox_label_enable_environment_production' | translate }}
+        </mat-radio-button>
+        <mat-radio-button value="false">
+          {{ 'checkbox_label_enable_environment_test' | translate }}
+        </mat-radio-button>
+      </p>
+    </mat-radio-group>
   </form>
 </div>

@@ -6,7 +6,7 @@ export const environment = {
   name: 'Development',
   debug: true,
   production: false,
-  languages: ['en', 'master'],
+  languages: ['en'],
   lang: 'en',
   // Use Powerbot variable to preset application-data
   // for development environment

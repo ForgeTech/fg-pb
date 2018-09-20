@@ -39,7 +39,7 @@ export class HeaderComponent extends FgComponentBaseComponent {
         return this.$component.$data.app.config.darkTheme ? 'brightness_7' : 'brightness_3';
       }, /*'T'*/),
       // new FgAction(new FgEvent(PbAppEvent.OPEN_HELP_MODAL, this), 'primary', _('action_label_help'), 'live_help', /*'H'*/),
-      new FgAction(new FgEvent(PbAppEvent.OPEN_CONNECTION_MODAL, this), 'primary', _('action_label_logout'), 'flash_off', /*'H'*/),
+      new FgAction(new FgEvent(PbAppEvent.DISCONNECT_API, this), 'primary', _('action_label_logout'), 'flash_off', /*'H'*/),
     ];
   }
   /**

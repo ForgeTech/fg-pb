@@ -1,15 +1,9 @@
 <fg-card [entity]="this.entity" class="modal_login">
-  <div title >
-    <ng-container translate>
-      modal_label_connection_setting
-    </ng-container>
+  <div title>
+<img class="pb-header-logo" height="60px" alt="PowerBot Logo" src="./assets/powerbot_logo.png" />&nbsp;<pb-pwa-install></pb-pwa-install>
   </div>
   <div content>
-    <mat-tab-group #tabGroup
-      color="{{ inputThemeColor }}"
-      [selectedIndex]="activeTabIndex"
-      (selectedTabChange)="onTabChange($event)"
-    >
+    <mat-tab-group #tabGroup color="{{ inputThemeColor }}" [selectedIndex]="activeTabIndex" (selectedTabChange)="onTabChange($event)">
       <mat-tab label="{{ 'tab_label_production' | translate }}">
         <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>
       </mat-tab>
@@ -25,13 +19,9 @@
     </mat-tab-group>
   </div>
   <div actions>
-    <button
-      mat-raised-button
-      color="accent"
-      (click)="action($event)"
-      >
+    <button mat-raised-button color="accent" (click)="action($event)">
       <!-- [disabled]="isDisabled()" -->
-      {{ getModalActionBtnLabel() | translate }}
+      {{ getModalActionBtnLabel() | async }}
     </button>
   </div>
 </fg-card>

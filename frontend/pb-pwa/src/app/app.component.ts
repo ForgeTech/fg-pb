@@ -1,7 +1,6 @@
 import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, SimpleChanges, HostListener } from '@angular/core';
 import { FgAppService } from './app.service';
 import { environment } from './../environments/environment';
-import { FgEvent } from './class/fg-class.export';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import {
   FgComponentBaseEvent,
@@ -21,11 +20,10 @@ OrderEntity,
 SignalEntity,
 TradeEntity,
 } from './entity/entity.export';
-import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
 import { ModalHelpComponent } from './component/modal-help/modal-help.component';
-import { ModalMarketComponent } from './component/modal-market/modal-market.component';
 import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
 import { AppEnv } from './entity/app-state.entity';
+import { Router } from '@angular/router';
 
 /**
   * The application-component loaded by angular-module bootstrap
@@ -95,6 +93,7 @@ export class AppComponent // extends FgEventSubscriber
     $dialog: MatDialog,
     $app: FgAppService,
     $log: FgLogService,
+    public $router: Router
   ) {
     this.$dialog = $dialog;
     this.$app = $app;
@@ -104,29 +103,17 @@ export class AppComponent // extends FgEventSubscriber
     // This language will be used as a fallback when a
     // translation for set language isn't found
     this.$app.$translate.setDefaultLang(environment.lang);
+    // Set defaultLang to active Lang, until user configuration was loaded.
+    this.$app.$translate.use(environment.lang);
     // Get language configured in browser and set it if available
     // const browserLang = this.$app.$translate.getBrowserLang();
     // this.$app.$translate.use(
     //   this.$app.$translate.getLangs().indexOf(browserLang) ? browserLang : environment.lang
     // );
 
-    // Initialize powerbot-application
-    // Set powerbot-config on at dataservice
-    this.$app.$data.recoverFromStorage().then( powerbot => {
-      try {
-        Object.assign( powerbot.config, environment.powerbot.config );
-        this.$app.$log.warn( 'Powerbot configuration set from environment-file!' );
-        console.log(this.$app.$data.app.config);
-        // Load Language if it's different from default language
-        if ( this.$app.$data.app.config.lang !== this.$app.$translate.getDefaultLang() ) {
-          this.$app.$translate.use(this.$app.$data.app.config.lang).subscribe(lang => {
-            console.log(lang);
-          });
-        }
-      } catch ( error ) {
-        this.$app.$log.info( `Environment didn't override powerbot configuration!` );
-      }
-    } );
+    // Set powerbot conf
+    this.$app.$log.warn( 'Powerbot set from environment-file!' );
+    Object.assign( this.$app.$data.app, environment.powerbot );
 
     const modal_config = {
       panelClass: 'pb-panel',
@@ -134,13 +121,6 @@ export class AppComponent // extends FgEventSubscriber
       width: '80vmax',
       data: {}
     };
-    // Register event to open connection modal
-    // this.$app.$event.event$
-    // .filter( event => event.signature === PbAppEvent.OPEN_CONNECTION_MODAL )
-    // .subscribe( event => {
-    //   this.$app.$log.warn( 'OPEN CONNECTION MODAL' );
-    //   this.$dialog.open( ModalSettingsComponent, modal_config );
-    // });
     // Register event to open add-order modal
     this.$app.$event.event$
     .filter( event => event.signature === PbAppEvent.OPEN_ADD_ORDER_MODAL )
@@ -160,9 +140,9 @@ export class AppComponent // extends FgEventSubscriber
     .filter(event => event.signature === PbAppEvent.CONNECT_API_TEST)
     .subscribe( event => {
       this.$app.$log.warn('CONNECT API TEST!');
-      console.log( event );
       // Start polling data from backend
       this.$app.$data.connect( AppEnv.Live_Test );
+      this.$router.navigate(['/dashboard']);
     });
     // Register event for connecting to API
     this.$app.$event.event$
@@ -172,6 +152,7 @@ export class AppComponent // extends FgEventSubscriber
       console.log( event );
       // Start polling data from backend
       this.$app.$data.connect( AppEnv.Live_Prod );
+      this.$router.navigate(['/dashboard']);
     });
     // Register event to disconnect from API
     this.$app.$event.event$
@@ -179,6 +160,7 @@ export class AppComponent // extends FgEventSubscriber
     .subscribe( event => {
       this.$app.$log.warn('DISCONNECT API!');
       this.$app.$data.disconnect();
+      this.$router.navigate(['/login']);
     });
     // Register event to connect to market
     this.$app.$event.event$

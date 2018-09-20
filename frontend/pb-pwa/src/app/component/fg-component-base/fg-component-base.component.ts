@@ -16,6 +16,7 @@ import {
 } from '../../event/fg-events.export';
 // import { GlobalRef } from './../../module/fg-global-scope/fg-global-refs.class';
 import { FgEvent, FgAction } from '../../class/fg-class.export';
+import { Subscription } from 'rxjs';
 /**
  * CAUTION: This abstract class isn't a real angular-component,
  * as it doesn't use the @Component decorator and is meant to be
@@ -24,15 +25,10 @@ import { FgEvent, FgAction } from '../../class/fg-class.export';
 export class FgComponentBaseComponent // extends FgEventSubscriber
 implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, OnDestroy {
   /**
-   * Contains key flagging the current state of a component
+   * On creation push your subscribtions to this array,
+   * onDestroy they will be automatically unsubscribed
    */
-  protected _state: string;
-  /**
-   * GETTER for protected member _state
-   */
-  get state(): string {
-      return this._state;
-  }
+  protected _subscribtions: Subscription[] = [];
   /**
    * Contains a reference to a forge-components parent-component
    */
@@ -142,6 +138,9 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    */
   public ngOnDestroy() {
     this.$component.$log.log( 'ngOnDestroy' );
+    this._subscribtions.forEach( subscribtion => {
+      subscribtion.unsubscribe();
+    });
     this.logComponentInfoToConsole();
     this.emitEvent( new FgEvent( FgComponentBaseEvent.ON_DESTROY, this.entity ) );
   }

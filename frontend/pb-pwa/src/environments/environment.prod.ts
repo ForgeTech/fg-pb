@@ -2,7 +2,7 @@ export const environment = {
   name: 'Production',
   debug: false,
   production: true,
-  languages: ['en', 'master'],
+  languages: ['en'],
   lang: 'en',
   powerbot: {
     config: {

@@ -1,4 +1,4 @@
-import { Component, Inject, ViewRef, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { MatTab, MatTabChangeEvent, MatTabGroup } from '@angular/material';
 import { TabProductionComponent } from './tab-production/tab-production.component';
@@ -8,6 +8,8 @@ import { TabApiKeyComponent } from './tab-api-key/tab-api-key.component';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { PbModalTabComponentInterface } from '../../interface/pb-modal-tab-component.interface';
 import { _ } from './../../app.utils';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 /**
  * Enum for identifing active
@@ -26,12 +28,16 @@ export enum ConnectionTabEnum {
  * application
  */
 @Component({
+  /* tslint:disable-next-line */
   selector: 'pb-modal-settings',
   templateUrl: './modal-settings.component.html',
   styleUrls: ['./modal-settings.component.scss']
 })
 export class ModalSettingsComponent extends FgComponentBaseComponent {
-  @ViewChild('tabGroup') tabGroup: MatTabGroup;
+  /* tslint:disable-next-line */
+  inputThemeColor: string = 'accent';
+
+  // @ViewChild('tabGroup') tabGroup: MatTabGroup;
   @ViewChild('tabProduction') tabProduction: TabProductionComponent;
   @ViewChild('tabTest') tabTest: TabTestComponent;
   @ViewChild('tabLogging') tabLogging: TabLoggingComponent;
@@ -52,10 +58,9 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
    * CONSTRUCTOR
    */
   constructor(
-    $component: FgComponentBaseService
+    public $component: FgComponentBaseService
   ) {
     super(
-
       $component
     );
   }
@@ -63,43 +68,57 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
    * Override Life-cycle methode from super
    * class
    */
-  public AfterViewInit(): void {
+  /* tslint:disable-next-line */
+  public ngAfterViewInit(): void {
     super.ngAfterViewInit();
     // Initialize variables with view-references after
     // components where created
     this.activeTab = this.tabProduction;
+    // Initialize Production-Form data if set by environment-file
+    this.activeTab.setFormData();
     this.tabComponents = [
       this.tabProduction,
       this.tabTest,
       this.tabLogging,
       this.tabApi
     ];
+    // Recover configuration from storage and update form-data when available
+    // this.$component.$data.recoverConfigFromStorage().then( powerbot => {
+    //     this.$component.$log.warn('RECOVER');
+    //     console.log(this.$component.$data.app);
+    //     this.$component.$data.app = powerbot;
+    //     console.log(powerbot);
+    //     console.log(this.$component.$data.app);
+    //     // Load Language if it's different from default language
+    //     if (this.$component.$data.app.config.lang !== this.$component.$translate.getDefaultLang()) {
+    //       this.$component.$translate.use(this.$component.$data.app.config.lang);
+    //     }
+    // });
   }
   /**
    * Method to call when a selection appears on
    * modal tab-group
    */
   onTabChange($event: MatTabChangeEvent ) {
+    this.$component.$log.warn('tab-change');
     this.activeTabIndex = $event.index;
     this.activeTab = this.tabComponents[ this.activeTabIndex ];
+    this.activeTab.setFormData();
   }
   /**
    * Return ActionBtnLabel according to
    * selected Settings-Tab
    */
-  getModalActionBtnLabel(): string {
-    let label = '';
+  getModalActionBtnLabel(): Observable<any> {
+    let label = _('button_label_generate_api_key');
     switch (this.activeTabIndex) {
       case ConnectionTabEnum.ProductionTab:
       case ConnectionTabEnum.LoggingTab:
       case ConnectionTabEnum.TestTab:
         label = _('button_label_connect');
-      break;
-      case ConnectionTabEnum.ApiTab:
-        label = _('button_label_generate_api_key');
-      break;
-    }
-    return label;
+        break;
+      }
+    return this.$component.$translate.get(label);
   }
   /**
    * Return boolean flag indicating if action-button should be enabled/disabled
@@ -116,9 +135,5 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
    */
   action( $event ) {
     this.activeTab.action( $event );
-    // Close modal for all tabs but api
-    if ( this.activeTabIndex !== ConnectionTabEnum.ApiTab ) {
-
-    }
   }
 }

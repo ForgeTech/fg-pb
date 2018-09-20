@@ -37,12 +37,11 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
       apiKey: [null, [Validators.required]],
       store: [null, []],
     });
-    this.setFormData();
   }
   /**
    * Set form-data from powerbot storage
    */
-  private setFormData(): void {
+  public setFormData(): void {
     if (this.$component.$data.app.config.prodConfig ) {
       this.form.patchValue(
         this.$component.$data.app.config.prodConfig

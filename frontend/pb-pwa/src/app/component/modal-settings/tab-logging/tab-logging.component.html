@@ -10,22 +10,25 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label translate>Remote Log-Server Url</mat-label>
+        <mat-label translate>input_label_log_folder</mat-label>
         <input
           matInput
-          placeholder="{{ 'like: https://powerbot-trading/api/logs' | translate }}"
-          formControlName="logUrl"
+          placeholder="{{ 'input_placeholder_log_folder' | translate }}"
+          formControlName="logDir"
           required
         >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint translate>Url to remote log-server</mat-hint>
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <mat-hint translate>input_hint_log_folder</mat-hint>
       </mat-form-field>
     </p>
     <p>
-      <!-- <mat-form-field> -->
-        <mat-label translate>Remote Log-Level</mat-label>
+      <mat-form-field
+      appearance="fill"
+      color="{{ config }}"
+      >
+        <mat-label translate>select_label_log_level</mat-label>
         <mat-select
-          placeholder="{{ 'like: Debug' | translate }}"
+          placeholder="{{ 'select_placeholder_log_level' | translate }}"
           formControlName="logLevel"
           required
         >
@@ -33,10 +36,10 @@
             {{level}}
           </mat-option>
         </mat-select>
-        <mat-hint translate>Only matching logs will be sent to remote log-server</mat-hint>
-      <!-- </mat-form-field> -->
+        <mat-hint translate>select_hint_log_level</mat-hint>
+      </mat-form-field>
     </p>
-    <p>
+    <!-- <p>
       <mat-form-field
         appearance="fill"
         color="{{ config }}"
@@ -50,14 +53,13 @@
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint translate>Url to remote log-server</mat-hint>
       </mat-form-field>
-    </p>
+    </p> -->
     <p>
       <mat-checkbox
         formControlName="store"
         (change)="clearStore($event)"
-        translate
       >
-        Store Configuration
+        {{ 'checkbox_label_cache' | translate }}
       </mat-checkbox>
     </p>
   </form>

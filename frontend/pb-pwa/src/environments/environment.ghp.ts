@@ -9,13 +9,14 @@ export const environment = {
   name: 'GitHub-Page',
   debug: true,
   production: true,
+  languages: ['en'],
   lang: 'en',
   // Use Powerbot variable to preset application-data
   // for development environment
   powerbot: {
-    languages: ['en', 'master'],
     lang: 'en',
     config: {
+      darkTheme: false,
       view: {
         dashboard: {
           breakpoint: {

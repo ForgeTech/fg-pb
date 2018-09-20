@@ -46,7 +46,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   /**
    * Set form-data from powerbot storage
    */
-  private setFormData(): void {
+  public setFormData(): void {
     if (this.$component.$data.app.config.testConfig ) {
       this.form.patchValue(
         this.$component.$data.app.config.testConfig
