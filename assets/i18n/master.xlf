@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="connection_settings_tab_production_server_url_label" datatype="html">
+        <source>Production Server Url</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-production/tab-production.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_production_server_url_placeholder" datatype="html">
+        <source>like: https://playground.powerbot-trading.com/api/</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-production/tab-production.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_production_server_url_hint" datatype="html">
+        <source>Url to the PowerBot Trading API</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-production/tab-production.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_backup_server_url_label" datatype="html">
+        <source>Backup Server Url</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-production/tab-production.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_backup_server_url_placeholder" datatype="html">
+        <source>like: https://playground.powerbot-trading.com/backup/</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-production/tab-production.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_backup_server_url_hint" datatype="html">
+        <source>Url to the PowerBot Backup-Server</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-production/tab-production.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_production_api_key_label" datatype="html">
+        <source>API Key</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-production/tab-production.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_production_api_key_placeholder" datatype="html">
+        <source>Like: **************</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-production/tab-production.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_production_api_key_hint" datatype="html">
+        <source>The Api Key you received from PowerBot Trading</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-production/tab-production.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_production_cache_label" datatype="html">
+        <source>
+      Store Configuration
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-production/tab-production.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_logging_remote_server_label" datatype="html">
+        <source>Remote Log-Server Url</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-logging/tab-logging.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_logging_remote_server_placeholder" datatype="html">
+        <source>like: https://powerbot-trading/api/logs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-logging/tab-logging.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_logging_remote_server_hint" datatype="html">
+        <source>Url to remote log-server</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-logging/tab-logging.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_logging_log_level_label" datatype="html">
+        <source>Remote Log-Level</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-logging/tab-logging.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_logging_log_level_placeholder" datatype="html">
+        <source>like: Debug</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-logging/tab-logging.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_logging_log_level_hint" datatype="html">
+        <source>Only matching logs will be sent to remote log-server</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-logging/tab-logging.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_logging_vorlon_label" datatype="html">
+        <source>Vorlon Debug-Server URL</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-logging/tab-logging.component.html</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_logging_vorlon_placeholder" datatype="html">
+        <source>like: https://powerbot-trading/api/logs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-logging/tab-logging.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_logging_vorlon_hint" datatype="html">
+        <source>Url to remote log-server</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-logging/tab-logging.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_logging_cache_label" datatype="html">
+        <source>
+        Store Configuration
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-logging/tab-logging.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_test_test_server_label" datatype="html">
+        <source>Test Server Url</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-test/tab-test.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_test_test_server_placeholder" datatype="html">
+        <source>like: https://playground.powerbot-trading.com/api/v0</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-test/tab-test.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_test_test_server_hint" datatype="html">
+        <source>Url to the PowerBot Trading API</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-test/tab-test.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_test_api_key_label" datatype="html">
+        <source>API Key</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-test/tab-test.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_test_api_key_placeholder" datatype="html">
+        <source>Like: **************</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-test/tab-test.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_test_api_key_hint" datatype="html">
+        <source>The Api Key you received from PowerBot Trading</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-test/tab-test.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_test_cache_label" datatype="html">
+        <source>
+          Store Configuration
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-test/tab-test.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_robocomb_label" datatype="html">
+        <source>RoboComp Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_robocomb_placeholder" datatype="html">
+        <source>like: ljad032234</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_robocomb_hint" datatype="html">
+        <source>The password for connection to RoboComp service</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_epex_label" datatype="html">
+        <source>Epex Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_epex_placeholder" datatype="html">
+        <source>like: 2434234</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_epex_hint" datatype="html">
+        <source>The password for connection to Epex service</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_name_label" datatype="html">
+        <source>Api Key Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_name_placeholder" datatype="html">
+        <source>like: Inercom Trading</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_name_hint" datatype="html">
+        <source>Name to identify api-key</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_enable_trading_label" datatype="html">
+        <source>
+        Enable Trading
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_enable_signaling_label" datatype="html">
+        <source>
+        Enable Signaling
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_enable_production_label" datatype="html">
+        <source>
+        Enable Production
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit><trans-unit id="connection_settings_tab_api_key_enable_test_label" datatype="html">
+        <source>
+        Enable Test
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/tab-api-key/tab-api-key.component.html</context>
+          <context context-type="linenumber">84</context>
+        </context-group>
+      </trans-unit><trans-unit id="modal_connection_settings" datatype="html">
+        <source>
+      Connection Settings
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/modal-settings.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description"> Label for the modal containing connection-settings forms</note>
+        <note priority="1" from="meaning">Connection-Settings modal label </note>
+      </trans-unit><trans-unit id="connection_settings_tab_production" datatype="html">
+        <source>Production</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/modal-settings.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">production tab label</note>
+      </trans-unit><trans-unit id="connection_settings_tab_test" datatype="html">
+        <source>Test</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/modal-settings.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">test tab label</note>
+      </trans-unit><trans-unit id="connection_settings_tab_logging" datatype="html">
+        <source>Logging</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/modal-settings.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Logging tab label</note>
+      </trans-unit><trans-unit id="connection_settings_tab_api" datatype="html">
+        <source>Api Key</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/modal-settings.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="description">production tab api key</note>
+      </trans-unit><trans-unit id="connection_settings_button_label_cancel" datatype="html">
+        <source>Cancel</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-settings/modal-settings.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <note priority="1" from="description">Connection Settings Cancel Button Label</note>
+      </trans-unit><trans-unit id="help_modal_label" datatype="html">
+        <source>
+    Help / Guides
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-help/modal-help.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="help_modal_tab_topicslabel" datatype="html">
+        <source>
+        Topics
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-help/modal-help.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit><trans-unit id="help_modal_close_button_label" datatype="html">
+        <source>
+      Close
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-help/modal-help.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit><trans-unit id="market_modal_label" datatype="html">
+        <source>
+    Market Login
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-market/modal-market.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="market_modal_epex_label" datatype="html">
+        <source>Epex</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-market/modal-market.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit><trans-unit id="market_modal_epex_placeholder" datatype="html">
+        <source>like: 2434234</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-market/modal-market.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit><trans-unit id="market_modal_epex_hint" datatype="html">
+        <source>The password for connection to Epex service</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-market/modal-market.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit><trans-unit id="add-order_modal_label" datatype="html">
+        <source>
+    Order
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-add-order/modal-add-order.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit><trans-unit id="add_order_modal_cancel_button_label" datatype="html">
+        <source>
+      Cancel
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-add-order/modal-add-order.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit><trans-unit id="add_order_modal_add_button_label" datatype="html">
+        <source>
+      Add
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/modal-add-order/modal-add-order.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit><trans-unit id="logo_alt" datatype="html">
+        <source>ForgeTech Logo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/footer/footer.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/header/header.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit><trans-unit id="forgetech_logo_alt" datatype="html">
+        <source>ForgeTech Text</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/footer/footer.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description"> Alternative text displayed if ForgeTech Logo is not loaded&gt;</note>
+        <note priority="1" from="meaning">ForgeTech Logo</note>
+      </trans-unit><trans-unit id="creative_commons_logo_alt" datatype="html">
+        <source>Licence BY-NC Logo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/footer/footer.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description"> Alternative Text displayed if licence logo cannot be loaded</note>
+        <note priority="1" from="meaning">Licence Logo </note>
+      </trans-unit><trans-unit id="creative_commons_text" datatype="html">
+        <source>Licenced under BY-NC 3.0 AT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/footer/footer.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description"> Label stating the used creative commons licence</note>
+        <note priority="1" from="meaning">Licence Text </note>
+      </trans-unit><trans-unit id="creative_commons_link" datatype="html">
+        <source>https://creativecommons.org/licenses/by-nc/3.0/at/</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/footer/footer.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description"> Link to creativecommons licence, according to set language</note>
+        <note priority="1" from="meaning">Licence Link </note>
+      </trans-unit><trans-unit id="header_menu_connection" datatype="html">
+        <source>
+            Connection
+          </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/header/header.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/header/header.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+        <note priority="1" from="description"> Label for button to open connection menu</note>
+        <note priority="1" from="meaning">Connection-Menu button label </note>
+      </trans-unit><trans-unit id="header_menu_connection_configuration" datatype="html">
+        <source>
+              Configuration
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/header/header.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="description"> Connection-menu item used to open connection-configuration modal</note>
+        <note priority="1" from="meaning">Configuration menu-item label </note>
+      </trans-unit><trans-unit id="header_menu_connect_production" datatype="html">
+        <source>
+              Connect Production
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/header/header.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <note priority="1" from="description"> Connection-menu item used to connect to production backend</note>
+        <note priority="1" from="meaning">Connect-production menu-item label </note>
+      </trans-unit><trans-unit id="header_menu_connect_test" datatype="html">
+        <source>
+              Connect Test
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/header/header.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+        <note priority="1" from="description"> Connection-menu item used to connect to test backend</note>
+        <note priority="1" from="meaning">Connect-test menu-item label </note>
+      </trans-unit><trans-unit id="header_menu_disconnect_backend" datatype="html">
+        <source>
+              Disconnect
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/header/header.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+        <note priority="1" from="description"> Connection-menu item used to disconnect from backend</note>
+        <note priority="1" from="meaning">disconnect menu-item label </note>
+      </trans-unit><trans-unit id="header_menu_configuration" datatype="html">
+        <source>
+              Configuration
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/header/header.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+        <note priority="1" from="description"> Label contained in menu for opening configuration modal</note>
+        <note priority="1" from="meaning">configuration menu label </note>
+      </trans-unit><trans-unit id="header_menu_connect_market" datatype="html">
+        <source>
+              Connect
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/header/header.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+        <note priority="1" from="description"> Market menu-item used to oprn connect-to-market modal</note>
+        <note priority="1" from="meaning">connect market menu-item label </note>
+      </trans-unit><trans-unit id="header_menu_disconnect_market" datatype="html">
+        <source>
+              Disconnect
+            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/header/header.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <note priority="1" from="description"> Market menu-item used to disconnect from market</note>
+        <note priority="1" from="meaning">disconnect market menu-item label </note>
+      </trans-unit><trans-unit id="pwa_add_to_home" datatype="html">
+        <source>Add to
+        Home
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/component/pwa-install/pwa-install.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description"> Label for button to open connection menu</note>
+        <note priority="1" from="meaning">Connection-Menu button label </note>
+      </trans-unit>
+      <trans-unit id="3eab89c16c7ace74a125fa51633d51fe5e79edc9" datatype="html">
+        <source>POWERBOT-CLIENT IN PRODUCTION ENVIRONMENT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5b3b1f2dd4f9555ab4e7846b2b4ca3049989bc84" datatype="html">
+        <source>POWERBOT-CLIENT IN DEVELOPMENT ENVIRONMENT</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3c1bb1a71044019e2cbf9d4c40fd4e1d32f679b2" datatype="html">
+        <source>Connecting</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/bar-state/bar-state.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f96ccbb54a3cdb84da625e10074258a29ee6b19c" datatype="html">
+        <source>Online</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/bar-state/bar-state.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a8059e31694578c1b0344a76a345357dd60e8f01" datatype="html">
+        <source>Warning</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/bar-state/bar-state.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6080b77234e92ad41bb52653b239c4c4f851317d" datatype="html">
+        <source>Error</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/bar-state/bar-state.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2b34680062c4aed90c4d846eab42d6e99501b783" datatype="html">
+        <source>Offline</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/bar-state/bar-state.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0107e5e2f3b56eb32c8d9f796afb7beee60fa214" datatype="html">
+        <source>Backup</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/bar-state/bar-state.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9b99eed539adca37453738232bd1af22619a1224" datatype="html">
+        <source>Production</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/bar-state/bar-state.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a79d938b5ed20249b4ab6bef86c12633d2f346a0" datatype="html">
+        <source>Test</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/bar-state/bar-state.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7f3f6a4fb2545cacf800f0623582b6d41d1f8791" datatype="html">
+        <source>Development</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/bar-state/bar-state.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4e7f5f07ae8e67878f35b34bcee10e39300ff41a" datatype="html">
+        <source>Orders</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="51f77ddf59179858521cbd22a666c40d6c6d34c6" datatype="html">
+        <source>Trades</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c4e131406acf14a74c8967363e6efd041f2f6898" datatype="html">
+        <source>Orderbook</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="269b2364e25770a5c993dd687e9dc795d9ed887a" datatype="html">
+        <source>Bids</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f89efd8c2fb867239b51c168a6c54f4d51605af9" datatype="html">
+        <source>Asks</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="323af13292ecc714ab3848b9dff48f923893be32" datatype="html">
+        <source>Portfolio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="214481f66290194bdeb8a02f70d956985b084427" datatype="html">
+        <source>Contract Details</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="abbea002d25031f0bd810694fc7b5e8613c7721d" datatype="html">
+        <source>Product history</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="61712c57500de8885298f141a2763d52a029c10b" datatype="html">
+        <source>Signals</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eb3d5aefff38a814b76da74371cbf02c0789a1ef" datatype="html">
+        <source>Logs</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0ed878aa84e60a3f00c623e2695b58585c06e81b" datatype="html">
+        <source>Signal History</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/dashboard/dashboard.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5f19586aba912ec6eb123ec5ab609a3bcc073066" datatype="html">
+        <source>Export</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/header/header.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e592cd3fe3c9119c83e6dd5cba89a0841cd35959" datatype="html">
+        <source>Print</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/header/header.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="68f6adada243a29935a329680047ce3daa981444" datatype="html">
+        <source>Switch to </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/header/header.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="94e9dea215530c1402df1d7c4c0ec742ae3ee225" datatype="html">
+        <source>bright</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/header/header.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="32b06a6e7ec66638fab3ba510c70bd80e4fe97c2" datatype="html">
+        <source>dark</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/header/header.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="676154ba0797dedc1efdbb4169bfb1b08f44f4c6" datatype="html">
+        <source> theme</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/header/header.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="85b79c9064aed1ead31ace985f31aa1363f6bdaf" datatype="html">
+        <source>Help</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/header/header.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="da6aa9950c74cadd85a3bf26272f34f28d8338c8" datatype="html">
+        <source>Connect</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/modal-settings/modal-settings.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c137ab756e1f4414a31b0a5a028128a5ee3e04d8" datatype="html">
+        <source>Generate API-Key</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/modal-settings/modal-settings.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="28d9d73270079de91cfa90cc1d91e0d5090f6972" datatype="html">
+        <source>dlvry Start</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-add-order/table-add-order.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orders/table-orders.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-trades/table-trades.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="56f83bed84ecfd7e9bf7f483a7cc6e00c335af11" datatype="html">
+        <source>dlvry End</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-add-order/table-add-order.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orders/table-orders.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-trades/table-trades.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b73a186f06dfa13659975a91d25560e351ad0610" datatype="html">
+        <source>Side</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-add-order/table-add-order.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orders/table-orders.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-trades/table-trades.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="738f51d39f21912cc65e2071ee82a0d26358c9d4" datatype="html">
+        <source>Qty [MW]</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-add-order/table-add-order.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orders/table-orders.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-trades/table-trades.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="169db3e2346c1d9554a8c8563de77422f7081fa0" datatype="html">
+        <source>Price [EUR]</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-add-order/table-add-order.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orders/table-orders.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-trades/table-trades.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5c54befce78d70e20c215f10a00e617245f53bc9" datatype="html">
+        <source>Note</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-add-order/table-add-order.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orders/table-orders.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-trades/table-trades.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5023542d9bd147733255c5b249dcefc1a456426c" datatype="html">
+        <source>Qty [Mw]</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-asks/table-asks.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-bids/table-bids.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-contract-details/table-contract-details.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-signals/table-signals.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f09d97b80c97329fcff84cfc978fd1f5a9035cc5" datatype="html">
+        <source>Price [Eur]</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-asks/table-asks.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-bids/table-bids.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-contract-details/table-contract-details.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-signals/table-signals.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="07193288a0312875e18f38c3a2486b927a15520a" datatype="html">
+        <source>Timestamp</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-logs/table-logs.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ba143716c2da6e4120c0c1a804f0bdd9a7e5f5b" datatype="html">
+        <source>Text</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-logs/table-logs.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d0de04bc278e8e43e9b572dc2a7c54eb0e5f4d22" datatype="html">
+        <source>Best Bid</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4e0be3e82b2a37f1bb6bed9a03d5b851b8d11970" datatype="html">
+        <source>Bid Qty</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="017ac5b9185407bbd9c338bfad77dee8765f9ffc" datatype="html">
+        <source>Best Ask</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f9520a00cd241a5125ab5d8a7e7c04aa457d4747" datatype="html">
+        <source>Ask Qty</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5c729788ba138508aca1bec050b610f7bf81db3e" datatype="html">
+        <source>Last</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b35d01a11c85b517447fdd4149059a7493ebbe36" datatype="html">
+        <source>Last Qty</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="72279141a67cc042d9864102b703216cc8a428a3" datatype="html">
+        <source>High</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9556266f0a2b1762a44b686f2bb21dbfefb01c12" datatype="html">
+        <source>Low</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="796e42bec8a6996607cf1f3e80235b86d695804a" datatype="html">
+        <source>Volume</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9da0107a35751e722c8b4bca7636fc7645dbdbdc" datatype="html">
+        <source>Updated</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1577de9fe7d9c6823dbc439f13488c5dfc2b3f9d" datatype="html">
+        <source>My Position</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="80459aab3cde11953ec7e6dd65155fb522a6218d" datatype="html">
+        <source>My Volume</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/table-orderbook/table-orderbook.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
