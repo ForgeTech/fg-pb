@@ -4,6 +4,7 @@ export const environment = {
   production: true,
   languages: ['en'],
   lang: 'en',
+  override: true,
   powerbot: {
     config: {
       lang: 'en',

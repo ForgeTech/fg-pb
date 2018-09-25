@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, SimpleChange, SimpleChanges } from '@angular/core';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { MatTab, MatTabChangeEvent, MatTabGroup } from '@angular/material';
 import { TabProductionComponent } from './tab-production/tab-production.component';
@@ -6,10 +6,10 @@ import { TabLoggingComponent } from './tab-logging/tab-logging.component';
 import { TabTestComponent } from './tab-test/tab-test.component';
 import { TabApiKeyComponent } from './tab-api-key/tab-api-key.component';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
-import { PbModalTabComponentInterface } from '../../interface/pb-modal-tab-component.interface';
-import { _ } from './../../app.utils';
+import { PbModalTabComponentInterface } from '../../interface/interface.export';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { PowerBotEntity } from '../../entity/entity.export';
+import { _ } from './../../app.utils';
 
 /**
  * Enum for identifing active
@@ -34,6 +34,10 @@ export enum ConnectionTabEnum {
   styleUrls: ['./modal-settings.component.scss']
 })
 export class ModalSettingsComponent extends FgComponentBaseComponent {
+  /**
+   * Override enity-property inherited from FgComponentBaseComponent
+   */
+  entity: PowerBotEntity;
   /* tslint:disable-next-line */
   inputThemeColor: string = 'accent';
 
@@ -75,7 +79,6 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
     // components where created
     this.activeTab = this.tabProduction;
     // Initialize Production-Form data if set by environment-file
-    this.activeTab.setFormData();
     this.tabComponents = [
       this.tabProduction,
       this.tabTest,
@@ -83,17 +86,23 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
       this.tabApi
     ];
     // Recover configuration from storage and update form-data when available
-    // this.$component.$data.recoverConfigFromStorage().then( powerbot => {
-    //     this.$component.$log.warn('RECOVER');
-    //     console.log(this.$component.$data.app);
-    //     this.$component.$data.app = powerbot;
-    //     console.log(powerbot);
-    //     console.log(this.$component.$data.app);
-    //     // Load Language if it's different from default language
-    //     if (this.$component.$data.app.config.lang !== this.$component.$translate.getDefaultLang()) {
-    //       this.$component.$translate.use(this.$component.$data.app.config.lang);
-    //     }
-    // });
+    this.$component.$data.recoverConfigFromStorage().then(powerbot => {
+      this.$component.$log.warn('RECOVER from Storage');
+      this.$component.$data.app = powerbot;
+      console.log(powerbot);
+      // Override from environment file if flag override is set to true
+      if (this.$component.$data.$env.override) {
+        this.$component.$log.warn('OVERRIDE from Environment');
+        this.$component.$data.app = Object.assign(this.$component.$data.app, this.$component.$data.$env.powerbot);
+      }
+      console.log(this.$component.$data.app);
+      // Load Language if it's different from default language
+      if (this.$component.$data.app.config.lang !== this.$component.$translate.getDefaultLang()) {
+        this.$component.$translate.use(this.$component.$data.app.config.lang);
+      }
+      // Set form-data for active tab
+      this.activeTab.setFormData();
+    });
   }
   /**
    * Method to call when a selection appears on
@@ -105,6 +114,7 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
     this.activeTab = this.tabComponents[ this.activeTabIndex ];
     this.activeTab.setFormData();
   }
+
   /**
    * Return ActionBtnLabel according to
    * selected Settings-Tab
@@ -135,5 +145,6 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
    */
   action( $event ) {
     this.activeTab.action( $event );
+
   }
 }

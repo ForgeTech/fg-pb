@@ -49,6 +49,20 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
    */
   action( $event: any = false ): void {
     console.log('API CONFIG');
+    let params = {
+      'name': this.form.controls.name.value,
+      'epex_password': this.form.controls.masterPwd.value,
+      'can_trade': this.form.controls.can_trade.value,
+      'can_signal': this.form.controls.can_signal.value
+    }
+    const subscription = this.$component.$data.$auth.addApiKey(params, 'body', true).subscribe( response => {
+      console.log( 'API_KEY: ' + response );
+    },
+    error => {
+      console.log( 'Api Key Error' );
+      console.log( error );
+    });
+    this._subscribtions.push( subscription );
   }
 
 }

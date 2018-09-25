@@ -5,7 +5,7 @@
   gutterSize="{{ config.grid.gutterSize }}"
 >
   <mat-grid-tile
-    *ngFor="let card of configLarge.cards"
+    *ngFor="let card of config.cards"
     [colspan]="card.cols"
     [rowspan]="card.rows"
   >
@@ -13,7 +13,7 @@
       <mat-card-header>
         <!-- <fg-actions [entity]="this"></fg-actions> -->
         <mat-card-title>
-          {{card.title}}
+          {{ card.title | translate }}
           <button
             class="dashboard-card-menu-button"
             mat-icon-button

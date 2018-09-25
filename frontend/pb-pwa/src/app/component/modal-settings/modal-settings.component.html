@@ -1,6 +1,39 @@
 <fg-card [entity]="this.entity" class="modal_login">
   <div title>
-<img class="pb-header-logo" height="60px" alt="PowerBot Logo" src="./assets/powerbot_logo.png" />&nbsp;<pb-pwa-install></pb-pwa-install>
+    <img class="pb-header-logo" height="60px" alt="PowerBot Logo" src="./assets/powerbot_logo.png" />
+    <!-- <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Configure Production</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Configure Test</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Configure Logging</ng-template>
+        You are now done.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper> -->
   </div>
   <div content>
     <mat-tab-group #tabGroup color="{{ inputThemeColor }}" [selectedIndex]="activeTabIndex" (selectedTabChange)="onTabChange($event)">
@@ -23,5 +56,7 @@
       <!-- [disabled]="isDisabled()" -->
       {{ getModalActionBtnLabel() | async }}
     </button>
+    &nbsp;
+    <pb-pwa-install></pb-pwa-install>
   </div>
 </fg-card>

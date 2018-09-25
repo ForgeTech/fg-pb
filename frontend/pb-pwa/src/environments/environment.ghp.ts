@@ -11,6 +11,7 @@ export const environment = {
   production: true,
   languages: ['en'],
   lang: 'en',
+  override: true,
   // Use Powerbot variable to preset application-data
   // for development environment
   powerbot: {

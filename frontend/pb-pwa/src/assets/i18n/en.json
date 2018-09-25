@@ -1,9 +1,9 @@
 {
   "card_login_label_1": "Configure Powerbot-client!",
   "state_connecting": "Connecting",
-  "state_online": "Online",
-  "state_warning": "Warning",
-  "state_error": "Error",
+  "state_online": "OK",
+  "state_warning": "WARNING",
+  "state_error": "FAILURE",
   "state_offline": "Offline",
   "connection_backup": "Backup",
   "connection_production": "Production",

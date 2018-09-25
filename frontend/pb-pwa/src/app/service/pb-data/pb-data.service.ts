@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NGXLogger as FgLogService } from 'ngx-logger';
+import { environment } from './../../../environments/environment';
 import {
   AuthenticationService,
   SignalsService,
@@ -41,13 +42,12 @@ export class PbDataService {
    * Represents the collected set of application-data
    * and provides access to it within powerbot-application
    */
-  protected _app: PowerBotEntity = new PowerBotEntity();
-  set app( powerbot: PowerBotEntity ) {
-    this._app = Object.assign(this._app, powerbot);
-  }
-  get app(): PowerBotEntity {
-    return this._app;
-  }
+  public app: PowerBotEntity = new PowerBotEntity();
+  /**
+   * Provide contents of environment-file
+   * for usage in the application
+   */
+  public $env = environment;
   /** Member-variable to hold instance of
    * polling-timer observable
    */

@@ -16,7 +16,7 @@
         <mat-icon>{{ getStateIcon() }}</mat-icon>
         &nbsp;
         <span>
-{{ getStateLabel() }} | {{ getEnvironment() ? '' : getEnvironment() }}: 24 hours +{{ getBackHours() }}
+        {{ getStateLabel() | translate }} | {{ ( getEnvironment() ? '' : getEnvironment() ) | translate }}: 24 hours +{{ getBackHours() }}
         </span>
       </mat-chip>
       <!-- <mat-chip

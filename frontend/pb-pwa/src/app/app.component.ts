@@ -1,6 +1,5 @@
 import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, SimpleChanges, HostListener } from '@angular/core';
 import { FgAppService } from './app.service';
-import { environment } from './../environments/environment';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import {
   FgComponentBaseEvent,
@@ -99,21 +98,17 @@ export class AppComponent // extends FgEventSubscriber
     this.$app = $app;
 
     // Set array of available languages
-    this.$app.$translate.addLangs(environment.languages);
+    this.$app.$translate.addLangs(this.$app.$data.$env.languages);
     // This language will be used as a fallback when a
     // translation for set language isn't found
-    this.$app.$translate.setDefaultLang(environment.lang);
+    this.$app.$translate.setDefaultLang(this.$app.$data.$env.lang);
     // Set defaultLang to active Lang, until user configuration was loaded.
-    this.$app.$translate.use(environment.lang);
+    this.$app.$translate.use(this.$app.$data.$env.lang);
     // Get language configured in browser and set it if available
     // const browserLang = this.$app.$translate.getBrowserLang();
     // this.$app.$translate.use(
-    //   this.$app.$translate.getLangs().indexOf(browserLang) ? browserLang : environment.lang
+    //   this.$app.$translate.getLangs().indexOf(browserLang) ? browserLang : this.$app.$data.$env.lang
     // );
-
-    // Set powerbot conf
-    this.$app.$log.warn( 'Powerbot set from environment-file!' );
-    Object.assign( this.$app.$data.app, environment.powerbot );
 
     const modal_config = {
       panelClass: 'pb-panel',

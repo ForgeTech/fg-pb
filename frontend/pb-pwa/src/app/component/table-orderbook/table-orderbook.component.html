@@ -1,5 +1,9 @@
 <ng-container *ngIf="entity && entity.contracts && config">
-  <pb-table [entity]="entity.contracts" [config]="config" >
+  <pb-table
+    [entity]="entity.contracts"
+    [config]="config"
+    (event)="selectedContract($event)"
+  >
   </pb-table>
 </ng-container>
 

@@ -11,12 +11,6 @@ import { _ } from './../../app.utils';
 })
 export class TableLogsComponent extends FgComponentBaseComponent {
   config: any = {
-    columnMode: 'force',
-    headerHeight: 50,
-    rowHeight: 50,
-    footerHeight: 25,
-    scrollbarV: true,
-    scrollbarH: true,
     columns: [
       {
         name: _('column_label_timestamp'),

@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
+import { ConfigTableInterface } from '../../interface/interface.export';
 import { _ } from './../../app.utils';
 
+/**
+ * Component used to display a data-table within powerbot-application
+ */
 @Component({
   selector: 'pb-table-orderbook',
   templateUrl: './table-orderbook.component.html',
@@ -10,13 +14,8 @@ import { _ } from './../../app.utils';
 })
 export class TableOrderbookComponent extends FgComponentBaseComponent {
   // contracts: [];
-  config: any = {
-    columnMode: 'force',
-    headerHeight: 25,
-    rowHeight: 25,
-    footerHeight: 25,
-    scrollbarV: true,
-    scrollbarH: true,
+  config: ConfigTableInterface = {
+    selectionType: 'single',
     columns: [
       {
         name: _('column_label_name'),
@@ -98,21 +97,42 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
       }
     ]
   };
-
+  /**
+   * CONSTRUCTOR
+   */
   constructor($component: FgComponentBaseService) {
     super(
       $component
     );
   }
-
-  removeAmount($event: Event): void {
-    console.log('REMOVE AMOUNT');
+  /**
+   * Subtract 1 hour from configures backhours
+   */
+  removeAmount( $event: Event ): void {
+    if ( this.$component.$data.app.config.backHours < 0 ) {
+      this.$component.$data.app.config.backHours--;
+    }
   }
-  addAmount($event: Event): void {
-    console.log('ADD AMOUNT');
+  /**
+   * Add 1 hour to backhours as long as it's below 12
+   */
+  addAmount( $event: Event ): void {
+    if (this.$component.$data.app.config.backHours < 12) {
+      this.$component.$data.app.config.backHours++;
+    }
   }
-  addDoubleAmount($event: Event): void {
-    console.log('ADD DOUBLE AMOUNT');
+  /**
+   * Sets backhours to 12
+   */
+  addDoubleAmount( $event: Event ): void {
+      this.$component.$data.app.config.backHours = 12;
+  }
+  /**
+   * React to selected row
+   */
+  selectedContract( $event: Event ): void {
+    console.log( 'SELECTED' );
+    console.log( $event );
   }
 
 }

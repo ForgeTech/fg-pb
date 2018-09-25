@@ -2,22 +2,37 @@
 @import '@swimlane/ngx-datatable/release/themes/material.css';
 @import '@swimlane/ngx-datatable/release/assets/icons.css';
 
-.datatable-pager {
-  display: none;
+.datatable-body-cell,
+.datatable-header-cell {
+  padding: 3px 10px 5px !important;
+  font-size: 11px !important;
 }
+.datatable-header-cell {
+  background-color: $mat-grey-400;
+}
+.datatable-body-row {
+  border-right: 1px solid $mat-grey-300;
+}
+.datatable-body-cell {
+  color: $mat-grey-300;
+  border-left: 1px solid $mat-grey-300;
+  border-bottom: 1px solid $mat-grey-300;
+}
+
 .pb-dark-theme {
   .datatable {
-    .datatable-header-cell,
-    .datatable-body-cell,
-    .datatable-footer-inner,
-    .datatable-inner {
+    background-color: $mat-grey-800;
+    .datatable-header-cell {
+      background-color: $mat-grey-400;
+    }
+    .datatable-body-cell {
       color: $white !important;
+      border: none;
+      border-left: 1px dotted $mat-grey-100;
+      border-bottom: 1px dotted $mat-grey-100;
     }
-    .datatable-row-center:hover {
-      .datatable-body-cell {
-        color: $black !important;
-      }
-    }
-    background-color: $dark-grey;
+  }
+  .datatable-body-row {
+    // border-right: 1px dotted $mat-grey-100;
   }
 }
