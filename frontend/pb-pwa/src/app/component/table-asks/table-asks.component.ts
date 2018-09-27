@@ -13,13 +13,13 @@ export class TableAsksComponent extends FgComponentBaseComponent {
     columns: [
       {
         name: _('column_label_qty'),
-        prop: '',
+        prop: 'quantity',
         display: true,
         width: 100
       },
       {
         name: _('column_label_price'),
-        prop: '',
+        prop: 'price',
         display: true,
         width: 100
       },

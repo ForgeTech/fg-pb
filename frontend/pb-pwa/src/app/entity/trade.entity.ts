@@ -11,7 +11,7 @@ export class TradeEntity implements TradeInterface {
     /**
      * Unique trade_id
      */
-    public tradeId?: number,
+    public trade_id?: number,
     /**
      * CNCL: Trade was cancelled by market operations.
      * RREJ: Requested Recall was rejected by market operations.
@@ -27,15 +27,15 @@ export class TradeEntity implements TradeInterface {
      * If you sold energy with this trade, delivery_area will contain the sell_delivery_area,
      *  otherwise the buy_delivery_area
      */
-    public deliveryArea?: string,
+    public delivery_area?: string,
     /**
      * The timestamp when powerbot received the trade (UTC time zone)
      */
-    public apiTimestamp?: Date,
+    public api_timestamp?: Date,
     /**
      * The timestamp when the trade was executed (UTC time zone)
      */
-    public execTime?: Date,
+    public exec_time?: Date,
     /**
      * true if you bought energy
      */
@@ -47,81 +47,81 @@ export class TradeEntity implements TradeInterface {
     /**
      * the order_id of the underlying buy-order
      */
-    public buyOrderId?: number,
+    public buy_order_id?: number,
     /**
      * The delivery area of the buy-side of the trade.
      */
-    public buyDeliveryArea?: string,
+    public buy_delivery_area?: string,
     /**
      * the client order id of the buy order
      */
-    public buyClOrderId?: string,
+    public buy_cl_order_id?: string,
     /**
      * the custom text of the buy order
      */
-    public buyTxt?: string,
+    public buy_txt?: string,
     /**
      * the buyer's epex user code
      */
-    public buyUserCode?: string,
+    public buy_user_code?: string,
     /**
      * the buyer's epex member id
      */
-    public buyMemberId?: string,
+    public buy_member_id?: string,
     /**
      * Indicates whether the executed order was a trade aggressor or trade originator.
      * Y - Trade aggressor
      * N - Trade originator
      * U - Unknown, for executed orders of remote products and data before migration
      */
-    public buyAggressorIndicator?: TradeInterface.BuyAggressorIndicatorEnum,
+    public buy_aggressor_indicator?: TradeInterface.BuyAggressorIndicatorEnum,
     /**
     The seller's order id
      */
-    public sellOrderId?: number,
+    public sell_order_id?: number,
     /**
      * delivery area of the sell order
      */
-    public sellDeliveryArea?: string,
+    public sell_delivery_area?: string,
     /**
      * The sell order's client id
      */
-    public sellClOrderId?: string,
+    public sell_cl_order_id?: string,
     /**
      * The sell order's custom text
      */
-    public sellTxt?: string,
+    public sell_txt?: string,
     /**
      * The seller's epex user code
      */
-    public sellUserCode?: string,
+    public sell_user_code?: string,
     /**
      * The seller's epex member id
      */
-    public sellMemberId?: string,
+    public sell_member_id?: string,
     /**
      * Indicates whether the executed order was a trade aggressor or trade originator.
      * Y - Trade aggressor
      * N - Trade originator
      * U - Unknown, for executed orders of remote products and data before migration
      */
-    public sellAggressorIndicator?: TradeInterface.SellAggressorIndicatorEnum,
+    public sell_aggressor_indicator?: TradeInterface.SellAggressorIndicatorEnum,
     /**
      * The contract_id against which the trade was executed
      */
-    public contractId?: number,
+    public contract_id?: number,
     /**
      * The contract's name against which the trade was executed.
      */
-    public contractName?: string,
+    public contract_name?: string,
     /**
      * Time when the delivery of this trade starts (UTC timezone)
      */
-    public deliveryStart?: Date,
+    public delivery_start?: Date,
     /**
      * Time when the delivery of this trade ends (UTC timezone)
      */
-    public deliveryEnd?: Date,
+    public delivery_end?: Date,
     /**
      * Price of the trade
      */
@@ -133,10 +133,10 @@ export class TradeEntity implements TradeInterface {
     /**
      * Details of the trade provided by EPEX, Please consult the \"DFS180 - M7 - Public Message Interface\" for details.
      */
-    public tradeDetails?: any,
+    public trade_details?: any,
     /**
      * Details of the trade provided by EPEX, Please consult the \"DFS180 - M7 - Public Message Interface\" for details.
      */
-    public contractDetails?: any,
+    public contract_details?: any,
   ) {}
 }

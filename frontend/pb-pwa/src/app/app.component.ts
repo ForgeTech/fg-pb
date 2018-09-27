@@ -185,7 +185,7 @@ export class AppComponent // extends FgEventSubscriber
       // FgComponentBaseEvent.FOCUS_IN,
       // FgComponentBaseEvent.FOCUS_OUT,
       // FgComponentBaseEvent.CREATE,
-      FgComponentBaseEvent.SELECTED,
+      // FgComponentBaseEvent.SELECTED,
       // FgComponentBaseEvent.EDIT,
       // FgComponentBaseEvent.DELETE,
       // FgComponentBaseEvent.LOCK,

@@ -10,15 +10,15 @@ export class MessageEntity implements MessageInterface {
    * Constructor
    */
   constructor(
-    public messageId?: string,
-    public apiTimestamp?: Date,
+    public message_id?: string,
+    public api_timestamp?: Date,
     public category?: MessageInterface.CategoryEnum,
-    public messageClass?: string,
-    public contentType?: string,
-    public correlationId?: string,
+    public message_class?: string,
+    public content_type?: string,
+    public correlation_id?: string,
     public direction?: MessageInterface.DirectionEnum,
-    public groupId?: string,
-    public groupSequence?: string,
+    public group_id?: string,
+    public group_sequence?: string,
     public content?: any,
   ) {}
 }

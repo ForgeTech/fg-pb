@@ -33,11 +33,11 @@ export class PowerBotEntity {
     /**
      * Holds current powerbot contract data
      */
-    public market?: MarketInterface,
-    /**
-     * Holds current powerbot contract data
-     */
     public contracts: ContractInterface[] = [],
+    /**
+     * Holds historical contract-data for currently selected contract
+     */
+    public contractHistory: ContractInterface[] = [],
     /**
      * Holds current powerbot contract data
      */
@@ -49,7 +49,7 @@ export class PowerBotEntity {
     /**
      * Holds current powerbot orderbook data
      */
-    public orderbook?: any,
+    public orderbook: any = {},
     /**
      * Holds current powerbot products data
      */
@@ -74,5 +74,17 @@ export class PowerBotEntity {
      * Holds current powerbot contract data
      */
     public trades: TradeInterface[] = [],
+    /**
+     * Holds current powerbot contract data
+     */
+    public market?: MarketInterface,
+    /**
+     * Contains the currently selected contract-entity
+     */
+    public selectedContract?: ContractInterface,
+    /**
+    * Contains identifier of the currently selected market
+    */
+    public selectedMarket?: string,
   ) {}
 }

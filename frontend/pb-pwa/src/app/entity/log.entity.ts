@@ -16,7 +16,7 @@ export class LogEntity implements LogInterface {
     /**
      * Should be set to the time (UTC) when the log entry was emitted by your system
      */
-    public asOf: Date,
+    public as_of: Date,
     /**
       * The unique id of the log entry
       */

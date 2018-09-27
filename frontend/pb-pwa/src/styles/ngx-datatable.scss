@@ -8,7 +8,7 @@
   font-size: 11px !important;
 }
 .datatable-header-cell {
-  background-color: $mat-grey-400;
+  background-color: $mat-grey-300;
 }
 .datatable-body-row {
   border-right: 1px solid $mat-grey-300;
@@ -18,12 +18,28 @@
   border-left: 1px solid $mat-grey-300;
   border-bottom: 1px solid $mat-grey-300;
 }
+.ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover,
+.ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group {
+    background-color: $mat-teal-50;
+}
+.ngx-datatable.material.single-selection .datatable-body-row.active,
+.ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.material.multi-selection .datatable-body-row.active,
+.ngx-datatable.material.multi-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group {
+  background-color: $mat-teal-100;
+  &:hover {
+    background-color: $mat-teal-100;
+  }
+}
 
 .pb-dark-theme {
   .datatable {
     background-color: $mat-grey-800;
     .datatable-header-cell {
-      background-color: $mat-grey-400;
+      color: $white !important;
+      background-color: $mat-grey-600;
     }
     .datatable-body-cell {
       color: $white !important;
@@ -32,7 +48,19 @@
       border-bottom: 1px dotted $mat-grey-100;
     }
   }
-  .datatable-body-row {
-    // border-right: 1px dotted $mat-grey-100;
+  .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover,
+  .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group {
+      background-color: $mat-teal-800;
+  }
+  .ngx-datatable.material.single-selection .datatable-body-row.active,
+  .ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group,
+  .ngx-datatable.material.multi-selection .datatable-body-row.active,
+  .ngx-datatable.material.multi-selection .datatable-body-row.active .datatable-row-group,
+  .ngx-datatable.material.multi-click-selection .datatable-body-row.active,
+  .ngx-datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group {
+    background-color: $mat-teal-600;
+    &:hover {
+      background-color: $mat-teal-700;
+    }
   }
 }

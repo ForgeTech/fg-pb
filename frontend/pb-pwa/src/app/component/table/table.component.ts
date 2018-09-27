@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild, AfterViewInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, TemplateRef, Input, ViewChild, AfterViewInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
@@ -17,6 +17,10 @@ import { ConfigTableColumnInterface, ConfigTableInterface } from '../../interfac
 })
 export class TableComponent extends FgComponentBaseComponent implements OnChanges {
   /**
+   * Hold selected table items
+   */
+  @Input() public selected: any[];
+  /**
    * The default column-template to use
    */
   @ViewChild('cellTmpl') cellTmpl: TemplateRef<any>;
@@ -24,10 +28,6 @@ export class TableComponent extends FgComponentBaseComponent implements OnChange
    * The default column-header-template to use
    */
   @ViewChild('headerTmpl') headerTmpl: TemplateRef<any>;
-  /**
-   * Hold selected table items
-   */
-  public selected = [];
   /**
    * Holds default table-configuration
    */
@@ -102,15 +102,18 @@ export class TableComponent extends FgComponentBaseComponent implements OnChange
     console.log(updateColumns);
     return updateColumns;
   }
-  // getInitSelected() {
-  //   return [ data[0] ];
-  // }
-  onSelect({ selected }) {
-    // console.log('Select Event', selected, this.selected);
-    this.selected = [ selected ];
-    this.$component.$event.emit(new FgEvent( 'Selected', this, this.selected, false, false ));
+  /**
+   * Dispatches event when row-selection appears
+   * @param param0
+   */
+  onSelect(selected) {
+    this.emitEvent(new FgEvent('Selected', this, selected, false, true));
   }
+  /**
+   * Handles events appearing with table-interaction
+   * @param $event
+   */
   onActivate($event) {
-    console.log('Activate Event', event);
+    // console.log('Activate Event', event);
   }
 }

@@ -183,7 +183,7 @@ export class PbDataService {
    * @param delay The delay before timer dispatches first event
    * @param tick The intervall in which the timer dispatches it's event
    */
-  protected getPollingTimer( delay: number = 0, tick: number = 5000 ): TimerObservable<any> {
+  protected getPollingTimer( delay: number = 0, tick: number = 50000 ): TimerObservable<any> {
     if (!this.pollingTimer$) {
       this.pollingTimer$ = TimerObservable.create(delay, tick);
     }
@@ -292,6 +292,7 @@ export class PbDataService {
           if ( this.app.state.connectionState !== ConnectionState.Offline ) {
           // Set values and loading state
           this.app.market = marketState;
+          this.app.selectedMarket = marketState.delivery_area_id;
           this.app.orderbook = orderBook;
           this.app.contracts = orderBook.contracts;
           this.app.products = orderBook.products;
@@ -304,6 +305,8 @@ export class PbDataService {
           this.app.state.connectionState = ConnectionState.Online;
           this.app.state.requestState = RequestState.Inactive;
           subject.next(this.app);
+          console.log('this.app');
+          console.log(this.app);
         }
       }
     );

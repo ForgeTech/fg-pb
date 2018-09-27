@@ -16,7 +16,7 @@
     "ghp-build": "ng build --prod --base-href /PowerBot/ --configuration=ghp",
     "ghp-push": "./node_modules/.bin/angular-cli-ghpages --repo=https://6d96ad8b1251092dee67ef8e6defa64d795cc336@github.com/ForgeTech/PowerBot.git",
     "ghp-deploy": "npm run ghp-build & npm run ghp-push",
-    "gen-swagger-codegen": "docker run --rm -v ~/swagger-codegen:/local swaggerapi/swagger-codegen-cli generate -i https://playground.powerbot-trading.com/api/v0/swagger.json -l typescript-angular -o /local/api"
+    "gen-swagger": "docker run --rm -v ~/swagger-codegen:/local swaggerapi/swagger-codegen-cli generate -i https://playground.powerbot-trading.com/api/v0/swagger.json -l typescript-angular -o /local/api"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +43,7 @@
     "@ngx-translate/http-loader": "3.0.1",
     "@ngx-translate/i18n-polyfill": "^1.0.0",
     "@swimlane/ngx-datatable": "13.1.0",
+    "@swimlane/ngx-graph": "^5.1.0",
     "angular-highcharts": "6.2.6",
     "angular2-prettyjson": "3.0.1",
     "angulartics2": "6.2.0",

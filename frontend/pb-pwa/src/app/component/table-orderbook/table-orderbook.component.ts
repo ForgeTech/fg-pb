@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { ConfigTableInterface } from '../../interface/interface.export';
 import { _ } from './../../app.utils';
+import { ContractInterface } from '../../module/pb-api/model/interfaces.export';
+import { FgEvent } from '../../class/fg-event.class';
 
 /**
  * Component used to display a data-table within powerbot-application
@@ -13,7 +15,28 @@ import { _ } from './../../app.utils';
   styleUrls: ['./table-orderbook.component.scss']
 })
 export class TableOrderbookComponent extends FgComponentBaseComponent {
-  // contracts: [];
+  public entity: ContractInterface[] = [];
+  protected _selected: ContractInterface[] = [];
+  public get selected(): ContractInterface[] {
+    return this._selected;
+  }
+  public set selected( selected: ContractInterface[] ) {
+    try {
+      this._selected = selected;
+      this.$component.$data.app.selectedContract = this._selected[ 0 ];
+      this.$component.$data.$contracts.getOrders(this.selected[0].contract_id).toPromise().then(orders => {
+        this.$component.$data.app.asks = orders.ask;
+        this.$component.$data.app.bids = orders.bid;
+      });
+      this.$component.$data.$contracts.getContractHistory(this.selected[0].contract_id).toPromise().then(contractHist => {
+        this.$component.$data.app.contractHistory = contractHist;
+      });
+    } catch ( error ) {
+      this.$component.$data.app.selectedContract = undefined;
+      this.$component.$data.app.asks = [];
+      this.$component.$data.app.bids = [];
+    }
+  }
   config: ConfigTableInterface = {
     selectionType: 'single',
     columns: [
@@ -25,37 +48,37 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
       },
       {
         name: _('column_label_bid_best'),
-        prop: 'bestBidPrice',
+        prop: 'best_bid_price',
         display: true,
         width: 50
       },
       {
         name: _('column_label_bid_qty'),
-        prop: 'bestBidQuantity',
+        prop: 'best_bid_quantity',
         display: true,
         width: 50
       },
       {
         name: _('column_label_ask_best'),
-        prop: 'bestAskPrice',
+        prop: 'best_ask_price',
         display: true,
         width: 50
       },
       {
         name: _('column_label_ask_qty'),
-        prop: 'bestAskQuantity',
+        prop: 'best_ask_quantity',
         display: true,
         width: 50
       },
       {
         name: _('column_label_last'),
-        prop: 'lastPrice',
+        prop: 'last_price',
         display: true,
         width: 50
       },
       {
         name: _('column_label_last_qty'),
-        prop: 'lastQuantity',
+        prop: 'last_quantity',
         display: true,
         width: 50
       },
@@ -73,25 +96,25 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
       },
       {
         name: _('column_label_volume'),
-        prop: 'totalQuantity',
+        prop: 'total_quantity',
         display: true,
         width: 50
       },
       {
         name: _('column_label_update'),
-        prop: 'lastTradeTime',
+        prop: 'last_trade_time',
         display: true,
         width: 50
       },
       {
         name: _('column_label_my_position'),
-        prop: 'absolutePosition',
+        prop: 'absolute_position',
         display: true,
         width: 80
       },
       {
         name: _('column_label_my_volume'),
-        prop: 'absolutePosition',
+        prop: 'absolute_position',
         display: true,
         width: 80
       }
@@ -110,7 +133,7 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
    */
   removeAmount( $event: Event ): void {
     if ( this.$component.$data.app.config.backHours < 0 ) {
-      this.$component.$data.app.config.backHours--;
+      this.$component.$data.app.config.backHours = this.$component.$data.app.config.backHours - 1;
     }
   }
   /**
@@ -118,7 +141,7 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
    */
   addAmount( $event: Event ): void {
     if (this.$component.$data.app.config.backHours < 12) {
-      this.$component.$data.app.config.backHours++;
+      this.$component.$data.app.config.backHours = this.$component.$data.app.config.backHours + 1;
     }
   }
   /**
@@ -127,12 +150,49 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
   addDoubleAmount( $event: Event ): void {
       this.$component.$data.app.config.backHours = 12;
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    super.ngOnChanges(changes);
+    if (changes.entity && this.selected ) {
+      // If enities are initially set, select first non-historic contract
+      if (changes.entity.currentValue.length !== 0 && this.selected.length === 0 ) {
+        this.selected = this.getInitialSelectedContract(changes.entity.currentValue);
+      } else if (this.selected.length > 0 ) {
+        this.selected = this.updateSelectedContract();
+      }
+    }
+  }
   /**
    * React to selected row
    */
-  selectedContract( $event: Event ): void {
-    console.log( 'SELECTED' );
-    console.log( $event );
+  selectedContract( $event: FgEvent ): void {
+    this.selected = $event.data.selected ;
   }
-
+  /**
+   * Return initial selection for passed contracts
+   * @param contracts
+   */
+  private getInitialSelectedContract(contracts: ContractInterface[]): ContractInterface[] {
+      return [ contracts.find( contract => {
+        return contract.state === 'ACTI';
+      })];
+  }
+  /**
+   * Find selected contract in updated
+   */
+  private updateSelectedContract(): ContractInterface[] {
+    const updated = this.entity.filter( contract => {
+      let found = false;
+      for ( let selectedContract of this.selected ) {
+        if (selectedContract.contract_id === contract.contract_id ) {
+          found = true;
+          break;
+        }
+      }
+      return found;
+    });
+    console.log('HAIL');
+    console.log( updated );
+    return updated;
+  }
 }

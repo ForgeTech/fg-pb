@@ -16,7 +16,7 @@ export class MarketEntity implements MarketInterface {
     /**
      * The timestamp when the status of the market was last checked.
      */
-    public apiTimestamp?: Date,
+    public api_timestamp?: Date,
     public options?: any,
     /**
      * The urls of EPEX's backand system Powerbot is connected to
@@ -29,27 +29,27 @@ export class MarketEntity implements MarketInterface {
     /**
      * The market powerbot is configured to operate in
      */
-    public marketAreaId?: string,
+    public market_area_id?: string,
     /**
      * The delivery areay powerbot is configured to operate in
      */
-    public deliveryAreaId?: string,
+    public delivery_area_id?: string,
     /**
      * The current session id
      */
-    public sessionId?: number,
+    public session_id?: number,
     /**
      * The timstamp (UTC) since when Powerbot has logged-into the backend system
      */
-    public loggedInSince?: Date,
+    public logged_in_Since?: Date,
     /**
      * The timestamp when the last heartbeat of the backend system has been received (should be not older than 5 seconds)
      */
-    public heartbeatAsOf?: Date,
+    public heartbeat_as_of?: Date,
     /**
      * The content of the last heartbeat
      */
-    public heartbeatContent?: string,
+    public heartbeat_content?: string,
     /**
      * Messages explaining the state of the market
      */

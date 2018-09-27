@@ -10,7 +10,7 @@ export class ContractEntity implements ContractInterface {
     /**
      * The contract's unique id
      */
-    public contractId?: number,
+    public contract_id?: number,
     /**
      * State of the contract
      */
@@ -22,44 +22,44 @@ export class ContractEntity implements ContractInterface {
     /**
      * A running number starting at 0; Every time the contract changes (i.e. a trade is made), this number increments.
      */
-    public revisionNo?: number,
+    public revision_no?: number,
     /**
      * The delivery start time (UTC) of the contract
      */
-    public deliveryStart?: Date,
+    public delivery_start?: Date,
     /**
      * The delivery end time (UTC) of the contract
      */
-    public deliveryEnd?: Date,
+    public delivery_end?: Date,
     /**
      * The best bid's price in the orderbook's currency (i.e. EUR)
      */
-    public bestBidPrice?: number,
+    public best_bid_price?: number,
     /**
      * The best bid's quantity in the orderbook's quantity unit (i.e. MW)
      */
-    public bestBidQuantity?: number,
+    public best_bid_quantity?: number,
     /**
      * The best asks's price in the orderbook's currency (i.e. EUR)
      */
-    public bestAskPrice?: number,
+    public best_ask_price?: number,
     /**
      * The best asks's quantity in the orderbook's quantity unit (i.e. MW)
      */
-    public bestAskQuantity?: number,
+    public best_ask_quantity?: number,
     /**
      * The price of the last trade (in the orderbook's currency)
      */
-    public lastPrice?: number,
+    public last_price?: number,
     /**
      * The quantity of the last trade (in the orderbook's quantity unit)
      */
-    public lastQuantity?: number,
+    public last_quantity?: number,
     /**
      * The total volume of all trades (in the orderbook's quantity unit)
      */
-    public totalQuantity?: number,
-    public auctionPrice?: number,
+    public total_quantity?: number,
+    public auction_price?: number,
     /**
      * Highest traded price since the start of the trading period.
      */
@@ -71,20 +71,20 @@ export class ContractEntity implements ContractInterface {
     /**
      * All contract details (as delivered from the backend system)
      */
-    public contractDetails?: any,
+    public contract_details?: any,
     /**
      * All orderbook details (as delivered from the backend system)
      */
-    public orderbookDetails?: any,
+    public orderbook_details?: any,
     /**
      * Your relative position in the contract
      */
-    public relativePosition?: number,
+    public relative_position?: number,
     /**
      * Your absolute position in the contract
      */
-    public absolutePosition?: number,
-    public lastTradeTime?: Date,
+    public absolute_position?: number,
+    public last_trade_time?: Date,
     /**
      * The signals applicable for the contract
      */

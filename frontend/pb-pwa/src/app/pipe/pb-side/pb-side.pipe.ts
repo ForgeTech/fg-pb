@@ -5,7 +5,7 @@ import { TradeInterface } from '../../module/pb-api/model/interfaces.export';
  * Pipe for transforming PowerBot trade-object to trade-side value
  */
 @Pipe({
-  name: 'pbTradeSide'
+  name: 'pbSidePipe'
 })
 export class PbSidePipe implements PipeTransform {
   /**

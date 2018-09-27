@@ -1,11 +1,11 @@
 <mat-grid-list
   class="dashboard-container"
-  cols="{{ config.grid.cols }}"
-  rowHeight="{{ config.grid.rowHeight }}"
-  gutterSize="{{ config.grid.gutterSize }}"
+  cols="{{ ( config$ | async )?.grid.cols }}"
+  rowHeight="{{ ( config$ | async )?.grid.rowHeight }}"
+  gutterSize="{{ ( config$ | async )?.grid.gutterSize }}"
 >
   <mat-grid-tile
-    *ngFor="let card of config.cards"
+    *ngFor="let card of ( config$ | async )?.cards"
     [colspan]="card.cols"
     [rowspan]="card.rows"
   >
@@ -46,34 +46,34 @@
         <div tabindex="0">
           <ng-container [ngSwitch]="card.template">
             <ng-container *ngSwitchCase="'orders'">
-              <pb-table-orders [entity]="this.$component.$data.app"></pb-table-orders>
+              <pb-table-orders [entity]="this.$component.$data.app.orders"></pb-table-orders>
             </ng-container>
             <ng-container *ngSwitchCase="'trades'">
-              <pb-table-trades [entity]="this.$component.$data.app"></pb-table-trades>
+              <pb-table-trades [entity]="this.$component.$data.app.trades"></pb-table-trades>
             </ng-container>
             <ng-container *ngSwitchCase="'portfolio'">
               <pb-graph-portfolio [entity]="this.$component.$data.app"></pb-graph-portfolio>
             </ng-container>
             <ng-container *ngSwitchCase="'orderbook'">
-              <pb-table-orderbook [entity]="this.$component.$data.app"></pb-table-orderbook>
+              <pb-table-orderbook [entity]="this.$component.$data.app.contracts"></pb-table-orderbook>
             </ng-container>
             <ng-container *ngSwitchCase="'producthistory'">
-              <pb-graph-product-history [entity]="this.$component.$data.app"></pb-graph-product-history>
+              <pb-graph-product-history [entity]="this.$component.$data.app.contractHistory"></pb-graph-product-history>
             </ng-container>
             <ng-container *ngSwitchCase="'bids'">
-              <pb-table-bids [entity]="this.$component.$data.app"></pb-table-bids>
+              <pb-table-bids [entity]="this.$component.$data.app.bids"></pb-table-bids>
             </ng-container>
             <ng-container *ngSwitchCase="'asks'">
-              <pb-table-asks [entity]="this.$component.$data.app"></pb-table-asks>
+              <pb-table-asks [entity]="this.$component.$data.app.asks"></pb-table-asks>
             </ng-container>
             <ng-container *ngSwitchCase="'signals'">
-              <pb-table-signals [entity]="this.$component.$data.app"></pb-table-signals>
+              <pb-table-signals [entity]="this.$component.$data.app.signals"></pb-table-signals>
             </ng-container>
             <ng-container *ngSwitchCase="'logs'">
-              <pb-table-logs [entity]="this.$component.$data.app"></pb-table-logs>
+              <pb-table-logs [entity]="this.$component.$data.app.logs"></pb-table-logs>
             </ng-container>
             <ng-container *ngSwitchCase="'contractdetails'">
-              <pb-table-contract-details [entity]="this.$component.$data.app"></pb-table-contract-details>
+              <pb-table-contract-details [entity]="this.$component.$data.selectedContract"></pb-table-contract-details>
             </ng-container>
             <ng-container *ngSwitchCase="'signalhistory'">
               <pb-graph-signal-history [entity]="this.$component.$data.app"></pb-graph-signal-history>

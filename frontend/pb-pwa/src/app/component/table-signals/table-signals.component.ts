@@ -12,20 +12,25 @@ export class TableSignalsComponent extends FgComponentBaseComponent {
   config: any = {
     columns: [
       {
-        name: _('column_label_qty'),
-        prop: '',
+        name: _('column_label_source'),
+        prop: 'source',
         display: true,
         width: 100
       },
       {
-        name: _('column_label_price'),
-        prop: '',
+        name: _('column_label_received_at'),
+        prop: 'received_at',
+        display: true,
+        width: 100
+      },
+      {
+        name: _('column_label_value_imbalance'),
+        prop: 'value.imbalance',
         display: true,
         width: 100
       },
     ]
   };
-
   constructor($component: FgComponentBaseService) {
     super(
       $component

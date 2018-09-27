@@ -18,7 +18,7 @@ export class SignalEntity implements SignalInterface {
     /**
      * The timestamp when the signal was received by PowerBot
      */
-    public receivedAt?: Date,
+    public received_at?: Date,
     /**
      * The number of times the signal has been updated. If the signal has never received any updates, then revision is 0.
      */
@@ -26,11 +26,11 @@ export class SignalEntity implements SignalInterface {
     /**
      * Together with delivery_start and delivery_end specify the delivery period in which the signal is valid
      */
-    public deliveryStart?: Date,
+    public delivery_start?: Date,
     /**
      * Together with delivery_start and delivery_end specify the delivery period in which the signal is valid
      */
-    public deliveryEnd?: Date,
+    public delivery_end?: Date,
     /**
      * The content of the signal
      */

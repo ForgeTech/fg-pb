@@ -9,13 +9,14 @@
         <img class="pb-header-logo" alt="PowerBot Logo" src="./assets/powerbot_logo.png"/>
       </div>
       <div fxFlex="10 100px">
-      <!-- <mat-form-field> -->
-        <mat-select class="delivery_area_select">
-          <mat-option *ngFor="let market of ['market1','market2']" [value]="market">
+        <!-- <mat-select class="delivery_area_select" [(ngModel)]="selected2"> -->
+      <!-- <mat-form-field>
+        <mat-select class="delivery_area_select" *ngIf="this.$component.$data.market.available_delivery_area_ids">
+          <mat-option *ngFor="let market of this.$component.$data.market.available_delivery_area_ids" [value]="market">
             {{market}}
           </mat-option>
         </mat-select>
-      <!-- </mat-form-field> -->
+      </mat-form-field> -->
       </div>
       <div fxFlex="70">
         <pb-bar-state [entity]="this.entity"></pb-bar-state>
