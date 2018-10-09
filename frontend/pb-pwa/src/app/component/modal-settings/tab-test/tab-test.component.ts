@@ -7,6 +7,8 @@ import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 import { FgEvent } from '../../../class/fg-event.class';
 import { PbAppEvent } from '../../../event/pb-app.event';
+import { regexUrlValidationPattern } from '../../../validators/RegexUrlValidationPattern';
+import { AsyncUrlRespondsValidator } from '../../../validators/async-url-responds.validator';
 
 /**
  * TabTestComponent -
@@ -29,7 +31,8 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    */
   constructor(
     public $component: FgComponentBaseService,
-    protected $fb: FormBuilder
+    protected $fb: FormBuilder,
+    protected $AsyncUrlRespondsValidator: AsyncUrlRespondsValidator
   ) {
     super(
       $component
@@ -37,8 +40,14 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
     this.form = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
-      serverUrl: [null, [Validators.required, Validators.minLength(5)]],
-      apiKey: [null, [Validators.required]],
+      serverUrl: [null, {
+        validators: [Validators.required, Validators.pattern(regexUrlValidationPattern)],
+        asyncValidators: [this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)],
+        updateOn: 'blur'
+      }],
+      apiKey: [null, [
+        Validators.required
+      ]],
       store: [null, []],
     });
     this.setFormData();

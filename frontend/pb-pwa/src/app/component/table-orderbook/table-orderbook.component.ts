@@ -23,7 +23,7 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
   public set selected( selected: ContractInterface[] ) {
     try {
       this._selected = selected;
-      this.$component.$data.app.selectedContract = this._selected[ 0 ];
+      this.$component.$data.app.selectedContract = this._selected[0];
       this.$component.$data.$contracts.getOrders(this.selected[0].contract_id).toPromise().then(orders => {
         this.$component.$data.app.asks = orders.ask;
         this.$component.$data.app.bids = orders.bid;
@@ -132,8 +132,8 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
    * Subtract 1 hour from configures backhours
    */
   removeAmount( $event: Event ): void {
-    if ( this.$component.$data.app.config.backHours < 0 ) {
-      this.$component.$data.app.config.backHours = this.$component.$data.app.config.backHours - 1;
+    if ( this.$component.$data.app.config.backHours > 0 ) {
+      this.$component.$data.app.config.backHours--;
     }
   }
   /**
@@ -141,7 +141,7 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
    */
   addAmount( $event: Event ): void {
     if (this.$component.$data.app.config.backHours < 12) {
-      this.$component.$data.app.config.backHours = this.$component.$data.app.config.backHours + 1;
+      this.$component.$data.app.config.backHours++;
     }
   }
   /**
@@ -150,7 +150,10 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
   addDoubleAmount( $event: Event ): void {
       this.$component.$data.app.config.backHours = 12;
   }
-
+  /**
+   * React to component input-changes
+   * @param changes
+   */
   ngOnChanges(changes: SimpleChanges): void {
     super.ngOnChanges(changes);
     if (changes.entity && this.selected ) {
@@ -166,6 +169,8 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
    * React to selected row
    */
   selectedContract( $event: FgEvent ): void {
+    // console.log( '$event.data.selected' );
+    // console.log( $event.data.selected );
     this.selected = $event.data.selected ;
   }
   /**
@@ -191,8 +196,6 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
       }
       return found;
     });
-    console.log('HAIL');
-    console.log( updated );
     return updated;
   }
 }

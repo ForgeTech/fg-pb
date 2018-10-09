@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { _ } from './../../app.utils';
+import { ContractInterface } from '../../module/pb-api/model/interfaces.export';
 
 @Component({
   selector: 'pb-table-contract-details',
@@ -9,27 +10,23 @@ import { _ } from './../../app.utils';
   styleUrls: ['./table-contract-details.component.scss']
 })
 export class TableContractDetailsComponent extends FgComponentBaseComponent {
-  config: any = {
-    columns: [
-      {
-        name: _('column_label_qty'),
-        prop: '',
-        display: true,
-        width: 100
-      },
-      {
-        name: _('column_label_price'),
-        prop: '',
-        display: true,
-        width: 100
-      },
-    ]
-  };
+  entity: ContractInterface;
 
   constructor($component: FgComponentBaseService) {
     super(
       $component
     );
+  }
+
+  /**
+   * React to component input-changes
+   * @param changes
+   */
+  ngOnChanges(changes: SimpleChanges): void {
+    super.ngOnChanges(changes);
+    console.log(changes);
+    if (changes.entity ) {
+    }
   }
 
 }

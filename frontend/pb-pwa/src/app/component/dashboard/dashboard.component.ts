@@ -58,7 +58,7 @@ export class DashboardComponent extends FgComponentBaseComponent {
         cols: 16, rows: 7
       },
       {
-        title: _('component_label_production_history'),
+        title: _('component_label_product_history'),
         template: 'producthistory',
         cols: 16, rows: 7
       },
@@ -127,7 +127,7 @@ export class DashboardComponent extends FgComponentBaseComponent {
         cols: 7, rows: 7
       },
       {
-        title: 'component_label_production_history',
+        title: 'component_label_product_history',
         template: 'producthistory',
         cols: 14, rows: 14
       },

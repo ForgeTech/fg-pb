@@ -5,6 +5,7 @@ import { ModalAddOrderComponent } from '../modal-add-order/modal-add-order.compo
 import { PbAppEvent } from '../../event/pb-app.event';
 import { FgEvent } from '../../class/fg-event.class';
 import { _ } from './../../app.utils';
+import { ConfigTableColumnInterface } from '../../interface/interface.export';
 
 /**
  * Table-Component for displaying order-data
@@ -15,41 +16,46 @@ import { _ } from './../../app.utils';
   styleUrls: ['./table-orders.component.scss']
 })
 export class TableOrdersComponent extends FgComponentBaseComponent {
-  config: any = {
+  config = {
     columns: [
       {
         name: _('column_label_dlvry_start'),
-        prop: 'contract_details.dlvryStart',
+        prop: 'delivery_start',
+        cellTemplate: 'date',
+        dateFormat: 'mediumTime',
         display: true,
         width: 50
       },
       {
         name: _('column_label_dlvry_end'),
-        prop: 'contract_details.dlvryEnd',
+        prop: 'delivery_end',
+        cellTemplate: 'date',
+        dateFormat: 'mediumTime',
         display: true,
         width: 50
       },
       {
         name: _('column_label_side'),
         prop: 'name',
+        cellTemplate: 'side',
         display: true,
         width: 50
       },
       {
         name: _('column_label_qty'),
-        prop: 'name',
+        prop: 'quantity',
         display: true,
         width: 50
       },
       {
         name: _('column_label_price'),
-        prop: 'name',
+        prop: 'price',
         display: true,
         width: 50
       },
       {
         name: _('column_label_note'),
-        prop: 'name',
+        prop: 'sell_txt',
         display: true,
         width: 50
       }

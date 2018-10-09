@@ -73,10 +73,10 @@
               <pb-table-logs [entity]="this.$component.$data.app.logs"></pb-table-logs>
             </ng-container>
             <ng-container *ngSwitchCase="'contractdetails'">
-              <pb-table-contract-details [entity]="this.$component.$data.selectedContract"></pb-table-contract-details>
+              <pb-table-contract-details [entity]="this.$component.$data.app.selectedContract"></pb-table-contract-details>
             </ng-container>
             <ng-container *ngSwitchCase="'signalhistory'">
-              <pb-graph-signal-history [entity]="this.$component.$data.app"></pb-graph-signal-history>
+              <pb-graph-signal-history [entity]="this.$component.$data.app.selectedContract?.signals"></pb-graph-signal-history>
             </ng-container>
             <ng-container *ngSwitchDefault>
               Template {{card.title}}  not found!

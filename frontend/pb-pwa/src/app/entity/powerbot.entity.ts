@@ -82,9 +82,5 @@ export class PowerBotEntity {
      * Contains the currently selected contract-entity
      */
     public selectedContract?: ContractInterface,
-    /**
-    * Contains identifier of the currently selected market
-    */
-    public selectedMarket?: string,
   ) {}
 }

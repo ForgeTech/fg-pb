@@ -35,8 +35,12 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
     this.form = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
-      logDir: [null, [Validators.required, Validators.minLength(5)]],
-      logLevel: [null, []],
+      logDir: [null, [
+        Validators.required
+      ]],
+      logLevel: [null, [
+        Validators.required
+      ]],
       store: [null, []]
     });
   }

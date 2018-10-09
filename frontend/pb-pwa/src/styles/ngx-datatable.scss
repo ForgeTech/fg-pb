@@ -13,6 +13,10 @@
 .datatable-body-row {
   border-right: 1px solid $mat-grey-300;
 }
+.inactive-row {
+  background-color: $mat-grey-500;
+  pointer-events: none;
+}
 .datatable-body-cell {
   color: $mat-grey-300;
   border-left: 1px solid $mat-grey-300;

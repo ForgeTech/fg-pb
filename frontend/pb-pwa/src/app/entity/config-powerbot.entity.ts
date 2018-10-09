@@ -24,7 +24,7 @@ export class ConfigPowerbot {
     /**
      * Contains the key for the currently configured market
      */
-    public deliverArea: string = "",
+    public deliverArea: string = '',
     /**
      * Contains configured value for orderbook back_hours
      * setting delivering expired contacts of the past x hours

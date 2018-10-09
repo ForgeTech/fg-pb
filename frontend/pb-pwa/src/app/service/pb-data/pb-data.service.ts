@@ -103,21 +103,31 @@ export class PbDataService {
     public $storage: NgForage,
   ) {
     const errorFn = error => {
-      this.$log.error('HANDLE ALL THE ERRORS');
-      // If request fails in production-environment, try connecting
-      // to backup-environment
-      if ( this.app.state.appEnv === AppEnv.Live_Prod ) {
-        this.app.state.connectionState = ConnectionState.Warning;
-        this.app.state.appEnv = AppEnv.Live_Backup;
-        this.setAppEnvConfiguration(this.app.state.appEnv);
-        // TODO: Implement methode that tries to reconnect to production-environment
-        // after a random time between 5 and 10 minutes
+      // Only perform error-handling if connection-state isn't Offline
+      // so validation can use wrapped services
+      if ( this.app.state.connectionState !== ConnectionState.Offline ) {
+        // If request fails in production-environment, try connecting
+        // to backup-environment
+        if ( this.app.state.appEnv === AppEnv.Live_Prod ) {
+          this.app.state.connectionState = ConnectionState.Warning;
+          this.app.state.appEnv = AppEnv.Live_Backup;
+          this.setAppEnvConfiguration(this.app.state.appEnv);
+          // TODO: Implement methode that tries to reconnect to production-environment
+          // after a random time between 5 and 10 minutes
+        } else {
+          // If request fails for testing- or backup environment set
+          // application to error-state
+          this.app.state.connectionState = ConnectionState.Error;
+          this.app.state.marketState = ConnectionState.Error;
+        }
+        this.app.state.requestState = RequestState.Inactive;
+        this.$log.error(error.message);
       } else {
-        this.app.state.connectionState = ConnectionState.Error;
-        this.app.state.marketState = ConnectionState.Error;
+        console.log('ERRROR');
+        console.log(error);
+        // Rethrow erros for connection-state offline
+        throw error;
       }
-      this.app.state.requestState = RequestState.Inactive;
-      this.$log.error(error.message);
     };
     // Decorate services to call errorFn on error
     this.$auth = this.wrapApiServiceMethodes( $auth, errorFn );
@@ -272,7 +282,7 @@ export class PbDataService {
     const subject: Subject<PowerBotEntity> = new Subject();
     const data$ = combineLatest([
       this.$market.getStatus(),
-      this.$orders.getOrderBooks(),
+      this.$orders.getOrderBooks( '', false, undefined, undefined, undefined, undefined, undefined, 3 ),
       this.$logs.getLogs(),
       this.$messages.getMessages(),
       this.$orders.getOwnOrders(),
@@ -292,14 +302,16 @@ export class PbDataService {
           if ( this.app.state.connectionState !== ConnectionState.Offline ) {
           // Set values and loading state
           this.app.market = marketState;
-          this.app.selectedMarket = marketState.delivery_area_id;
+          this.app.config.deliverArea = marketState.delivery_area_id;
           this.app.orderbook = orderBook;
-          this.app.contracts = orderBook.contracts;
+          this.app.contracts = orderBook.contracts.sort( ( a: ContractInterface, b: ContractInterface ) => {
+            return
+          });
           this.app.products = orderBook.products;
           this.app.logs = logs;
           this.app.messages = messages;
           this.app.orders = orders;
-          this.app.signals = signals;
+          this.app.signals = this.prepareSignalResponse( signals );
           this.app.trades = trades;
           this.setMarketState(marketState.status);
           this.app.state.connectionState = ConnectionState.Online;
@@ -311,6 +323,30 @@ export class PbDataService {
       }
     );
     return subject.toPromise<PowerBotEntity>();
+  }
+   public prepareSignalResponse( signals: SignalInterface[] ): any[] {
+    let keys: string[] = [];
+    let signalsObjects: { label: string, values: any[] }[] = [];
+    signals.forEach( signal => {
+      let index = keys.indexOf( signal.source );
+      // If key isn't found in key array, prepare
+      // signalObject to hold signal-data
+      if ( index === -1) {
+        keys.push( signal.source );
+        let signalObject = {
+          label: signal.source,
+          values: []
+        }
+        // Push signal data to signalObject
+        signalObject.values.push( signal );
+        // Push signalObjects to signalObjects-array
+        signalsObjects.push( signalObject );
+      } else {
+        // If key was found just push signal to according signalsObject
+        signalsObjects[index].values.push( signal );
+      }
+    });
+    return signalsObjects;
   }
   /**
    * Initialize Powerbot from browser-storage

@@ -41,4 +41,5 @@ export class GraphComponent extends FgComponentBaseComponent {
         data: [1, 2, 3]
       }
     ]});
+
 }

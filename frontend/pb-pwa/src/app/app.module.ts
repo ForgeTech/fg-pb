@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { PrettyJsonModule } from 'angular2-prettyjson';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+// import { PbDatatableModule } from './module/pb-datatable/pb-datatable.module'
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgForageModule, NgForageConfig } from 'ngforage';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import {
@@ -64,6 +66,7 @@ import { ModalSettingsComponent } from './component/modal-settings/modal-setting
   import { TabProductionComponent } from './component/modal-settings/tab-production/tab-production.component';
   import { TabTestComponent } from './component/modal-settings/tab-test/tab-test.component';
 import { TableComponent } from './component/table/table.component';
+// import { DatatableCustomComponent } from './component/table/ngx-datatable-custom';
 import { TableAsksComponent } from './component/table-asks/table-asks.component';
 import { TableBidsComponent } from './component/table-bids/table-bids.component';
 import { TableOrderbookComponent } from './component/table-orderbook/table-orderbook.component';
@@ -80,6 +83,7 @@ import { FgEnumPipe } from './pipe/fg-enum/fg-enum.pipe';
 import { FgInputComponent } from './component/fg-input/fg-input/fg-input.component';
 import { ConnectedGuard } from './guard/connected-guard.service';
 import { FgCardComponent } from './component/fg-card/fg-card.component';
+import { AsyncUrlRespondsValidator } from './validators/async-url-responds.validator';
 
 /**
  * Routes for PowerBot application
@@ -160,6 +164,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
       TabProductionComponent,
       TabTestComponent,
     TableComponent,
+    // DatatableCustomComponent,
     TableTradesComponent,
     TableAsksComponent,
     TableBidsComponent,
@@ -183,6 +188,8 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     PerfectScrollbarModule,
     PrettyJsonModule,
     NgxDatatableModule,
+    // PbDatatableModule,
+    NgxChartsModule,
     ChartModule,
     CommonModule,
     FgMaterialModule,
@@ -231,6 +238,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     FgKeyboardService,
     TranslateService,
     ConnectedGuard,
+    AsyncUrlRespondsValidator
   ],
   entryComponents: [
     LoginViewComponent,

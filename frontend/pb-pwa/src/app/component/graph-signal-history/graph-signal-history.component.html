@@ -1,1 +1,17 @@
-<pb-graph></pb-graph>
+<ng-container *ngIf="entity">
+  <ngx-charts-line-chart
+  [view]="view"
+  [results]="data"
+  [scheme]="colorScheme"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [autoScale]="autoScale"
+  (select)="onSelect($event)">
+</ngx-charts-line-chart>
+<!-- [gradient]="gradient" -->
+</ng-container>

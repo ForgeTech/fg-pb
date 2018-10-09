@@ -17,7 +17,8 @@ export const environment = {
   powerbot: {
     lang: 'en',
     config: {
-      darkTheme: false,
+      darkTheme: true,
+      backHours: 1,
       view: {
         dashboard: {
           breakpoint: {
@@ -35,13 +36,13 @@ export const environment = {
         }
       },
       testConfig: {
-        serverUrl: 'https://playground.powerbot.config-trading.com/api/v0',
+        serverUrl: 'https://playground.powerbot-trading.com/api/v0',
         apiKey: '44fc8162-d2c6-432a-8279-d8d40e5c0e1b',
         store: true
       },
       prodConfig: {
-        serverUrl: 'https://playground.powerbot.config-trading.com/api/error',
-        backupUrl: 'https://playground.powerbot.config-trading.com/api/v0',
+        serverUrl: 'https://playground.powerbot-trading.com/api/error',
+        backupUrl: 'https://playground.powerbot-trading.com/api/v0',
         apiKey: '44fc8162-d2c6-432a-8279-d8d40e5c0e1b',
         store: true
       }

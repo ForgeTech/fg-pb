@@ -1,4 +1,8 @@
-<ng-container *ngIf="entity && config">
-  <pb-table [entity]="entity" [config]="config">
-  </pb-table>
+<ng-container *ngIf="entity">
+  <p>{{'column_label_name' | translate }}: {{ this.entity.name }}</p>
+  <p>{{'column_label_contract_id' | translate }}: {{ this.entity.contract_id }}</p>
+  <p>{{'column_label_dlvry_start' | translate }}: {{ this.entity.delivery_start | date }}</p>
+  <p>{{'column_label_dlvry_end' | translate }}: {{ this.entity.delivery_end | date }}</p>
+  <p>{{'column_label_high' | translate }}: {{ this.entity.high }}</p>
+  <p>{{'column_label_low' | translate }}: {{ this.entity.low }}</p>
 </ng-container>

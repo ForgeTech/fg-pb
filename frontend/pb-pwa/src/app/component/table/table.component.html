@@ -1,7 +1,7 @@
 <ngx-datatable
   class="datatable material"
   [rows]="entity"
-  [columns]="config.columns"
+  [columns]="columns"
   [columnMode]="config.columnMode"
   [headerHeight]="config.headerHeight"
   [rowHeight]="config.rowHeight"
@@ -12,9 +12,26 @@
   [selectionType]="config.selectionType"
   [selected]="selected"
   [limit]="config.limit"
+  [rowClass]="getRowClass"
   (select)="onSelect($event)"
-  (activate)="onActivate($event)"
   ></ngx-datatable>
+<!-- <ngx-datatable-custom
+  class="datatable material"
+  [rows]="entity"
+  [columns]="columns"
+  [columnMode]="config.columnMode"
+  [headerHeight]="config.headerHeight"
+  [rowHeight]="config.rowHeight"
+  [footerHeight]="config.footerHeight"
+  [rowHeight]="config.rowHeight"
+  [scrollbarV]="config.scrollbarV"
+  [scrollbarH]="config.scrollbarH"
+  [selectionType]="config.selectionType"
+  [selected]="selected"
+  [limit]="config.limit"
+  [rowClass]="getRowClass"
+  (select)="onSelect($event)"
+  ></ngx-datatable-custom> -->
 
 <ng-template
   #headerTmpl
@@ -22,7 +39,7 @@
   let-column="column"
   let-row="row"
 >
-  {{ column.name | translate }}
+    {{ column.name | translate }}
 </ng-template>
 <ng-template
   #cellTmpl
@@ -31,4 +48,20 @@
   let-value="value"
 >
   {{ value }}
+</ng-template>
+<ng-template
+  #dateCellTmpl
+  let-row="row"
+  let-column="column"
+  let-value="value"
+>
+  {{ value | date:column.dateFormat }}
+</ng-template>
+<ng-template
+  #sideCellTmpl
+  let-row="row"
+  let-column="column"
+  let-value="value"
+>
+  {{ row | pbSidePipe }}
 </ng-template>
