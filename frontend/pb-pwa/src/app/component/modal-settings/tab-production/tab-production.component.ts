@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
 import { ConfigProductionConnection } from '../../../entity/entity.export';
 import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
@@ -9,6 +9,8 @@ import { FgEvent } from '../../../class/fg-event.class';
 import { PbAppEvent } from '../../../event/pb-app.event';
 import { regexUrlValidationPattern } from '../../../validators/RegexUrlValidationPattern';
 import { AsyncUrlRespondsValidator } from '../../../validators/async-url-responds.validator';
+import { AppEnv } from '../../../entity/app-state.entity';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'pb-tab-production',
@@ -21,6 +23,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * setting production-form configuration
    */
   public form: FormGroup;
+  public errors: Subject<ValidationErrors> = new Subject<ValidationErrors>();
   /**
    * CONSTRUCTOR
    */
@@ -35,21 +38,55 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     this.form = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
-      serverUrl: [null, {
-        validators: [Validators.required, Validators.pattern( regexUrlValidationPattern )],
-        asyncValidators: [this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)],
-        updateOn: 'blur'
-      }],
-      backupUrl: [null, {
-        validators: [Validators.required, Validators.pattern(regexUrlValidationPattern)],
-        asyncValidators: [this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)],
-        updateOn: 'blur'
-      }],
+      serverUrl: [null,
+        {
+          validators: [
+            Validators.required,
+            Validators.pattern(regexUrlValidationPattern)
+          ],
+          asyncValidators: [
+            this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
+          ],
+          updateOn: 'blur'
+        }
+      ],
+      backupUrl: [null,
+        {
+          validators: [
+            Validators.required,
+            Validators.pattern(regexUrlValidationPattern)
+          ],
+          asyncValidators: [
+            this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
+          ],
+          updateOn: 'blur'
+        }
+      ],
       apiKey: [null, [
         Validators.required
       ]],
       store: [null, []],
     });
+  }
+  getServerUrlErrorMessage( errors: ValidationErrors ) {
+    console.log('errors');
+    console.log(errors);
+    // console.log(this.form);
+    return  'fuck you url';
+    //this.form?.serverUrl?.errors?.required ? 'You must enter a value' : this.form.serverUrl.errors('email') ? 'Not a valid email' : '';
+  }
+  getBackupUrlErrorMessage( errors: ValidationErrors ) {
+    console.log('errors');
+    console.log(errors);
+    // console.log(this.form);
+    return  'fuck you url';
+    //this.form?.serverUrl?.errors?.required ? 'You must enter a value' : this.form.serverUrl.errors('email') ? 'Not a valid email' : '';
+  }
+  getApiErrorMessage( errors: ValidationErrors ) {
+    // console.log('this.form');
+    // console.log(this.form);
+    return  'fuck you api';
+    //this.form?.serverUrl?.errors?.required ? 'You must enter a value' : this.form.serverUrl.errors('email') ? 'Not a valid email' : '';
   }
   /**
    * Set form-data from powerbot storage

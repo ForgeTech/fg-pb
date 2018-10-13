@@ -31,17 +31,12 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class MarketService {
 
-    protected basePath = 'https://playground.powerbot-trading.com:443/api/v0';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
-    constructor(protected httpClient: HttpClient, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
-        if (basePath) {
-            this.basePath = basePath;
-        }
+    constructor(protected httpClient: HttpClient, @Optional() configuration: Configuration) {
         if (configuration) {
             this.configuration = configuration;
-            this.basePath = basePath || configuration.basePath || this.basePath;
         }
     }
 
@@ -114,7 +109,7 @@ export class MarketService {
             'application/json'
         ];
 
-        return this.httpClient.get<Array<InlineResponse20015>>(`${this.basePath}/market/notifications`,
+        return this.httpClient.get<Array<InlineResponse20015>>(`${this.configuration.basePath}/market/notifications`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
@@ -156,9 +151,8 @@ export class MarketService {
         const consumes: string[] = [
             'application/json'
         ];
-        console.log('Request Base Path');
-        console.log( this.basePath );
-        return this.httpClient.get<InlineResponse20014>(`${this.basePath}/market`,
+
+        return this.httpClient.get<InlineResponse20014>(`${this.configuration.basePath}/market`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -208,7 +202,7 @@ export class MarketService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<InlineResponse20014>(`${this.basePath}/market`,
+        return this.httpClient.post<InlineResponse20014>(`${this.configuration.basePath}/market`,
             credentials,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -251,7 +245,7 @@ export class MarketService {
             'application/json'
         ];
 
-        return this.httpClient.delete<InlineResponse20014>(`${this.basePath}/market`,
+        return this.httpClient.delete<InlineResponse20014>(`${this.configuration.basePath}/market`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -301,7 +295,7 @@ export class MarketService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
-        return this.httpClient.post<InlineResponse20014>(`${this.basePath}/market/options`,
+        return this.httpClient.post<InlineResponse20014>(`${this.configuration.basePath}/market/options`,
             credentials,
             {
                 withCredentials: this.configuration.withCredentials,

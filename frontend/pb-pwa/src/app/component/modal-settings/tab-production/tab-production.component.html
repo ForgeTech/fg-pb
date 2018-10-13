@@ -14,10 +14,10 @@
           matInput
           placeholder="{{ 'input_placeholder_production' | translate }}"
           formControlName="serverUrl"
-          required
         >
-        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint translate>input_hint_production_url</mat-hint>
+        <mat-error>{{getUrlErrorMessage(this.form.serverUrl)}}</mat-error>
       </mat-form-field>
     </p>
     <p>
@@ -25,31 +25,33 @@
         appearance="fill"
         color="{{ config }}"
       >
-        <mat-label translate>input_label_backup_url</mat-label>
+      <mat-label translate>input_label_backup_url</mat-label>
         <input
-          matInput
-          placeholder="{{ 'input_placeholder_backup' | translate }}'"
-          formControlName="backupUrl"
-          required
+        matInput
+        placeholder="{{ 'input_placeholder_backup' | translate }}'"
+        formControlName="backupUrl"
+        required
         >
-        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint translate>input_hint_backup_url</mat-hint>
+        <mat-error>{{getUrlErrorMessage(this.form.serverUrl)}}</mat-error>
       </mat-form-field>
     </p>
     <p>
       <mat-form-field
-        appearance="fill"
-        color="{{ config }}"
+      appearance="fill"
+      color="{{ config }}"
       >
         <mat-label translate>input_label_api_key</mat-label>
         <input
-          matInput
-          placeholder="{{ 'input_placeholder_api_key' | translate }}'"
-          formControlName="apiKey"
-          required
+        matInput
+        placeholder="{{ 'input_placeholder_api_key' | translate }}'"
+        formControlName="apiKey"
+        required
         >
-        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         <mat-hint translate>input_hint_production_api_key</mat-hint>
+        <mat-error>{{getApiErrorMessage(this.form.apiKey)}}</mat-error>
       </mat-form-field>
     </p>
     <p>

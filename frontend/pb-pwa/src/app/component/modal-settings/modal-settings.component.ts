@@ -136,7 +136,8 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
   isDisabled(): boolean {
     let disabled = true;
     if ( this.activeTab ) {
-      disabled = this.activeTab.form.dirty && this.activeTab.form.errors.length === 0;
+      // console.log(this.activeTab.form);
+      disabled = this.activeTab.form.invalid;
     }
     return disabled;
   }

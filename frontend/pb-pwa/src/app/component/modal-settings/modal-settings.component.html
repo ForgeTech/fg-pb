@@ -52,7 +52,7 @@
     </mat-tab-group>
   </div>
   <div actions>
-    <button mat-raised-button color="accent" (click)="action($event)">
+    <button mat-raised-button color="accent" (click)="action($event)" [disabled]="isDisabled()">
       <!-- [disabled]="isDisabled()" -->
       {{ getModalActionBtnLabel() | async }}
     </button>

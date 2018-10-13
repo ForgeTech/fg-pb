@@ -136,7 +136,7 @@ export class AppComponent // extends FgEventSubscriber
     .subscribe( event => {
       this.$app.$log.warn('CONNECT API TEST!');
       // Start polling data from backend
-      this.$app.$data.connect( AppEnv.Live_Test );
+      this.$app.$data.connect(AppEnv.Live_Test);
       this.$router.navigate(['/dashboard']);
     });
     // Register event for connecting to API
@@ -146,7 +146,7 @@ export class AppComponent // extends FgEventSubscriber
       this.$app.$log.warn('CONNECT API PRODUCTION!');
       console.log( event );
       // Start polling data from backend
-      this.$app.$data.connect( AppEnv.Live_Prod );
+      this.$app.$data.connect(AppEnv.Live_Prod);
       this.$router.navigate(['/dashboard']);
     });
     // Register event to disconnect from API

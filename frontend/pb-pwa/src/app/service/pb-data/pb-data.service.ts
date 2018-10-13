@@ -38,6 +38,15 @@ import { Observable, Subscription, Subject, combineLatest } from 'rxjs';
  */
  @Injectable()
 export class PbDataService {
+  protected _config: Configuration;
+  public set configuration( config: Configuration) {
+    this._config = config;
+    this.setServiceConfiguration( this._config );
+  }
+  // public get configuration( ): Configuration {
+  //   return this._config;
+  // }
+
   /**
    * Represents the collected set of application-data
    * and provides access to it within powerbot-application
@@ -105,28 +114,37 @@ export class PbDataService {
     const errorFn = error => {
       // Only perform error-handling if connection-state isn't Offline
       // so validation can use wrapped services
-      if ( this.app.state.connectionState !== ConnectionState.Offline ) {
-        // If request fails in production-environment, try connecting
-        // to backup-environment
-        if ( this.app.state.appEnv === AppEnv.Live_Prod ) {
+      if ( this.app.state.connectionState !== ConnectionState.Offline
+          && this.app.state.connectionState !== ConnectionState.Warning
+          && this.app.state.appEnv === AppEnv.Live_Prod
+        ) {
+          this.$log.warn( 'Switch to Backup-Server' );
+          // Disconnect from Production-Server
+          this.disconnect();
+          // If request fails in production-environment, try connecting
+          // to backup-environment
           this.app.state.connectionState = ConnectionState.Warning;
           this.app.state.appEnv = AppEnv.Live_Backup;
-          this.setAppEnvConfiguration(this.app.state.appEnv);
+          this.setAppEnv(this.app.state.appEnv);
+          // Try to connect to backup-server
+          this.connect( AppEnv.Live_Backup );
           // TODO: Implement methode that tries to reconnect to production-environment
           // after a random time between 5 and 10 minutes
-        } else {
-          // If request fails for testing- or backup environment set
-          // application to error-state
-          this.app.state.connectionState = ConnectionState.Error;
-          this.app.state.marketState = ConnectionState.Error;
-        }
-        this.app.state.requestState = RequestState.Inactive;
-        this.$log.error(error.message);
+          const delay = Math.floor(Math.random() * 600000);
+          console.log( delay );
+          setTimeout(() => {
+            this.disconnect();
+            this.app.state.appEnv = AppEnv.Live_Prod;
+            this.connect( AppEnv.Live_Prod );
+          }, delay );
       } else {
-        console.log('ERRROR');
-        console.log(error);
+        this.app.state.requestState = RequestState.Inactive;
+        this.app.state.connectionState = ConnectionState.Error;
+        this.app.state.marketState = ConnectionState.Error;
+        // this.$log.error('ERRROR');
+        // console.log(error);
         // Rethrow erros for connection-state offline
-        throw error;
+        // throw error;
       }
     };
     // Decorate services to call errorFn on error
@@ -140,13 +158,26 @@ export class PbDataService {
     // Override api-service configuration with empty config
     // to prevent services to use hard-coded test-environment
     // before ConnectionType is explicitly set
-    this.setAppEnvConfiguration( AppEnv.Offline );
+    this.setAppEnv( AppEnv.Offline );
+  }
+  /**
+   * Apply passed service configuration to api-services
+   */
+  protected setServiceConfiguration( config: Configuration ) {
+    this.$auth.configuration = config;
+    this.$contracts.configuration = config;
+    this.$logs.configuration = config;
+    this.$market.configuration = config;
+    this.$messages.configuration = config;
+    this.$orders.configuration = config;
+    this.$signals.configuration = config;
+    this.$trades.configuration = config;
   }
   /**
    * Set the api environent type to use
    * @param type  ConnectionType Enum
    */
-  protected setAppEnvConfiguration( type: AppEnv ) {
+  protected setAppEnv( type: AppEnv ) {
     let configuration: Configuration = new Configuration();
     try {
       switch ( type ) {
@@ -171,20 +202,16 @@ export class PbDataService {
           configuration.basePath = PbAppEntityConst.NOT_SET;
         break;
       }
+      this.$log.warn( 'SET CONFIGURATION' );
+      console.log(this.app);
+      console.log(configuration);
       // Set api-services configuration
-      this.$auth.configuration = configuration;
-      this.$contracts.configuration = configuration;
-      this.$logs.configuration = configuration;
-      this.$market.configuration = configuration;
-      this.$messages.configuration = configuration;
-      this.$orders.configuration = configuration;
-      this.$signals.configuration = configuration;
-      this.$trades.configuration = configuration;
+      this.configuration = configuration;
     } catch ( error ) {
       this.$log.warn( 'Api-server environment not available!' );
     }
   }
-  private allow: boolean = false;
+  protected allow: boolean = false;
   public isConnecting(): boolean {
     return this.allow;
   }
@@ -255,7 +282,7 @@ export class PbDataService {
    */
   public connect( env: AppEnv ): void {
     this.allow = true;
-    this.setAppEnvConfiguration( env );
+    this.setAppEnv( env );
     this.appSubscrption = this.getPollingTimer().subscribe(() => {
       this.fetchApplicationData();
     });
