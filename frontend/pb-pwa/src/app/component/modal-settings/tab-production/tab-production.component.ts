@@ -73,20 +73,17 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     console.log(errors);
     // console.log(this.form);
     return  'fuck you url';
-    //this.form?.serverUrl?.errors?.required ? 'You must enter a value' : this.form.serverUrl.errors('email') ? 'Not a valid email' : '';
   }
   getBackupUrlErrorMessage( errors: ValidationErrors ) {
     console.log('errors');
     console.log(errors);
     // console.log(this.form);
     return  'fuck you url';
-    //this.form?.serverUrl?.errors?.required ? 'You must enter a value' : this.form.serverUrl.errors('email') ? 'Not a valid email' : '';
   }
   getApiErrorMessage( errors: ValidationErrors ) {
     // console.log('this.form');
     // console.log(this.form);
     return  'fuck you api';
-    //this.form?.serverUrl?.errors?.required ? 'You must enter a value' : this.form.serverUrl.errors('email') ? 'Not a valid email' : '';
   }
   /**
    * Set form-data from powerbot storage

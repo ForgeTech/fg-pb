@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
 import { ConfigTestConnection } from '../../../entity/entity.export';
 import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
@@ -62,6 +62,12 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
       store: [null, []],
     });
     this.setFormData();
+  }
+  getServerUrlErrorMessage(errors: ValidationErrors) {
+    return 'Server Url Error';
+  }
+  getApiErrorMessage(errors: ValidationErrors) {
+    return 'Api Key Error';
   }
   /**
    * Set form-data from powerbot storage

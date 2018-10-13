@@ -17,6 +17,7 @@
         >
         <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
         <mat-hint translate>input_hint_test_url</mat-hint>
+        <mat-error>{{getServerUrlErrorMessage(this.form.serverUrl)}}</mat-error>
       </mat-form-field>
     </p>
     <p>
@@ -33,6 +34,7 @@
         >
         <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
         <mat-hint translate>input_hint_test_api_key</mat-hint>
+         <mat-error>{{getApiErrorMessage(this.form.apiKey)}}</mat-error>
       </mat-form-field>
     </p>
     <p>
