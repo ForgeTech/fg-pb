@@ -35,6 +35,10 @@ export class AsyncUrlRespondsValidator implements AsyncValidator {
     config.apiKeys = { 'api_key': PbAppEntityConst.NOT_SET };
     config.basePath = ctrl.value;
     this.$data.configuration = config;
+    // If there are already other errors exit
+    if ( ctrl.errors ) {
+      return of (null);
+    }
     return this.$data.$market.getStatus().pipe( catchError( error => {
         // this.$log.warn( 'ERROR' );
         // console.log( error );

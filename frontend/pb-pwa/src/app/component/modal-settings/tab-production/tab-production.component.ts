@@ -47,7 +47,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
           asyncValidators: [
             this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
           ],
-          updateOn: 'blur'
+          // updateOn: 'blur'/
         }
       ],
       backupUrl: [null,
@@ -59,7 +59,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
           asyncValidators: [
             this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
           ],
-          updateOn: 'blur'
+          // updateOn: 'blur'
         }
       ],
       apiKey: [null, [
@@ -69,14 +69,14 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     });
   }
   getServerUrlErrorMessage( errors: ValidationErrors ) {
-    console.log('errors');
-    console.log(errors);
+    // console.log('errors');
+    // console.log(errors);
     // console.log(this.form);
     return  'fuck you url';
   }
   getBackupUrlErrorMessage( errors: ValidationErrors ) {
-    console.log('errors');
-    console.log(errors);
+    // console.log('errors');
+    // console.log(errors);
     // console.log(this.form);
     return  'fuck you url';
   }

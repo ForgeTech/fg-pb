@@ -47,7 +47,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
             Validators.required, Validators.pattern(regexUrlValidationPattern)
           ],
           asyncValidators: [this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)],
-          updateOn: 'blur'
+          // updateOn: 'blur'
         }
       ],
       apiKey: [null, {
@@ -57,7 +57,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
         asyncValidators: [
           this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
         ],
-        updateOn: 'blur'
+        // updateOn: 'blur'
       }],
       store: [null, []],
     });
