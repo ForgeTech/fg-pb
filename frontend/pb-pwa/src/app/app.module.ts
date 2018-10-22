@@ -84,6 +84,7 @@ import { FgInputComponent } from './component/fg-input/fg-input/fg-input.compone
 import { ConnectedGuard } from './guard/connected-guard.service';
 import { FgCardComponent } from './component/fg-card/fg-card.component';
 import { AsyncUrlRespondsValidator } from './validators/async-url-responds.validator';
+import { GraphQLModule } from './graphql.module';
 
 /**
  * Routes for PowerBot application
@@ -229,6 +230,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     ),
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    GraphQLModule,
   ],
   providers: [
     FgComponentBaseService,

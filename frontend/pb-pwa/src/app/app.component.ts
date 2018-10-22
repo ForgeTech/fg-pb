@@ -59,9 +59,9 @@ export class AppComponent // extends FgEventSubscriber
     this._focusComponent = focusComponent;
     this.focusComponent$.next(this._focusComponent);
   }
-  public get focusComponent(): FgComponentBaseComponent {
-    return this._selectedComponent;
-  }
+  // public get focusComponent(): FgComponentBaseComponent {
+  //   return this._selectedComponent;
+  // }
   protected focusComponentEntity: any; // IFgComponentBaseAbstractEntityInterface;
   /**
    * Holds reference to the last selected-component entity. This differs from
@@ -75,9 +75,9 @@ export class AppComponent // extends FgEventSubscriber
     this._selectedComponent = selectedComponent;
     this.selectedComponent$.next( this._selectedComponent);
   }
-  public get selectedComponent(): FgComponentBaseComponent {
-   return this._selectedComponent;
-  }
+  // public get selectedComponent(): FgComponentBaseComponent {
+  //  return this._selectedComponent;
+  // }
   public selectedComponentEntity: any; // IFgComponentBaseAbstractEntityInterface;
   /**
    * Listen to keyboard-events on global window-object and forward
@@ -88,7 +88,7 @@ export class AppComponent // extends FgEventSubscriber
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     this.$app.$log.warn('KeyDown-Event:', event.key);
-    this.$app.$keyboard.keydown( event );
+    // this.$app.$keyboard.keydown( event );
   }
   /**
    * Listen to keyboard-events on global window-object and forward
@@ -99,7 +99,7 @@ export class AppComponent // extends FgEventSubscriber
   @HostListener('window:keyup', ['$event'])
   handleKeyUp(event: KeyboardEvent) {
     this.$app.$log.warn('KeyUp-Event:', event.key);
-    this.$app.$keyboard.keyup( event );
+    // this.$app.$keyboard.keyup( event );
   }
   /**
   * CONSTRUCTOR
