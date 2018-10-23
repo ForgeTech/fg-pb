@@ -33,7 +33,7 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
       name: [null, [Validators.required]],
       canTrade: [null, []],
       canSignal: [null, []],
-      envProd: [null, []],
+      envProd: [null, [Validators.required]],
     });
   }
   // Implement to satisfy tab interface, but do not

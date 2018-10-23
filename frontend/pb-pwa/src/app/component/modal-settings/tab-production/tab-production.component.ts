@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
-import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidationErrors, FormControl } from '@angular/forms';
 import { ConfigProductionConnection } from '../../../entity/entity.export';
 import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
@@ -12,6 +12,11 @@ import { AsyncUrlRespondsValidator } from '../../../validators/async-url-respond
 import { AppEnv } from '../../../entity/app-state.entity';
 import { Subject } from 'rxjs';
 
+export enum ValidationState {
+  'INVALID',
+  'PENDING',
+  'VALID',
+}
 @Component({
   selector: 'pb-tab-production',
   templateUrl: './tab-production.component.html',
@@ -62,9 +67,16 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
           // updateOn: 'blur'
         }
       ],
-      apiKey: [null, [
-        Validators.required
-      ]],
+      apiKey: [null, {
+        validators: [
+          Validators.required,
+          Validators.pattern(regexUrlValidationPattern)
+        ],
+        asyncValidators: [
+          // this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
+        ],
+        // updateOn: 'blur'
+      }],
       store: [null, []],
     });
   }

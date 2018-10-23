@@ -44,9 +44,12 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
       serverUrl: [null,
         {
           validators: [
-            Validators.required, Validators.pattern(regexUrlValidationPattern)
+            Validators.required,
+            Validators.pattern(regexUrlValidationPattern)
           ],
-          asyncValidators: [this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)],
+          asyncValidators: [
+            this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
+          ],
           // updateOn: 'blur'
         }
       ],
@@ -55,7 +58,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
           Validators.required
         ],
         asyncValidators: [
-          this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
+          // this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
         ],
         // updateOn: 'blur'
       }],

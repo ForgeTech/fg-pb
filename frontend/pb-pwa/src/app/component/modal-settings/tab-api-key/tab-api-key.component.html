@@ -14,8 +14,8 @@
           formControlName="masterPwd"
           required
         >
-        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-<mat-hint translate>input_hint_master_pwd</mat-hint>
+        <pb-icon-validation matSuffix [entity]="this.form.controls.masterPwd.status"></pb-icon-validation>
+        <mat-hint translate>input_hint_master_pwd</mat-hint>
       </mat-form-field>
     </p>
     <p>
@@ -27,7 +27,7 @@
           formControlName="epexPass"
           required
         >
-        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <pb-icon-validation matSuffix [entity]="this.form.controls.epexPass.status"></pb-icon-validation>
         <mat-hint translate>input_hint_epex</mat-hint>
       </mat-form-field>
     </p>
@@ -36,18 +36,17 @@
         <mat-label translate>input_label_api_key_name</mat-label>
         <input
           matInput
-placeholder="{{ 'input_placeholder_api_key_name' | translate }}"
+          placeholder="{{ 'input_placeholder_api_key_name' | translate }}"
           formControlName="name"
           required
         >
-        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <pb-icon-validation matSuffix [entity]="this.form.controls.epexPass.status"></pb-icon-validation>
         <mat-hint translate>input_hint_api_key_name</mat-hint>
       </mat-form-field>
     </p>
     <p>
       <mat-checkbox
         formControlName="canTrade"
-        required
         color="{{ config }}"
       >
        {{ 'checkbox_label_enable_trading' | translate }}
@@ -55,7 +54,6 @@ placeholder="{{ 'input_placeholder_api_key_name' | translate }}"
       &nbsp;
       <mat-checkbox
         formControlName="canSignal"
-        required
         color="{{ config }}"
       >
         {{ 'checkbox_label_enable_signaling' | translate}}

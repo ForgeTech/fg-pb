@@ -17,7 +17,7 @@
           formControlName="logDir"
           required
         >
-        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <pb-icon-validation matSuffix [entity]="this.form.controls.logDir.status"></pb-icon-validation>
         <mat-hint translate>input_hint_log_folder</mat-hint>
       </mat-form-field>
     </p>
@@ -28,20 +28,21 @@
       >
         <mat-label translate>select_label_log_level</mat-label>
         <mat-select
-          placeholder="{{ 'select_placeholder_log_level' | translate }}"
-          formControlName="logLevel"
-          required
+        placeholder="{{ 'select_placeholder_log_level' | translate }}"
+        formControlName="logLevel"
+        required
         >
-          <mat-option *ngFor="let level of logLevels | fgEnum; let i = index" [value]="i">
-            {{level}}
-          </mat-option>
-        </mat-select>
+        <mat-option *ngFor="let level of logLevels | fgEnum; let i = index" [value]="i">
+          {{level}}
+        </mat-option>
+      </mat-select>
+        <pb-icon-validation matSuffix [entity]="this.form.controls.logLevel.status"></pb-icon-validation>
         <mat-hint translate>select_hint_log_level</mat-hint>
       </mat-form-field>
     </p>
     <!-- <p>
       <mat-form-field
-        appearance="fill"
+      appearance="fill"
         color="{{ config }}"
       >
         <mat-label translate>Vorlon Debug-Server URL</mat-label>

@@ -1,40 +1,23 @@
 <div class="pb-tab tab-production">
   <form
-    class="tab-production-form"
-    [formGroup]="form"
+  class="tab-production-form"
+  [formGroup]="form"
     (ngSubmit)="action( $event )"
-  >
+    >
     <p>
       <mat-form-field
-        appearance="fill"
+      appearance="fill"
         color="{{ config }}"
-      >
+        >
         <mat-label translate>input_label_production_url</mat-label>
         <input
-          matInput
-          placeholder="{{ 'input_placeholder_production' | translate }}"
-          formControlName="serverUrl"
-        >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint translate>input_hint_production_url</mat-hint>
-        <mat-error>{{getServerUrlErrorMessage(this.form.serverUrl)}}</mat-error>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field
-        appearance="fill"
-        color="{{ config }}"
-      >
-      <mat-label translate>input_label_backup_url</mat-label>
-        <input
         matInput
-        placeholder="{{ 'input_placeholder_backup' | translate }}'"
-        formControlName="backupUrl"
-        required
+        placeholder="{{ 'input_placeholder_production' | translate }}"
+        formControlName="serverUrl"
         >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint translate>input_hint_backup_url</mat-hint>
-        <mat-error>{{getBackupUrlErrorMessage(this.form.serverUrl)}}</mat-error>
+        <pb-icon-validation matSuffix [entity]="this.form.controls.serverUrl.status"></pb-icon-validation>
+        <mat-hint translate>input_hint_production_url</mat-hint>
+        <mat-error>{{getServerUrlErrorMessage(this.form.controls.serverUrl)}}</mat-error>
       </mat-form-field>
     </p>
     <p>
@@ -42,16 +25,33 @@
       appearance="fill"
       color="{{ config }}"
       >
-        <mat-label translate>input_label_api_key</mat-label>
-        <input
-        matInput
-        placeholder="{{ 'input_placeholder_api_key' | translate }}'"
-        formControlName="apiKey"
-        required
-        >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-label translate>input_label_backup_url</mat-label>
+      <input
+      matInput
+      placeholder="{{ 'input_placeholder_backup' | translate }}'"
+      formControlName="backupUrl"
+      required
+      >
+        <pb-icon-validation matSuffix [entity]="this.form.controls.backupUrl.status"></pb-icon-validation>
+        <mat-hint translate>input_hint_backup_url</mat-hint>
+        <mat-error>{{getBackupUrlErrorMessage(this.form.controls.backupUrl)}}</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field
+      appearance="fill"
+      color="{{ config }}"
+      >
+      <mat-label translate>input_label_api_key</mat-label>
+      <input
+      matInput
+      placeholder="{{ 'input_placeholder_api_key' | translate }}'"
+      formControlName="apiKey"
+      required
+      >
+        <pb-icon-validation matSuffix [entity]="this.form.controls.apiKey.status"></pb-icon-validation>
         <mat-hint translate>input_hint_production_api_key</mat-hint>
-        <mat-error>{{getApiErrorMessage(this.form.apiKey)}}</mat-error>
+        <mat-error>{{getApiErrorMessage(this.form.controls.apiKey)}}</mat-error>
       </mat-form-field>
     </p>
     <p>

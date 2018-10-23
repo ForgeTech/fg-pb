@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, SimpleChanges, HostListener } from '@angular/core';
 import { FgAppService } from './app.service';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+// import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import {
   FgComponentBaseEvent,
   FgEntityEvent,
@@ -71,7 +71,7 @@ export class AppComponent // extends FgEventSubscriber
    */
   protected _selectedComponent: FgComponentBaseComponent;
   public selectedComponent$: Subject<FgComponentBaseComponent> = new Subject();
-  public set selectedComponent( selectedComponent: FgComponentBaseComponent ){
+  public set selectedComponent( selectedComponent: FgComponentBaseComponent ) {
     this._selectedComponent = selectedComponent;
     this.selectedComponent$.next( this._selectedComponent);
   }
@@ -105,7 +105,7 @@ export class AppComponent // extends FgEventSubscriber
   * CONSTRUCTOR
   */
   constructor(
-    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
+    // angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
     $dialog: MatDialog,
     $app: FgAppService,
     $log: FgLogService,

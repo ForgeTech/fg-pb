@@ -22,8 +22,8 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+// import { Angulartics2Module } from 'angulartics2';
+// import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { ChartModule } from 'angular-highcharts';
 import { FgMaterialModule } from './module/fg-material/fg-material.module';
 import { ApiModule } from './module/pb-api';
@@ -75,6 +75,7 @@ import { TableSignalsComponent } from './component/table-signals/table-signals.c
 import { TableTradesComponent } from './component/table-trades/table-trades.component';
 import { TableLogsComponent } from './component/table-logs/table-logs.component';
 import { TableContractDetailsComponent } from './component/table-contract-details/table-contract-details.component';
+import { PbIconValidationComponent } from './component/pb-icon-validation/pb-icon-validation.component';
 import { PwaInstallComponent } from './component/pwa-install/pwa-install.component';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { TableAddOrderComponent } from './component/table-add-order/table-add-order.component';
@@ -173,6 +174,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     TableSignalsComponent,
     TableOrderbookComponent,
     PwaInstallComponent,
+    PbIconValidationComponent,
     TableAddOrderComponent,
     PbSidePipe,
     FgEnumPipe,
@@ -229,7 +231,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
       { enableTracing: environment.production ? false : true }
     ),
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    // Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     GraphQLModule,
   ],
   providers: [
