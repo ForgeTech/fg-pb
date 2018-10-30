@@ -89,13 +89,11 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
     this.$component.$data.recoverConfigFromStorage().then(powerbot => {
       this.$component.$log.warn('RECOVER from Storage');
       this.$component.$data.app = powerbot;
-      console.log(powerbot);
       // Override from environment file if flag override is set to true
       if (this.$component.$data.$env.override) {
         this.$component.$log.warn('OVERRIDE from Environment');
         this.$component.$data.app = Object.assign(this.$component.$data.app, this.$component.$data.$env.powerbot);
       }
-      console.log(this.$component.$data.app);
       // Load Language if it's different from default language
       if (this.$component.$data.app.config.lang !== this.$component.$translate.getDefaultLang()) {
         this.$component.$translate.use(this.$component.$data.app.config.lang);
@@ -109,12 +107,11 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
    * modal tab-group
    */
   onTabChange($event: MatTabChangeEvent ) {
-    this.$component.$log.warn('tab-change');
     this.activeTabIndex = $event.index;
     this.activeTab = this.tabComponents[ this.activeTabIndex ];
     this.activeTab.setFormData();
+    this.activeTab.form.updateValueAndValidity();
   }
-
   /**
    * Return ActionBtnLabel according to
    * selected Settings-Tab
@@ -136,8 +133,7 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
   isDisabled(): boolean {
     let disabled = true;
     if ( this.activeTab ) {
-      // console.log(this.activeTab.form);
-      disabled = this.activeTab.form.invalid;
+      disabled = !this.activeTab.form.valid;
     }
     return disabled;
   }

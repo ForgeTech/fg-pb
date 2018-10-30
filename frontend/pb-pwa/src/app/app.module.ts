@@ -11,7 +11,7 @@ import { PrettyJsonModule } from 'angular2-prettyjson';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 // import { PbDatatableModule } from './module/pb-datatable/pb-datatable.module'
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { NgForageModule, NgForageConfig } from 'ngforage';
+import { NgForageModule, NgForageConfig, Driver } from 'ngforage';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import {
   TranslateModule,
@@ -22,8 +22,8 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-// import { Angulartics2Module } from 'angulartics2';
-// import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { ChartModule } from 'angular-highcharts';
 import { FgMaterialModule } from './module/fg-material/fg-material.module';
 import { ApiModule } from './module/pb-api';
@@ -84,7 +84,9 @@ import { FgEnumPipe } from './pipe/fg-enum/fg-enum.pipe';
 import { FgInputComponent } from './component/fg-input/fg-input/fg-input.component';
 import { ConnectedGuard } from './guard/connected-guard.service';
 import { FgCardComponent } from './component/fg-card/fg-card.component';
+import { SyncUrlsEqualValidator } from './validators/sync-urls-equal.validator';
 import { AsyncUrlRespondsValidator } from './validators/async-url-responds.validator';
+import { AsyncUrlApiKeyRespondsValidator } from './validators/async-url-api-key-responds.validator';
 import { GraphQLModule } from './graphql.module';
 
 /**
@@ -209,7 +211,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
         deps: [HttpClient]
       }
     }),
-    NgForageModule.forRoot(),
+    // NgForageModule,
     // NgForageModule.forRoot({
       // name: 'PowerBot',
       // driver: [ // defaults to indexedDB -> webSQL -> localStorage -> sessionStorage
@@ -231,10 +233,11 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
       { enableTracing: environment.production ? false : true }
     ),
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
-    // Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    Angulartics2Module.forRoot(),
     GraphQLModule,
   ],
   providers: [
+    Angulartics2GoogleAnalytics,
     FgComponentBaseService,
     FgAppService,
     FgEventService,
@@ -242,7 +245,9 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     FgKeyboardService,
     TranslateService,
     ConnectedGuard,
-    AsyncUrlRespondsValidator
+    SyncUrlsEqualValidator,
+    AsyncUrlRespondsValidator,
+    AsyncUrlApiKeyRespondsValidator
   ],
   entryComponents: [
     LoginViewComponent,
@@ -262,4 +267,14 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  public constructor(ngfConfig: NgForageConfig) {
+    ngfConfig.configure({
+      name: 'funil-pwa',
+      driver: [
+        Driver.INDEXED_DB,
+        Driver.LOCAL_STORAGE
+      ]
+    });
+  }
+}

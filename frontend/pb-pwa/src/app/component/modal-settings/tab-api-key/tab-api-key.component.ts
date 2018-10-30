@@ -42,6 +42,7 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
       this.form.patchValue(
         this.$component.$data.app.config.authConfig
       );
+      // this.form.markAsDirty();
     }
   }
   /**

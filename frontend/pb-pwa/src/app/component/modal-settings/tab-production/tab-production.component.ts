@@ -8,10 +8,14 @@ import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-co
 import { FgEvent } from '../../../class/fg-event.class';
 import { PbAppEvent } from '../../../event/pb-app.event';
 import { regexUrlValidationPattern } from '../../../validators/RegexUrlValidationPattern';
-import { AsyncUrlRespondsValidator } from '../../../validators/async-url-responds.validator';
-import { AppEnv } from '../../../entity/app-state.entity';
-import { Subject } from 'rxjs';
-
+import { Subject, Observable } from 'rxjs';
+import { SyncUrlsEqualValidator } from '../../../validators/sync-urls-equal.validator';
+import { AsyncUrlRespondsValidator } from 'src/app/validators/async-url-responds.validator';
+import { AsyncUrlApiKeyRespondsValidator } from 'src/app/validators/async-url-api-key-responds.validator';
+import { merge } from 'rxjs';
+/**
+ * Enum for formGroup validation-states
+ */
 export enum ValidationState {
   'INVALID',
   'PENDING',
@@ -20,7 +24,7 @@ export enum ValidationState {
 @Component({
   selector: 'pb-tab-production',
   templateUrl: './tab-production.component.html',
-  styleUrls: ['./tab-production.component.scss']
+  styleUrls: ['./tab-production.component.scss'],
 })
 export class TabProductionComponent extends FgComponentBaseComponent implements PbModalTabComponentInterface {
   /**
@@ -35,7 +39,9 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
   constructor(
     public $component: FgComponentBaseService,
     protected $fb: FormBuilder,
-    protected $AsyncUrlRespondsValidator: AsyncUrlRespondsValidator
+    protected $AsyncUrlRespondsValidator: AsyncUrlRespondsValidator,
+    protected $AsyncUrlApiKeyRespondsValidator: AsyncUrlApiKeyRespondsValidator,
+    protected $SyncUrlsEqualValidator: SyncUrlsEqualValidator
   ) {
     super(
       $component
@@ -43,59 +49,65 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     this.form = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
+      asyncValidator: [
+        this.$AsyncUrlApiKeyRespondsValidator.validate.bind(this.$AsyncUrlApiKeyRespondsValidator)
+      ],
       serverUrl: [null,
-        {
-          validators: [
+          [
             Validators.required,
             Validators.pattern(regexUrlValidationPattern)
           ],
-          asyncValidators: [
+          [
             this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
-          ],
-          // updateOn: 'blur'/
-        }
+          ]
       ],
-      backupUrl: [null,
-        {
-          validators: [
+      backupUrl: [null, [
             Validators.required,
-            Validators.pattern(regexUrlValidationPattern)
+            Validators.pattern(regexUrlValidationPattern),
+            // this.$SyncUrlsEqualValidator.validate
           ],
-          asyncValidators: [
+          [
             this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
-          ],
-          // updateOn: 'blur'
-        }
+          ]
       ],
-      apiKey: [null, {
-        validators: [
-          Validators.required,
-          Validators.pattern(regexUrlValidationPattern)
+      apiKey: [null,
+        [
+          Validators.required
         ],
-        asyncValidators: [
-          // this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
+        [
+          this.$AsyncUrlApiKeyRespondsValidator.validate.bind(this.$AsyncUrlApiKeyRespondsValidator)
         ],
-        // updateOn: 'blur'
-      }],
+      ],
       store: [null, []],
     });
+    // If either serverUrl or backupUrl validation-state changes and apiKey contains value revalidate field
+    const urlChanges: Observable<any> = merge(
+      this.form.controls.serverUrl.statusChanges,
+      this.form.controls.backupUrl.statusChanges
+    );
+    // If serverUrl/backupUrl-changes and apiKey contains value, revalidate field
+    this._subscribtions.push( urlChanges.subscribe( event => {
+      if ( ( this.form.controls.serverUrl.valid || this.form.controls.backupUrl.valid ) && this.form.controls.apiKey.value ) {
+        this.form.get('apiKey').updateValueAndValidity();
+      }
+    }));
   }
   getServerUrlErrorMessage( errors: ValidationErrors ) {
     // console.log('errors');
     // console.log(errors);
     // console.log(this.form);
-    return  'fuck you url';
+    return  'invalid url';
   }
   getBackupUrlErrorMessage( errors: ValidationErrors ) {
     // console.log('errors');
     // console.log(errors);
     // console.log(this.form);
-    return  'fuck you url';
+    return  'invalid url';
   }
   getApiErrorMessage( errors: ValidationErrors ) {
     // console.log('this.form');
     // console.log(this.form);
-    return  'fuck you api';
+    return  'invalid api';
   }
   /**
    * Set form-data from powerbot storage
@@ -105,6 +117,9 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
       this.form.patchValue(
         this.$component.$data.app.config.prodConfig
       );
+      this.form.get('serverUrl').markAsTouched();
+      this.form.get('backupUrl').markAsTouched();
+      this.form.get('apiKey').markAsTouched();
     }
   }
   /**

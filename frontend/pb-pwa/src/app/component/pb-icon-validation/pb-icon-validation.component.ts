@@ -1,8 +1,10 @@
 import { Component, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { FormControl, AbstractControl } from '@angular/forms';
+import { Subject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { PROVIDERS } from 'apollo-angular/ApolloModule';
 export enum ValidationState {
   'INVALID',
   'PENDING',
@@ -16,13 +18,17 @@ export enum ValidationState {
 })
 export class PbIconValidationComponent extends FgComponentBaseComponent implements OnChanges {
   /**
-   * Holds passed form-control status string
+   * Holds passed form-control status-string
    */
-  entity: any;
+  entity: AbstractControl;
   /**
    * Observable to receive icon state
    */
-  public icon$: Subject<string | null> = new Subject();
+  public icon$: Observable<string>;
+  /**
+   * Observable to receive icon color
+   */
+  public color$: Observable<string>;
   /**
    * CONSTRUCTOR
    */
@@ -38,11 +44,22 @@ export class PbIconValidationComponent extends FgComponentBaseComponent implemen
    * @param changes
    */
   public ngOnChanges(changes: SimpleChanges) {
+    console.log( changes );
+    if ( this.entity && !this.icon$) {
+      this.icon$ = this.entity.statusChanges.pipe(
+        map( val => {
+           return this.getFormControlValidationIcon( val );
+        })
+      );
+    }
+    if ( this.entity && !this.color$) {
+      this.color$ = this.entity.statusChanges.pipe(
+        map( val => {
+           return this.getFormControlValidationColor( val );
+        })
+      );
+    }
     super.ngOnChanges( changes );
-    this.$component.$log.warn('CHANNGGE');
-    console.log(changes);
-    // console.log(this.entity);
-    this.icon$.next( this.getFormControlValidationIcon( changes.entity.currentValue ) );
   }
   /**
    * Retun icon according to passed form-control validation
@@ -59,10 +76,29 @@ export class PbIconValidationComponent extends FgComponentBaseComponent implemen
         icon = 'cached';
         break;
       case ValidationState.VALID:
-        icon = 'done_outline';
+        icon = 'check_circle_outline';
         break;
     }
     return icon;
+  }
+  /**
+   * Retun color according to passed form-control validation state
+   * @param state
+   */
+  getFormControlValidationColor( state: string ): string {
+    let color: string = '';
+    switch ( ValidationState[state] ) {
+      case ValidationState.INVALID:
+        color = 'warn';
+        break;
+      case ValidationState.PENDING:
+        color = 'accent';
+        break;
+      case ValidationState.VALID:
+        color = 'accent';
+        break;
+    }
+    return color;
   }
 
 }

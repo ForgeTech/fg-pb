@@ -10,6 +10,7 @@ import { PbAppEvent } from '../../../event/pb-app.event';
 import { regexUrlValidationPattern } from '../../../validators/RegexUrlValidationPattern';
 import { AsyncUrlRespondsValidator } from '../../../validators/async-url-responds.validator';
 import { AppEnv } from '../../../entity/app-state.entity';
+import { AsyncUrlApiKeyRespondsValidator } from 'src/app/validators/async-url-api-key-responds.validator';
 
 /**
  * TabTestComponent -
@@ -19,7 +20,7 @@ import { AppEnv } from '../../../entity/app-state.entity';
 @Component({
   selector: 'pb-tab-test',
   templateUrl: './tab-test.component.html',
-  styleUrls: ['./tab-test.component.scss']
+  styleUrls: ['./tab-test.component.scss'],
 })
 export class TabTestComponent extends FgComponentBaseComponent implements PbModalTabComponentInterface {
   /**
@@ -33,7 +34,8 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   constructor(
     public $component: FgComponentBaseService,
     protected $fb: FormBuilder,
-    protected $AsyncUrlRespondsValidator: AsyncUrlRespondsValidator
+    protected $AsyncUrlRespondsValidator: AsyncUrlRespondsValidator,
+    protected $AsyncUrlApiRespondsValidator: AsyncUrlApiKeyRespondsValidator
   ) {
     super(
       $component
@@ -42,29 +44,30 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
       hideRequired: false,
       floatLabel: 'auto',
       serverUrl: [null,
-        {
-          validators: [
-            Validators.required,
-            Validators.pattern(regexUrlValidationPattern)
-          ],
-          asyncValidators: [
-            this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
-          ],
-          // updateOn: 'blur'
-        }
+        [
+          Validators.required,
+          Validators.pattern(regexUrlValidationPattern)
+        ],
+        [
+          this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
+        ]
       ],
-      apiKey: [null, {
-        validators: [
+      apiKey: [null,
+        [
           Validators.required
         ],
-        asyncValidators: [
-          // this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
+        [
+          this.$AsyncUrlApiRespondsValidator.validate.bind(this.$AsyncUrlApiRespondsValidator)
         ],
-        // updateOn: 'blur'
-      }],
+      ],
       store: [null, []],
     });
-    this.setFormData();
+    // If serverUrl-changes and apiKey contains value, revalidate field
+    this._subscribtions.push(this.form.controls.serverUrl.statusChanges.subscribe(event => {
+      if ( this.form.get('serverUrl').valid && this.form.get('apiKey').value ) {
+        this.form.get('apiKey').updateValueAndValidity();
+      }
+    }));
   }
   getServerUrlErrorMessage(errors: ValidationErrors) {
     return 'Server Url Error';
@@ -80,6 +83,8 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
       this.form.patchValue(
         this.$component.$data.app.config.testConfig
       );
+      this.form.get('serverUrl').markAsTouched();
+      this.form.get('apiKey').markAsTouched();
     }
   }
   /**
@@ -88,7 +93,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   private getTestData(): ConfigTestConnection {
     let config: ConfigTestConnection = new ConfigTestConnection();
     config.serverUrl = this.form.controls.serverUrl.value;
-    config.apiKey = this.form.controls.apiKey.value;
+    // config.apiKey = this.form.controls.apiKey.value;
     config.store = this.form.controls.store.value;
     return config;
   }

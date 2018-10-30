@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { ConfigLoggingConnection } from '../../../entity/entity.export';
 import { PbAppStorageConst } from '../../../app.const';
 import { NgxLoggerLevel, LoggerConfig } from 'ngx-logger';
@@ -52,6 +52,8 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
       this.form.patchValue(
         this.$component.$data.app.config.logConfig
       );
+      this.form.get('logDir').markAsTouched();
+      this.form.get('logLevel').markAsTouched();
     }
   }
   /**

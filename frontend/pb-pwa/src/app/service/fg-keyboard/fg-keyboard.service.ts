@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { FgComponentBaseComponent } from 'src/app/component/fg-component-base/fg-component-base.component';
+import { Subject, Observable } from 'rxjs';
 import { GlobalRef } from './../../module/fg-global-scope/fg-global-refs.class';
+import { interval } from 'rxjs';
+import { map, debounce } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,18 @@ export class FgKeyboardService {
   /**
    * Observable returning true if typing started
    */
-  public inputStarted$: Subject<boolean> = new Subject();
+  public keys$: Subject<KeyboardEvent> = new Subject();
   /**
    * Observable returning true if there is no key_up-event is
    * received after defined delay
    */
-  public inputEnded$: Subject<boolean> = new Subject();
+  public inputEnded$: Observable<any> = this.keys$.pipe(
+    debounce( val => interval( 1000 )),
+    map( val => {
+      return val;
+    })
+  );
+
   /**
    * CONSTRUCTOR
    */
@@ -26,5 +33,11 @@ export class FgKeyboardService {
      */
     private $global: GlobalRef
   ) {}
+
+  public keyDown( event: KeyboardEvent ): void {
+    this.keys$.next( event );
+  }
+  public keyUp( event: KeyboardEvent ): void {
+  }
 
 }

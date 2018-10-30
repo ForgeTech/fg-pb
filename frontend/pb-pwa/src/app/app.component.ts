@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, SimpleChanges, HostListener } from '@angular/core';
 import { FgAppService } from './app.service';
-// import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import {
   FgComponentBaseEvent,
   FgEntityEvent,
@@ -87,8 +87,8 @@ export class AppComponent // extends FgEventSubscriber
    */
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    this.$app.$log.warn('KeyDown-Event:', event.key);
-    // this.$app.$keyboard.keydown( event );
+    // this.$app.$log.warn('KeyDown-Event:', event.key);
+    this.$app.$keyboard.keyDown( event );
   }
   /**
    * Listen to keyboard-events on global window-object and forward
@@ -98,22 +98,22 @@ export class AppComponent // extends FgEventSubscriber
    */
   @HostListener('window:keyup', ['$event'])
   handleKeyUp(event: KeyboardEvent) {
-    this.$app.$log.warn('KeyUp-Event:', event.key);
-    // this.$app.$keyboard.keyup( event );
+    // this.$app.$log.warn('KeyUp-Event:', event.key);
+    this.$app.$keyboard.keyUp( event );
   }
   /**
   * CONSTRUCTOR
   */
   constructor(
-    // angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
+    protected $angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
     $dialog: MatDialog,
     $app: FgAppService,
     $log: FgLogService,
     public $router: Router
   ) {
+    this.$angulartics2GoogleAnalytics.startTracking();
     this.$dialog = $dialog;
     this.$app = $app;
-
     // Set array of available languages
     this.$app.$translate.addLangs(this.$app.$data.$env.languages);
     // This language will be used as a fallback when a

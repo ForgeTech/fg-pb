@@ -5,7 +5,6 @@
     (ngSubmit)="action( $event )"
     novalidate
   >
-    <p>
       <mat-form-field appearance="fill" color="{{ config }}">
         <mat-label translate>input_label_master_pwd</mat-label>
         <input
@@ -14,11 +13,9 @@
           formControlName="masterPwd"
           required
         >
-        <pb-icon-validation matSuffix [entity]="this.form.controls.masterPwd.status"></pb-icon-validation>
+        <pb-icon-validation matSuffix [entity]="this.form.controls.masterPwd"></pb-icon-validation>
         <mat-hint translate>input_hint_master_pwd</mat-hint>
       </mat-form-field>
-    </p>
-    <p>
       <mat-form-field appearance="fill" color="{{ config }}">
         <mat-label  translate>input_label_epex</mat-label>
         <input
@@ -27,11 +24,9 @@
           formControlName="epexPass"
           required
         >
-        <pb-icon-validation matSuffix [entity]="this.form.controls.epexPass.status"></pb-icon-validation>
+        <pb-icon-validation matSuffix [entity]="this.form.controls.epexPass"></pb-icon-validation>
         <mat-hint translate>input_hint_epex</mat-hint>
       </mat-form-field>
-    </p>
-    <p>
       <mat-form-field appearance="fill"  color="{{ config }}">
         <mat-label translate>input_label_api_key_name</mat-label>
         <input
@@ -40,34 +35,29 @@
           formControlName="name"
           required
         >
-        <pb-icon-validation matSuffix [entity]="this.form.controls.epexPass.status"></pb-icon-validation>
+        <pb-icon-validation matSuffix [entity]="this.form.controls.epexPass"></pb-icon-validation>
         <mat-hint translate>input_hint_api_key_name</mat-hint>
       </mat-form-field>
-    </p>
-    <p>
       <mat-checkbox
         formControlName="canTrade"
         color="{{ config }}"
       >
-       {{ 'checkbox_label_enable_trading' | translate }}
+      {{ 'checkbox_label_enable_trading' | translate }}
       </mat-checkbox>
       &nbsp;
       <mat-checkbox
-        formControlName="canSignal"
-        color="{{ config }}"
+      formControlName="canSignal"
+      color="{{ config }}"
       >
-        {{ 'checkbox_label_enable_signaling' | translate}}
-      </mat-checkbox>
-    </p>
+      {{ 'checkbox_label_enable_signaling' | translate}}
+    </mat-checkbox>
     <mat-radio-group formControlName="envProd">
-      <p>
-        <mat-radio-button value="true" >
-          {{ 'checkbox_label_enable_environment_production' | translate }}
-        </mat-radio-button>
-        <mat-radio-button value="false">
-          {{ 'checkbox_label_enable_environment_test' | translate }}
-        </mat-radio-button>
-      </p>
+      <mat-radio-button value="true" >
+        {{ 'checkbox_label_enable_environment_production' | translate }}
+      </mat-radio-button>
+      <mat-radio-button value="false">
+        {{ 'checkbox_label_enable_environment_test' | translate }}
+      </mat-radio-button>
     </mat-radio-group>
   </form>
 </div>

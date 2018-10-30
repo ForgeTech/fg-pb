@@ -15,7 +15,7 @@
           formControlName="serverUrl"
           required
         >
-        <pb-icon-validation matSuffix [entity]="this.form.controls.serverUrl.status"></pb-icon-validation>
+        <pb-icon-validation matSuffix [entity]="this.form.controls.serverUrl"></pb-icon-validation>
         <mat-hint translate>input_hint_test_url</mat-hint>
         <mat-error>{{getServerUrlErrorMessage(this.form.controls.serverUrl)}}</mat-error>
       </mat-form-field>
@@ -32,9 +32,9 @@
           formControlName="apiKey"
           required
         >
-        <pb-icon-validation matSuffix [entity]="this.form.controls.apiKey.status"></pb-icon-validation>
+        <pb-icon-validation matSuffix [entity]="this.form.controls.apiKey"></pb-icon-validation>
         <mat-hint translate>input_hint_test_api_key</mat-hint>
-        <mat-error>{{getApiErrorMessage(this.form.apiKey)}}</mat-error>
+        <mat-error>{{getApiErrorMessage(this.form.controls.apiKey)}}</mat-error>
       </mat-form-field>
     </p>
     <p>
