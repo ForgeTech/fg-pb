@@ -83,8 +83,6 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
       this.form.patchValue(
         this.$component.$data.app.config.testConfig
       );
-      this.form.get('serverUrl').markAsTouched();
-      this.form.get('apiKey').markAsTouched();
     }
   }
   /**

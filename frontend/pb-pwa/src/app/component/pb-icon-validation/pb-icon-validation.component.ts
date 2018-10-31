@@ -44,7 +44,6 @@ export class PbIconValidationComponent extends FgComponentBaseComponent implemen
    * @param changes
    */
   public ngOnChanges(changes: SimpleChanges) {
-    console.log( changes );
     if ( this.entity && !this.icon$) {
       this.icon$ = this.entity.statusChanges.pipe(
         map( val => {

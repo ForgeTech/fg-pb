@@ -17,7 +17,7 @@ export const environment = {
   powerbot: {
     lang: 'en',
     config: {
-      darkTheme: true,
+      darkTheme: false,
       backHours: 1,
       view: {
         dashboard: {

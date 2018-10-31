@@ -109,4 +109,8 @@ body {
       color: $white;
     }
   }
+  .mat-stepper-horizontal,
+  .mat-stepper-vertical {
+    background-color: $darker-grey;
+  }
 }

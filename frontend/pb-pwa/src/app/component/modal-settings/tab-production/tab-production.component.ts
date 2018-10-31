@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
-import { FormGroup, FormBuilder, Validators, ValidationErrors, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidationErrors, FormControl, AbstractControl } from '@angular/forms';
 import { ConfigProductionConnection } from '../../../entity/entity.export';
 import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
@@ -64,7 +64,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
       backupUrl: [null, [
             Validators.required,
             Validators.pattern(regexUrlValidationPattern),
-            // this.$SyncUrlsEqualValidator.validate
+            // this.$SyncUrlsEqualValidator.validate.bind(this.$SyncUrlsEqualValidator)
           ],
           [
             this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
@@ -117,9 +117,6 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
       this.form.patchValue(
         this.$component.$data.app.config.prodConfig
       );
-      this.form.get('serverUrl').markAsTouched();
-      this.form.get('backupUrl').markAsTouched();
-      this.form.get('apiKey').markAsTouched();
     }
   }
   /**

@@ -1,57 +1,84 @@
 <fg-card [entity]="this.entity" class="modal_login">
   <div title>
-    <img class="pb-header-logo" height="60px" alt="PowerBot Logo" src="./assets/powerbot_logo.png" />
-    <!-- <mat-horizontal-stepper [linear]="isLinear" #stepper>
-      <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Configure Production</ng-template>
-          <mat-form-field>
-            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup">
-          <ng-template matStepLabel>Configure Test</ng-template>
-          <mat-form-field>
-            <input matInput placeholder="Address" formControlName="secondCtrl" required>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step>
-        <ng-template matStepLabel>Configure Logging</ng-template>
-        You are now done.
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
-        </div>
-      </mat-step>
-    </mat-horizontal-stepper> -->
+  <div
+    fxLayout="row"
+    fxLayoutAlign="start center"
+  >
+    <div fxFlex="1 1 100px">
+      <img
+        class="pb-header-logo"
+        height="60px"
+        alt="PowerBot Logo"
+        src="./assets/powerbot_logo.png"
+      />
+    </div>
+    <div fxFlex=""></div>
+    <div fxFlex="1 1 60px">
+      <button mat-fab color="primary"><mat-icon>help_outline</mat-icon></button>
+    </div>
+  </div>
   </div>
   <div content>
-    <mat-tab-group #tabGroup color="{{ inputThemeColor }}" [selectedIndex]="activeTabIndex" (selectedTabChange)="onTabChange($event)">
-      <mat-tab label="{{ 'tab_label_production' | translate }}">
-        <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>
-      </mat-tab>
-      <mat-tab label="{{ 'tab_label_test' | translate }}">
-        <pb-tab-test #tabTest [config]="inputThemeColor"></pb-tab-test>
-      </mat-tab>
-      <mat-tab label="{{ 'tab_label_logging' | translate }}">
-        <pb-tab-logging #tabLogging [config]="inputThemeColor"></pb-tab-logging>
-      </mat-tab>
-      <mat-tab label="{{ 'tab_label_api_key' | translate }}">
-        <pb-tab-api-key #tabApi [config]="inputThemeColor"></pb-tab-api-key>
-      </mat-tab>
-    </mat-tab-group>
+  <br/>
+  <mat-horizontal-stepper #stepper labelPosition="bottom">
+    <mat-step [stepControl]="tabProduction.form" state="timeline">
+      <ng-template matStepLabel>
+        {{ 'tab_label_production' | translate }}
+        <pb-icon-validation [entity]=""></pb-icon-validation>
+      </ng-template>
+      <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>
+      <div>
+        <button mat-stroked-button matStepperNext>
+          Next
+          <mat-icon>navigate_next</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="tabTest.form" state="build">
+      <ng-template matStepLabel>
+        {{ 'tab_label_test' | translate }}
+        <pb-icon-validation [entity]=""></pb-icon-validation>
+      </ng-template>
+      <pb-tab-test #tabTest [config]="inputThemeColor"></pb-tab-test>
+      <div>
+        <button mat-stroked-button matStepperPrevious>
+          <mat-icon>navigate_before</mat-icon>
+          Previous
+        </button>
+        &nbsp;
+        <button mat-stroked-button matStepperNext>
+          Next
+          <mat-icon>navigate_next</mat-icon>
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="tabLogging.form" [optional]="true" state="cast">
+      <ng-template matStepLabel>
+        {{ 'tab_label_logging' | translate }}
+        <pb-icon-validation [entity]=""></pb-icon-validation>
+      </ng-template>
+      <pb-tab-logging #tabLogging [config]="inputThemeColor"></pb-tab-logging>
+      <div>
+        <button mat-stroked-button matStepperPrevious>
+          <mat-icon>navigate_before</mat-icon>
+          Previous
+        </button>
+      </div>
+    </mat-step>
+    <ng-template matStepperIcon="timeline">
+      <mat-icon>timeline</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="build">
+      <mat-icon>build</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="cast">
+      <mat-icon>cast</mat-icon>
+    </ng-template>
+  </mat-horizontal-stepper>
+  <!-- <pb-tab-api-key #tabApi [config]="inputThemeColor"></pb-tab-api-key> -->
   </div>
   <div actions>
+    <br/>
     <button mat-raised-button color="accent" (click)="action($event)" [disabled]="isDisabled()">
       <!-- [disabled]="isDisabled()" -->
       {{ getModalActionBtnLabel() | async }}

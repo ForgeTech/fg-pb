@@ -29,11 +29,12 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
       hideRequired: false,
       floatLabel: 'auto',
       masterPwd: [null, [Validators.required, Validators.minLength(5)]],
-      epexPass: [null, [Validators.required]],
+      epexPwd: [null, [Validators.required]],
       name: [null, [Validators.required]],
       canTrade: [null, []],
       canSignal: [null, []],
       envProd: [null, [Validators.required]],
+      genApiKey: [null, []],
     });
   }
   // Implement to satisfy tab interface, but do not
@@ -51,17 +52,29 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
   action( $event: any = false ): void {
     console.log('API CONFIG');
     let params = {
-      'name': this.form.controls.name.value,
-      'epex_password': this.form.controls.masterPwd.value,
-      'can_trade': this.form.controls.can_trade.value,
-      'can_signal': this.form.controls.can_signal.value
-    }
+      name: this.form.controls.name.value,
+      epex_password: this.form.controls.epexPwd.value,
+      can_trade: this.form.controls.canTrade.value,
+      can_signal: this.form.controls.canSignal.value,
+    };
+// {
+//       'masterPwd': this.form.controls.masterPwd.value,
+//       'epexPwd': this.form.controls.epexPwd.value,
+//       'name': this.form.controls.name.value,
+//       'canTrade': this.form.controls.canTrade.value,
+//       'canSignal': this.form.controls.canSignal.value,
+//       'envProd': this.form.controls.envProd.value,
+    // };
+    this.$component.$data.$auth.configuration.basePath = 'https://playground.powerbot-trading.com/api/v0';
+    this.$component.$data.$auth.configuration.apiKeys = { api_key: '44fc8162-d2c6-432a-8279-d8d40e5c0e1b' };
     const subscription = this.$component.$data.$auth.addApiKey(params, 'body', true).subscribe( response => {
       console.log( 'API_KEY: ' + response );
+      this.form.get('genApiKey').setValue('RECEIVED VALID');
     },
     error => {
       console.log( 'Api Key Error' );
       console.log( error );
+      this.form.get('genApiKey').setValue(error.message);
     });
     this._subscribtions.push( subscription );
   }

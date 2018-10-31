@@ -52,8 +52,6 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
       this.form.patchValue(
         this.$component.$data.app.config.logConfig
       );
-      this.form.get('logDir').markAsTouched();
-      this.form.get('logLevel').markAsTouched();
     }
   }
   /**
