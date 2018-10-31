@@ -21,38 +21,39 @@
   <div content>
   <br/>
   <mat-horizontal-stepper #stepper labelPosition="bottom">
-    <mat-step [stepControl]="tabProduction.form" state="timeline">
+    <mat-step [stepControl]="tabProduction.form" [completed]="tabProduction.form.valid">
       <ng-template matStepLabel>
         {{ 'tab_label_production' | translate }}
         <pb-icon-validation [entity]=""></pb-icon-validation>
       </ng-template>
       <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>
-      <div>
-        <button mat-stroked-button matStepperNext>
+      <div fxFlexLayout="row">
+        <div fxFlex=""></div>
+        <button fxFlex="150px" mat-stroked-button matStepperNext>
           Next
           <mat-icon>navigate_next</mat-icon>
         </button>
       </div>
     </mat-step>
-    <mat-step [stepControl]="tabTest.form" state="build">
+    <mat-step [stepControl]="tabTest.form" [completed]="tabTest.form.valid">
       <ng-template matStepLabel>
         {{ 'tab_label_test' | translate }}
         <pb-icon-validation [entity]=""></pb-icon-validation>
       </ng-template>
       <pb-tab-test #tabTest [config]="inputThemeColor"></pb-tab-test>
-      <div>
-        <button mat-stroked-button matStepperPrevious>
+      <div fxFlexLayout="row">
+        <button fxFlex="150px" mat-stroked-button matStepperPrevious>
           <mat-icon>navigate_before</mat-icon>
           Previous
         </button>
-        &nbsp;
-        <button mat-stroked-button matStepperNext>
+        <div fxFlex=""></div>
+        <button fxFlex="150px" mat-stroked-button matStepperNext>
           Next
           <mat-icon>navigate_next</mat-icon>
         </button>
       </div>
     </mat-step>
-    <mat-step [stepControl]="tabLogging.form" [optional]="true" state="cast">
+    <mat-step [stepControl]="tabLogging.form" [optional]="true" [completed]="tabLogging.form.valid">
       <ng-template matStepLabel>
         {{ 'tab_label_logging' | translate }}
         <pb-icon-validation [entity]=""></pb-icon-validation>
@@ -65,25 +66,30 @@
         </button>
       </div>
     </mat-step>
-    <ng-template matStepperIcon="timeline">
+    <!-- <ng-template matStepperIcon="1">
       <mat-icon>timeline</mat-icon>
     </ng-template>
-    <ng-template matStepperIcon="build">
+    <ng-template matStepperIcon="2">
       <mat-icon>build</mat-icon>
     </ng-template>
-    <ng-template matStepperIcon="cast">
+    <ng-template matStepperIcon="3">
       <mat-icon>cast</mat-icon>
+    </ng-template> -->
+    <ng-template matStepperIcon="complete">
+      <mat-icon>check</mat-icon>
     </ng-template>
   </mat-horizontal-stepper>
   <!-- <pb-tab-api-key #tabApi [config]="inputThemeColor"></pb-tab-api-key> -->
   </div>
   <div actions>
     <br/>
-    <button mat-raised-button color="accent" (click)="action($event)" [disabled]="isDisabled()">
-      <!-- [disabled]="isDisabled()" -->
-      {{ getModalActionBtnLabel() | async }}
-    </button>
-    &nbsp;
-    <pb-pwa-install></pb-pwa-install>
+    <div fxFlexLayout="row">
+      <pb-pwa-install fxFlex="150px"></pb-pwa-install>
+      <div fxFlex=""></div>
+      <button fxFlex="150px" mat-raised-button color="accent" (click)="action($event)" [disabled]="isDisabled()">
+        <!-- [disabled]="isDisabled()" -->
+        {{ getModalActionBtnLabel() | async }}
+      </button>
+    </div>
   </div>
 </fg-card>

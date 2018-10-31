@@ -1,6 +1,6 @@
 import { Component, ViewChild, SimpleChange, SimpleChanges } from '@angular/core';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { MatTab, MatTabChangeEvent, MatTabGroup } from '@angular/material';
+import { MatTab, MatTabChangeEvent, MatTabGroup, MatStepper } from '@angular/material';
 import { TabProductionComponent } from './tab-production/tab-production.component';
 import { TabLoggingComponent } from './tab-logging/tab-logging.component';
 import { TabTestComponent } from './tab-test/tab-test.component';
@@ -42,6 +42,7 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
   inputThemeColor: string = 'accent';
 
   // @ViewChild('tabGroup') tabGroup: MatTabGroup;
+  @ViewChild('stepper') stepper: MatStepper;
   @ViewChild('tabProduction') tabProduction: TabProductionComponent;
   @ViewChild('tabTest') tabTest: TabTestComponent;
   @ViewChild('tabLogging') tabLogging: TabLoggingComponent;

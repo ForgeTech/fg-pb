@@ -37,40 +37,30 @@
         <mat-error>{{getBackupUrlErrorMessage(this.form.controls.backupUrl)}}</mat-error>
       </mat-form-field>
     </p>
-    <p>
-      <!-- <div
-        fxLayout="row"
-        fxLayoutGap="50px"
-        > -->
-        <!-- fxLayoutAlign="start center" -->
-        <!-- fxLayoutGap="5px" -->
-        <mat-form-field
-          appearance="fill"
-          color="{{ config }}"
-          >
-          <!-- fxFlex="95%"</mat-form-field> -->
-          <mat-label translate>input_label_api_key</mat-label>
-          <input
-            matInput
-            placeholder="{{ 'input_placeholder_api_key' | translate }}'"
-            formControlName="apiKey"
-            required
-          >
-          <pb-icon-validation matSuffix [entity]="this.form.controls.apiKey"></pb-icon-validation>
-          <mat-hint translate>input_hint_production_api_key</mat-hint>
-          <mat-error>{{getApiErrorMessage(this.form.controls.apiKey)}}</mat-error>
-        </mat-form-field>
-        <!-- <div fxFlex="100px">
-          <button
-            mat-fab
-            matTooltip="Generate ApiKey"
-            color="accent"
-            >
-            <mat-icon>vpn_key</mat-icon>
-          </button>
-        </div>
-      </div> -->
-    </p>
+    <div fxFlexLayout="row" fxLayoutGap="10px">
+      <mat-form-field
+        fxFlex=""
+        appearance="fill"
+        color="{{ config }}"
+      >
+        <mat-label translate>input_label_api_key</mat-label>
+        <input
+          matInput
+          placeholder="{{ 'input_placeholder_api_key' | translate }}"
+          formControlName="apiKey"
+          required
+        >
+        <pb-icon-validation matSuffix [entity]="this.form.controls.apiKey"></pb-icon-validation>
+        <mat-hint translate>input_hint_test_api_key</mat-hint>
+        <mat-error>{{getApiErrorMessage(this.form.controls.apiKey)}}</mat-error>
+      </mat-form-field>
+      <div fxFlex="50px">
+        <button
+        mat-fab
+        matTooltip="Generate ApiKey"
+        ><mat-icon>vpn_key</mat-icon></button>
+      </div>
+    </div>
     <p>
       <mat-checkbox
         formControlName="store"
