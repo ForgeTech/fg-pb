@@ -30,7 +30,7 @@ import { ConnectionState, AppEnv, RequestState } from '../../entity/app-state.en
 import { NgForage } from 'ngforage';
 import { PbAppStorageConst, PbAppEntityConst } from '../../app.const';
 import { Observable, Subscription, Subject, combineLatest } from 'rxjs';
-
+import { FgGraphqlService } from 'src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service';
 /**
  * DataService -
  * Service providing interface to fetch, access and
@@ -107,10 +107,24 @@ export class PbDataService {
      */
     public $trades: TradesService,
     /**
-     * Provides access to powerbot trade-object service
+     * Provides access to powerbot storage-object service
      */
     public $storage: NgForage,
+    /**
+     * Provides access to powerbot storage-object service
+     */
+    public $apollo: FgGraphqlService,
   ) {
+    this.$apollo.createClient(this.$env.powerbot);
+    const query = this.$apollo.query(`query farkTest {
+          config {
+            lang
+          }
+      }`);
+      query.subscribe( result => {
+        console.log('Result');
+        console.log( result );
+      })
     const errorFn = error => {
       // Only perform error-handling if connection-state isn't Offline
       // so validation can use wrapped services

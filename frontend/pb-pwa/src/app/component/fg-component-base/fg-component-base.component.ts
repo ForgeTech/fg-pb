@@ -8,41 +8,35 @@ import {
   Input,
   Output,
   SimpleChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterContentChecked,
 } from '@angular/core';
 import { FgComponentBaseService } from './fg-component-base.service';
-import {
-  FgComponentBaseEvent,
-  FgEntityEvent
-} from '../../event/fg-events.export';
-// import { GlobalRef } from './../../module/fg-global-scope/fg-global-refs.class';
+import { FgComponentBaseEvent } from '../../event/fg-events.export';
 import { FgEvent, FgAction } from '../../class/fg-class.export';
-import { Subscription } from 'rxjs';
+import { Subscription, BehaviorSubject, Subject } from 'rxjs';
+import { Observable } from 'apollo-link';
 /**
  * CAUTION: This abstract class isn't a real angular-component,
  * as it doesn't use the @Component decorator and is meant to be
  * extended - to provide basic functionallity for forge-components
  */
 export class FgComponentBaseComponent // extends FgEventSubscriber
-implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, OnDestroy {
+  implements  OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit,
+  AfterViewChecked, OnDestroy /*, IFgActionProviderInterface*/ {
   /**
    * On creation push your subscribtions to this array,
    * onDestroy they will be automatically unsubscribed
    */
   protected _subscribtions: Subscription[] = [];
   /**
-   * Contains a reference to a forge-components parent-component
+   * Observable streaming a components events
    */
-  @Input() parent: any; // IFgComponentEntityInterface;
+  readonly event$: Subject<FgEvent> = new Subject();
   /**
-   * Contains a EventEmitter instance and uses it to publish
-   * a components events to their parent-component
-   */
-  @Output() event: EventEmitter<FgEvent> = new EventEmitter<FgEvent>();
-  /**
-   * CAUTION! MAKE SURE THIS IS NOT INITIALIZED IN
-   * COMPONENT-BASE-COMPONENT CONSTRUCTOR!
-   * actions-property should only be initialized by components
-   * which want to provide component-related actions
+   * Should be used to contain actions related to the component
    */
   public actions: FgAction[]; // IFgActionEntityInterface[];
   /**
@@ -53,6 +47,11 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
    * INPUT To receive a components configuration-object
    */
   @Input() config: any;
+  /**
+   * Contains a EventEmitter instance and uses it to publish
+   * a components events to their parent-component
+   */
+  @Output() event: EventEmitter<FgEvent> = new EventEmitter<FgEvent>();
   /**
    * Dispatch click event
    */
@@ -71,13 +70,6 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
       this.emitEvent( new FgEvent( FgComponentBaseEvent.SELECTED, this, this.entity ) );
     }
     this.emitEvent( new FgEvent( FgComponentBaseEvent.FOCUS_IN, this, this.entity ) );
-    /**
-     * TODO: Implement selectable propertie to allow ignoring selection
-     * on elements
-     */
-    // if ( this.entity && this.entity.selectable ) {
-      this.emitEvent( new FgEvent( FgComponentBaseEvent.SELECTED, this, this.entity ) );
-    // }
   }
   /**
    * Dispatch focus-out event
@@ -96,42 +88,64 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
   /**
    * Dispatch an event via global event-service and component event-emitter
    */
-  public emitEvent( eventToDispatch: FgEvent ) {
+  protected emitEvent( eventToDispatch: FgEvent ) {
     // Emit component-event using angular event-emitter
     if ( eventToDispatch.bubble ) {
       this.event.emit( eventToDispatch );
     }
+    // Emit event via component event-subject
+    this.event$.next( eventToDispatch );
     // Emit global-event via event-service
     this.$component.$event.emit( eventToDispatch );
+  }
+  /**
+   * Implements methode for component life-cycle OnChange-Interface.
+   */
+  public ngOnChanges( changes: SimpleChanges ) {
+    this.$component.$log.log( 'ngOnChanges' );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.ON_CHANGES, this, changes ) );
   }
   /**
    * Implements methode for component life-cycle OnInit-Interface.
    */
   public ngOnInit() {
     this.$component.$log.log( 'ngOnInit ' );
-    this.logComponentInfoToConsole();
     this.emitEvent( new FgEvent( FgComponentBaseEvent.ON_INIT, this, this.entity ) );
+  }
+  /**
+   * Implements methode for component life-cycle DoCheck-Interface.
+   */
+  public ngDoCheck() {
+    this.$component.$log.log( 'ngDoCheckInit' );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.DO_CHECK, this, this.entity ) );
+  }
+  /**
+   * Implements methode for component life-cycle AfterConentInit-Interface.
+   */
+  public ngAfterContentInit() {
+    this.$component.$log.log( 'ngAfterContentInit' );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.AFTER_CONTENT_INIT, this, this.entity ) );
+  }
+  /**
+   * Implements methode for component life-cycle AfterConentChecked-Interface.
+   */
+  public ngAfterContentChecked() {
+    this.$component.$log.log( 'ngAfterContentChecked' );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.AFTER_CONTENT_CHECKED, this, this.entity ) );
   }
   /**
    * Implements methode for component life-cycle AfterViewInit-Interface.
    */
   public ngAfterViewInit() {
     this.$component.$log.log( 'ngAfterViewInit' );
-    if ( this.parent ) {
-      this.entity.parent = this.parent;
-    }
-    this.logComponentInfoToConsole();
-    this.emitEvent( new FgEvent( FgComponentBaseEvent.AFTER_VIEW, this, this.entity ) );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.AFTER_VIEW_INIT, this, this.entity ) );
   }
   /**
-   * Implements methode for component life-cycle OnChange-Interface.
-   * @param changes
+   * Implements methode for component life-cycle AfterConentChecked-Interface.
    */
-  public ngOnChanges( changes: SimpleChanges ) {
-    this.$component.$log.log( 'ngOnChanges' );
-    this.logComponentInfoToConsole();
-    this.emitEvent( new FgEvent( FgComponentBaseEvent.ON_CHANGES, this, changes ) );
-    this.emitEvent( new FgEvent( FgEntityEvent.SYNC, this, this.entity ) );
+  public ngAfterViewChecked() {
+    this.$component.$log.log( 'ngAfterViewChecked' );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.AFTER_VIEW_CHECKED, this, this.entity ) );
   }
   /**
    * Implements methode for component life-cycle OnInit-Interface.
@@ -141,15 +155,6 @@ implements /* IFgActionProviderInterface,*/ OnInit, OnChanges, AfterViewInit, On
     this._subscribtions.forEach( subscribtion => {
       subscribtion.unsubscribe();
     });
-    this.logComponentInfoToConsole();
-    this.emitEvent( new FgEvent( FgComponentBaseEvent.ON_DESTROY, this.entity ) );
-  }
-  /**
-   * Methode prints value of a components common information to console.
-   */
-  private logComponentInfoToConsole() {
-    // TODO reimplament in a way nglogger can parse this
-    // with json.stringify()
-    this.$component.$log.info( this.constructor.name );
+    this.emitEvent( new FgEvent( FgComponentBaseEvent.ON_DESTROY, this, this.entity ) );
   }
 }

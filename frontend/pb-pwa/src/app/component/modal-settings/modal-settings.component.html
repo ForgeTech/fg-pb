@@ -13,9 +13,9 @@
       />
     </div>
     <div fxFlex=""></div>
-    <div fxFlex="1 1 60px">
+    <!-- <div fxFlex="1 1 60px">
       <button mat-fab color="primary"><mat-icon>help_outline</mat-icon></button>
-    </div>
+    </div> -->
   </div>
   </div>
   <div content>
@@ -86,9 +86,13 @@
     <div fxFlexLayout="row">
       <pb-pwa-install fxFlex="150px"></pb-pwa-install>
       <div fxFlex=""></div>
-      <button fxFlex="150px" mat-raised-button color="accent" (click)="action($event)" [disabled]="isDisabled()">
-        <!-- [disabled]="isDisabled()" -->
-        {{ getModalActionBtnLabel() | async }}
+      <button fxFlex="150px"
+        mat-raised-button
+        color="accent"
+        [disabled]="( actionDisabled$ | async )"
+        (click)="action($event)"
+      >
+        {{ actionLabel$ | async }}
       </button>
     </div>
   </div>

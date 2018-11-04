@@ -1,24 +1,10 @@
-import { Component, OnInit, OnChanges, AfterViewInit, OnDestroy, SimpleChanges, HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FgAppService } from './app.service';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
-import {
-  FgComponentBaseEvent,
-  FgEntityEvent,
-  PbAppEvent
-} from './event/fg-events.export';
+import { PbAppEvent } from './event/fg-events.export';
 import { FgComponentBaseComponent } from './component/fg-component-base/fg-component-base.component';
-import { NGXLogger as FgLogService } from 'ngx-logger';
 import { MatDialog } from '@angular/material';
-import { ConfigPowerbot } from './entity/entity.export';
-import { Subscription, Subject } from 'rxjs';
-import {
-LogEntity,
-MarketEntity,
-MessageEntity,
-OrderEntity,
-SignalEntity,
-TradeEntity,
-} from './entity/entity.export';
+import { Subject } from 'rxjs';
 import { ModalHelpComponent } from './component/modal-help/modal-help.component';
 import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
 import { AppEnv } from './entity/app-state.entity';
@@ -32,24 +18,7 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent // extends FgEventSubscriber
-  implements OnInit, OnChanges, AfterViewInit, OnDestroy {
-  /**
-   * Hold test-data configuration
-   */
-  public config: ConfigPowerbot;
-  /**
-   * Hold test-data configuration
-   */
-  public timerSubscribtion: Subscription;
-  /**
-   * Hold reference to angular-material dialog-utils
-   */
-  protected $dialog: MatDialog;
-  /**
-   * Holds a reference to the basic forge init-service
-   */
-  public $app: FgAppService;
+export class AppComponent {
   /**
    * Holds reference to the component currently holding focus
    */
@@ -87,7 +56,6 @@ export class AppComponent // extends FgEventSubscriber
    */
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
-    // this.$app.$log.warn('KeyDown-Event:', event.key);
     this.$app.$keyboard.keyDown( event );
   }
   /**
@@ -98,29 +66,39 @@ export class AppComponent // extends FgEventSubscriber
    */
   @HostListener('window:keyup', ['$event'])
   handleKeyUp(event: KeyboardEvent) {
-    // this.$app.$log.warn('KeyUp-Event:', event.key);
     this.$app.$keyboard.keyUp( event );
   }
   /**
   * CONSTRUCTOR
   */
   constructor(
+    /**
+     * Import angulartics-service for google analytics
+     */
     protected $angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
-    $dialog: MatDialog,
-    $app: FgAppService,
-    $log: FgLogService,
-    public $router: Router
+    /**
+     * Holds a reference to the basic forge init-service
+     */
+    public $app: FgAppService,
+    /**
+     * Import angular router-service
+     */
+    public $router: Router,
+    /**
+     * Hold reference to angular-material dialog-utils
+     */
+    protected $dialog: MatDialog
   ) {
     this.$angulartics2GoogleAnalytics.startTracking();
     this.$dialog = $dialog;
     this.$app = $app;
     // Set array of available languages
-    this.$app.$translate.addLangs(this.$app.$data.$env.languages);
+    this.$app.$translate.addLangs(this.$app.$data.$env.powerbot.config.languages);
     // This language will be used as a fallback when a
     // translation for set language isn't found
-    this.$app.$translate.setDefaultLang(this.$app.$data.$env.lang);
+    this.$app.$translate.setDefaultLang(this.$app.$data.$env.powerbot.config.lang);
     // Set defaultLang to active Lang, until user configuration was loaded.
-    this.$app.$translate.use(this.$app.$data.$env.lang);
+    this.$app.$translate.use(this.$app.$data.$env.powerbot.config.lang);
     // Get language configured in browser and set it if available
     // const browserLang = this.$app.$translate.getBrowserLang();
     // this.$app.$translate.use(
@@ -186,10 +164,6 @@ export class AppComponent // extends FgEventSubscriber
     .subscribe( event => {
       this.$app.$log.warn('DISCONNECT MARKET!');
     });
-    // if ( !this.$app.$data.getProductionValid() || !this.$app.$data.getTestValid() ){
-      // Open Connection-Modal on application startup
-      // this.$app.$event.emit(new FgEvent(PbAppEvent.OPEN_CONNECTION_MODAL));
-    // }
 
     // Register the events that should be logged from emit-funciton
     this.$app.$event.registerEventsToLog([
@@ -209,61 +183,5 @@ export class AppComponent // extends FgEventSubscriber
       // FgComponentBaseEvent.EXPORT,
       // FgComponentBaseEvent.PRINT,
     ]);
-  }
-
-  public isConnected(): boolean {
-    return false;
-  }
-  /**
-   * Implements methode for component life-cycle OnInit-Interface.
-   */
-  public ngOnInit() {
-    this.$app.$log.log('ngOnInit: ');
-    this.logComponentInfoToConsole();
-    this.emitEvent(FgComponentBaseEvent.ON_INIT, this, this);
-  }
-  /**
-   * Implements methode for component life-cycle AfterViewInit-Interface.
-   */
-  public ngAfterViewInit() {
-    this.$app.$log.log('ngAfterViewInit: ');
-    // this.$app.$log.info(this._FORGE);
-    this.logComponentInfoToConsole();
-    this.emitEvent(FgComponentBaseEvent.AFTER_VIEW, this, this);
-  }
-  /**
-   * Implements methode for component life-cycle OnChange-Interface.
-   * @param changes
-   */
-  public ngOnChanges(changes: SimpleChanges) {
-    this.$app.$log.log('ngOnChanges: ');
-    this.logComponentInfoToConsole();
-    this.emitEvent(FgComponentBaseEvent.ON_CHANGES, this, changes);
-    this.emitEvent(FgEntityEvent.SYNC, this, this);
-  }
-  /**
-   * Implements methode for component life-cycle OnInit-Interface.
-   */
-  public ngOnDestroy() {
-    this.$app.$log.log('ngOnDestroy: ');
-    this.logComponentInfoToConsole();
-    this.emitEvent(FgComponentBaseEvent.ON_DESTROY, this, this);
-  }
-  /**
-   * Methode prints value of a components common information to console.
-   */
-  private logComponentInfoToConsole() {
-    this.$app.$log.log(this);
-  }
-  /**
-   * Dispatch an event via global event-service and component event-emitter
-   */
-  // protected emitEvent(signature: string, dispatcher: any, data: any = false, options: any = false) {
-  //   const eventToDispatch: FgEvent = new FgEvent(signature, dispatcher, data, options);
-  //   // Emit global event-service
-  //   this.$app.$event.emit(eventToDispatch);
-  // }
-  protected emitEvent(signature: string, dispatcher: any, data: any = false, options: any = false) {
-    console.log();
   }
 }

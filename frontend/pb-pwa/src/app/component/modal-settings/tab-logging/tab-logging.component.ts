@@ -18,6 +18,7 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    * setting logging/debuging configuration
    */
   public form: FormGroup;
+  public actionLabel = 'button_label_connect';
   /**
    * Provide log-level enum to component
    */

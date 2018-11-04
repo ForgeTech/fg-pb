@@ -12,6 +12,7 @@ import { PbDataService } from './service/pb-data/pb-data.service';
 import { TranslateService } from '@ngx-translate/core';
 import { _ } from './app.utils';
 import { FgKeyboardService } from './service/fg-keyboard/fg-keyboard.service';
+import { FgGraphqlService } from './module/fg-graphql/service/fg-graphql/fg-graphql.service';
 /**
 * FgAppService -
 * Service provides the functionality needed
@@ -44,7 +45,11 @@ export class FgAppService // extends FgEventSubscriber
    /**
     * Gives access to fg-keyboard-service
     */
-   public $keyboard: FgKeyboardService
+   public $keyboard: FgKeyboardService,
+   /**
+    * Gives access to fg-graphql-service
+    */
+   public $apollo: FgGraphqlService
   ) {
 
     // In production - setup the graphql-client to connect to remote

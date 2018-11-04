@@ -11,7 +11,7 @@ import { PrettyJsonModule } from 'angular2-prettyjson';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 // import { PbDatatableModule } from './module/pb-datatable/pb-datatable.module'
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { NgForageModule, NgForageConfig, Driver } from 'ngforage';
+import { NgForageModule, Driver } from 'ngforage';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import {
   TranslateModule,
@@ -87,7 +87,7 @@ import { FgCardComponent } from './component/fg-card/fg-card.component';
 import { SyncUrlsEqualValidator } from './validators/sync-urls-equal.validator';
 import { AsyncUrlRespondsValidator } from './validators/async-url-responds.validator';
 import { AsyncUrlApiKeyRespondsValidator } from './validators/async-url-api-key-responds.validator';
-import { GraphQLModule } from './graphql.module';
+import { FgGraphqlModule } from './module/fg-graphql/fg-graphql.module';
 
 /**
  * Routes for PowerBot application
@@ -211,14 +211,14 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
         deps: [HttpClient]
       }
     }),
-    // NgForageModule,
-    // NgForageModule.forRoot({
-      // name: 'PowerBot',
-      // driver: [ // defaults to indexedDB -> webSQL -> localStorage -> sessionStorage
-      //   NgForageConfig.DRIVER_INDEXEDDB,
-      //   NgForageConfig.DRIVER_LOCALSTORAGE
-      // ]
-    // }),
+    NgForageModule.forRoot({
+      name: 'PowerBot',
+      driver: [
+        Driver.INDEXED_DB,
+        Driver.WEB_SQL,
+        Driver.LOCAL_STORAGE,
+      ]
+    }),
     ApiModule,
     LoggerModule.forRoot({
       level: environment.production ? NgxLoggerLevel.ERROR : NgxLoggerLevel.WARN,
@@ -234,7 +234,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     ),
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production }),
     Angulartics2Module.forRoot(),
-    GraphQLModule,
+    FgGraphqlModule.forRoot(),
   ],
   providers: [
     Angulartics2GoogleAnalytics,
@@ -267,14 +267,4 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  public constructor(ngfConfig: NgForageConfig) {
-    ngfConfig.configure({
-      name: 'funil-pwa',
-      driver: [
-        Driver.INDEXED_DB,
-        Driver.LOCAL_STORAGE
-      ]
-    });
-  }
-}
+export class AppModule {}

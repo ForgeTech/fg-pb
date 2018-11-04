@@ -15,6 +15,7 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
    * setting data for api-key generation
    */
   form: FormGroup;
+  public actionLabel = 'button_label_generate_api_key';
   /**
    * CONSTRUCTOR
    */

@@ -32,7 +32,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * setting production-form configuration
    */
   public form: FormGroup;
-  public errors: Subject<ValidationErrors> = new Subject<ValidationErrors>();
+  public actionLabel = 'button_label_connect';
   /**
    * CONSTRUCTOR
    */

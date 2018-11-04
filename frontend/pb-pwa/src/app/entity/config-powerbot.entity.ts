@@ -41,7 +41,7 @@ export class ConfigPowerbot {
     /**
     * Languguage to be used within powerbot
     */
-    public lang: string = 'en',
+    public lang: string = '',
     /**
      * Holds logging-service connection-configuration
      */

@@ -28,6 +28,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    * setting test-connection configuration
    */
   public form: FormGroup;
+  public actionLabel = 'button_label_connect';
   /**
    * CONSTRUCTOR
    */
