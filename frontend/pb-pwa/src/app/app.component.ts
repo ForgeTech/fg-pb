@@ -9,6 +9,7 @@ import { ModalHelpComponent } from './component/modal-help/modal-help.component'
 import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
 import { AppEnv } from './entity/app-state.entity';
 import { Router } from '@angular/router';
+import { ModalApiKeyComponent } from './component/modal-api-key/modal-api-key.component';
 
 /**
   * The application-component loaded by angular-module bootstrap
@@ -93,12 +94,12 @@ export class AppComponent {
     this.$dialog = $dialog;
     this.$app = $app;
     // Set array of available languages
-    this.$app.$translate.addLangs(this.$app.$data.$env.powerbot.config.languages);
+    this.$app.$translate.addLangs(['en']);
     // This language will be used as a fallback when a
     // translation for set language isn't found
-    this.$app.$translate.setDefaultLang(this.$app.$data.$env.powerbot.config.lang);
+    this.$app.$translate.setDefaultLang('en');
     // Set defaultLang to active Lang, until user configuration was loaded.
-    this.$app.$translate.use(this.$app.$data.$env.powerbot.config.lang);
+    this.$app.$translate.use('en');
     // Get language configured in browser and set it if available
     // const browserLang = this.$app.$translate.getBrowserLang();
     // this.$app.$translate.use(
@@ -124,6 +125,13 @@ export class AppComponent {
     .subscribe( event => {
       this.$app.$log.warn('OPEN HELP MODAL!');
       this.$dialog.open( ModalHelpComponent, modal_config );
+    });
+    // Register event to open help modal
+    this.$app.$event.event$
+    .filter( event => event.signature === PbAppEvent.OPEN_API_KEY_MODAL )
+    .subscribe( event => {
+      this.$app.$log.warn('OPEN API MODAL!');
+      this.$dialog.open( ModalApiKeyComponent, modal_config );
     });
     // Register event for connecting to API
     this.$app.$event.event$

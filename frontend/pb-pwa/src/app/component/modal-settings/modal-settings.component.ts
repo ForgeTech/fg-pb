@@ -4,7 +4,7 @@ import { MatTab, MatTabChangeEvent, MatTabGroup, MatStepper } from '@angular/mat
 import { TabProductionComponent } from './tab-production/tab-production.component';
 import { TabLoggingComponent } from './tab-logging/tab-logging.component';
 import { TabTestComponent } from './tab-test/tab-test.component';
-import { TabApiKeyComponent } from './tab-api-key/tab-api-key.component';
+// import { TabApiKeyComponent } from './tab-api-key/tab-api-key.component';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { PbModalTabComponentInterface } from '../../interface/interface.export';
 import { PowerBotEntity } from '../../entity/entity.export';

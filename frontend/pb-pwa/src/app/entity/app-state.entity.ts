@@ -93,10 +93,6 @@ export class AppStateEntity {
      */
     public marketEnv: string = '',
     /**
-     * Flags state of the established market connection
-     */
-    public marketState: ConnectionState = ConnectionState.Offline,
-    /**
      * Flags if the application has active requests
      */
     public requestState: RequestState = RequestState.Inactive,

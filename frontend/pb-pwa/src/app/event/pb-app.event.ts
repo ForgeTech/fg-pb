@@ -29,9 +29,9 @@ export class PbAppEvent {
     */
     public static readonly OPEN_CONNECTION_MODAL = 'Event_PbApp_Open_Connection_Modal';
     /**
-     * Event to be thrown when application should open market modal
+     * Event to be thrown when application should open api key modal
      */
-    public static readonly OPEN_MARKET_MODAL = 'Event_PbApp_Open_Market_Modal';
+    public static readonly OPEN_API_KEY_MODAL = 'Event_PbApp_Open_Api_Key_Modal';
     /**
     * Event to be thrown when application should open add-order modal
     */

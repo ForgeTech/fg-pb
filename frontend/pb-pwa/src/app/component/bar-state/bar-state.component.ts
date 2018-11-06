@@ -33,9 +33,9 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   /**
    * Display Market Settings-Modal
    */
-  public openMarketModal($event: Event): void {
-    this.$component.$event.emit( new FgEvent( PbAppEvent.OPEN_MARKET_MODAL ) );
-  }
+  // public openMarketModal($event: Event): void {
+  //   this.$component.$event.emit( new FgEvent( PbAppEvent.OPEN_MARKET_MODAL ) );
+  // }
   /**
    * Display Connection Settings-Modal
    */

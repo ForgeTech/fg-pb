@@ -11,6 +11,7 @@ import { regexUrlValidationPattern } from '../../../validators/RegexUrlValidatio
 import { AsyncUrlRespondsValidator } from '../../../validators/async-url-responds.validator';
 import { AppEnv } from '../../../entity/app-state.entity';
 import { AsyncUrlApiKeyRespondsValidator } from 'src/app/validators/async-url-api-key-responds.validator';
+import { Observable } from 'apollo-link';
 
 /**
  * TabTestComponent -
@@ -29,6 +30,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    */
   public form: FormGroup;
   public actionLabel = 'button_label_connect';
+  public data$: Observable<any>;
   /**
    * CONSTRUCTOR
    */
@@ -41,6 +43,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
     super(
       $component
     );
+    // this.data$ = this.$component.$apollo.watchQuery
     this.form = $fb.group({
       hideRequired: false,
       floatLabel: 'auto',
@@ -75,6 +78,11 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   }
   getApiErrorMessage(errors: ValidationErrors) {
     return 'Api Key Error';
+  }
+  /** Open generate ApiKey-Modal */
+  openApiKeyModal( $event: Event ) {
+    $event.preventDefault();
+    this.$component.$event.emit(new FgEvent(PbAppEvent.OPEN_API_KEY_MODAL, this));
   }
   /**
    * Set form-data from powerbot storage

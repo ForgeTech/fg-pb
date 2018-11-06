@@ -28,9 +28,10 @@ import {
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { ConnectionState, AppEnv, RequestState } from '../../entity/app-state.entity';
 import { NgForage } from 'ngforage';
-import { PbAppStorageConst, PbAppEntityConst } from '../../app.const';
+import { PbAppEntityConst } from '../../app.const';
 import { Observable, Subscription, Subject, combineLatest } from 'rxjs';
 import { FgGraphqlService } from 'src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service';
+import gql from 'graphql-tag';
 /**
  * DataService -
  * Service providing interface to fetch, access and
@@ -116,15 +117,27 @@ export class PbDataService {
     public $apollo: FgGraphqlService,
   ) {
     this.$apollo.createClient(this.$env.powerbot);
-    const query = this.$apollo.query(`query farkTest {
-          config {
-            lang
-          }
-      }`);
-      query.subscribe( result => {
-        console.log('Result');
-        console.log( result );
-      })
+    let query = this.$apollo.watchQuery(`
+      query prodConfig($id: Int!) {
+        ProdConfig(id: $id) @client {
+          apiKey,
+          backupUrl,
+          serverUrl,
+          cache,
+          valid
+        }
+      }`,
+      { id: 0 }
+    );
+    query.subscribe(result => {
+      console.log('RESULT');
+      console.log(result);
+    });
+    // this.$apollo.mutate(`
+    //     mutation toggleDarkTheme {
+    //       toggleDarkTheme @client
+    //     }
+    //   `);
     const errorFn = error => {
       // Only perform error-handling if connection-state isn't Offline
       // so validation can use wrapped services
@@ -154,7 +167,6 @@ export class PbDataService {
       } else {
         this.app.state.requestState = RequestState.Inactive;
         this.app.state.connectionState = ConnectionState.Error;
-        this.app.state.marketState = ConnectionState.Error;
         // this.$log.error('ERRROR');
         // console.log(error);
         // Rethrow erros for connection-state offline
@@ -354,7 +366,6 @@ export class PbDataService {
           this.app.orders = orders;
           this.app.signals = this.prepareSignalResponse( signals );
           this.app.trades = trades;
-          this.setMarketState(marketState.status);
           this.app.state.connectionState = ConnectionState.Online;
           this.app.state.requestState = RequestState.Inactive;
           subject.next(this.app);
@@ -389,92 +400,4 @@ export class PbDataService {
     });
     return signalsObjects;
   }
-  /**
-   * Initialize Powerbot from browser-storage
-   */
-   public async recoverConfigFromStorage(): Promise<PowerBotEntity> {
-    this.app = new PowerBotEntity();
-    let config;
-    config = await this.$storage.getItem( PbAppStorageConst.CONFIG_PRODUCTION );
-    if ( config ) {
-      Object.assign( this.app.config.prodConfig, config );
-    }
-    config = await this.$storage.getItem( PbAppStorageConst.CONFIG_TEST );
-    if ( config ) {
-      Object.assign( this.app.config.testConfig, config );
-    }
-    config = await this.$storage.getItem( PbAppStorageConst.CONFIG_LOGGING );
-    if ( config ) {
-      Object.assign( this.app.config.logConfig, config );
-    }
-    config = await this.$storage.getItem( PbAppStorageConst.CONFIG_MARKET );
-    if ( config ) {
-      Object.assign( this.app.config.marketConfig, config );
-    }
-    return this.app;
-  }
-  /**
-   * TODO: Add market-connection settings
-   * Validate PowerBot Market-Connection state based on received
-   * market-object and current market-connection settings
-   * @param state The BarStateEnum to help validate
-   */
-  protected setMarketState( marketState: any ): void {
-    switch ( marketState ) {
-      case 'OK':
-        this.app.state.marketState = ConnectionState.Online;
-        break;
-      case 'WARNING':
-        this.app.state.marketState = ConnectionState.Warning;
-        break;
-      case 'FAILURE':
-        this.app.state.marketState = ConnectionState.Error;
-        break;
-      default:
-        this.app.state.marketState = ConnectionState.Offline;
-        break;
-    }
-  }
-  /**
-  * Returns if there is a valid configuration for
-  * test-environment available
-  */
-  getProductionValid(): boolean {
-     let disabled: boolean = true;
-     if (
-       this.app.config.prodConfig.apiKey
-       && this.app.config.prodConfig.serverUrl
-       && this.app.config.prodConfig.backupUrl
-     ) {
-       disabled = false;
-     }
-     return disabled;
-   }
-   /**
-    * Returns if there is a valid configuration for
-    * test-environment available
-    */
-   getTestValid(): boolean {
-     let disabled: boolean = true;
-     if (
-       this.app.config.testConfig.apiKey
-       && this.app.config.testConfig.serverUrl
-     ) {
-       disabled = false;
-     }
-     return disabled;
-   }
-   /**
-    * Returns if disconnecting should be allowed
-    */
-   getDisconnectDisabled(): boolean {
-     let disabled: boolean = true;
-     if (
-       this.app.state.connectionState !== ConnectionState.Offline
-       && this.app.state.appEnv !== AppEnv.Offline
-     ) {
-       disabled = false;
-     }
-     return disabled;
-   }
 }

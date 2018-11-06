@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  name: 'Development',
+  name: 'GITHUB',
   debug: true,
   production: true,
   override: true,
@@ -13,8 +13,20 @@ export const environment = {
     __typename: 'powerbot',
     config: {
       __typename: 'config',
-      languages: ['en'],
-      lang: 'en',
+      languages: [
+        {
+          __typename: 'language',
+          short: 'en'
+        },
+        {
+          __typename: 'language',
+          short: 'de'
+        }
+      ],
+      lang: {
+        __typename: 'language',
+        short: 'en'
+      },
       backHours: 3,
       darkTheme: true,
       prodConfig: {

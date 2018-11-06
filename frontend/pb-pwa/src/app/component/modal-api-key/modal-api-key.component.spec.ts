@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalMarketComponent } from './modal-market.component';
+import { ModalMarketComponent } from './modal-api-key.component';
 
 describe('ModalMarketComponent', () => {
   let component: ModalMarketComponent;

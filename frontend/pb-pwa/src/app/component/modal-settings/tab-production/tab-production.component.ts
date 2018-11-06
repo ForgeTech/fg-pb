@@ -119,6 +119,11 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
       );
     }
   }
+  /** Open generate ApiKey-Modal */
+  public openApiKeyModal($event: Event) {
+    event.preventDefault();
+    this.$component.$event.emit(new FgEvent(PbAppEvent.OPEN_API_KEY_MODAL, this));
+  }
   /**
    * Create production-config from form-data
    */

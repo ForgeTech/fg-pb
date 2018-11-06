@@ -59,9 +59,9 @@ import { HeaderComponent } from './component/header/header.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
 import { ModalHelpComponent } from './component/modal-help/modal-help.component';
-import { ModalMarketComponent } from './component/modal-market/modal-market.component';
+import { ModalApiKeyComponent } from './component/modal-api-key/modal-api-key.component';
+  import { TabApiKeyComponent } from './component/modal-api-key/tab-api-key/tab-api-key.component';
 import { ModalSettingsComponent } from './component/modal-settings/modal-settings.component';
-  import { TabApiKeyComponent } from './component/modal-settings/tab-api-key/tab-api-key.component';
   import { TabLoggingComponent } from './component/modal-settings/tab-logging/tab-logging.component';
   import { TabProductionComponent } from './component/modal-settings/tab-production/tab-production.component';
   import { TabTestComponent } from './component/modal-settings/tab-test/tab-test.component';
@@ -160,7 +160,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     ModalComponent,
     ModalAddOrderComponent,
     ModalHelpComponent,
-    ModalMarketComponent,
+    ModalApiKeyComponent,
     ModalSettingsComponent,
       TabProductionComponent,
       TabApiKeyComponent,
@@ -254,7 +254,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     ModalAddOrderComponent,
     ModalHelpComponent,
     ModalSettingsComponent,
-    ModalMarketComponent,
+    ModalApiKeyComponent,
     AsksViewComponent,
     BidsViewComponent,
     DashboardViewComponent,

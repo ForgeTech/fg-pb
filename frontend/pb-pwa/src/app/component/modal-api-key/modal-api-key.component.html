@@ -1,0 +1,26 @@
+<pb-modal [entity]="this.entity">
+  <div title translate>
+    Generate ApiKey
+  </div>
+  <div content>
+    <pb-tab-api-key></pb-tab-api-key>
+  </div>
+  <div actions>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="closeModal($event)"
+      translate
+    >
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="action($event)"
+      translate
+    >
+      Login
+    </button>
+  </div>
+</pb-modal>
