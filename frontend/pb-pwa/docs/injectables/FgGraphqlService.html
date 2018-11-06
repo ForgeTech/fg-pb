@@ -1,0 +1,1128 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pb-pwa documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pb-pwa documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>FgGraphqlService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>FgGraphqlClientService -
+This service provides methodes to
+create instances of forge graphql
+client, based on apollo-graphql
+( <a href="https://www.apollographql.com/">https://www.apollographql.com/</a> )</p>
+
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#apollo">apollo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#resolvers">resolvers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#typeDefs">typeDefs</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#createClient">createClient</a>
+                            </li>
+                            <li>
+                                <a href="#getFgCachePersistor">getFgCachePersistor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#mutate">mutate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#query">query</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#watchQuery">watchQuery</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:135</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>CONSTRUCTOR</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="createClient"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            createClient
+                            </b>
+                            <a href="#createClient"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>createClient(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="183" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:183</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates and returns an instance of
+fg-graphql-client</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getFgCachePersistor"></a>
+                        <span class="name">
+                            <b>
+                            getFgCachePersistor
+                            </b>
+                            <a href="#getFgCachePersistor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getFgCachePersistor(options: ApolloPersistOptions<any>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="243" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:243</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Return a instance of apollo cache-persistor for handling
+apollo cache-persistor</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>options</td>
+                                                        <td>
+                                                                    <code>ApolloPersistOptions&lt;any&gt;</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>ApolloCachePersistor&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mutate"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            mutate
+                            </b>
+                            <a href="#mutate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>mutate(mutation: , variables: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:169</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Default value</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>mutation</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+
+                                                </tr>
+                                                <tr>
+                                                        <td>variables</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code>{}</code>
+                                                        </td>
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="query"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            query
+                            </b>
+                            <a href="#query"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>query(query: , variables: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:143</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Default value</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>query</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+
+                                                </tr>
+                                                <tr>
+                                                        <td>variables</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code>{}</code>
+                                                        </td>
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Promise&lt;ApolloQueryResult&lt;literal type&gt;&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="watchQuery"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            watchQuery
+                            </b>
+                            <a href="#watchQuery"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>watchQuery(query: , variables: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:156</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Default value</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>query</td>
+                                                        <td>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+
+                                                </tr>
+                                                <tr>
+                                                        <td>variables</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code>{}</code>
+                                                        </td>
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>ObservableQuery</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="apollo"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            apollo
+                            </b>
+                            <a href="#apollo"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>apollo:     <code>ApolloClient&lt;literal type&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>ApolloClient&lt;literal type&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Holds the created apollo-client instance</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resolvers"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            resolvers
+                            </b>
+                            <a href="#resolvers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>resolvers:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+    Mutation: {
+      toggleDarkTheme: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({__typename: &#x27;Config&#x27;, id: args.id });
+        const fragment &#x3D; gql&#x60;
+        fragment darkThema on Config {
+            darkTheme
+        }&#x60;;
+        const previous &#x3D; cache.readFragment({ fragment, id });
+        const data &#x3D; { darkTheme: !previous.darkTheme };
+        cache.writeData({ id, data });
+        return null;
+      }
+    },
+    Query: {
+      getProdConfig: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;ProdConfig&#x27;, id: args.id });
+        const fragment &#x3D; gql&#x60;fragment prodConfig on ProdConfig {
+          id,
+          apiKey,
+          backupUrl,
+          serverUrl,
+          cache,
+          valid
+        }&#x60;;
+        const data &#x3D; cache.readFragment({ fragment, id });
+        return data;
+      },
+      getTestConfig: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;TestConfig&#x27;, id: args.id });
+        const fragment &#x3D; gql&#x60;fragment testConfig on TestConfig {
+          id,
+          apiKey,
+          serverUrl,
+          cache,
+          valid
+        }&#x60;;
+        const data &#x3D; cache.readFragment({ fragment, id });
+        return data;
+      },
+      getBreakPoint: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;TestConfig&#x27;, id: args.id });
+        const fragment &#x3D; gql&#x60;fragment testConfig on TestConfig {
+          id,
+          apiKey,
+          serverUrl,
+          cache,
+          valid
+        }&#x60;;
+        const data &#x3D; cache.readFragment({ fragment, id });
+        return data;
+      }
+    }
+  }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:82</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resolvers for working with graphql local-state</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="typeDefs"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            typeDefs
+                            </b>
+                            <a href="#typeDefs"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>typeDefs:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x60;
+  type Config {
+    id: Int
+    languages: [String]
+    language: String
+    backhours: Int
+    darkThema: Boolean
+    prodConfig: ProdConfig
+    testConfig: TestConfig
+  }
+  type ProdConfig {
+    id: Int
+    serverUrl: String
+    backupUrl: String
+    apiKey: String
+    cache: Boolean
+    valid: Boolean
+  }
+  type TestConfig {
+    id: Int
+    serverUrl: String
+    apiKey: String
+    cache: Boolean
+    valid: Boolean
+  }
+  type PowerBot {
+    id: Int
+    config: Config
+  }
+  type Mutation {
+    setAllowed: Boolean
+    setProdConfig: ProdConfig
+    setTestConfig: TestConfig
+    setLogConfig: TestConfig
+    toggleDarkTheme: Boolean
+  }
+  type Query {
+    isDarkTheme: Boolean
+    getProdConfig: ProdConfig
+    getTestConfig: TestConfig
+    getBreakPoint: Breakpoint
+  }
+  &#x60;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Create graphql typeDefinitions
+for working with local-state</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Apollo, QueryRef } from &#x27;apollo-angular&#x27;;
+import { InMemoryCache as ApolloInMemoryCache } from &#x27;apollo-cache-inmemory&#x27;;
+import { withClientState } from &#x27;apollo-link-state&#x27;;
+import {
+  persistCache as apollo_persistCache,
+  CachePersistor as ApolloCachePersistor
+} from &#x27;apollo-cache-persist&#x27;;
+// CacheProviders who are compatible with apollo persist-cache and should be choosen
+// based on the target-enviroment the apollo-client is run in, like in a browser, react-native
+// build
+import * as LocalForage from &#x27;localforage&#x27;;
+import { ApolloPersistOptions } from &#x27;apollo-cache-persist/types&#x27;;
+import gql from &#x27;graphql-tag&#x27;;
+import { HttpHeaders } from &#x27;@angular/common/http&#x27;;
+import { PowerBotEntity } from &#x27;src/app/entity/entity.export&#x27;;
+import { ApolloClient, ApolloQueryResult, ObservableQuery } from &#x27;apollo-client&#x27;;
+import { injectArgs } from &#x27;@angular/core/src/di/injector&#x27;;
+/**
+ * FgGraphqlClientService -
+* This service provides methodes to
+* create instances of forge graphql
+* client, based on apollo-graphql
+* ( https://www.apollographql.com/ )
+*/
+@Injectable()
+export class FgGraphqlService {
+  /**
+   * Holds the created apollo-client instance
+   */
+  protected apollo: ApolloClient&lt;{}&gt;;
+  /**
+   * Create graphql typeDefinitions
+   * for working with local-state
+   */
+  protected typeDefs &#x3D; &#x60;
+  type Config {
+    id: Int
+    languages: [String]
+    language: String
+    backhours: Int
+    darkThema: Boolean
+    prodConfig: ProdConfig
+    testConfig: TestConfig
+  }
+  type ProdConfig {
+    id: Int
+    serverUrl: String
+    backupUrl: String
+    apiKey: String
+    cache: Boolean
+    valid: Boolean
+  }
+  type TestConfig {
+    id: Int
+    serverUrl: String
+    apiKey: String
+    cache: Boolean
+    valid: Boolean
+  }
+  type PowerBot {
+    id: Int
+    config: Config
+  }
+  type Mutation {
+    setAllowed: Boolean
+    setProdConfig: ProdConfig
+    setTestConfig: TestConfig
+    setLogConfig: TestConfig
+    toggleDarkTheme: Boolean
+  }
+  type Query {
+    isDarkTheme: Boolean
+    getProdConfig: ProdConfig
+    getTestConfig: TestConfig
+    getBreakPoint: Breakpoint
+  }
+  &#x60;;
+  /**
+   * Resolvers for working with graphql local-state
+   */
+  protected resolvers &#x3D; {
+    Mutation: {
+      toggleDarkTheme: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({__typename: &#x27;Config&#x27;, id: args.id });
+        const fragment &#x3D; gql&#x60;
+        fragment darkThema on Config {
+            darkTheme
+        }&#x60;;
+        const previous &#x3D; cache.readFragment({ fragment, id });
+        const data &#x3D; { darkTheme: !previous.darkTheme };
+        cache.writeData({ id, data });
+        return null;
+      }
+    },
+    Query: {
+      getProdConfig: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;ProdConfig&#x27;, id: args.id });
+        const fragment &#x3D; gql&#x60;fragment prodConfig on ProdConfig {
+          id,
+          apiKey,
+          backupUrl,
+          serverUrl,
+          cache,
+          valid
+        }&#x60;;
+        const data &#x3D; cache.readFragment({ fragment, id });
+        return data;
+      },
+      getTestConfig: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;TestConfig&#x27;, id: args.id });
+        const fragment &#x3D; gql&#x60;fragment testConfig on TestConfig {
+          id,
+          apiKey,
+          serverUrl,
+          cache,
+          valid
+        }&#x60;;
+        const data &#x3D; cache.readFragment({ fragment, id });
+        return data;
+      },
+      getBreakPoint: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;TestConfig&#x27;, id: args.id });
+        const fragment &#x3D; gql&#x60;fragment testConfig on TestConfig {
+          id,
+          apiKey,
+          serverUrl,
+          cache,
+          valid
+        }&#x60;;
+        const data &#x3D; cache.readFragment({ fragment, id });
+        return data;
+      }
+    }
+  };
+  /**
+   * CONSTRUCTOR
+   */
+  constructor() {}
+  /*
+  * Forward query to apollo-client instace query-methode
+  */
+  public query(query, variables: any &#x3D; {}): Promise&lt;ApolloQueryResult&lt;{}&gt;&gt; {
+    if(this.apollo) {
+      return this.apollo.query({
+        query: gql(query),
+        variables: variables
+      });
+    } else {
+      throw new Error( &#x27;Apollo Client not intialized! Call createClient on fgGraphqlSevice before query! &#x27; );
+    }
+  }
+  /*
+  * Forward watchQuery to apollo-client instace watchQuery-methode
+  */
+  public watchQuery(query, variables: any &#x3D; {}): ObservableQuery {
+    if(this.apollo) {
+      return this.apollo.watchQuery({
+        query: gql(query),
+        variables: variables
+      });
+    } else {
+      throw new Error( &#x27;Apollo Client not intialized! Call createClient on fgGraphqlSevice before watchQuery! &#x27; );
+    }
+  }
+  /*
+  * Forward mutations to apollo-client instace mutate-methode
+  */
+  public mutate(mutation, variables: any &#x3D; {}): Promise&lt;any&gt; {
+    if( this.apollo ) {
+      return this.apollo.mutate({
+        mutation: gql(mutation),
+        variables: variables
+      });
+    } else {
+      throw new Error(&#x27;Apollo Client not intialized! Call createClient on fgGraphqlSevice before mutate! &#x27;);
+    }
+  }
+  /**
+   * Creates and returns an instance of
+   * fg-graphql-client
+   */
+  public createClient( data: any ): void {
+    // Only create apollo-instance if it wasn&#x27;t already
+    // initialized
+    if ( this.apollo ) {
+      return;
+    }
+    let clientOptions: any &#x3D; {}
+    let persistOptions: any &#x3D; {};
+    // Recieve auth-token from localstorage to set up Authorization http-header
+    // const token &#x3D; window.localStorage.getItem(AUTH_USER_TOKEN);
+    // const authorization &#x3D; token ? &#x60;Bearer ${token}&#x60; : null;
+    const headers &#x3D; new HttpHeaders();
+    // headers.append(&#x27;Authorization&#x27;, authorization);
+    // Initialize apollo InMemoryCache
+    const cache &#x3D; new ApolloInMemoryCache();
+    // Setup persist-storage options and initialize it for apollo-client cache
+    persistOptions.cache &#x3D; cache;
+    persistOptions.storage &#x3D; LocalForage.createInstance(persistOptions);
+    apollo_persistCache(persistOptions);
+
+    const localStateLink &#x3D; withClientState({
+      cache: cache,
+      defaults: data,
+      resolvers: this.resolvers,
+      typeDefs: this.typeDefs
+    });
+    // Setup Websocket for apollo-graphql subscriptions
+    // const webSocketLinkConfig &#x3D; clientOptions.subscriptionWebSocketLink;
+    // webSocketLinkConfig.connectionParams.authToken &#x3D; window.localStorage.getItem(AUTH_USER_TOKEN);
+    // const wsLink &#x3D; new WebSocketLink(webSocketLinkConfig);
+    // Create Instace of apollo-http-link
+    // const httpLink &#x3D; createHttpLink({
+    //   uri: clientOptions.uri,
+    //   headers: headers,
+    // });
+    // Initialize apollo-client instance
+    clientOptions.link &#x3D; localStateLink;
+    clientOptions.cache &#x3D; cache;
+    clientOptions.connectToDevTools &#x3D; true;
+    clientOptions.clientState &#x3D; this.resolvers;
+    clientOptions.clientState.defaults &#x3D; data;
+
+    const client &#x3D; new ApolloClient(clientOptions);
+    // const client &#x3D; new ApolloBoostClient({
+    //   link: ApolloLink.split(
+    //     operation &#x3D;&gt; {
+    //       const operationAST &#x3D; getOperationAST(operation.query, operation.operationName);
+    //       return !!operationAST &amp;&amp; operationAST.operation &#x3D;&#x3D;&#x3D; &#x27;subscription&#x27;;
+    //     },
+    //     wsLink,
+    //     httpLink,
+    //   ),
+    //   cache: cache
+    // });
+    this.apollo &#x3D; client;
+  }
+  /**
+   * Return a instance of apollo cache-persistor for handling
+   * apollo cache-persistor
+   */
+  getFgCachePersistor( options: ApolloPersistOptions&lt;any&gt; ): ApolloCachePersistor&lt;any&gt; {
+    return new ApolloCachePersistor( options );
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'FgGraphqlService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
