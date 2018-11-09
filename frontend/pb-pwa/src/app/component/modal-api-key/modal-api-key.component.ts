@@ -4,8 +4,7 @@ import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { ModalComponent } from '../modal/modal.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PowerBotEntity, ConfigMarketConnection } from '../../entity/entity.export';
-import { PbAppStorageConst } from '../../app.const';
+import { PowerBotEntity} from '../../entity/entity.export';
 
 @Component({
   selector: 'pb-modal-api-key',

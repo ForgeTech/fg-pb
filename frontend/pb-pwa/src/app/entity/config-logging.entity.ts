@@ -1,10 +1,10 @@
-import { PbAppEntityConst } from './../app.const';
+import { PbAppEntityConst } from '../app.const';
 /**
- * ConfigLoggingConnection -
+ * ConfigLogging -
  * Entity-Class used to hold configuration
  * connection to PowerBot logging-service
  */
-export class ConfigLoggingConnection {
+export class ConfigLogging {
   /**
    * Constructor
    */
@@ -22,6 +22,10 @@ export class ConfigLoggingConnection {
      * store the connection configuration
      * on client
      */
-    public store: boolean = false
+    public cache: boolean = false,
+    /**
+     * Flags the configuration as valid/invalid
+     */
+    public isValid: boolean = false,
   ) {}
 }

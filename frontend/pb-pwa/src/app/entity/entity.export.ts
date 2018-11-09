@@ -1,12 +1,11 @@
 import { ConfigGenerateApiKey } from './config-generate-api-key.entity';
-import { ConfigLoggingConnection } from './config-logging-connection.entity';
-import { ConfigMarketConnection } from './config-market.entity';
+import { ConfigLogging } from './config-logging.entity';
 import { PowerBotEntity } from './powerbot.entity';
 import { ConfigPowerbot } from './config-powerbot.entity';
-import { ConfigProductionConnection } from './config-production-connection.entity';
-import { ConfigTestConnection } from './config-test-connection.entity';
+import { ConfigConnection } from './config-connection.entity';
+import { ConfigDebug } from './config-debug-entity';
 import { ConfigView } from './config-view.entity';
-import { ConfigCommon } from './config-common.entity';
+import { ConfigApiKey} from './config-apiKey.entity';
 import { ConfigBreakPoint } from './config-breakpoint.entity';
 import { ConfigMetaData } from './config-meta-data.entity';
 import { ConfigTable } from './config-table.entity';
@@ -18,14 +17,16 @@ import { MessageEntity } from './message.entity';
 import { OrderEntity } from './order.entity';
 import { SignalEntity } from './signal.entity';
 import { TradeEntity } from './trade.entity';
+import { PowerbotStateEntity } from './app-state.entity';
 export {
+  PowerbotStateEntity,
   ConfigGenerateApiKey,
-  ConfigLoggingConnection,
-  ConfigMarketConnection,
+  ConfigLogging,
+  ConfigApiKey,
+  ConfigDebug,
   PowerBotEntity,
   ConfigPowerbot,
-  ConfigProductionConnection,
-  ConfigTestConnection,
+  ConfigConnection,
   LogEntity,
   ContractEntity,
   MarketEntity,
@@ -34,7 +35,6 @@ export {
   SignalEntity,
   TradeEntity,
   ConfigView,
-  ConfigCommon,
   ConfigBreakPoint,
   ConfigMetaData,
   ConfigTable,

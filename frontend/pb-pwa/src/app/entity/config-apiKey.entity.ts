@@ -4,7 +4,7 @@ import { PbAppEntityConst } from '../app.const';
  * Entity-Class used to hold configuration
  * connection to PowerBot logging-service
  */
-export class ConfigAuth {
+export class ConfigApiKey {
   /**
    * Constructor
    */

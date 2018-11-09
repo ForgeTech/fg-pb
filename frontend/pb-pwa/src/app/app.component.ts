@@ -3,13 +3,14 @@ import { FgAppService } from './app.service';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 import { PbAppEvent } from './event/fg-events.export';
 import { FgComponentBaseComponent } from './component/fg-component-base/fg-component-base.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Subject } from 'rxjs';
 import { ModalHelpComponent } from './component/modal-help/modal-help.component';
 import { ModalAddOrderComponent } from './component/modal-add-order/modal-add-order.component';
 import { AppEnv } from './entity/app-state.entity';
 import { Router } from '@angular/router';
 import { ModalApiKeyComponent } from './component/modal-api-key/modal-api-key.component';
+import { environment } from './../environments/environment';
 
 /**
   * The application-component loaded by angular-module bootstrap
@@ -90,7 +91,9 @@ export class AppComponent {
      */
     protected $dialog: MatDialog
   ) {
-    this.$angulartics2GoogleAnalytics.startTracking();
+    if( environment.name !== 'Development' ){
+      this.$angulartics2GoogleAnalytics.startTracking();
+    }
     this.$dialog = $dialog;
     this.$app = $app;
     // Set array of available languages
@@ -106,10 +109,12 @@ export class AppComponent {
     //   this.$app.$translate.getLangs().indexOf(browserLang) ? browserLang : this.$app.$data.$env.lang
     // );
 
-    const modal_config = {
+    const modal_config: MatDialogConfig = {
       panelClass: 'pb-panel',
-      height: '90vmin',
+      height: '90%',
       width: '80vmax',
+      maxWidth: '640px',
+      autoFocus: true,
       data: {}
     };
     // Register event to open add-order modal

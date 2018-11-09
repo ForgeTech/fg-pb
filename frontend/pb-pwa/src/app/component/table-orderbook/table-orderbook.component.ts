@@ -23,7 +23,7 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
   public set selected( selected: ContractInterface[] ) {
     try {
       this._selected = selected;
-      this.$component.$data.app.selectedContract = this._selected[0];
+      this.$component.$data.app.state.selectedContract = this._selected[0];
       this.$component.$data.$contracts.getOrders(this.selected[0].contract_id).toPromise().then(orders => {
         this.$component.$data.app.asks = orders.ask;
         this.$component.$data.app.bids = orders.bid;
@@ -32,7 +32,7 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
         this.$component.$data.app.contractHistory = contractHist;
       });
     } catch ( error ) {
-      this.$component.$data.app.selectedContract = undefined;
+      this.$component.$data.app.state.selectedContract = undefined;
       this.$component.$data.app.asks = [];
       this.$component.$data.app.bids = [];
     }

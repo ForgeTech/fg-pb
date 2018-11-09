@@ -44,10 +44,6 @@ export class PbDataService {
     this._config = config;
     this.setServiceConfiguration( this._config );
   }
-  // public get configuration( ): Configuration {
-  //   return this._config;
-  // }
-
   /**
    * Represents the collected set of application-data
    * and provides access to it within powerbot-application
@@ -117,27 +113,6 @@ export class PbDataService {
     public $apollo: FgGraphqlService,
   ) {
     this.$apollo.createClient(this.$env.powerbot);
-    let query = this.$apollo.watchQuery(`
-      query prodConfig($id: Int!) {
-        ProdConfig(id: $id) @client {
-          apiKey,
-          backupUrl,
-          serverUrl,
-          cache,
-          valid
-        }
-      }`,
-      { id: 0 }
-    );
-    query.subscribe(result => {
-      console.log('RESULT');
-      console.log(result);
-    });
-    // this.$apollo.mutate(`
-    //     mutation toggleDarkTheme {
-    //       toggleDarkTheme @client
-    //     }
-    //   `);
     const errorFn = error => {
       // Only perform error-handling if connection-state isn't Offline
       // so validation can use wrapped services
@@ -355,11 +330,9 @@ export class PbDataService {
           if ( this.app.state.connectionState !== ConnectionState.Offline ) {
           // Set values and loading state
           this.app.market = marketState;
-          this.app.config.deliverArea = marketState.delivery_area_id;
+          // this.app.config.deliverArea = marketState.delivery_area_id;
           this.app.orderbook = orderBook;
-          this.app.contracts = orderBook.contracts.sort( ( a: ContractInterface, b: ContractInterface ) => {
-            return
-          });
+          this.app.contracts = orderBook.contracts;
           this.app.products = orderBook.products;
           this.app.logs = logs;
           this.app.messages = messages;
@@ -376,7 +349,7 @@ export class PbDataService {
     );
     return subject.toPromise<PowerBotEntity>();
   }
-   public prepareSignalResponse( signals: SignalInterface[] ): any[] {
+  public prepareSignalResponse( signals: SignalInterface[] ): any[] {
     let keys: string[] = [];
     let signalsObjects: { label: string, values: any[] }[] = [];
     signals.forEach( signal => {

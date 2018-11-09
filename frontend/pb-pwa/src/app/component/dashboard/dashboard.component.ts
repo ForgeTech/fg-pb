@@ -5,6 +5,8 @@ import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { _ } from './../../app.utils';
 import { Subject } from 'rxjs';
+import { BreakPoint } from '@angular/flex-layout';
+import { ObservableQuery } from 'apollo-client';
 /**
  * DashboardComponent -
  * Render dashboard displaying collected set of powerbot api-data
@@ -15,6 +17,8 @@ import { Subject } from 'rxjs';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent extends FgComponentBaseComponent {
+  public request$: ObservableQuery;
+  public data$: Subject<BreakPoint> = new Subject();
   configSmall = {
     grid: {
       cols: 32,
@@ -152,6 +156,40 @@ export class DashboardComponent extends FgComponentBaseComponent {
     ) {
     super(
       $component
+    );
+    this.request$ = this.$component.$apollo.watchQuery(`
+      query breakpoint($id: Int!) {
+        getBreakPoint(id: $id) @client{
+          id
+          name
+          cards {
+            id
+            cols
+            id
+            rows
+            template
+            title
+          }
+          grid {
+            id
+            cols
+            gutterSize
+            rowHeight
+          }
+        }
+      }`,
+      { id: 0 }
+    );
+    this._subscribtions.push(
+      this.request$.subscribe(result => {
+        this.data$.next(result.data.getBreakPoint as BreakPoint);
+      })
+    );
+    this._subscribtions.push(
+      this.data$.subscribe(result => {
+        this.$component.$log.warn('BREAKPOINT');
+        console.log(result);
+      })
     );
   }
   config$ = this.breakpointObserver.observe(Breakpoints.Tablet).pipe(

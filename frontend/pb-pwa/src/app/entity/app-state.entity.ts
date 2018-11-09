@@ -1,4 +1,5 @@
 import { ContractInterface } from './../module/pb-api/model/interfaces.export';
+import { ConfigConnection } from './config-connection.entity';
 /**
  * Available environment-states
  */
@@ -78,20 +79,32 @@ export enum RequestState {
 /**
  * Entity to hold the current-state of bar-status component
  */
-export class AppStateEntity {
+export class PowerbotStateEntity {
   constructor(
     /**
-     * Flags in which environment the application is currently active in
-     */
+   * Flags in which environment the application is currently active in
+   */
     public appEnv: AppEnv = AppEnv.Offline,
+   /**
+    * Contains the currently selected contract-entity
+    */
+    public selectedContract: null | ContractInterface = null,
+    /**
+     * Holds name of currently used market-environment
+     */
+    public selectedMarket: null | string = null,
+    /**
+     * Flags if user is allowed to by-pass the connection route-guard
+     */
+    public allowed: boolean = false,
+    /**
+     * Contains currently configured connection-configuration
+     */
+    public connection: null | ConfigConnection = null,
     /**
      * Flags the state of the application current backend connection
      */
     public connectionState: ConnectionState = ConnectionState.Offline,
-    /**
-     * Holds name of currently used market-environment
-     */
-    public marketEnv: string = '',
     /**
      * Flags if the application has active requests
      */

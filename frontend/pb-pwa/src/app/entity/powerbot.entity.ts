@@ -1,5 +1,4 @@
 import { ConfigPowerbot } from './config-powerbot.entity';
-import { AppStateEntity } from './app-state.entity';
 import {
   ContractInterface,
   LogInterface,
@@ -9,7 +8,7 @@ import {
   SignalInterface,
   TradeInterface,
 } from '../module/pb-api/model/interfaces.export';
-import { MarketEntity } from './entity.export';
+import { PowerbotStateEntity } from './entity.export';
 
 /**
  * PowerBor -
@@ -25,7 +24,7 @@ export class PowerBotEntity {
      * the applications connection/loading state via the bar-state
      * component
      */
-    public state: AppStateEntity = new AppStateEntity(),
+    public state: PowerbotStateEntity = new PowerbotStateEntity(),
     /**
      * Holds PowerBot configuration data
      */
@@ -78,9 +77,5 @@ export class PowerBotEntity {
      * Holds current powerbot contract data
      */
     public market?: MarketInterface,
-    /**
-     * Contains the currently selected contract-entity
-     */
-    public selectedContract?: ContractInterface,
   ) {}
 }

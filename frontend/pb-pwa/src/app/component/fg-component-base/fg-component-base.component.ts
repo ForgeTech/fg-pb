@@ -30,7 +30,7 @@ export class FgComponentBaseComponent // extends FgEventSubscriber
    * On creation push your subscribtions to this array,
    * onDestroy they will be automatically unsubscribed
    */
-  protected _subscribtions: Subscription[] = [];
+  protected _subscribtions: Array<Subscription | ZenObservable.Subscription> = [];
   /**
    * Observable streaming a components events
    */

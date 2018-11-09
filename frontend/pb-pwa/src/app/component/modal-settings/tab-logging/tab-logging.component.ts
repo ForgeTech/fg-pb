@@ -1,16 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { ConfigLoggingConnection } from '../../../entity/entity.export';
+import { ConfigLogging } from '../../../entity/entity.export';
 import { PbAppStorageConst } from '../../../app.const';
-import { NgxLoggerLevel, LoggerConfig } from 'ngx-logger';
+import { NgxLoggerLevel } from 'ngx-logger';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
-
+import { ObservableQuery } from 'apollo-client';
+import { Subject } from 'rxjs';
+/**
+ * TabLoggingComponent -
+ * Component used to set logging-configuration
+ * for Powerbot-application
+ */
 @Component({
   selector: 'pb-tab-logging',
   templateUrl: './tab-logging.component.html',
-  styleUrls: ['./tab-logging.component.scss']
+  styleUrls: ['./tab-logging.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TabLoggingComponent extends FgComponentBaseComponent implements PbModalTabComponentInterface {
   /**
@@ -18,7 +25,19 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    * setting logging/debuging configuration
    */
   public form: FormGroup;
-  public actionLabel = 'button_label_connect';
+  /**
+   * Label key provided for use with action-button
+   */
+  public actionLabel = 'button_label_set_configuration';
+  /**
+   * Observable for providing graphql-query to
+   * fetch local-client state
+   */
+  public request$: ObservableQuery;
+  /**
+   * Observable to provide fetched local-client state data
+   */
+  public data$: Subject<ConfigLogging> = new Subject();
   /**
    * Provide log-level enum to component
    */
@@ -33,17 +52,38 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
     super(
       $component
     );
+    this.request$ = this.$component.$apollo.watchQuery(`
+      query getConfigLogging($id: Int!) {
+        getConfigLogging(id: $id) @client {
+          logFolder
+          logLevel
+          cache
+          isValid
+        }
+      }`,
+      { id: 0 }
+    );
     this.form = $fb.group({
-      hideRequired: false,
-      floatLabel: 'auto',
-      logDir: [null, [
+      logFolder: [null, [
         Validators.required
       ]],
       logLevel: [null, [
         Validators.required
       ]],
-      store: [null, []]
+      cache: [null, []]
     });
+    this._subscribtions.push(
+      this.request$.subscribe(result => {
+        this.data$.next(result.data.getConfigLogging as ConfigLogging);
+      })
+    );
+    this._subscribtions.push(
+      this.data$.subscribe(result => {
+        this.$component.$log.warn('LOG-CONFIG');
+        console.log(result);
+        this.form.patchValue(result);
+      })
+    );
   }
   /**
    * Set form-data from powerbot storage
@@ -58,17 +98,17 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
   /**
    * Create logging-config from form-data
    */
-  private getLoggingConfig(): ConfigLoggingConnection {
-    let config: ConfigLoggingConnection = new ConfigLoggingConnection();
+  private getLoggingConfig(): ConfigLogging {
+    let config: ConfigLogging = new ConfigLogging();
     config.logFolder = this.form.controls.logUrl.value;
     config.logLevel = this.form.controls.logLevel.value;
-    config.store = this.form.controls.store.value;
+    config.cache = this.form.controls.cache.value;
     return config;
   }
   /**
    * Persist logging-config in browser
    */
-  private storeLoggingConfig(): ConfigLoggingConnection {
+  private storeLoggingConfig(): ConfigLogging {
     const config = this.getLoggingConfig();
     this.$component.$data.$storage.setItem(
       PbAppStorageConst.CONFIG_LOGGING,
@@ -92,7 +132,7 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    */
   public action($event: any = false) {
     const config = this.getLoggingConfig();
-    if ( !this.form.errors &&  this.form.controls.store.value === true) {
+    if ( !this.form.errors &&  this.form.controls.cache.value === true) {
       this.storeLoggingConfig();
     }
     // if ( !this.form.errors ){

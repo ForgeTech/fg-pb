@@ -21,10 +21,9 @@
   <div content>
   <br/>
   <mat-horizontal-stepper #stepper labelPosition="bottom">
-    <mat-step [stepControl]="tabProduction.form" [completed]="tabProduction.form.valid">
+    <mat-step [stepControl]="tabProduction.form" [completed]="tabProduction.form.valid" [state]="prod">
       <ng-template matStepLabel>
         {{ 'tab_label_production' | translate }}
-        <pb-icon-validation [entity]=""></pb-icon-validation>
       </ng-template>
       <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>
       <div fxFlexLayout="row">
@@ -35,10 +34,9 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [stepControl]="tabTest.form" [completed]="tabTest.form.valid">
+    <mat-step [stepControl]="tabTest.form" [completed]="tabTest.form.valid" [state]="'test'">
       <ng-template matStepLabel>
         {{ 'tab_label_test' | translate }}
-        <pb-icon-validation [entity]=""></pb-icon-validation>
       </ng-template>
       <pb-tab-test #tabTest [config]="inputThemeColor"></pb-tab-test>
       <div fxFlexLayout="row">
@@ -53,10 +51,9 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [stepControl]="tabLogging.form" [optional]="true" [completed]="tabLogging.form.valid">
+    <mat-step [stepControl]="tabLogging.form" [completed]="tabLogging.form.valid" [optional]="true" [state]="log">
       <ng-template matStepLabel>
         {{ 'tab_label_logging' | translate }}
-        <pb-icon-validation [entity]=""></pb-icon-validation>
       </ng-template>
       <pb-tab-logging #tabLogging [config]="inputThemeColor"></pb-tab-logging>
       <div>
@@ -66,16 +63,16 @@
         </button>
       </div>
     </mat-step>
-    <!-- <ng-template matStepperIcon="1">
+    <ng-template matStepperIcon="prod">
       <mat-icon>timeline</mat-icon>
     </ng-template>
-    <ng-template matStepperIcon="2">
+    <ng-template matStepperIcon="test">
       <mat-icon>build</mat-icon>
     </ng-template>
-    <ng-template matStepperIcon="3">
-      <mat-icon>cast</mat-icon>
-    </ng-template> -->
-    <ng-template matStepperIcon="complete">
+    <ng-template matStepperIcon="completed">
+      <mat-icon>check_circle</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="edit">
       <mat-icon>check</mat-icon>
     </ng-template>
   </mat-horizontal-stepper>
@@ -90,8 +87,8 @@
         mat-raised-button
         color="accent"
         [disabled]="( actionDisabled$ | async )"
-        (click)="action($event)"
-      >
+        (click)="this.tabComponents[ stepper.selectedIndex ].action( $event )"
+        >
         {{ actionLabel$ | async }}
       </button>
     </div>

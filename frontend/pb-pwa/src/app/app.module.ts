@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { PrettyJsonModule } from 'angular2-prettyjson';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 // import { PbDatatableModule } from './module/pb-datatable/pb-datatable.module'
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgForageModule, Driver } from 'ngforage';
@@ -66,7 +67,6 @@ import { ModalSettingsComponent } from './component/modal-settings/modal-setting
   import { TabProductionComponent } from './component/modal-settings/tab-production/tab-production.component';
   import { TabTestComponent } from './component/modal-settings/tab-test/tab-test.component';
 import { TableComponent } from './component/table/table.component';
-// import { DatatableCustomComponent } from './component/table/ngx-datatable-custom';
 import { TableAsksComponent } from './component/table-asks/table-asks.component';
 import { TableBidsComponent } from './component/table-bids/table-bids.component';
 import { TableOrderbookComponent } from './component/table-orderbook/table-orderbook.component';
@@ -77,14 +77,13 @@ import { TableLogsComponent } from './component/table-logs/table-logs.component'
 import { TableContractDetailsComponent } from './component/table-contract-details/table-contract-details.component';
 import { PbIconValidationComponent } from './component/pb-icon-validation/pb-icon-validation.component';
 import { PwaInstallComponent } from './component/pwa-install/pwa-install.component';
-import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { TableAddOrderComponent } from './component/table-add-order/table-add-order.component';
 import { PbSidePipe } from './pipe/pb-side/pb-side.pipe';
 import { FgEnumPipe } from './pipe/fg-enum/fg-enum.pipe';
 import { FgInputComponent } from './component/fg-input/fg-input/fg-input.component';
 import { ConnectedGuard } from './guard/connected-guard.service';
 import { FgCardComponent } from './component/fg-card/fg-card.component';
-import { SyncUrlsEqualValidator } from './validators/sync-urls-equal.validator';
+import { SyncMatchFieldlValidator } from './validators/sync-match-field.validator';
 import { AsyncUrlRespondsValidator } from './validators/async-url-responds.validator';
 import { AsyncUrlApiKeyRespondsValidator } from './validators/async-url-api-key-responds.validator';
 import { FgGraphqlModule } from './module/fg-graphql/fg-graphql.module';
@@ -245,7 +244,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     FgKeyboardService,
     TranslateService,
     ConnectedGuard,
-    SyncUrlsEqualValidator,
+    SyncMatchFieldlValidator,
     AsyncUrlRespondsValidator,
     AsyncUrlApiKeyRespondsValidator
   ],

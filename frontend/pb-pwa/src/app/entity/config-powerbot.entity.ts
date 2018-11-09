@@ -1,12 +1,10 @@
 import {
-  ConfigLoggingConnection,
-  ConfigMarketConnection,
-  ConfigProductionConnection,
-  ConfigTestConnection,
-  ConfigView
+  ConfigLogging,
+  ConfigConnection,
+  ConfigView,
+  ConfigApiKey,
+  ConfigDebug
  } from './entity.export';
-import { ConfigDebug } from './config-debug-entity';
-import { ConfigAuth } from './config-auth.entity';
 /**
  * ConfigPowerBot -
  * Entity-Class used to hold configuration
@@ -21,10 +19,6 @@ export class ConfigPowerbot {
     * experimental features
     */
     public debug: boolean = false,
-    /**
-     * Contains the key for the currently configured market
-     */
-    public deliverArea: string = '',
     /**
      * Contains configured value for orderbook back_hours
      * setting delivering expired contacts of the past x hours
@@ -45,19 +39,15 @@ export class ConfigPowerbot {
     /**
      * Holds logging-service connection-configuration
      */
-    public logConfig: ConfigLoggingConnection = new ConfigLoggingConnection(),
-    /**
-     * Holds market-service connection-configuration
-     */
-    public marketConfig: ConfigMarketConnection = new ConfigMarketConnection(),
+    public logConfig: ConfigLogging = new ConfigLogging(),
     /**
      * Holds powerbot production-server connection-configuration
      */
-    public prodConfig: ConfigProductionConnection = new ConfigProductionConnection(),
+    public prodConfig: ConfigConnection = new ConfigConnection(),
     /**
      * Holds powerbot test-server connection-configuration
      */
-    public testConfig: ConfigTestConnection = new ConfigTestConnection(),
+    public testConfig: ConfigConnection = new ConfigConnection(),
     /**
      * Holds powerbot test-server connection-configuration
      */
@@ -66,7 +56,7 @@ export class ConfigPowerbot {
      * Holds values related to api-key generation
      * - only exist if set from environment file
      */
-    public authConfig?: ConfigAuth,
+    public apiKeyConfig: null | ConfigApiKey = null,
     /**
      * Holds values related to web-application debugging
      * only available when application is run in debug mode

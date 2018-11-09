@@ -14,10 +14,10 @@
         <input
           matInput
           placeholder="{{ 'input_placeholder_log_folder' | translate }}"
-          formControlName="logDir"
+          formControlName="logFolder"
           required
         >
-        <pb-icon-validation matSuffix [entity]="this.form.controls.logDir"></pb-icon-validation>
+        <pb-icon-validation matSuffix [entity]="this.form.controls.logFolder"></pb-icon-validation>
         <mat-hint translate>input_hint_log_folder</mat-hint>
       </mat-form-field>
     </p>
@@ -36,7 +36,7 @@
           {{level}}
         </mat-option>
       </mat-select>
-        <!-- <pb-icon-validation matSuffix [entity]="this.form.controls.logLevel.statusChanges"></pb-icon-validation> -->
+        <pb-icon-validation matSuffix [entity]="this.form.controls.logLevel"></pb-icon-validation>
         <mat-hint translate>select_hint_log_level</mat-hint>
       </mat-form-field>
     </p>
@@ -57,7 +57,7 @@
     </p> -->
     <p>
       <mat-checkbox
-        formControlName="store"
+        formControlName="cache"
         (change)="clearStore($event)"
       >
         {{ 'checkbox_label_cache' | translate }}

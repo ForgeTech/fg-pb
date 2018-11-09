@@ -1,27 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
 import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
-import { ConfigTestConnection } from '../../../entity/entity.export';
+import { ConfigConnection } from '../../../entity/entity.export';
 import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 import { FgEvent } from '../../../class/fg-event.class';
 import { PbAppEvent } from '../../../event/pb-app.event';
 import { regexUrlValidationPattern } from '../../../validators/RegexUrlValidationPattern';
 import { AsyncUrlRespondsValidator } from '../../../validators/async-url-responds.validator';
-import { AppEnv } from '../../../entity/app-state.entity';
 import { AsyncUrlApiKeyRespondsValidator } from 'src/app/validators/async-url-api-key-responds.validator';
-import { Observable } from 'apollo-link';
+import { Subject } from 'rxjs';
+import { ObservableQuery } from 'apollo-client';
 
 /**
  * TabTestComponent -
- * This Tab is used to set powerbot test-api configuraion
+ * This tab is used to set powerbot test-api configuraion
  * data
  */
 @Component({
   selector: 'pb-tab-test',
   templateUrl: './tab-test.component.html',
   styleUrls: ['./tab-test.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TabTestComponent extends FgComponentBaseComponent implements PbModalTabComponentInterface {
   /**
@@ -29,8 +30,19 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    * setting test-connection configuration
    */
   public form: FormGroup;
+  /**
+   * Label key provided for use with action-button
+   */
   public actionLabel = 'button_label_connect';
-  public data$: Observable<any>;
+  /**
+   * Observable for providing graphql-query to
+   * fetch local-client state
+   */
+  public request$: ObservableQuery;
+  /**
+   * Observable to provide fetched local-client state data
+   */
+  public data$: Subject<ConfigConnection> = new Subject();
   /**
    * CONSTRUCTOR
    */
@@ -43,10 +55,21 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
     super(
       $component
     );
+    this.request$ = this.$component.$apollo.watchQuery(`
+      query getConfigConnection($id: Int!) {
+        getConfigConnection(id: $id) @client {
+          isProduction
+          isValid
+          apiKey,
+          backupUrl,
+          serverUrl,
+          cache
+        }
+      }`,
+      { id: 1 }
+    );
     // this.data$ = this.$component.$apollo.watchQuery
     this.form = $fb.group({
-      hideRequired: false,
-      floatLabel: 'auto',
       serverUrl: [null,
         [
           Validators.required,
@@ -64,8 +87,29 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
           this.$AsyncUrlApiRespondsValidator.validate.bind(this.$AsyncUrlApiRespondsValidator)
         ],
       ],
-      store: [null, []],
+      cache: [null, []],
     });
+    this._subscribtions.push(
+      this.request$.subscribe(result => {
+        this.data$.next(result.data.getConfigConnection as ConfigConnection);
+      })
+    );
+    this._subscribtions.push(
+      this.data$.subscribe(result => {
+        this.$component.$log.warn('RESULT-TEST');
+        console.log(result);
+        this.form.patchValue(result);
+        // Object.keys(this.form.controls).forEach(field => {
+        //   const control = this.form.get(field) as AbstractControl;
+        //   console.log('key: ', field);
+        //   control.markAsTouched()
+        //   control.markAsDirty();
+        //   control.setValue(result[field]);
+        //   control.updateValueAndValidity();
+        // });
+        // }
+      })
+    );
     // If serverUrl-changes and apiKey contains value, revalidate field
     this._subscribtions.push(this.form.controls.serverUrl.statusChanges.subscribe(event => {
       if ( this.form.get('serverUrl').valid && this.form.get('apiKey').value ) {
@@ -79,35 +123,27 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   getApiErrorMessage(errors: ValidationErrors) {
     return 'Api Key Error';
   }
-  /** Open generate ApiKey-Modal */
+  /**
+   * Open generate ApiKey-Modal
+  */
   openApiKeyModal( $event: Event ) {
     $event.preventDefault();
     this.$component.$event.emit(new FgEvent(PbAppEvent.OPEN_API_KEY_MODAL, this));
   }
   /**
-   * Set form-data from powerbot storage
-   */
-  public setFormData(): void {
-    if (this.$component.$data.app.config.testConfig ) {
-      this.form.patchValue(
-        this.$component.$data.app.config.testConfig
-      );
-    }
-  }
-  /**
    * Create logging-config from form-data
    */
-  private getTestData(): ConfigTestConnection {
-    let config: ConfigTestConnection = new ConfigTestConnection();
+  private getTestData(): ConfigConnection {
+    let config: ConfigConnection = new ConfigConnection();
     config.serverUrl = this.form.controls.serverUrl.value;
-    // config.apiKey = this.form.controls.apiKey.value;
-    config.store = this.form.controls.store.value;
+    config.apiKey = this.form.controls.apiKey.value;
+    config.cache = this.form.controls.cache.value;
     return config;
   }
   /**
    * Persist logging-config in browser
    */
-  private storeTestConfig(): ConfigTestConnection {
+  private storeTestConfig(): ConfigConnection {
     const config = this.getTestData();
     this.$component.$data.$storage.setItem(
       PbAppStorageConst.CONFIG_TEST,
@@ -134,7 +170,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    */
   public action($event: any = false) {
     const config = this.getTestData();
-    if (!this.form.errors && this.form.controls.store.value === true) {
+    if (!this.form.errors && this.form.controls.cache.value === true) {
       this.storeTestConfig();
     }
     if (!this.form.errors) {

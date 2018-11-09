@@ -1,4 +1,4 @@
-import { Component, ViewChild, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, ViewChild, SimpleChange, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { MatTab, MatTabChangeEvent, MatTabGroup, MatStepper } from '@angular/material';
 import { TabProductionComponent } from './tab-production/tab-production.component';
@@ -11,9 +11,10 @@ import { PowerBotEntity } from '../../entity/entity.export';
 import { _ } from './../../app.utils';
 import { FgComponentBaseEvent } from 'src/app/event/fg-events.export';
 import { Observable, merge } from 'rxjs';
-import { map, filter, switchMap } from 'rxjs/operators';
+import { map, filter, switchMap, startWith } from 'rxjs/operators';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { FgEvent } from 'src/app/class/fg-event.class';
+import { FormValidationState } from 'src/app/enum/enum.export';
 
 /**
  * ModalSettingsComponent -
@@ -25,7 +26,8 @@ import { FgEvent } from 'src/app/class/fg-event.class';
   /* tslint:disable-next-line */
   selector: 'pb-modal-settings',
   templateUrl: './modal-settings.component.html',
-  styleUrls: ['./modal-settings.component.scss']
+  styleUrls: ['./modal-settings.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModalSettingsComponent extends FgComponentBaseComponent {
   /**
@@ -72,7 +74,9 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
     );
     // After view is initialized or stepper changes active tab should be set
     this.activeTab$ = merge(
-        afterViewInit$.pipe( map( value => 0) ),
+        afterViewInit$.pipe( map( value => {
+          return 0;
+        } ) ),
         afterViewInit$.pipe(
           switchMap( value => this.stepper.selectionChange ),
           map( ( selection: StepperSelectionEvent ) => selection.selectedIndex )
@@ -88,56 +92,28 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
        return this.tabComponents[index];
     }));
     // On active-tab change -> active-tab form is invalid -> action should be disabled
-    this.actionDisabled$ = this.activeTab$.pipe(
-      switchMap( (tab: PbModalTabComponentInterface) => tab.form.statusChanges ),
+    this.actionDisabled$ = merge(
+      this.activeTab$.pipe(
+        map( ( tab: PbModalTabComponentInterface) => tab.form.status )
+      ),
+      this.activeTab$.pipe(
+        switchMap( ( tab: PbModalTabComponentInterface ) => tab.form.statusChanges )
+      )
+    ).pipe(
+      // Eject Default Value
+      startWith( FormValidationState[ FormValidationState.INVALID ] ),
+      // Map FormValidationState
       map( value => {
-        console.log('VALUE');
-        console.log(value);
-        return value;
-      } )
+        let disabled = true;
+        if ( value === FormValidationState[ FormValidationState.VALID ]) {
+          disabled = false;
+        }
+        return disabled;
+      })
     );
     // If active-tab change -> update action-label
     this.actionLabel$ = this.activeTab$.pipe(
-      switchMap( (tab: PbModalTabComponentInterface ) => this.$component.$translate.get( tab.actionLabel ) )
+      switchMap( ( tab: PbModalTabComponentInterface ) => this.$component.$translate.get( tab.actionLabel ) )
     );
-  }
-  /**
-   * Override Life-cycle methode from super
-   * class
-   */
-  /* tslint:disable-next-line */
-  public ngAfterViewInit(): void {
-    // Initialize Production-Form data if set by environment-file
-    super.ngAfterViewInit();
-    // Initialize variables with view-references after
-    // components where created
-    // this.activeTab$ = new BehaviorSubject( this.tabProduction );
-    // this.stepper.selectionChange.subscribe( selection => {
-    //   this.$component.$log.warn('SELECTION CHANGE!');
-    //   this.$component.$log.warn( selection );
-    //   const tab = this.tabComponents[this.stepper.selectedIndex];
-      // this.activeTab$.next( tab );
-      // this.actionLabel$.next(tab)
-      // this.actionDisabled$.next(!tab.form.valid);
-      // this.tabApi
-    // });
-
-
-    // Recover configuration from storage and update form-data when available
-    // this.$component.$data.recoverConfigFromStorage().then(powerbot => {
-    //   this.$component.$log.warn('RECOVER from Storage');
-    //   this.$component.$data.app = powerbot;
-    //   // Override from environment file if flag override is set to true
-    //   if (this.$component.$data.$env.override) {
-    //     this.$component.$log.warn('OVERRIDE from Environment');
-    //     this.$component.$data.app = Object.assign(this.$component.$data.app, this.$component.$data.$env.powerbot);
-    //   }
-    //   // Load Language if it's different from default language
-    //   if (this.$component.$data.app.config.lang !== this.$component.$translate.getDefaultLang()) {
-    //     this.$component.$translate.use(this.$component.$data.app.config.lang);
-    //   }
-    //   // Set form-data for active tab
-    //   this.activeTab.setFormData();
-    // });
   }
 }

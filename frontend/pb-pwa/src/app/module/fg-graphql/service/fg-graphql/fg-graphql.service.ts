@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Apollo, QueryRef } from 'apollo-angular';
 import { InMemoryCache as ApolloInMemoryCache } from 'apollo-cache-inmemory';
 import { withClientState } from 'apollo-link-state';
 import {
@@ -13,9 +12,8 @@ import * as LocalForage from 'localforage';
 import { ApolloPersistOptions } from 'apollo-cache-persist/types';
 import gql from 'graphql-tag';
 import { HttpHeaders } from '@angular/common/http';
-import { PowerBotEntity } from 'src/app/entity/entity.export';
 import { ApolloClient, ApolloQueryResult, ObservableQuery } from 'apollo-client';
-import { injectArgs } from '@angular/core/src/di/injector';
+import { environment } from 'src/environments/environment.ghp';
 /**
  * FgGraphqlClientService -
 * This service provides methodes to
@@ -32,102 +30,181 @@ export class FgGraphqlService {
   /**
    * Create graphql typeDefinitions
    * for working with local-state
+   type PowerBot {
+     id: Int
+     state: State
+     config: Config
+   }
+   type State {
+     selectedContract: false
+     selectedMarket: String
+     allowed: Boolean
+     connection: ConfigConnection
+     connectionState: Int
+     requestState: Int
+   }
+   type Config {
+     id: Int
+     languages: [String]
+     language: String
+     backhours: Int
+     darkThema: Boolean
+     prodConfig: ConfigConnection
+     testConfig: ConfigConnection
+     logConfig: ConfigLogging
+   }
+   type ConfigConnection {
+     id: Int
+     isProduction: Boolean
+     serverUrl: String
+     backupUrl: String
+     apiKey: String
+     cache: Boolean
+     isValid: Boolean
+   }
+   type ConfigLogging {
+     id: Int
+     logFolder
+     logLevel
+     cache
+   }
    */
   protected typeDefs = `
-  type Config {
-    id: Int
-    languages: [String]
-    language: String
-    backhours: Int
-    darkThema: Boolean
-    prodConfig: ProdConfig
-    testConfig: TestConfig
-  }
-  type ProdConfig {
-    id: Int
-    serverUrl: String
-    backupUrl: String
-    apiKey: String
-    cache: Boolean
-    valid: Boolean
-  }
-  type TestConfig {
-    id: Int
-    serverUrl: String
-    apiKey: String
-    cache: Boolean
-    valid: Boolean
-  }
-  type PowerBot {
-    id: Int
-    config: Config
-  }
   type Mutation {
-    setAllowed: Boolean
-    setProdConfig: ProdConfig
-    setTestConfig: TestConfig
-    setLogConfig: TestConfig
+    setConfigConnection: ConfigConnection
+    setConfigLogging: ConfigLogging
+    setState: State
     toggleDarkTheme: Boolean
+    toggleAllowed: Boolean
   }
   type Query {
-    isDarkTheme: Boolean
-    getProdConfig: ProdConfig
-    getTestConfig: TestConfig
-    getBreakPoint: Breakpoint
+    getConfigLogging: ConfigLogging
+    getConfigConnection: ConfigConnection
+    getState: State
+    getBreakPoint: ConfigBreakpoint
   }
   `;
+  public fragmentConfigConnection = gql`
+  fragment connectionConfig on ConfigConnection
+  {
+    id
+    apiKey
+    backupUrl
+    serverUrl
+    cache
+    isProduction
+    isValid
+  }`;
+  public fragmentConfigLogging = gql`
+  fragment loggingConfig on ConfigLogging {
+    id
+    logFolder
+    logLevel
+    cache
+    isValid
+  }`;
+  public fragmentState = gql`
+    fragment state on State {
+    id
+    allowed
+    connection
+    connectionState
+    requestState
+  }`;
+  public fragmentConfigBreakPoint = gql`
+    fragment breakpointConfig on ConfigBreakPoint {
+    id
+    name
+    cards {
+      id
+      cols
+      id
+      rows
+      template
+      title
+    }
+    grid {
+      id
+      cols
+      gutterSize
+      rowHeight
+    }
+  }`;
+
   /**
    * Resolvers for working with graphql local-state
    */
   protected resolvers = {
     Mutation: {
+      setConfigConnection: ( _, args, { cache, getCacheKey }) => {
+        const id = getCacheKey({__typename: 'ConfigConnection', id: args.id });
+        const fragment = this.fragmentConfigConnection;
+        const previous = cache.readFragment({ fragment, id });
+        const data = this.getMutationWriteData(args, previous);
+        cache.writeData( data, id );
+        return data;
+      },
+      setConfigLogging: ( _, args, { cache, getCacheKey }) => {
+        const id = getCacheKey({__typename: 'ConfigLogging', id: args.id });
+        const fragment = this.fragmentConfigLogging;
+        const previous = cache.readFragment({ fragment, id });
+        const data = this.getMutationWriteData(args, previous);
+        cache.writeData( data, id );
+        return data;
+      },
+      setState: ( _, args, { cache, getCacheKey }) => {
+        const id = getCacheKey({__typename: 'State', id: args.id });
+        const fragment = this.fragmentState;
+        const previous = cache.readFragment({ fragment, id });
+        const data = this.getMutationWriteData(args, previous);
+        cache.writeData( data, id );
+        return data;
+      },
       toggleDarkTheme: ( _, args, { cache, getCacheKey }) => {
         const id = getCacheKey({__typename: 'Config', id: args.id });
         const fragment = gql`
-        fragment darkThema on Config {
+        fragment darkTheme on Config {
             darkTheme
         }`;
         const previous = cache.readFragment({ fragment, id });
         const data = { darkTheme: !previous.darkTheme };
         cache.writeData({ id, data });
-        return null;
-      }
+        return data;
+      },
+      toggleAllowed: ( _, args, { cache, getCacheKey }) => {
+        const id = getCacheKey({__typename: 'State', id: args.id });
+        const fragment = gql`
+        fragment allowed on Config {
+            allowed
+        }`;
+        const previous = cache.readFragment({ fragment, id });
+        const data = { darkTheme: !previous.allowed };
+        cache.writeData({ id, data });
+        return data;
+      },
     },
     Query: {
-      getProdConfig: (parent, args, { cache, getCacheKey }) => {
-        const id = getCacheKey({ __typename: 'ProdConfig', id: args.id });
-        const fragment = gql`fragment prodConfig on ProdConfig {
-          id,
-          apiKey,
-          backupUrl,
-          serverUrl,
-          cache,
-          valid
-        }`;
+      getConfigConnection: (parent, args, { cache, getCacheKey }) => {
+        const id = getCacheKey({ __typename: 'ConfigConnection', id: args.id });
+        const fragment = this.fragmentConfigConnection;
         const data = cache.readFragment({ fragment, id });
         return data;
       },
-      getTestConfig: (parent, args, { cache, getCacheKey }) => {
-        const id = getCacheKey({ __typename: 'TestConfig', id: args.id });
-        const fragment = gql`fragment testConfig on TestConfig {
-          id,
-          apiKey,
-          serverUrl,
-          cache,
-          valid
-        }`;
+      getConfigLogging: (parent, args, { cache, getCacheKey }) => {
+        const id = getCacheKey({ __typename: 'ConfigLogging', id: args.id });
+        const fragment = this.fragmentConfigLogging;
         const data = cache.readFragment({ fragment, id });
         return data;
       },
-      getBreakPoint: (parent, args, { cache, getCacheKey }) => {
-        const id = getCacheKey({ __typename: 'TestConfig', id: args.id });
-        const fragment = gql`fragment testConfig on TestConfig {
-          id,
-          apiKey,
-          serverUrl,
-          cache,
-          valid
-        }`;
+      getState: (parent, args, { cache, getCacheKey }) => {
+        const id = getCacheKey({ __typename: 'State', id: args.id });
+        const fragment = this.fragmentState;
+        const data = cache.readFragment({ fragment, id });
+        return data;
+      },
+      getConfigBreakPoint: (parent, args, { cache, getCacheKey }) => {
+        const id = getCacheKey({ __typename: 'ConfigBreakPoint', id: args.id });
+        const fragment = this.fragmentConfigBreakPoint;
         const data = cache.readFragment({ fragment, id });
         return data;
       }
@@ -137,6 +214,21 @@ export class FgGraphqlService {
    * CONSTRUCTOR
    */
   constructor() {}
+  /**
+   * Methode returning a object for writing to apollo-cache by
+   * unioning new and previous data
+   */
+  protected getMutationWriteData(newData: any, prevData: any) {
+    if( !prevData ){
+      prevData = {};
+    }
+    if( !newData ){
+      newData = {};
+    }
+    console.log('WRITEDATA');
+    console.log( Object.assign( prevData, newData ) );
+    return Object.assign( prevData, newData );
+  }
   /*
   * Forward query to apollo-client instace query-methode
   */
@@ -186,8 +278,6 @@ export class FgGraphqlService {
     if ( this.apollo ) {
       return;
     }
-    let clientOptions: any = {}
-    let persistOptions: any = {};
     // Recieve auth-token from localstorage to set up Authorization http-header
     // const token = window.localStorage.getItem(AUTH_USER_TOKEN);
     // const authorization = token ? `Bearer ${token}` : null;
@@ -196,6 +286,7 @@ export class FgGraphqlService {
     // Initialize apollo InMemoryCache
     const cache = new ApolloInMemoryCache();
     // Setup persist-storage options and initialize it for apollo-client cache
+    let persistOptions: any = {};
     persistOptions.cache = cache;
     persistOptions.storage = LocalForage.createInstance(persistOptions);
     apollo_persistCache(persistOptions);
@@ -206,35 +297,16 @@ export class FgGraphqlService {
       resolvers: this.resolvers,
       typeDefs: this.typeDefs
     });
-    // Setup Websocket for apollo-graphql subscriptions
-    // const webSocketLinkConfig = clientOptions.subscriptionWebSocketLink;
-    // webSocketLinkConfig.connectionParams.authToken = window.localStorage.getItem(AUTH_USER_TOKEN);
-    // const wsLink = new WebSocketLink(webSocketLinkConfig);
-    // Create Instace of apollo-http-link
-    // const httpLink = createHttpLink({
-    //   uri: clientOptions.uri,
-    //   headers: headers,
-    // });
     // Initialize apollo-client instance
+    let clientOptions: any = {}
     clientOptions.link = localStateLink;
     clientOptions.cache = cache;
-    clientOptions.connectToDevTools = true;
+    // Initialize
+    clientOptions.connectToDevTools = environment.debug;
     clientOptions.clientState = this.resolvers;
     clientOptions.clientState.defaults = data;
 
-    const client = new ApolloClient(clientOptions);
-    // const client = new ApolloBoostClient({
-    //   link: ApolloLink.split(
-    //     operation => {
-    //       const operationAST = getOperationAST(operation.query, operation.operationName);
-    //       return !!operationAST && operationAST.operation === 'subscription';
-    //     },
-    //     wsLink,
-    //     httpLink,
-    //   ),
-    //   cache: cache
-    // });
-    this.apollo = client;
+    this.apollo = new ApolloClient(clientOptions);
   }
   /**
    * Return a instance of apollo cache-persistor for handling

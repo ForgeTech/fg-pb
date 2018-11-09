@@ -1,4 +1,3 @@
-import { ConfigCommon } from './entity.export';
 /**
  * ConfigBreakPoint -
  * Entity-Class used to hold configuration-data
@@ -16,11 +15,6 @@ export class ConfigBreakPoint {
     /**
      * The media-query to match for this breakpoint
      */
-    public mediaQuery: string = '',
-    /**
-     * A set of common view-configuration, that will be used as default
-     * values, that can be overwritten with breakpoint specific configuration
-     */
-    public common: ConfigCommon = new ConfigCommon(),
+    public mediaQuery: string = ''
   ) { }
 }
