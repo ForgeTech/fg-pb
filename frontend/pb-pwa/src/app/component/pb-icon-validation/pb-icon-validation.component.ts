@@ -1,22 +1,22 @@
-import { Component, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { FormControl, AbstractControl } from '@angular/forms';
-import { Subject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { PROVIDERS } from 'apollo-angular/ApolloModule';
-export enum ValidationState {
-  'INVALID',
-  'PENDING',
-  'VALID',
-}
+import { AbstractControl } from '@angular/forms';
+import { Observable, Subscription} from 'rxjs';
+import { map, filter, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { FgEvent } from 'src/app/class/fg-event.class';
+import { FgComponentBaseEvent } from 'src/app/event/fg-events.export';
+import { FormValidationState } from './../../enum/enum.export';
+/**
+ * Pb-Icon-Validation
+ */
 @Component({
   selector: 'pb-icon-validation',
   templateUrl: './pb-icon-validation.component.html',
   styleUrls: ['./pb-icon-validation.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PbIconValidationComponent extends FgComponentBaseComponent implements OnChanges {
+export class PbIconValidationComponent extends FgComponentBaseComponent {
   /**
    * Holds passed form-control status-string
    */
@@ -38,27 +38,33 @@ export class PbIconValidationComponent extends FgComponentBaseComponent implemen
     super(
       $component
     );
-  }
-  /**
-   * Implements methode for component life-cycle OnChange-Interface.
-   * @param changes
-   */
-  public ngOnChanges(changes: SimpleChanges) {
-    if ( this.entity && !this.icon$) {
-      this.icon$ = this.entity.statusChanges.pipe(
-        map( val => {
-           return this.getFormControlValidationIcon( val );
-        })
-      );
-    }
-    if ( this.entity && !this.color$) {
-      this.color$ = this.entity.statusChanges.pipe(
-        map( val => {
-           return this.getFormControlValidationColor( val );
-        })
-      );
-    }
-    super.ngOnChanges( changes );
+    const formControlAvailable$ = this.event$.pipe(
+      filter( ( event: FgEvent ) => {
+        return ( event.signature === FgComponentBaseEvent.AFTER_VIEW_INIT );
+      }),
+    );
+    // Define Observable for Validation-State Icon
+    this.icon$ = formControlAvailable$.pipe(
+      switchMap( event => this.entity.statusChanges.pipe( distinctUntilChanged() ) ),
+      map( val => {
+        return this.getFormControlValidationIcon( val );
+      })
+    );
+    // Define Observable for Validation-State Color
+    this.color$ = formControlAvailable$.pipe(
+      switchMap( event => this.entity.statusChanges.pipe( distinctUntilChanged() ) ),
+      map( val => {
+        return this.getFormControlValidationColor( val );
+      })
+    );
+    this._subscribtions.push(
+      formControlAvailable$.subscribe( result => {
+        this.entity.updateValueAndValidity({
+          onlySelf: false,
+          emitEvent: false
+        });
+      })
+    );
   }
   /**
    * Retun icon according to passed form-control validation
@@ -67,14 +73,14 @@ export class PbIconValidationComponent extends FgComponentBaseComponent implemen
    */
   getFormControlValidationIcon( state: string ): string {
     let icon: string = 'error_outline';
-    switch ( ValidationState[state] ) {
-      case ValidationState.INVALID:
+    switch ( FormValidationState[state] ) {
+      case FormValidationState.INVALID:
         icon = 'error_outline';
         break;
-      case ValidationState.PENDING:
+      case FormValidationState.PENDING:
         icon = 'cached';
         break;
-      case ValidationState.VALID:
+      case FormValidationState.VALID:
         icon = 'check_circle_outline';
         break;
     }
@@ -86,14 +92,14 @@ export class PbIconValidationComponent extends FgComponentBaseComponent implemen
    */
   getFormControlValidationColor( state: string ): string {
     let color: string = '';
-    switch ( ValidationState[state] ) {
-      case ValidationState.INVALID:
+    switch ( FormValidationState[state] ) {
+      case FormValidationState.INVALID:
         color = 'warn';
         break;
-      case ValidationState.PENDING:
+      case FormValidationState.PENDING:
         color = 'accent';
         break;
-      case ValidationState.VALID:
+      case FormValidationState.VALID:
         color = 'accent';
         break;
     }

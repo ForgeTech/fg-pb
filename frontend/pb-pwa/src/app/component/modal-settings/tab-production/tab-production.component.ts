@@ -1,30 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
-import { FormGroup, FormBuilder, Validators, ValidationErrors, FormControl, AbstractControl } from '@angular/forms';
-import { ConfigProductionConnection } from '../../../entity/entity.export';
+import { FormGroup, FormBuilder, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
+import { ConfigConnection } from '../../../entity/entity.export';
 import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 import { FgEvent } from '../../../class/fg-event.class';
 import { PbAppEvent } from '../../../event/pb-app.event';
 import { regexUrlValidationPattern } from '../../../validators/RegexUrlValidationPattern';
-import { Subject, Observable } from 'rxjs';
-import { SyncUrlsEqualValidator } from '../../../validators/sync-urls-equal.validator';
 import { AsyncUrlRespondsValidator } from 'src/app/validators/async-url-responds.validator';
 import { AsyncUrlApiKeyRespondsValidator } from 'src/app/validators/async-url-api-key-responds.validator';
-import { merge } from 'rxjs';
+import { ObservableQuery, ApolloQueryResult } from 'apollo-client';
+import { SyncMatchFieldlValidator } from '../../../validators/sync-match-field.validator';
+import { Subject, Observable, merge } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 /**
- * Enum for formGroup validation-states
+ * TabProductionComponent -
+ * Component used to set production-configuration
+ * for Powerbot-application
  */
-export enum ValidationState {
-  'INVALID',
-  'PENDING',
-  'VALID',
-}
 @Component({
   selector: 'pb-tab-production',
   templateUrl: './tab-production.component.html',
   styleUrls: ['./tab-production.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TabProductionComponent extends FgComponentBaseComponent implements PbModalTabComponentInterface {
   /**
@@ -32,7 +31,19 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * setting production-form configuration
    */
   public form: FormGroup;
+  /**
+   * Label key provided for use with action-button
+   */
   public actionLabel = 'button_label_connect';
+  /**
+   * Observable for providing graphql-query to
+   * fetch local-client state
+   */
+  public request$: ObservableQuery;
+  /**
+   * Observable to provide fetched local-client state data
+   */
+  public data$: Subject<ConfigConnection> = new Subject();
   /**
    * CONSTRUCTOR
    */
@@ -40,18 +51,26 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     public $component: FgComponentBaseService,
     protected $fb: FormBuilder,
     protected $AsyncUrlRespondsValidator: AsyncUrlRespondsValidator,
-    protected $AsyncUrlApiKeyRespondsValidator: AsyncUrlApiKeyRespondsValidator,
-    protected $SyncUrlsEqualValidator: SyncUrlsEqualValidator
+    protected $AsyncUrlApiKeyRespondsValidator: AsyncUrlApiKeyRespondsValidator
+    // protected $SyncMatchFieldlValidator: SyncMatchFieldlValidator
   ) {
     super(
       $component
     );
+    this.request$ = this.$component.$apollo.watchQuery(`
+      query getConfigConnection($id: Int!) {
+        getConfigConnection(id: $id) @client {
+          isProduction
+          isValid
+          apiKey,
+          backupUrl,
+          serverUrl,
+          cache
+        }
+      }`,
+      { id: 0 }
+    );
     this.form = $fb.group({
-      hideRequired: false,
-      floatLabel: 'auto',
-      asyncValidator: [
-        this.$AsyncUrlApiKeyRespondsValidator.validate.bind(this.$AsyncUrlApiKeyRespondsValidator)
-      ],
       serverUrl: [null,
           [
             Validators.required,
@@ -60,11 +79,11 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
           [
             this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
           ]
-      ],
+        ],
       backupUrl: [null, [
             Validators.required,
             Validators.pattern(regexUrlValidationPattern),
-            // this.$SyncUrlsEqualValidator.validate.bind(this.$SyncUrlsEqualValidator)
+            SyncMatchFieldlValidator.matchField( 'serverUrl' )
           ],
           [
             this.$AsyncUrlRespondsValidator.validate.bind(this.$AsyncUrlRespondsValidator)
@@ -78,16 +97,40 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
           this.$AsyncUrlApiKeyRespondsValidator.validate.bind(this.$AsyncUrlApiKeyRespondsValidator)
         ],
       ],
-      store: [null, []],
+      cache: [null, []],
     });
+    // Update data-observable on request-update
+    this._subscribtions.push(
+      this.request$.subscribe( ( result: ApolloQueryResult<any> ) => {
+        this.data$.next( result.data.getConfigConnection as ConfigConnection );
+      })
+    );
+    // Set form-data on data-update
+    this._subscribtions.push(
+      this.data$.subscribe( result => {
+        Object.keys(this.form.controls).forEach( key => {
+          this.form.controls[ key ].setValue( result[ key ]);
+        });
+      })
+    );
+    // If serverUrl-changes and backupUrl contains value, revalidate field
+    this._subscribtions.push( this.form.controls.serverUrl.valueChanges.subscribe( event => {
+        this.form.controls.backupUrl.updateValueAndValidity({emitEvent: true});
+    }));
     // If either serverUrl or backupUrl validation-state changes and apiKey contains value revalidate field
     const urlChanges: Observable<any> = merge(
       this.form.controls.serverUrl.statusChanges,
       this.form.controls.backupUrl.statusChanges
+    ).pipe(
+      // Only update once if both fields are updated
+      // by delaying execution
+      debounceTime( 100 )
     );
     // If serverUrl/backupUrl-changes and apiKey contains value, revalidate field
-    this._subscribtions.push( urlChanges.subscribe( event => {
-      if ( ( this.form.controls.serverUrl.valid || this.form.controls.backupUrl.valid ) && this.form.controls.apiKey.value ) {
+    this._subscribtions.push( urlChanges.pipe( debounceTime( 100 ) ).subscribe( event => {
+      if ( !this.form.controls.apiKey.valid
+        && ( this.form.controls.serverUrl.valid || this.form.controls.backupUrl.valid
+      ) ) {
         this.form.get('apiKey').updateValueAndValidity();
       }
     }));
@@ -109,16 +152,6 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     // console.log(this.form);
     return  'invalid api';
   }
-  /**
-   * Set form-data from powerbot storage
-   */
-  public setFormData(): void {
-    if (this.$component.$data.app.config.prodConfig ) {
-      this.form.patchValue(
-        this.$component.$data.app.config.prodConfig
-      );
-    }
-  }
   /** Open generate ApiKey-Modal */
   public openApiKeyModal($event: Event) {
     event.preventDefault();
@@ -127,24 +160,22 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
   /**
    * Create production-config from form-data
    */
-  private getProductionConfig(): ConfigProductionConnection {
-    let config: ConfigProductionConnection = new ConfigProductionConnection();
+  private getProductionConfig(): ConfigConnection {
+    let config: ConfigConnection = new ConfigConnection();
     config.serverUrl = this.form.controls.serverUrl.value;
     config.backupUrl = this.form.controls.backupUrl.value;
     config.apiKey = this.form.controls.apiKey.value;
-    config.store = this.form.controls.store.value;
+    config.cache = this.form.controls.cache.value;
     return config;
   }
   /**
    * Persist production-config in browser
    */
-  private storeProductionConfig(): ConfigProductionConnection {
-    const config = this.getProductionConfig();
+  private storeProductionConfig(config: ConfigConnection): void {
     this.$component.$data.$storage.setItem(
       PbAppStorageConst.CONFIG_PRODUCTION,
       config
     );
-    return config;
   }
   /**
    * If checkbox for store configuration is set to false, delete
@@ -157,21 +188,14 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     }
   }
   /**
-   * TODO: Find out how to update configuration for
-   * generated api-services - and how to configure a second
-   * connection for backup-server
-   *
    * Configure data-service with powerbot-production
    * configuration
    */
   public action( $event: any = false ) {
     const config = this.getProductionConfig();
-    if ( !this.form.errors && this.form.controls.store.value === true ) {
-      this.storeProductionConfig();
+    if ( !this.form.errors && this.form.controls.cache.value === true ) {
+      this.storeProductionConfig( config );
     }
-    if ( !this.form.errors ) {
-      this.$component.$data.app.config.prodConfig = config;
-      this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API_PROD, this));
-    }
+    this.$component.$event.emit(new FgEvent(PbAppEvent.CONNECT_API_PROD, this));
   }
 }

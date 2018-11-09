@@ -33,7 +33,7 @@ export class AsyncUrlApiKeyRespondsValidator implements AsyncValidator {
     const apiKeyCtrl: AbstractControl = ctrl.parent.get( 'apiKey' );
     // Only validate if there is a valid url avaiable and there are no
     // other errors on apiKeyCrtl
-    if ( apiKeyCtrl.errors && serverUrlCtrl.valid && backupUrlCtrl.valid ) {
+    if ( ctrl.value !== undefined && apiKeyCtrl.errors && serverUrlCtrl.valid && backupUrlCtrl.valid ) {
       return of (null);
     }
     return apiKeyCtrl.valueChanges.pipe(
@@ -51,20 +51,15 @@ export class AsyncUrlApiKeyRespondsValidator implements AsyncValidator {
         config.apiKeys = { 'api_key': ctrl.value };
         // Set market config to validator-configuration
         this.$data.$market.configuration = config;
-        console.log('CONFIG');
-        console.log(config);
         return this.$data.$market.getStatus();
       }),
       map( value => {
-        this.$log.warn('Response', value);
         return of( true );
       }),
-      catchError(error => {
-        this.$log.warn('Error');
+      catchError( error => {
         return of( false );
       }),
       map(valid => {
-        this.$log.warn('Valid', valid);
         return valid ? null : { asyncUrlResponds: true };
       }),
       take(1)
