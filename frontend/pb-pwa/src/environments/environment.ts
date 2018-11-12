@@ -1,3 +1,5 @@
+import { BreakpointEnum } from "src/app/module/fg-material/enum/enum.export";
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
@@ -57,19 +59,19 @@ export const environment = {
         cache: true,
         isValid: true
       },
-      viewConfig: [
+      view: [
         {
           id: 0,
-          __typename: 'ConfigView',
+          __typename: 'View',
           name: 'dashboard',
           breakpoints: [
             {
               id: 0,
-              __typename: 'ConfigBreakPoint',
-              name: 'small',
+              __typename: 'Breakpoint',
+              name: BreakpointEnum[ BreakpointEnum.MEDIUM ],
               grid: {
                 id: 0,
-                __typename: 'ConfigGrid',
+                __typename: 'Grid',
                 cols: 32,
                 rowHeight: '25px',
                 gutterSize: '10px'
@@ -77,77 +79,77 @@ export const environment = {
               cards: [
                 {
                   id: 1,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_orders',
                   template: 'orders',
                   cols: 16, rows: 7
                 },
                 {
                   id: 2,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_trades',
                   template: 'trades',
                   cols: 16, rows: 7
                 },
                 {
                   id: 3,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_orderbook',
                   template: 'orderbook',
                   cols: 24, rows: 14
                 },
                 {
                   id: 4,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_bids',
                   template: 'bids',
                   cols: 8, rows: 7
                 },
                 {
                   id: 5,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_asks',
                   template: 'asks',
                   cols: 8, rows: 7
                 },
                 {
                   id: 6,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_portfolio',
                   template: 'portfolio',
                   cols: 16, rows: 7
                 },
                 {
                   id: 7,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_contract_details',
                   template: 'contractdetails',
                   cols: 16, rows: 7
                 },
                 {
                   id: 8,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_product_history',
                   template: 'producthistory',
                   cols: 16, rows: 7
                 },
                 {
                   id: 9,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_signals',
                   template: 'signals',
                   cols: 16, rows: 7
                 },
                 {
                   id: 10,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_logs',
                   template: 'logs',
                   cols: 16, rows: 7
                 },
                 {
                   id: 11,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_signal_history',
                   template: 'signalhistory',
                   cols: 16, rows: 7
@@ -156,11 +158,11 @@ export const environment = {
             },
             {
               id: 1,
-              __typename: 'ConfigBreakPoint',
+              __typename: BreakpointEnum[BreakpointEnum.LARGE],
               name: 'large',
               grid: {
                 id: 1,
-                __typename: 'ConfigGrid',
+                __typename: 'Grid',
                 cols: 32,
                 rowHeight: '25px',
                 gutterSize: '10px'
@@ -168,77 +170,77 @@ export const environment = {
               cards: [
                 {
                   id: 12,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_orders',
                   template: 'orders',
                   cols: 7, rows: 7
                 },
                 {
                   id: 13,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_orderbook',
                   template: 'orderbook',
                   cols: 14, rows: 14
                 },
                 {
                   id: 14,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_contract_details',
                   template: 'contractdetails',
                   cols: 7, rows: 7
                 },
                 {
                   id: 15,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_bids',
                   template: 'bids',
                   cols: 4, rows: 7
                 },
                 {
                   id: 16,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_trades',
                   template: 'trades',
                   cols: 7, rows: 7
                 },
                 {
                   id: 17,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_signals',
                   template: 'signals',
                   cols: 7, rows: 7
                 },
                 {
                   id: 18,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_asks',
                   template: 'asks',
                   cols: 4, rows: 7
                 },
                 {
                   id: 19,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_portfolio',
                   template: 'portfolio',
                   cols: 7, rows: 7
                 },
                 {
                   id: 20,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_product_history',
                   template: 'producthistory',
                   cols: 14, rows: 14
                 },
                 {
                   id: 21,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_signal_history',
                   template: 'signalhistory',
                   cols: 11, rows: 14
                 },
                 {
                   id: 22,
-                  __typename: 'ConfigCard',
+                  __typename: 'Card',
                   title: 'component_label_logs',
                   template: 'logs',
                   cols: 7, rows: 7

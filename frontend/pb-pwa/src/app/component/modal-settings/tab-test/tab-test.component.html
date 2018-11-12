@@ -52,6 +52,14 @@
       >
         <ng-container>{{ 'checkbox_label_cache' | translate}}</ng-container>
       </mat-checkbox>
+      &nbsp;
+      <button
+        mat-stroked-button
+        (click)="reset($event)"
+      >
+        <mat-icon>clear</mat-icon>
+        <span>Reset Form</span>
+      </button>
     </p>
   </form>
 </div>

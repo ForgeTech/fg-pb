@@ -3,7 +3,6 @@ import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-b
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
 import { FormGroup, FormBuilder, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 import { ConfigConnection } from '../../../entity/entity.export';
-import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 import { FgEvent } from '../../../class/fg-event.class';
 import { PbAppEvent } from '../../../event/pb-app.event';
@@ -11,9 +10,10 @@ import { regexUrlValidationPattern } from '../../../validators/RegexUrlValidatio
 import { AsyncUrlRespondsValidator } from 'src/app/validators/async-url-responds.validator';
 import { AsyncUrlApiKeyRespondsValidator } from 'src/app/validators/async-url-api-key-responds.validator';
 import { ObservableQuery, ApolloQueryResult } from 'apollo-client';
-import { SyncMatchFieldlValidator } from '../../../validators/sync-match-field.validator';
+// import { SyncMatchFieldlValidator } from '../../../validators/sync-match-field.validator';
 import { Subject, Observable, merge } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { SyncMatchFieldlValidator } from 'src/app/validators/sync-match-field.validator';
 /**
  * TabProductionComponent -
  * Component used to set production-configuration
@@ -52,7 +52,6 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     protected $fb: FormBuilder,
     protected $AsyncUrlRespondsValidator: AsyncUrlRespondsValidator,
     protected $AsyncUrlApiKeyRespondsValidator: AsyncUrlApiKeyRespondsValidator
-    // protected $SyncMatchFieldlValidator: SyncMatchFieldlValidator
   ) {
     super(
       $component
@@ -60,6 +59,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     this.request$ = this.$component.$apollo.watchQuery(`
       query getConfigConnection($id: Int!) {
         getConfigConnection(id: $id) @client {
+          id
           isProduction
           isValid
           apiKey,
@@ -172,10 +172,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * Persist production-config in browser
    */
   private storeProductionConfig(config: ConfigConnection): void {
-    this.$component.$data.$storage.setItem(
-      PbAppStorageConst.CONFIG_PRODUCTION,
-      config
-    );
+
   }
   /**
    * If checkbox for store configuration is set to false, delete
@@ -183,9 +180,29 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * @param $event
    */
   public clearStore( $event ) {
-    if ( this.form.controls.store.value === false ) {
-      this.$component.$data.$storage.removeItem(PbAppStorageConst.CONFIG_PRODUCTION);
+    if ( this.form.controls.cache.value === false ) {
+      this.$component.$apollo.mutate(`
+      mutation setConfigConnection($id: Int! $delete: Boolean! $data: Object) {
+        setConfigConnection(id: $id, delete: $delete, data: $data ) @client
+      }`,
+      {
+        id: 0,
+        delete: true,
+        data: {
+          serverUrl: 'fark fark',
+          backupUrl: 'fark fark 2'
+        }
+      });
     }
+  }
+  /**
+   * Configure data-service with powerbot-production
+   * configuration
+   */
+  public reset( $event: any = false ) {
+    $event.preventDefault();
+    this.form.reset();
+    this.clearStore( $event );
   }
   /**
    * Configure data-service with powerbot-production

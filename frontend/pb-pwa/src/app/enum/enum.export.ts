@@ -1,4 +1,4 @@
-import { FormValidationState } from './FormValidationState.enum';
+import { FormValidationStateEnum } from './form-validation-state.enum';
 export {
-  FormValidationState
+  FormValidationStateEnum
 };

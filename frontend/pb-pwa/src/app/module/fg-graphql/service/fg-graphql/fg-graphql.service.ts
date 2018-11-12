@@ -14,6 +14,7 @@ import gql from 'graphql-tag';
 import { HttpHeaders } from '@angular/common/http';
 import { ApolloClient, ApolloQueryResult, ObservableQuery } from 'apollo-client';
 import { environment } from 'src/environments/environment.ghp';
+import { ConfigConnection } from 'src/app/entity/entity.export';
 /**
  * FgGraphqlClientService -
 * This service provides methodes to
@@ -71,17 +72,26 @@ export class FgGraphqlService {
    */
   protected typeDefs = `
   type Mutation {
-    setConfigConnection: ConfigConnection
-    setConfigLogging: ConfigLogging
-    setState: State
+    setState: ID
+    setConfigConnection: ID
+    setConfigLogging: ID
+    setView: ID
+    setGrid: ID
+    setBreakpoint: ID
+    setCard: ID
+    setTable: ID
     toggleDarkTheme: Boolean
     toggleAllowed: Boolean
   }
   type Query {
-    getConfigLogging: ConfigLogging
-    getConfigConnection: ConfigConnection
     getState: State
-    getBreakPoint: ConfigBreakpoint
+    getConfigConnection: ConfigConnection
+    getConfigLogging: ConfigLogging
+    getView: State
+    getGrid: Grid
+    getBreakpoint: Breakpoint
+    getCard: State
+    getTable: State
   }
   `;
   public fragmentConfigConnection = gql`
@@ -137,19 +147,24 @@ export class FgGraphqlService {
   protected resolvers = {
     Mutation: {
       setConfigConnection: ( _, args, { cache, getCacheKey }) => {
-        const id = getCacheKey({__typename: 'ConfigConnection', id: args.id });
+        const id = getCacheKey({ id: args.id, __typename: 'ConfigConnection' });
         const fragment = this.fragmentConfigConnection;
-        const previous = cache.readFragment({ fragment, id });
+        const previous: ConfigConnection = cache.readFragment({ id: id, fragment: fragment });
         const data = this.getMutationWriteData(args, previous);
-        cache.writeData( data, id );
-        return data;
+        console.log('CONFIG_CONNECTION');
+        console.log( args.data );
+        if ( args.delete) {
+          console.log( 'DELETE' );
+        }
+        cache.writeFragment({ id: id, fragment: fragment, data: data });
+        return previous;
       },
       setConfigLogging: ( _, args, { cache, getCacheKey }) => {
         const id = getCacheKey({__typename: 'ConfigLogging', id: args.id });
         const fragment = this.fragmentConfigLogging;
         const previous = cache.readFragment({ fragment, id });
         const data = this.getMutationWriteData(args, previous);
-        cache.writeData( data, id );
+        cache.writeFragment({ id: id, fragment: fragment, data: data });
         return data;
       },
       setState: ( _, args, { cache, getCacheKey }) => {
@@ -157,7 +172,7 @@ export class FgGraphqlService {
         const fragment = this.fragmentState;
         const previous = cache.readFragment({ fragment, id });
         const data = this.getMutationWriteData(args, previous);
-        cache.writeData( data, id );
+        cache.writeFragment({ id: id, fragment: fragment, data: data });
         return data;
       },
       toggleDarkTheme: ( _, args, { cache, getCacheKey }) => {
@@ -187,7 +202,7 @@ export class FgGraphqlService {
       getConfigConnection: (parent, args, { cache, getCacheKey }) => {
         const id = getCacheKey({ __typename: 'ConfigConnection', id: args.id });
         const fragment = this.fragmentConfigConnection;
-        const data = cache.readFragment({ fragment, id });
+        const data = cache.readFragment({ id: id, fragment: fragment });
         return data;
       },
       getConfigLogging: (parent, args, { cache, getCacheKey }) => {
@@ -202,7 +217,7 @@ export class FgGraphqlService {
         const data = cache.readFragment({ fragment, id });
         return data;
       },
-      getConfigBreakPoint: (parent, args, { cache, getCacheKey }) => {
+      getConfigBreakpoint: (parent, args, { cache, getCacheKey }) => {
         const id = getCacheKey({ __typename: 'ConfigBreakPoint', id: args.id });
         const fragment = this.fragmentConfigBreakPoint;
         const data = cache.readFragment({ fragment, id });
@@ -219,14 +234,12 @@ export class FgGraphqlService {
    * unioning new and previous data
    */
   protected getMutationWriteData(newData: any, prevData: any) {
-    if( !prevData ){
+    if( !prevData ) {
       prevData = {};
     }
-    if( !newData ){
+    if( !newData ) {
       newData = {};
     }
-    console.log('WRITEDATA');
-    console.log( Object.assign( prevData, newData ) );
     return Object.assign( prevData, newData );
   }
   /*

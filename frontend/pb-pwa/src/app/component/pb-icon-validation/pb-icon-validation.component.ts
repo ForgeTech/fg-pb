@@ -6,7 +6,7 @@ import { Observable, Subscription} from 'rxjs';
 import { map, filter, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FgEvent } from 'src/app/class/fg-event.class';
 import { FgComponentBaseEvent } from 'src/app/event/fg-events.export';
-import { FormValidationState } from './../../enum/enum.export';
+import { FormValidationStateEnum } from './../../enum/enum.export';
 /**
  * Pb-Icon-Validation
  */
@@ -57,12 +57,10 @@ export class PbIconValidationComponent extends FgComponentBaseComponent {
         return this.getFormControlValidationColor( val );
       })
     );
+    // Revalidate field after-view-init to reveive initial icon$-, color$-state
     this._subscribtions.push(
       formControlAvailable$.subscribe( result => {
-        this.entity.updateValueAndValidity({
-          onlySelf: false,
-          emitEvent: false
-        });
+        this.entity.updateValueAndValidity();
       })
     );
   }
@@ -73,14 +71,14 @@ export class PbIconValidationComponent extends FgComponentBaseComponent {
    */
   getFormControlValidationIcon( state: string ): string {
     let icon: string = 'error_outline';
-    switch ( FormValidationState[state] ) {
-      case FormValidationState.INVALID:
+    switch ( FormValidationStateEnum[state] ) {
+      case FormValidationStateEnum.INVALID:
         icon = 'error_outline';
         break;
-      case FormValidationState.PENDING:
+      case FormValidationStateEnum.PENDING:
         icon = 'cached';
         break;
-      case FormValidationState.VALID:
+      case FormValidationStateEnum.VALID:
         icon = 'check_circle_outline';
         break;
     }
@@ -92,14 +90,14 @@ export class PbIconValidationComponent extends FgComponentBaseComponent {
    */
   getFormControlValidationColor( state: string ): string {
     let color: string = '';
-    switch ( FormValidationState[state] ) {
-      case FormValidationState.INVALID:
+    switch ( FormValidationStateEnum[state] ) {
+      case FormValidationStateEnum.INVALID:
         color = 'warn';
         break;
-      case FormValidationState.PENDING:
+      case FormValidationStateEnum.PENDING:
         color = 'accent';
         break;
-      case FormValidationState.VALID:
+      case FormValidationStateEnum.VALID:
         color = 'accent';
         break;
     }

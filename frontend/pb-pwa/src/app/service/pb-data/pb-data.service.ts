@@ -27,7 +27,6 @@ import {
  } from '../../entity/entity.export';
 import { TimerObservable } from 'rxjs/observable/TimerObservable';
 import { ConnectionState, AppEnv, RequestState } from '../../entity/app-state.entity';
-import { NgForage } from 'ngforage';
 import { PbAppEntityConst } from '../../app.const';
 import { Observable, Subscription, Subject, combineLatest } from 'rxjs';
 import { FgGraphqlService } from 'src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service';
@@ -104,11 +103,7 @@ export class PbDataService {
      */
     public $trades: TradesService,
     /**
-     * Provides access to powerbot storage-object service
-     */
-    public $storage: NgForage,
-    /**
-     * Provides access to powerbot storage-object service
+     * Provides access to powerbot apollo-service
      */
     public $apollo: FgGraphqlService,
   ) {

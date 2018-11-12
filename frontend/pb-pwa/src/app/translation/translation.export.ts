@@ -1,4 +1,4 @@
-import { ErrorTranslation } from "./error.translation";
+import { ErrorTranslation } from './error.translation';
 export {
   ErrorTranslation
-}
+};

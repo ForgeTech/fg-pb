@@ -14,7 +14,7 @@ import { Observable, merge } from 'rxjs';
 import { map, filter, switchMap, startWith } from 'rxjs/operators';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { FgEvent } from 'src/app/class/fg-event.class';
-import { FormValidationState } from 'src/app/enum/enum.export';
+import { FormValidationStateEnum } from 'src/app/enum/enum.export';
 
 /**
  * ModalSettingsComponent -
@@ -45,7 +45,7 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
   /**
    * Hold references to tab-components
    */
-  private tabComponents: PbModalTabComponentInterface[];
+  public tabComponents: PbModalTabComponentInterface[];
   /**
    * Variable to hold reference to active tab-component
    */
@@ -101,11 +101,11 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
       )
     ).pipe(
       // Eject Default Value
-      startWith( FormValidationState[ FormValidationState.INVALID ] ),
+      startWith( FormValidationStateEnum[ FormValidationStateEnum.INVALID ] ),
       // Map FormValidationState
       map( value => {
         let disabled = true;
-        if ( value === FormValidationState[ FormValidationState.VALID ]) {
+        if ( value === FormValidationStateEnum[ FormValidationStateEnum.VALID ]) {
           disabled = false;
         }
         return disabled;

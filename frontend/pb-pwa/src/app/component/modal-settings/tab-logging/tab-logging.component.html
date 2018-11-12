@@ -62,6 +62,14 @@
       >
         {{ 'checkbox_label_cache' | translate }}
       </mat-checkbox>
+      &nbsp;
+      <button
+        mat-stroked-button
+        (click)="reset($event)"
+      >
+        <mat-icon>clear</mat-icon>
+        <span>Reset Form</span>
+      </button>
     </p>
   </form>
 </div>

@@ -1,5 +1,11 @@
-import { Directive, Input } from '@angular/core';
+import { Directive, Input, Injectable } from '@angular/core';
 import { AbstractControl, ValidationErrors, Validator, NG_VALIDATORS, ValidatorFn } from '@angular/forms';
+import { NGXLogger as FgLogService } from 'ngx-logger';
+
+/**
+ * Directive to validate if two formcontrols contain matching values -
+ * If so - error is returned
+ */
 @Directive({
   selector: '[pbMatchField]',
   // We add our directive to the list of existing validators
@@ -16,25 +22,17 @@ export class SyncMatchFieldlValidator implements Validator {
   /**
   *  The validation-function to use for this validator
   */
-  public static matchField( fieldName: string ): ValidatorFn {
+  public static matchField(fieldName: string ): ValidatorFn {
     return ( ctrl: AbstractControl ) => {
       try {
 
         let matching = false;
-        console.log('MATCHING');
-        console.log(fieldName);
-        console.log( ctrl)
-        console.log( ctrl.value)
-        // Only compare serverUrl available and valid and validated
-        // control doesn't have other errors
-        // if (ctrl && ctrl.value !== undefined && !ctrl.errors && fieldName ) {
-        //   return null;
-        // }
         matching = ctrl.value === ctrl.parent.get( fieldName ).value ? true : false;
         console.log( matching );
         return matching ? { pbMatchField: true } : null;
       } catch ( error ) {
-        console.log( 'MATCH VALIDATION ERROR', error );
+        // Return null if an error occures, which occures when ctrl.parent isn't
+        // available or initialized
         return null;
       }
     };
@@ -42,7 +40,8 @@ export class SyncMatchFieldlValidator implements Validator {
   /**
    * CONSTRUCTOR
    */
-  constructor() {}
+  constructor(
+  ) {}
   /**
    * Validation-methode used for use with directive-validation
    * @param ctrl The form-control to validate

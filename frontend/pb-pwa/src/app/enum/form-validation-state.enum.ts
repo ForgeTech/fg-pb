@@ -1,4 +1,4 @@
-export enum FormValidationState {
+export enum FormValidationStateEnum {
   'INVALID',
   'PENDING',
   'VALID',

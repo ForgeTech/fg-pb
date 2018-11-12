@@ -3,122 +3,151 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  name: 'GITHUB',
+  name: 'Github',
   debug: true,
   production: true,
   override: true,
   // Use Powerbot variable to preset application-data
   // for development environment
   powerbot: {
-    __typename: 'powerbot',
+    id: 0,
+    __typename: 'PowerBot',
+    state: {
+      id: 0,
+      __typename: 'State',
+      allowed: false,
+      connection: false,
+      connectionState: 0,
+      requestState: 0
+    },
     config: {
-      __typename: 'config',
+      id: 0,
+      __typename: 'Config',
       languages: [
-        {
-          __typename: 'language',
-          short: 'en'
-        },
-        {
-          __typename: 'language',
-          short: 'de'
-        }
+        'en'
       ],
-      lang: {
-        __typename: 'language',
-        short: 'en'
-      },
+      lang: 'en',
       backHours: 3,
       darkTheme: true,
+      logConfig: {
+        id: 0,
+        __typename: 'ConfigLogging',
+        logFolder: 'test',
+        logLevel: 1,
+        cache: true,
+        isValid: true
+      },
       prodConfig: {
-        __typename: 'prod',
+        id: 0,
+        __typename: 'ConfigConnection',
+        isProduction: true,
         serverUrl: 'https://playground.powerbot-trading.com/api/error',
         backupUrl: 'https://playground.powerbot-trading.com/api/v0',
         apiKey: '44fc8162-d2c6-432a-8279-d8d40e5c0e1b',
-        cache: true
+        cache: true,
+        isValid: false
       },
       testConfig: {
-        __typename: 'test',
+        id: 1,
+        __typename: 'ConfigConnection',
+        isProduction: false,
         serverUrl: 'https://playground.powerbot-trading.com/api/v0',
+        backupUrl: false,
         apiKey: '44fc8162-d2c6-432a-8279-d8d40e5c0e1b',
-        cache: false
+        cache: true,
+        isValid: true
       },
-      views: [
+      viewConfig: [
         {
-          __typename: 'view',
+          id: 0,
+          __typename: 'ConfigView',
           name: 'dashboard',
           breakpoints: [
             {
-              __typename: 'breakpoint',
+              id: 0,
+              __typename: 'ConfigBreakPoint',
               name: 'small',
               grid: {
-                __typename: 'grid',
+                id: 0,
+                __typename: 'ConfigGrid',
                 cols: 32,
                 rowHeight: '25px',
                 gutterSize: '10px'
               },
               cards: [
                 {
-                  __typename: 'card',
+                  id: 1,
+                  __typename: 'ConfigCard',
                   title: 'component_label_orders',
                   template: 'orders',
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 2,
+                  __typename: 'ConfigCard',
                   title: 'component_label_trades',
                   template: 'trades',
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 3,
+                  __typename: 'ConfigCard',
                   title: 'component_label_orderbook',
                   template: 'orderbook',
                   cols: 24, rows: 14
                 },
                 {
-                  __typename: 'card',
+                  id: 4,
+                  __typename: 'ConfigCard',
                   title: 'component_label_bids',
                   template: 'bids',
                   cols: 8, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 5,
+                  __typename: 'ConfigCard',
                   title: 'component_label_asks',
                   template: 'asks',
                   cols: 8, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 6,
+                  __typename: 'ConfigCard',
                   title: 'component_label_portfolio',
                   template: 'portfolio',
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 7,
+                  __typename: 'ConfigCard',
                   title: 'component_label_contract_details',
                   template: 'contractdetails',
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 8,
+                  __typename: 'ConfigCard',
                   title: 'component_label_product_history',
                   template: 'producthistory',
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 9,
+                  __typename: 'ConfigCard',
                   title: 'component_label_signals',
                   template: 'signals',
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 10,
+                  __typename: 'ConfigCard',
                   title: 'component_label_logs',
                   template: 'logs',
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 11,
+                  __typename: 'ConfigCard',
                   title: 'component_label_signal_history',
                   template: 'signalhistory',
                   cols: 16, rows: 7
@@ -126,77 +155,90 @@ export const environment = {
               ]
             },
             {
-              __typename: 'breakpoint',
+              id: 1,
+              __typename: 'ConfigBreakPoint',
               name: 'large',
               grid: {
-                __typename: 'grid',
+                id: 1,
+                __typename: 'ConfigGrid',
                 cols: 32,
                 rowHeight: '25px',
                 gutterSize: '10px'
               },
               cards: [
                 {
-                  __typename: 'card',
+                  id: 12,
+                  __typename: 'ConfigCard',
                   title: 'component_label_orders',
                   template: 'orders',
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 13,
+                  __typename: 'ConfigCard',
                   title: 'component_label_orderbook',
                   template: 'orderbook',
                   cols: 14, rows: 14
                 },
                 {
-                  __typename: 'card',
+                  id: 14,
+                  __typename: 'ConfigCard',
                   title: 'component_label_contract_details',
                   template: 'contractdetails',
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 15,
+                  __typename: 'ConfigCard',
                   title: 'component_label_bids',
                   template: 'bids',
                   cols: 4, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 16,
+                  __typename: 'ConfigCard',
                   title: 'component_label_trades',
                   template: 'trades',
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 17,
+                  __typename: 'ConfigCard',
                   title: 'component_label_signals',
                   template: 'signals',
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 18,
+                  __typename: 'ConfigCard',
                   title: 'component_label_asks',
                   template: 'asks',
                   cols: 4, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 19,
+                  __typename: 'ConfigCard',
                   title: 'component_label_portfolio',
                   template: 'portfolio',
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: 'card',
+                  id: 20,
+                  __typename: 'ConfigCard',
                   title: 'component_label_product_history',
                   template: 'producthistory',
                   cols: 14, rows: 14
                 },
                 {
-                  __typename: 'card',
+                  id: 21,
+                  __typename: 'ConfigCard',
                   title: 'component_label_signal_history',
                   template: 'signalhistory',
                   cols: 11, rows: 14
                 },
                 {
-                  __typename: 'card',
+                  id: 22,
+                  __typename: 'ConfigCard',
                   title: 'component_label_logs',
                   template: 'logs',
                   cols: 7, rows: 7

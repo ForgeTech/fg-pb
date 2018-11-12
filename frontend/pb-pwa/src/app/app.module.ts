@@ -12,7 +12,6 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 // import { PbDatatableModule } from './module/pb-datatable/pb-datatable.module'
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { NgForageModule, Driver } from 'ngforage';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import {
   TranslateModule,
@@ -183,6 +182,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     TableLogsComponent,
     TableContractDetailsComponent,
     FgCardComponent,
+    SyncMatchFieldlValidator
   ],
   imports: [
     BrowserModule,
@@ -196,9 +196,9 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     NgxChartsModule,
     ChartModule,
     CommonModule,
-    FgMaterialModule,
     FlexLayoutModule,
     FgGlobalScopeModule.forBrowser(),
+    FgMaterialModule.forRoot(),
     TranslateModule.forRoot({
       missingTranslationHandler: {
         provide: MissingTranslationHandler, useClass: PbMissingTranslationHandler
@@ -209,14 +209,6 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
-    NgForageModule.forRoot({
-      name: 'PowerBot',
-      driver: [
-        Driver.INDEXED_DB,
-        Driver.WEB_SQL,
-        Driver.LOCAL_STORAGE,
-      ]
     }),
     ApiModule,
     LoggerModule.forRoot({
@@ -244,7 +236,6 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     FgKeyboardService,
     TranslateService,
     ConnectedGuard,
-    SyncMatchFieldlValidator,
     AsyncUrlRespondsValidator,
     AsyncUrlApiKeyRespondsValidator
   ],

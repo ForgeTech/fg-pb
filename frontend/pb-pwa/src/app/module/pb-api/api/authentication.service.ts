@@ -51,8 +51,6 @@ export class AuthenticationService {
         }
         return false;
     }
-
-
     /**
      * Create a new api_key
      * Use this method to generate a new api_key for your trading algorithm, signal import, etc.  Requires that you are authenticated with your master api_key which you&#39;ll get once your private  Powerbot trading access has been configured.

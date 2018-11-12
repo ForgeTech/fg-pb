@@ -1,9 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfigLogging } from '../../../entity/entity.export';
-import { PbAppStorageConst } from '../../../app.const';
 import { NgxLoggerLevel } from 'ngx-logger';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 import { ObservableQuery } from 'apollo-client';
@@ -110,10 +109,7 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    */
   private storeLoggingConfig(): ConfigLogging {
     const config = this.getLoggingConfig();
-    this.$component.$data.$storage.setItem(
-      PbAppStorageConst.CONFIG_LOGGING,
-      config
-    );
+
     return config;
   }
   /**
@@ -123,8 +119,16 @@ export class TabLoggingComponent extends FgComponentBaseComponent implements PbM
    */
   public clearStore( $event ) {
     if ( this.form.controls.store.value === false ) {
-      this.$component.$data.$storage.removeItem(PbAppStorageConst.CONFIG_LOGGING);
+
     }
+  }
+  /**
+   * Configure data-service with powerbot-production
+   * configuration
+   */
+  public reset( $event: any = false ) {
+    $event.preventDefault();
+    this.form.reset();
   }
   /**
    * Configure log-service with remote logging-url and

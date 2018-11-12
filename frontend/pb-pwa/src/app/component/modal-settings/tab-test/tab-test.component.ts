@@ -3,7 +3,6 @@ import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-b
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
 import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
 import { ConfigConnection } from '../../../entity/entity.export';
-import { PbAppStorageConst } from '../../../app.const';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 import { FgEvent } from '../../../class/fg-event.class';
 import { PbAppEvent } from '../../../event/pb-app.event';
@@ -145,10 +144,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    */
   private storeTestConfig(): ConfigConnection {
     const config = this.getTestData();
-    this.$component.$data.$storage.setItem(
-      PbAppStorageConst.CONFIG_TEST,
-      config
-    );
+
     return config;
   }
   /**
@@ -158,8 +154,16 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   */
   public clearStore($event) {
     if (this.form.controls.store.value === false) {
-      this.$component.$data.$storage.removeItem(PbAppStorageConst.CONFIG_TEST);
+
     }
+  }
+  /**
+   * Configure data-service with powerbot-production
+   * configuration
+   */
+  public reset( $event: any = false ) {
+    $event.preventDefault();
+    this.form.reset();
   }
   /**
    * TODO: Find out how to update configured connection

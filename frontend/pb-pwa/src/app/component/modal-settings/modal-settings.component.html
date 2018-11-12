@@ -21,7 +21,7 @@
   <div content>
   <br/>
   <mat-horizontal-stepper #stepper labelPosition="bottom">
-    <mat-step [stepControl]="tabProduction.form" [completed]="tabProduction.form.valid" [state]="prod">
+    <mat-step [stepControl]="tabProduction.form" [completed]="tabProduction.form.valid" [state]="'prod'">
       <ng-template matStepLabel>
         {{ 'tab_label_production' | translate }}
       </ng-template>
@@ -34,7 +34,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [stepControl]="tabTest.form" [completed]="tabTest.form.valid" [state]="'test'">
+    <mat-step [stepControl]="tabTest.form" [completed]="tabTest.form.valid" state="test">
       <ng-template matStepLabel>
         {{ 'tab_label_test' | translate }}
       </ng-template>
@@ -51,7 +51,7 @@
         </button>
       </div>
     </mat-step>
-    <mat-step [stepControl]="tabLogging.form" [completed]="tabLogging.form.valid" [optional]="true" [state]="log">
+    <mat-step [stepControl]="tabLogging.form" [completed]="tabLogging.form.valid" [optional]="true" state="log">
       <ng-template matStepLabel>
         {{ 'tab_label_logging' | translate }}
       </ng-template>
@@ -69,19 +69,20 @@
     <ng-template matStepperIcon="test">
       <mat-icon>build</mat-icon>
     </ng-template>
+    <ng-template matStepperIcon="log">
+      <mat-icon>check_outline_circle</mat-icon>
+    </ng-template>
     <ng-template matStepperIcon="completed">
-      <mat-icon>check_circle</mat-icon>
+      <mat-icon>timeline</mat-icon>
     </ng-template>
     <ng-template matStepperIcon="edit">
       <mat-icon>check</mat-icon>
     </ng-template>
   </mat-horizontal-stepper>
-  <!-- <pb-tab-api-key #tabApi [config]="inputThemeColor"></pb-tab-api-key> -->
   </div>
   <div actions>
     <br/>
     <div fxFlexLayout="row">
-      <pb-pwa-install fxFlex="150px"></pb-pwa-install>
       <div fxFlex=""></div>
       <button fxFlex="150px"
         mat-raised-button
