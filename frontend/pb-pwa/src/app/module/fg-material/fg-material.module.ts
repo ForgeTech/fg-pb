@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 // Providing animation capabilities for angular-material
 // https://angular.io/api/platform-browser/animations/BrowserAnimationsModule
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -69,6 +69,7 @@ import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { FgAngularMaterialDemoComponent } from './component/fg-angular-material-demo/fg-angular-material-demo.component';
+import { FgBreakpointService } from './service/fg-breakpoint/fg-breakpoint.service';
 /**
 * FgMaterialModule -
 * This Module provides all angular-material
@@ -195,6 +196,25 @@ import { FgAngularMaterialDemoComponent } from './component/fg-angular-material-
   ],
   declarations: [
     FgAngularMaterialDemoComponent
+  ],
+  providers: [
+    FgBreakpointService
   ]
 })
-export class FgMaterialModule { }
+/**
+ * FgMaterialModule -
+ * Module Exports Angular-Material Components and
+ * Services for importing Application. Also provides
+ * some additional components and services build upon
+ * angular-material and angular-cdk
+ */
+export class FgMaterialModule {
+  public static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: FgMaterialModule,
+      providers: [
+        FgBreakpointService
+      ]
+    };
+  }
+}

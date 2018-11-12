@@ -158,7 +158,7 @@ export const environment = {
             },
             {
               id: 1,
-              __typename: BreakpointEnum[BreakpointEnum.LARGE],
+              __typename: BreakpointEnum[ BreakpointEnum.LARGE ],
               name: 'large',
               grid: {
                 id: 1,

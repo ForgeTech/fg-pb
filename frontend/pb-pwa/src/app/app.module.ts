@@ -198,7 +198,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     CommonModule,
     FlexLayoutModule,
     FgGlobalScopeModule.forBrowser(),
-    FgMaterialModule.forRoot(),
+    FgMaterialModule,
     TranslateModule.forRoot({
       missingTranslationHandler: {
         provide: MissingTranslationHandler, useClass: PbMissingTranslationHandler

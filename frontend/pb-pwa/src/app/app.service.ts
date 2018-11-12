@@ -13,6 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { _ } from './app.utils';
 import { FgKeyboardService } from './service/fg-keyboard/fg-keyboard.service';
 import { FgGraphqlService } from './module/fg-graphql/service/fg-graphql/fg-graphql.service';
+import { FgBreakpointService } from './module/fg-material/service/fg-breakpoint/fg-breakpoint.service';
 /**
 * FgAppService -
 * Service provides the functionality needed
@@ -49,7 +50,11 @@ export class FgAppService // extends FgEventSubscriber
    /**
     * Gives access to fg-graphql-service
     */
-   public $apollo: FgGraphqlService
+   public $apollo: FgGraphqlService,
+   /**
+    * Gives access to fg-breakpoint-service
+    */
+    public $breakpoint: FgBreakpointService
   ) {
 
     // In production - setup the graphql-client to connect to remote

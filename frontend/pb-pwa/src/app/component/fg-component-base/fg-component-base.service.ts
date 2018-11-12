@@ -5,6 +5,7 @@ import { PbDataService } from '../../service/pb-data/pb-data.service';
 import { FgKeyboardService } from '../../service/fg-keyboard/fg-keyboard.service';
 import { TranslateService } from '@ngx-translate/core';
 import { FgGraphqlService } from 'src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service';
+import { FgBreakpointService } from 'src/app/module/fg-material/service/fg-breakpoint/fg-breakpoint.service';
 /**
  * FgComponentBaseService -
  * Service provides forge-components with all commonly needed
@@ -39,6 +40,10 @@ export class FgComponentBaseService {
     /**
     * Gives access to fg-graphql-service
     */
-    public $apollo: FgGraphqlService
+    public $apollo: FgGraphqlService,
+    /**
+    * Gives access to fg-breakpoint-service
+    */
+    public $breakpoint: FgBreakpointService
   ) {}
 }
