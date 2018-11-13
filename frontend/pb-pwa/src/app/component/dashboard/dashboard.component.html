@@ -1,89 +1,92 @@
 <mat-grid-list
+  *ngIf="grid$ | async as grid"
   class="dashboard-container"
-  cols="{{ ( config$ | async )?.grid.cols }}"
-  rowHeight="{{ ( config$ | async )?.grid.rowHeight }}"
-  gutterSize="{{ ( config$ | async )?.grid.gutterSize }}"
+  cols="{{ grid.cols }}"
+  rowHeight="{{ grid.rowHeight }}"
+  gutterSize="{{ grid.gutterSize }}"
 >
-  <mat-grid-tile
-    *ngFor="let card of ( config$ | async )?.cards"
-    [colspan]="card.cols"
-    [rowspan]="card.rows"
-  >
-    <mat-card class="dashboard-card">
-      <mat-card-header>
-        <!-- <fg-actions [entity]="this"></fg-actions> -->
-        <mat-card-title>
-          {{ card.title | translate }}
-          <button
-            class="dashboard-card-menu-button"
-            mat-icon-button
-            [matMenuTriggerFor]="cardMenu"
-            aria-label="Toggle menu"
+  <ng-container *ngIf=" cards$ | async as cards">
+    <mat-grid-tile
+      *ngFor="let card of cards"
+      [colspan]="card.cols"
+      [rowspan]="card.rows"
+    >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <!-- <fg-actions [entity]="this"></fg-actions> -->
+          <mat-card-title>
+            {{ card.title | translate }}
+            <button
+              class="dashboard-card-menu-button"
+              mat-icon-button
+              [matMenuTriggerFor]="cardMenu"
+              aria-label="Toggle menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #cardMenu="matMenu" xPosition="before">
+              <button mat-menu-item>
+                <mat-icon>open_in_new</mat-icon>
+                <span>Open Window</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>tab</mat-icon>
+                <span>Open Tab</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>print</mat-icon>
+                <span>Print</span>
+              </button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content
+          class="dashboard-card-content"
           >
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #cardMenu="matMenu" xPosition="before">
-            <button mat-menu-item>
-              <mat-icon>open_in_new</mat-icon>
-              <span>Open Window</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>tab</mat-icon>
-              <span>Open Tab</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>print</mat-icon>
-              <span>Print</span>
-            </button>
-          </mat-menu>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content
-        class="dashboard-card-content"
-        >
-        <!-- [style.overflow]="'auto'" -->
-        <!-- [style.height.px]="'300'" -->
-        <div tabindex="0">
-          <ng-container [ngSwitch]="card.template">
-            <ng-container *ngSwitchCase="'orders'">
-              <pb-table-orders [entity]="this.$component.$data.app.orders"></pb-table-orders>
+          <!-- [style.overflow]="'auto'" -->
+          <!-- [style.height.px]="'300'" -->
+          <div tabindex="0">
+            <ng-container [ngSwitch]="card.template">
+              <ng-container *ngSwitchCase="'orders'">
+                <pb-table-orders [entity]="this.$component.$data.app.orders"></pb-table-orders>
+              </ng-container>
+              <ng-container *ngSwitchCase="'trades'">
+                <pb-table-trades [entity]="this.$component.$data.app.trades"></pb-table-trades>
+              </ng-container>
+              <ng-container *ngSwitchCase="'portfolio'">
+                <pb-graph-portfolio [entity]="this.$component.$data.app"></pb-graph-portfolio>
+              </ng-container>
+              <ng-container *ngSwitchCase="'orderbook'">
+                <pb-table-orderbook [entity]="this.$component.$data.app.contracts"></pb-table-orderbook>
+              </ng-container>
+              <ng-container *ngSwitchCase="'producthistory'">
+                <pb-graph-product-history [entity]="this.$component.$data.app.contractHistory"></pb-graph-product-history>
+              </ng-container>
+              <ng-container *ngSwitchCase="'bids'">
+                <pb-table-bids [entity]="this.$component.$data.app.bids"></pb-table-bids>
+              </ng-container>
+              <ng-container *ngSwitchCase="'asks'">
+                <pb-table-asks [entity]="this.$component.$data.app.asks"></pb-table-asks>
+              </ng-container>
+              <ng-container *ngSwitchCase="'signals'">
+                <pb-table-signals [entity]="this.$component.$data.app.signals"></pb-table-signals>
+              </ng-container>
+              <ng-container *ngSwitchCase="'logs'">
+                <pb-table-logs [entity]="this.$component.$data.app.logs"></pb-table-logs>
+              </ng-container>
+              <ng-container *ngSwitchCase="'contractdetails'">
+                <pb-table-contract-details [entity]="this.$component.$data.app.selectedContract"></pb-table-contract-details>
+              </ng-container>
+              <ng-container *ngSwitchCase="'signalhistory'">
+                <pb-graph-signal-history [entity]="this.$component.$data.app.selectedContract?.signals"></pb-graph-signal-history>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                Template {{card.title}}  not found!
+              </ng-container>
             </ng-container>
-            <ng-container *ngSwitchCase="'trades'">
-              <pb-table-trades [entity]="this.$component.$data.app.trades"></pb-table-trades>
-            </ng-container>
-            <ng-container *ngSwitchCase="'portfolio'">
-              <pb-graph-portfolio [entity]="this.$component.$data.app"></pb-graph-portfolio>
-            </ng-container>
-            <ng-container *ngSwitchCase="'orderbook'">
-              <pb-table-orderbook [entity]="this.$component.$data.app.contracts"></pb-table-orderbook>
-            </ng-container>
-            <ng-container *ngSwitchCase="'producthistory'">
-              <pb-graph-product-history [entity]="this.$component.$data.app.contractHistory"></pb-graph-product-history>
-            </ng-container>
-            <ng-container *ngSwitchCase="'bids'">
-              <pb-table-bids [entity]="this.$component.$data.app.bids"></pb-table-bids>
-            </ng-container>
-            <ng-container *ngSwitchCase="'asks'">
-              <pb-table-asks [entity]="this.$component.$data.app.asks"></pb-table-asks>
-            </ng-container>
-            <ng-container *ngSwitchCase="'signals'">
-              <pb-table-signals [entity]="this.$component.$data.app.signals"></pb-table-signals>
-            </ng-container>
-            <ng-container *ngSwitchCase="'logs'">
-              <pb-table-logs [entity]="this.$component.$data.app.logs"></pb-table-logs>
-            </ng-container>
-            <ng-container *ngSwitchCase="'contractdetails'">
-              <pb-table-contract-details [entity]="this.$component.$data.app.selectedContract"></pb-table-contract-details>
-            </ng-container>
-            <ng-container *ngSwitchCase="'signalhistory'">
-              <pb-graph-signal-history [entity]="this.$component.$data.app.selectedContract?.signals"></pb-graph-signal-history>
-            </ng-container>
-            <ng-container *ngSwitchDefault>
-              Template {{card.title}}  not found!
-            </ng-container>
-          </ng-container>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </ng-container>
 </mat-grid-list>

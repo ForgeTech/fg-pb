@@ -1,11 +1,7 @@
-import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { _ } from './../../app.utils';
-import { Subject } from 'rxjs';
-import { BreakPoint } from '@angular/flex-layout';
+import { Subject, combineLatest, BehaviorSubject } from 'rxjs';
 import { ObservableQuery } from 'apollo-client';
 /**
  * DashboardComponent -
@@ -17,190 +13,122 @@ import { ObservableQuery } from 'apollo-client';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent extends FgComponentBaseComponent {
+  /**
+   * Observable to providing view-data for dashboard-component
+   */
   public request$: ObservableQuery;
-  public data$: Subject<BreakPoint> = new Subject();
-  configSmall = {
-    grid: {
-      cols: 32,
-      rowHeight: '25px',
-      gutterSize: '10px'
-    },
-    cards: [
-      {
-        title: _('component_label_orders'),
-        template: 'orders',
-        cols: 16, rows: 7
-      },
-      {
-        title: _('component_label_trades'),
-        template: 'trades',
-        cols: 16, rows: 7
-      },
-      {
-        title: _('component_label_orderbook'),
-        template: 'orderbook',
-        cols: 24, rows: 14
-      },
-      {
-        title: _('component_label_bids'),
-        template: 'bids',
-        cols: 8, rows: 7
-      },
-      {
-        title: _('component_label_asks'),
-        template: 'asks',
-        cols: 8, rows: 7
-      },
-      {
-        title: _('component_label_portfolio'),
-        template: 'portfolio',
-        cols: 16, rows: 7
-      },
-      {
-        title: _('component_label_contract_details'),
-        template: 'contractdetails',
-        cols: 16, rows: 7
-      },
-      {
-        title: _('component_label_product_history'),
-        template: 'producthistory',
-        cols: 16, rows: 7
-      },
-      {
-        title: _('component_label_signals'),
-        template: 'signals',
-        cols: 16, rows: 7
-      },
-      {
-        title: _('component_label_logs'),
-        template: 'logs',
-        cols: 16, rows: 7
-      },
-      {
-        title: _('component_label_signal_history'),
-        template: 'signalhistory',
-        cols: 16, rows: 7
-      },
-    ]
-  };
-  configLarge = {
-    grid: {
-      cols: 32,
-      rowHeight: '25px',
-      gutterSize: '10px'
-    },
-    cards: [
-      {
-        title: 'component_label_orders',
-        template: 'orders',
-        cols: 7, rows: 7
-      },
-      {
-        title: 'component_label_orderbook',
-        template: 'orderbook',
-        cols: 14, rows: 14
-      },
-      {
-        title: 'component_label_contract_details',
-        template: 'contractdetails',
-        cols: 7, rows: 7
-      },
-      {
-        title: 'component_label_bids',
-        template: 'bids',
-        cols: 4, rows: 7
-      },
-      {
-        title: 'component_label_trades',
-        template: 'trades',
-        cols: 7, rows: 7
-      },
-      {
-        title: 'component_label_signals',
-        template: 'signals',
-        cols: 7, rows: 7
-      },
-      {
-        title: 'component_label_asks',
-        template: 'asks',
-        cols: 4, rows: 7
-      },
-      {
-        title: 'component_label_portfolio',
-        template: 'portfolio',
-        cols: 7, rows: 7
-      },
-      {
-        title: 'component_label_product_history',
-        template: 'producthistory',
-        cols: 14, rows: 14
-      },
-      {
-        title: 'component_label_signal_history',
-        template: 'signalhistory',
-        cols: 11, rows: 14
-      },
-      {
-        title: 'component_label_logs',
-        template: 'logs',
-        cols: 7, rows: 7
-      },
-    ]
-  };
+  /**
+   * Observable preparing the data for view on request updates
+   */
+  public data$: Subject<any> = new Subject();
+  /**
+   * Observable preparing the data for view on request updates
+   */
+  public breakpoints: any = new Subject();
+  /**
+   * Observable to push a breakpoints grid-properties
+   */
+  public grid$: Subject<any>;
+  /**
+   * Observable to push a breakpoints cards-properties
+   */
+  public cards$: Subject<any>;
   /**
    * CONSTRUCTOR
    */
   constructor(
-    private breakpointObserver: BreakpointObserver,
-    $component: FgComponentBaseService,
+    /**
+     * Provide component-service to dashboard-component
+     */
+    public $component: FgComponentBaseService
     ) {
     super(
       $component
     );
     this.request$ = this.$component.$apollo.watchQuery(`
-      query breakpoint($id: Int!) {
-        getBreakPoint(id: $id) @client{
+      query view($id: Int!) {
+        getView(id: $id) @client {
           id
           name
-          cards {
+          breakpoints {
             id
-            cols
-            id
-            rows
-            template
-            title
-          }
-          grid {
-            id
-            cols
-            gutterSize
-            rowHeight
+            name
+            validFor
+            cards {
+              id
+              cols
+              rows
+              template
+              title
+            }
+            grid {
+              id
+              cols
+              gutterSize
+              rowHeight
+            }
           }
         }
       }`,
       { id: 0 }
     );
+    // Subscribe to result of view-data request
     this._subscribtions.push(
-      this.request$.subscribe(result => {
-        this.data$.next(result.data.getBreakPoint as BreakPoint);
+      this.request$.subscribe( result => {
+        this.data$.next(result.data.getView);
       })
     );
+    // Subscribe to set view-data
     this._subscribtions.push(
-      this.data$.subscribe(result => {
-        this.$component.$log.warn('BREAKPOINT');
-        console.log(result);
+      this.data$.subscribe( view => {
+        console.log( 'CALLED ON INIT!' );
+        const viewBreakpoint = this.getMatchedViewBreakpoint(view.breakpoints, this.$component.$breakpoint.matchedBreakpoints);
+        this.grid$ = new BehaviorSubject( viewBreakpoint.grid );
+        this.cards$ = new BehaviorSubject( viewBreakpoint.cards );
+
       })
     );
+    // Subscribe to breakpoint changes
+    const combinedBreakpointData$ = combineLatest( this.data$, this.$component.$breakpoint.matchedBreakpoints$ );
+    this._subscribtions.push( combinedBreakpointData$.subscribe(
+      ( [ view , matchedBreakpoints ] ) => {
+        const viewBreakpoint = this.getMatchedViewBreakpoint( view.breakpoints, matchedBreakpoints );
+        this.grid$.next( viewBreakpoint.grid );
+        this.cards$.next( viewBreakpoint.cards );
+      } )
+    );
+
   }
-  config$ = this.breakpointObserver.observe(Breakpoints.Tablet).pipe(
-    map( ( { matches } ) => {
-      let configToReturn = this.configLarge;
-      if ( matches ) {
-        console.log('Small');
-        configToReturn = this.configSmall;
+  /**
+   * Methode for finding matching view-breakpoint and pushing it's
+   * values to grid$- and cards$-observable
+   */
+  getMatchedViewBreakpoint( breakpoints: string[], matchedBreakpoints: string[], ): any {
+    console.log('REACT TO BREAKPOINT' );
+    console.log( breakpoints );
+    console.log( matchedBreakpoints );
+    let breakpointMatched: any = null;
+    for ( let i = 0; i < breakpoints.length; i++) {
+      let viewBreakpoint: any = breakpoints[i];
+      for ( let i2 = 0; i2 < viewBreakpoint.validFor.length; i2++ ) {
+        let validBreakpoint: string = viewBreakpoint.validFor[i2];
+        if ( matchedBreakpoints.indexOf(validBreakpoint) !== -1 ) {
+          console.log('FOUND BREAKPOINT');
+          console.log( viewBreakpoint );
+          breakpointMatched = viewBreakpoint;
+          break;
+        }
       }
-      console.log( configToReturn );
-      return configToReturn;
-    } )
-  );
+      // If breakpoint is matched skip rest
+      if (breakpointMatched) {
+        break;
+      }
+    }
+    // If no breakpoint matched use Medium-Layout
+    if ( breakpointMatched === null ) {
+      breakpointMatched = breakpoints[ 2 ];
+    }
+    return breakpointMatched;
+  }
+
 }

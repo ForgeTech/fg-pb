@@ -29,6 +29,15 @@ export class FgGraphqlService {
    */
   protected apollo: ApolloClient<{}>;
   /**
+   * Holds apollo-client cache-persist options
+   */
+  protected persistOptions: any;
+  /**
+   * Holds instance of apollo cache persistor
+   * for controlling cache peristance behaviour
+   */
+  protected persistor: ApolloCachePersistor<any>;
+  /**
    * Create graphql typeDefinitions
    * for working with local-state
    type PowerBot {
@@ -78,6 +87,7 @@ export class FgGraphqlService {
     setView: ID
     setGrid: ID
     setBreakpoint: ID
+    setView: ID
     setCard: ID
     setTable: ID
     toggleDarkTheme: Boolean
@@ -87,11 +97,11 @@ export class FgGraphqlService {
     getState: State
     getConfigConnection: ConfigConnection
     getConfigLogging: ConfigLogging
-    getView: State
+    getView: View
     getGrid: Grid
     getBreakpoint: Breakpoint
-    getCard: State
-    getTable: State
+    getCard: Card
+    getTable: Table
   }
   `;
   public fragmentConfigConnection = gql`
@@ -114,15 +124,15 @@ export class FgGraphqlService {
     isValid
   }`;
   public fragmentState = gql`
-    fragment state on State {
+    fragment stateConfig on State {
     id
     allowed
     connection
     connectionState
     requestState
   }`;
-  public fragmentConfigBreakPoint = gql`
-    fragment breakpointConfig on ConfigBreakPoint {
+  public fragmentBreakpoint = gql`
+    fragment breakpointConfig on Breakpoint {
     id
     name
     cards {
@@ -138,6 +148,29 @@ export class FgGraphqlService {
       cols
       gutterSize
       rowHeight
+    }
+  }`;
+  public fragmentView = gql`
+    fragment viewConfig on View {
+    id
+    name
+    breakpoints {
+      id
+      name
+      validFor
+      cards {
+        id
+        cols
+        rows
+        template
+        title
+      }
+      grid {
+        id
+        cols
+        gutterSize
+        rowHeight
+      }
     }
   }`;
 
@@ -168,11 +201,13 @@ export class FgGraphqlService {
         return data;
       },
       setState: ( _, args, { cache, getCacheKey }) => {
+        // this.persistor.pause();
         const id = getCacheKey({__typename: 'State', id: args.id });
         const fragment = this.fragmentState;
         const previous = cache.readFragment({ fragment, id });
         const data = this.getMutationWriteData(args, previous);
         cache.writeFragment({ id: id, fragment: fragment, data: data });
+        // this.persistor.resume();
         return data;
       },
       toggleDarkTheme: ( _, args, { cache, getCacheKey }) => {
@@ -217,9 +252,15 @@ export class FgGraphqlService {
         const data = cache.readFragment({ fragment, id });
         return data;
       },
-      getConfigBreakpoint: (parent, args, { cache, getCacheKey }) => {
-        const id = getCacheKey({ __typename: 'ConfigBreakPoint', id: args.id });
-        const fragment = this.fragmentConfigBreakPoint;
+      getBreakpoint: (parent, args, { cache, getCacheKey }) => {
+        const id = getCacheKey({ __typename: 'Breakpoint', id: args.id });
+        const fragment = this.fragmentBreakpoint;
+        const data = cache.readFragment({ fragment, id });
+        return data;
+      },
+      getView: (parent, args, { cache, getCacheKey }) => {
+        const id = getCacheKey({ __typename: 'View', id: args.id });
+        const fragment = this.fragmentView;
         const data = cache.readFragment({ fragment, id });
         return data;
       }
@@ -228,7 +269,8 @@ export class FgGraphqlService {
   /**
    * CONSTRUCTOR
    */
-  constructor() {}
+  constructor(
+  ) {}
   /**
    * Methode returning a object for writing to apollo-cache by
    * unioning new and previous data
@@ -246,7 +288,7 @@ export class FgGraphqlService {
   * Forward query to apollo-client instace query-methode
   */
   public query(query, variables: any = {}): Promise<ApolloQueryResult<{}>> {
-    if(this.apollo) {
+    if ( this.apollo ) {
       return this.apollo.query({
         query: gql(query),
         variables: variables
@@ -259,7 +301,7 @@ export class FgGraphqlService {
   * Forward watchQuery to apollo-client instace watchQuery-methode
   */
   public watchQuery(query, variables: any = {}): ObservableQuery {
-    if(this.apollo) {
+    if ( this.apollo ) {
       return this.apollo.watchQuery({
         query: gql(query),
         variables: variables
@@ -272,7 +314,7 @@ export class FgGraphqlService {
   * Forward mutations to apollo-client instace mutate-methode
   */
   public mutate(mutation, variables: any = {}): Promise<any> {
-    if( this.apollo ) {
+    if ( this.apollo ) {
       return this.apollo.mutate({
         mutation: gql(mutation),
         variables: variables
@@ -299,10 +341,11 @@ export class FgGraphqlService {
     // Initialize apollo InMemoryCache
     const cache = new ApolloInMemoryCache();
     // Setup persist-storage options and initialize it for apollo-client cache
-    let persistOptions: any = {};
-    persistOptions.cache = cache;
-    persistOptions.storage = LocalForage.createInstance(persistOptions);
-    apollo_persistCache(persistOptions);
+    this.persistOptions = {};
+    this.persistOptions.cache = cache;
+    this.persistOptions.key = environment.name.concat('-apollo-persist-cache');
+    this.persistOptions.storage = LocalForage.createInstance(this.persistOptions);
+    apollo_persistCache(this.persistOptions);
 
     const localStateLink = withClientState({
       cache: cache,
@@ -311,7 +354,7 @@ export class FgGraphqlService {
       typeDefs: this.typeDefs
     });
     // Initialize apollo-client instance
-    let clientOptions: any = {}
+    let clientOptions: any = {};
     clientOptions.link = localStateLink;
     clientOptions.cache = cache;
     // Initialize
@@ -320,12 +363,13 @@ export class FgGraphqlService {
     clientOptions.clientState.defaults = data;
 
     this.apollo = new ApolloClient(clientOptions);
+    this.persistor = this.getCachePersistor();
   }
   /**
    * Return a instance of apollo cache-persistor for handling
-   * apollo cache-persistor
+   * apollo cache-persistation
    */
-  getFgCachePersistor( options: ApolloPersistOptions<any> ): ApolloCachePersistor<any> {
-    return new ApolloCachePersistor( options );
+  getCachePersistor(): ApolloCachePersistor<any> {
+    return new ApolloCachePersistor( this.persistOptions );
   }
 }

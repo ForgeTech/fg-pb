@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints, MediaMatcher, BreakpointState } from '
 import { BreakpointEnum } from './../../enum/enum.export';
 import { Subject, BehaviorSubject, Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { FgGraphqlService } from 'src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service';
 /**
  * FgBreakpointSevice -
  * Service providing media-query functionality,
@@ -31,33 +32,42 @@ export class FgBreakpointService {
   ];
   /** Observable Subject streamin enum-values
    * of active breakpoints */
-  public breakpointsEnum$: Subject<string[]> = new BehaviorSubject( [ BreakpointEnum[ BreakpointEnum.INITIAL] ] );
+  public matchedBreakpoints$: Subject<string[]> = new Subject();
+  /** The currently matched breakpoints */
+  public matchedBreakpoints: string[];
   /**
    * Return breakpoint-observer result for matching
    * angular-material breakpoints
    */
-  public breakpoint$: Observable<BreakpointState>;
+  private breakpointObserver$: Observable<BreakpointState>;
   /**
    * Constructor
    */
   constructor(
+    /**
+     * Provides access to angular-material cdk breakpoint-observer
+     */
     protected $breakpointObserver: BreakpointObserver,
-    protected $mediaMatcher: MediaMatcher
+    /**
+     * Provides access to angular-material cdk mediaMatcher-wrapper
+     */
+    // protected $mediaMatcher: MediaMatcher,
+    /**
+     * Provides access to apllo graphql-service
+     */
+    // protected $apollo: FgGraphqlService
   ) {
-    this.breakpoint$ = $breakpointObserver.observe(
+    // Initialize breakpoint-observable for all angular-material
+    // default breakpoints
+    this.breakpointObserver$ = $breakpointObserver.observe(
       this.mediaQueries
-    )
-    .pipe(
-      debounceTime( 25 )
     );
-    this.breakpoint$.subscribe( breakpointState => {
-      console.log('BreakpointState');
-      console.log( breakpointState );
-      this.breakpointsEnum$.next( this.getBreakpointEnumsFromBreakpointState( breakpointState ) );
-    });
-    this.breakpointsEnum$.subscribe( result => {
-      console.log('BreakpointEnums');
-      console.log( result );
+    // Listen to breakpoint-observable and translate state into
+    // BreakpointEnums
+    this.breakpointObserver$.subscribe( breakpointState => {
+      const breakpointEnums: Array<string> = this.getBreakpointEnumsFromBreakpointState( breakpointState );
+      this.matchedBreakpoints = breakpointEnums;
+      this.matchedBreakpoints$.next( breakpointEnums );
     });
   }
     /**
