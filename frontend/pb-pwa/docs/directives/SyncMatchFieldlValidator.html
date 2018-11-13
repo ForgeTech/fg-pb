@@ -30,7 +30,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content directive">
                    <div class="content-data">
 
 
@@ -38,10 +38,9 @@
 
 
 
-
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>AsyncUrlApiKeyRespondsValidator</li>
+  <li>Directives</li>
+  <li>SyncMatchFieldlValidator</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,18 +58,47 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/validators/async-url-api-key-responds.validator.ts</code>
+            <code>src/app/validators/sync-match-field.validator.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>AsyncValidator checking if configured url responds to powerbot
-market-config call</p>
+                <p>Directive to validate if two formcontrols contain matching values -
+If so - error is returned</p>
 
             </p>
 
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="https://angular.io/api/forms/Validator" target="_blank" >Validator</a></code>
+            </p>
+
+
+        <section>
+            <h3>Metadata</h3>
+            <table class="table table-sm table-hover">
+                <tbody>
+                    <tr>
+                        <td class="col-md-3">Providers</td>
+                        <td class="col-md-9">
+                            <code>
+                                { provide: NG_VALIDATORS, useExisting: SyncMatchFieldlValidator, multi: true }
+                            </code>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-3">Selector</td>
+                        <td class="col-md-9"><code>[pbMatchField]</code></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
 
             <section>
     <h3 id="index">Index</h3>
@@ -86,12 +114,30 @@ market-config call</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#matchField">matchField</a>
+                            </li>
+                            <li>
                                 <a href="#validate">validate</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#pbMatchField">pbMatchField</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -106,12 +152,12 @@ market-config call</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor($data: <a href="../injectables/PbDataService.html">PbDataService</a>, $log: FgLogService)</code>
+<code>constructor()</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/validators/async-url-api-key-responds.validator.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/validators/sync-match-field.validator.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -119,7 +165,82 @@ market-config call</p>
                     <td class="col-md-4">
                             <div class="io-description"><p>CONSTRUCTOR</p>
 </div>
-                            <div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="pbMatchField"></a>
+                        <code>pbMatchField</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>Input used to provide form-fields to validate when used
+as directive</p>
+</div>
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/validators/sync-match-field.validator.ts:21</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="matchField"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            matchField
+                            </b>
+                            <a href="#matchField"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>matchField(fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/validators/sync-match-field.validator.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>The validation-function to use for this validator</p>
+</div>
+
+                            <div class="io-description">
                                     <b>Parameters :</b>
                                     <table class="params">
                                         <thead>
@@ -131,43 +252,33 @@ market-config call</p>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>$data</td>
-                                                  
+                                                        <td>fieldName</td>
                                                         <td>
-                                                                    <code><a href="../injectables/PbDataService.html" target="_self" >PbDataService</a></code>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
-                                                  
+                                                    
                                                     <td>
                                                             No
                                                     </td>
                                                     
-                                                </tr>
-                                                <tr>
-                                                        <td>$log</td>
-                                                  
-                                                        <td>
-                                                                    <code>FgLogService</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
                             </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://angular.io/api/forms/ValidatorFn" target="_blank" >ValidatorFn</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-</section>
-
-            <section>
-    
-        <h3 id="methods">
-            Methods
-        </h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -190,15 +301,14 @@ market-config call</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/validators/async-url-api-key-responds.validator.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/validators/sync-match-field.validator.ts:49</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Configure data-service with url from crontrol and try to receive a request
-from powerbot market-configuration methode</p>
+                            <div class="io-description"><p>Validation-methode used for use with directive-validation</p>
 </div>
 
                             <div class="io-description">
@@ -235,7 +345,7 @@ from powerbot market-configuration methode</p>
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>Observable&lt;ValidationErrors | null&gt;</code>
+                                <b>Returns : </b>    <code>ValidationErrors | null</code>
 
                             </div>
                                 <div class="io-description">
@@ -248,82 +358,72 @@ from powerbot market-configuration methode</p>
 </section>
 
 
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { AsyncValidator, AbstractControl, ValidationErrors, FormGroup } from &#x27;@angular/forms&#x27;;
-import { Observable, of } from &#x27;rxjs&#x27;;
-import { map, catchError, debounceTime, distinctUntilChanged, switchMap, take } from &#x27;rxjs/operators&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input, Injectable } from &#x27;@angular/core&#x27;;
+import { AbstractControl, ValidationErrors, Validator, NG_VALIDATORS, ValidatorFn } from &#x27;@angular/forms&#x27;;
 import { NGXLogger as FgLogService } from &#x27;ngx-logger&#x27;;
-import {
-  Configuration
-} from &#x27;../module/pb-api&#x27;;
-import { PbDataService } from &#x27;../service/pb-data/pb-data.service&#x27;;
+
 /**
- * AsyncValidator checking if configured url responds to powerbot
- * market-config call
+ * Directive to validate if two formcontrols contain matching values -
+ * If so - error is returned
  */
-@Injectable()
-export class AsyncUrlApiKeyRespondsValidator implements AsyncValidator {
+@Directive({
+  selector: &#x27;[pbMatchField]&#x27;,
+  // We add our directive to the list of existing validators
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: SyncMatchFieldlValidator, multi: true }
+  ]
+})
+export class SyncMatchFieldlValidator implements Validator {
+  /**
+   * Input used to provide form-fields to validate when used
+   * as directive
+   */
+  @Input(&#x27;pbMatchField&#x27;) fieldName: string;
+  /**
+  *  The validation-function to use for this validator
+  */
+  public static matchField(fieldName: string ): ValidatorFn {
+    return ( ctrl: AbstractControl ) &#x3D;&gt; {
+      try {
+
+        let matching &#x3D; false;
+        matching &#x3D; ctrl.value &#x3D;&#x3D;&#x3D; ctrl.parent.get( fieldName ).value ? true : false;
+        console.log( matching );
+        return matching ? { pbMatchField: true } : null;
+      } catch ( error ) {
+        // Return null if an error occures, which occures when ctrl.parent isn&#x27;t
+        // available or initialized
+        return null;
+      }
+    };
+  }
   /**
    * CONSTRUCTOR
    */
   constructor(
-    protected $data: PbDataService,
-    protected $log: FgLogService,
-    ) { }
+  ) {}
   /**
-   * Configure data-service with url from crontrol and try to receive a request
-   * from powerbot market-configuration methode
+   * Validation-methode used for use with directive-validation
    * @param ctrl The form-control to validate
    */
   validate(
     ctrl: AbstractControl
-  ): Observable&lt;ValidationErrors | null&gt; {
-    const serverUrlCtrl: AbstractControl &#x3D; ctrl.parent.get( &#x27;serverUrl&#x27; );
-    const backupUrlCtrl: AbstractControl &#x3D; ctrl.parent.get( &#x27;backupUrl&#x27; );
-    const apiKeyCtrl: AbstractControl &#x3D; ctrl.parent.get( &#x27;apiKey&#x27; );
-    // Only validate if there is a valid url avaiable and there are no
-    // other errors on apiKeyCrtl
-    if ( ctrl.value !&#x3D;&#x3D; undefined &amp;&amp; apiKeyCtrl.errors &amp;&amp; serverUrlCtrl.valid &amp;&amp; backupUrlCtrl.valid ) {
-      return of (null);
+    ): ValidationErrors | null {
+      return SyncMatchFieldlValidator.matchField( this.fieldName )( ctrl );
     }
-    return apiKeyCtrl.valueChanges.pipe(
-      debounceTime(250),
-      distinctUntilChanged(),
-      switchMap(val &#x3D;&gt; {
-        let config: Configuration &#x3D; new Configuration();
-        // Set baseUrl to valid server-url, or valid backupUrl
-        if ( serverUrlCtrl.valid ) {
-          config.basePath &#x3D; serverUrlCtrl.value;
-        } else if ( backupUrlCtrl.valid ) {
-          config.basePath &#x3D; backupUrlCtrl.value;
-        }
-        // Set apiKey-value to ctrl.value
-        config.apiKeys &#x3D; { &#x27;api_key&#x27;: ctrl.value };
-        // Set market config to validator-configuration
-        this.$data.$market.configuration &#x3D; config;
-        return this.$data.$market.getStatus();
-      }),
-      map( value &#x3D;&gt; {
-        return of( true );
-      }),
-      catchError( error &#x3D;&gt; {
-        return of( false );
-      }),
-      map(valid &#x3D;&gt; {
-        return valid ? null : { asyncUrlResponds: true };
-      }),
-      take(1)
-    );
-  }
+
+
 }
 </code></pre>
     </div>
 
 </div>
+
 
 
 
@@ -351,8 +451,8 @@ export class AsyncUrlApiKeyRespondsValidator implements AsyncValidator {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'AsyncUrlApiKeyRespondsValidator.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
+            var COMPODOC_CURRENT_PAGE_URL = 'SyncMatchFieldlValidator.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

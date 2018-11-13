@@ -133,7 +133,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/app/app.module.ts:126</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/app/app.module.ts:124</a></div>
                             </td>
                         </tr>
 
@@ -202,9 +202,9 @@ import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { LoggerModule, NgxLoggerLevel } from &#x27;ngx-logger&#x27;;
 import { PrettyJsonModule } from &#x27;angular2-prettyjson&#x27;;
 import { NgxDatatableModule } from &#x27;@swimlane/ngx-datatable&#x27;;
+import { MAT_DIALOG_DEFAULT_OPTIONS } from &#x27;@angular/material&#x27;;
 // import { PbDatatableModule } from &#x27;./module/pb-datatable/pb-datatable.module&#x27;
 import { NgxChartsModule } from &#x27;@swimlane/ngx-charts&#x27;;
-import { NgForageModule, Driver } from &#x27;ngforage&#x27;;
 import { PerfectScrollbarModule } from &#x27;ngx-perfect-scrollbar&#x27;;
 import {
   TranslateModule,
@@ -259,7 +259,6 @@ import { ModalSettingsComponent } from &#x27;./component/modal-settings/modal-se
   import { TabProductionComponent } from &#x27;./component/modal-settings/tab-production/tab-production.component&#x27;;
   import { TabTestComponent } from &#x27;./component/modal-settings/tab-test/tab-test.component&#x27;;
 import { TableComponent } from &#x27;./component/table/table.component&#x27;;
-// import { DatatableCustomComponent } from &#x27;./component/table/ngx-datatable-custom&#x27;;
 import { TableAsksComponent } from &#x27;./component/table-asks/table-asks.component&#x27;;
 import { TableBidsComponent } from &#x27;./component/table-bids/table-bids.component&#x27;;
 import { TableOrderbookComponent } from &#x27;./component/table-orderbook/table-orderbook.component&#x27;;
@@ -270,14 +269,13 @@ import { TableLogsComponent } from &#x27;./component/table-logs/table-logs.compo
 import { TableContractDetailsComponent } from &#x27;./component/table-contract-details/table-contract-details.component&#x27;;
 import { PbIconValidationComponent } from &#x27;./component/pb-icon-validation/pb-icon-validation.component&#x27;;
 import { PwaInstallComponent } from &#x27;./component/pwa-install/pwa-install.component&#x27;;
-import { MAT_DIALOG_DEFAULT_OPTIONS } from &#x27;@angular/material&#x27;;
 import { TableAddOrderComponent } from &#x27;./component/table-add-order/table-add-order.component&#x27;;
 import { PbSidePipe } from &#x27;./pipe/pb-side/pb-side.pipe&#x27;;
 import { FgEnumPipe } from &#x27;./pipe/fg-enum/fg-enum.pipe&#x27;;
 import { FgInputComponent } from &#x27;./component/fg-input/fg-input/fg-input.component&#x27;;
 import { ConnectedGuard } from &#x27;./guard/connected-guard.service&#x27;;
 import { FgCardComponent } from &#x27;./component/fg-card/fg-card.component&#x27;;
-import { SyncUrlsEqualValidator } from &#x27;./validators/sync-urls-equal.validator&#x27;;
+import { SyncMatchFieldlValidator } from &#x27;./validators/sync-match-field.validator&#x27;;
 import { AsyncUrlRespondsValidator } from &#x27;./validators/async-url-responds.validator&#x27;;
 import { AsyncUrlApiKeyRespondsValidator } from &#x27;./validators/async-url-api-key-responds.validator&#x27;;
 import { FgGraphqlModule } from &#x27;./module/fg-graphql/fg-graphql.module&#x27;;
@@ -377,6 +375,7 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     TableLogsComponent,
     TableContractDetailsComponent,
     FgCardComponent,
+    SyncMatchFieldlValidator
   ],
   imports: [
     BrowserModule,
@@ -390,9 +389,9 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     NgxChartsModule,
     ChartModule,
     CommonModule,
-    FgMaterialModule,
     FlexLayoutModule,
     FgGlobalScopeModule.forBrowser(),
+    FgMaterialModule,
     TranslateModule.forRoot({
       missingTranslationHandler: {
         provide: MissingTranslationHandler, useClass: PbMissingTranslationHandler
@@ -403,14 +402,6 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
-    NgForageModule.forRoot({
-      name: &#x27;PowerBot&#x27;,
-      driver: [
-        Driver.INDEXED_DB,
-        Driver.WEB_SQL,
-        Driver.LOCAL_STORAGE,
-      ]
     }),
     ApiModule,
     LoggerModule.forRoot({
@@ -438,7 +429,6 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     FgKeyboardService,
     TranslateService,
     ConnectedGuard,
-    SyncUrlsEqualValidator,
     AsyncUrlRespondsValidator,
     AsyncUrlApiKeyRespondsValidator
   ],

@@ -69,7 +69,7 @@
     </p>
     <p class="comment">
         <p>TabTestComponent -
-This Tab is used to set powerbot test-api configuraion
+This tab is used to set powerbot test-api configuraion
 data</p>
 
     </p>
@@ -94,6 +94,10 @@ data</p>
     <table class="table table-sm table-hover">
         <tbody>
 
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
 
 
 
@@ -148,11 +152,19 @@ data</p>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#apiKeyDisabled$">apiKeyDisabled$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#data$">data$</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#form">form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#request$">request$</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -205,7 +217,7 @@ data</p>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#setFormData">setFormData</a>
+                                <a href="#reset">reset</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -321,7 +333,7 @@ data</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -663,7 +675,7 @@ a components events to their parent-component</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:135</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:187</a></div>
                             </td>
                         </tr>
 
@@ -743,7 +755,7 @@ store config when cacheForm is true</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:123</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:167</a></div>
                             </td>
                         </tr>
 
@@ -811,7 +823,7 @@ configuration if available</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:79</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:134</a></div>
                             </td>
                         </tr>
 
@@ -880,7 +892,7 @@ configuration if available</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:76</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:131</a></div>
                             </td>
                         </tr>
 
@@ -951,7 +963,7 @@ configuration if available</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:100</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:147</a></div>
                             </td>
                         </tr>
 
@@ -962,7 +974,7 @@ configuration if available</p>
 </div>
 
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../classes/ConfigTestConnection.html" target="_self" >ConfigTestConnection</a></code>
+                                <b>Returns : </b>    <code><a href="../classes/ConfigConnection.html" target="_self" >ConfigConnection</a></code>
 
                             </div>
                     </td>
@@ -991,14 +1003,14 @@ configuration if available</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:83</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:140</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Open generate ApiKey-Modal </p>
+                            <div class="io-description"><p>Open generate ApiKey-Modal</p>
 </div>
 
                             <div class="io-description">
@@ -1044,40 +1056,76 @@ configuration if available</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="setFormData"></a>
+                        <a name="reset"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            setFormData
+                            reset
                             </b>
-                            <a href="#setFormData"><span class="icon ion-ios-link"></span></a>
+                            <a href="#reset"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>setFormData()</code>
+                        <code>reset($event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:90</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:176</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Set form-data from powerbot storage</p>
+                            <div class="io-description"><p>Configure data-service with powerbot-production
+configuration</p>
 </div>
 
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Default value</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>$event</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code>false</code>
+                                                        </td>
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                             </div>
+                                <div class="io-description">
+                                    
+                                </div>
                     </td>
                 </tr>
             </tbody>
@@ -1106,7 +1154,7 @@ configuration if available</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:110</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:157</a></div>
                             </td>
                         </tr>
 
@@ -1117,7 +1165,7 @@ configuration if available</p>
 </div>
 
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../classes/ConfigTestConnection.html" target="_self" >ConfigTestConnection</a></code>
+                                <b>Returns : </b>    <code><a href="../classes/ConfigConnection.html" target="_self" >ConfigConnection</a></code>
 
                             </div>
                     </td>
@@ -1653,7 +1701,7 @@ configuration if available</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -1693,10 +1741,62 @@ configuration if available</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:36</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Label key provided for use with action-button</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="apiKeyDisabled$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            apiKeyDisabled$
+                            </b>
+                            <a href="#apiKeyDisabled$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>apiKeyDisabled$:     <code>Subject&lt;boolean&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new BehaviorSubject( true )</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observable provides state of the apiKey-generator buttons</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1716,22 +1816,33 @@ configuration if available</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>data$:     <code>Observable&lt;any&gt;</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>data$:     <code><a href="../classes/ConfigConnection.html" target="_self" >Subject&lt;ConfigConnection&gt;</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Observable&lt;any&gt;</code>
+                            <i>Type : </i>    <code><a href="../classes/ConfigConnection.html" target="_self" >Subject&lt;ConfigConnection&gt;</a></code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:45</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observable to provide fetched local-client state data</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1763,7 +1874,7 @@ configuration if available</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -1771,6 +1882,48 @@ configuration if available</p>
                     <td class="col-md-4">
                         <div class="io-description"><p>Form containing input-elements to allow
 setting test-connection configuration</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="request$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            request$
+                            </b>
+                            <a href="#request$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>request$:     <code>ObservableQuery</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>ObservableQuery</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/component/modal-settings/tab-test/tab-test.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observable for providing graphql-query to
+fetch local-client state</p>
 </div>
                     </td>
                 </tr>
@@ -1793,13 +1946,13 @@ setting test-connection configuration</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_subscribtions:     <code>Subscription[]</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_subscribtions:     <code>Array&lt;Subscription | ZenObservable.Subscription&gt;</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription[]</code>
+                            <i>Type : </i>    <code>Array&lt;Subscription | ZenObservable.Subscription&gt;</code>
 
                         </td>
                     </tr>
@@ -1976,30 +2129,31 @@ onDestroy they will be automatically unsubscribed</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ChangeDetectionStrategy } from &#x27;@angular/core&#x27;;
 import { FgComponentBaseComponent } from &#x27;../../fg-component-base/fg-component-base.component&#x27;;
 import { FgComponentBaseService } from &#x27;../../fg-component-base/fg-component-base.service&#x27;;
-import { FormGroup, FormBuilder, Validators, ValidationErrors } from &#x27;@angular/forms&#x27;;
-import { ConfigTestConnection } from &#x27;../../../entity/entity.export&#x27;;
-import { PbAppStorageConst } from &#x27;../../../app.const&#x27;;
+import { FormGroup, FormBuilder, Validators, ValidationErrors, AbstractControl } from &#x27;@angular/forms&#x27;;
+import { ConfigConnection } from &#x27;../../../entity/entity.export&#x27;;
 import { PbModalTabComponentInterface } from &#x27;../../../interface/pb-modal-tab-component.interface&#x27;;
 import { FgEvent } from &#x27;../../../class/fg-event.class&#x27;;
 import { PbAppEvent } from &#x27;../../../event/pb-app.event&#x27;;
 import { regexUrlValidationPattern } from &#x27;../../../validators/RegexUrlValidationPattern&#x27;;
 import { AsyncUrlRespondsValidator } from &#x27;../../../validators/async-url-responds.validator&#x27;;
-import { AppEnv } from &#x27;../../../entity/app-state.entity&#x27;;
 import { AsyncUrlApiKeyRespondsValidator } from &#x27;src/app/validators/async-url-api-key-responds.validator&#x27;;
-import { Observable } from &#x27;apollo-link&#x27;;
+import { Subject, BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
+import { ObservableQuery } from &#x27;apollo-client&#x27;;
+import { debounceTime, distinct, distinctUntilChanged } from &#x27;rxjs/operators&#x27;;
 
 /**
  * TabTestComponent -
- * This Tab is used to set powerbot test-api configuraion
+ * This tab is used to set powerbot test-api configuraion
  * data
  */
 @Component({
   selector: &#x27;pb-tab-test&#x27;,
   templateUrl: &#x27;./tab-test.component.html&#x27;,
   styleUrls: [&#x27;./tab-test.component.scss&#x27;],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TabTestComponent extends FgComponentBaseComponent implements PbModalTabComponentInterface {
   /**
@@ -2007,8 +2161,23 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    * setting test-connection configuration
    */
   public form: FormGroup;
+  /**
+   * Label key provided for use with action-button
+   */
   public actionLabel &#x3D; &#x27;button_label_connect&#x27;;
-  public data$: Observable&lt;any&gt;;
+  /**
+   * Observable for providing graphql-query to
+   * fetch local-client state
+   */
+  public request$: ObservableQuery;
+  /**
+   * Observable to provide fetched local-client state data
+   */
+  public data$: Subject&lt;ConfigConnection&gt; &#x3D; new Subject();
+  /**
+  * Observable provides state of the apiKey-generator buttons
+  */
+  public apiKeyDisabled$: Subject&lt;boolean&gt; &#x3D; new BehaviorSubject( true );
   /**
    * CONSTRUCTOR
    */
@@ -2021,10 +2190,21 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
     super(
       $component
     );
+    this.request$ &#x3D; this.$component.$apollo.watchQuery(&#x60;
+      query getConfigConnection($id: Int!) {
+        getConfigConnection(id: $id) @client {
+          isProduction
+          isValid
+          apiKey,
+          backupUrl,
+          serverUrl,
+          cache
+        }
+      }&#x60;,
+      { id: 1 }
+    );
     // this.data$ &#x3D; this.$component.$apollo.watchQuery
     this.form &#x3D; $fb.group({
-      hideRequired: false,
-      floatLabel: &#x27;auto&#x27;,
       serverUrl: [null,
         [
           Validators.required,
@@ -2042,12 +2222,40 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
           this.$AsyncUrlApiRespondsValidator.validate.bind(this.$AsyncUrlApiRespondsValidator)
         ],
       ],
-      store: [null, []],
+      cache: [null, []],
     });
+    this._subscribtions.push(
+      this.request$.subscribe( result &#x3D;&gt; {
+        this.data$.next(result.data.getConfigConnection as ConfigConnection);
+      })
+    );
+    this._subscribtions.push(
+      this.data$.subscribe( result &#x3D;&gt; {
+        // this.form.patchValue(result);
+        Object.keys( this.form.controls ).forEach( field &#x3D;&gt; {
+          const control &#x3D; this.form.get(field) as AbstractControl;
+          control.markAsTouched();
+          control.setValue( result[ field ] );
+        });
+      })
+    );
+    // Createn pbservable for serverurl status-change
+    const urlServerUrlChange: Observable&lt;any&gt; &#x3D; this.form.controls.serverUrl.statusChanges.pipe(
+      debounceTime( 100 ),
+      distinctUntilChanged()
+    );
     // If serverUrl-changes and apiKey contains value, revalidate field
-    this._subscribtions.push(this.form.controls.serverUrl.statusChanges.subscribe(event &#x3D;&gt; {
+    this._subscribtions.push( urlServerUrlChange.subscribe( event &#x3D;&gt; {
       if ( this.form.get(&#x27;serverUrl&#x27;).valid &amp;&amp; this.form.get(&#x27;apiKey&#x27;).value ) {
         this.form.get(&#x27;apiKey&#x27;).updateValueAndValidity();
+      }
+    }));
+    // Update apiKey generator-button disabled state when serverurl is valid ( false ) / invalid ( true )
+    this._subscribtions.push( urlServerUrlChange.subscribe( event &#x3D;&gt; {
+      if ( this.form.get(&#x27;serverUrl&#x27;).valid ) {
+        this.apiKeyDisabled$.next( false );
+      } else {
+        this.apiKeyDisabled$.next( true );
       }
     }));
   }
@@ -2057,40 +2265,29 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   getApiErrorMessage(errors: ValidationErrors) {
     return &#x27;Api Key Error&#x27;;
   }
-  /** Open generate ApiKey-Modal */
+  /**
+   * Open generate ApiKey-Modal
+  */
   openApiKeyModal( $event: Event ) {
     $event.preventDefault();
     this.$component.$event.emit(new FgEvent(PbAppEvent.OPEN_API_KEY_MODAL, this));
   }
   /**
-   * Set form-data from powerbot storage
-   */
-  public setFormData(): void {
-    if (this.$component.$data.app.config.testConfig ) {
-      this.form.patchValue(
-        this.$component.$data.app.config.testConfig
-      );
-    }
-  }
-  /**
    * Create logging-config from form-data
    */
-  private getTestData(): ConfigTestConnection {
-    let config: ConfigTestConnection &#x3D; new ConfigTestConnection();
+  private getTestData(): ConfigConnection {
+    let config: ConfigConnection &#x3D; new ConfigConnection();
     config.serverUrl &#x3D; this.form.controls.serverUrl.value;
-    // config.apiKey &#x3D; this.form.controls.apiKey.value;
-    config.store &#x3D; this.form.controls.store.value;
+    config.apiKey &#x3D; this.form.controls.apiKey.value;
+    config.cache &#x3D; this.form.controls.cache.value;
     return config;
   }
   /**
    * Persist logging-config in browser
    */
-  private storeTestConfig(): ConfigTestConnection {
+  private storeTestConfig(): ConfigConnection {
     const config &#x3D; this.getTestData();
-    this.$component.$data.$storage.setItem(
-      PbAppStorageConst.CONFIG_TEST,
-      config
-    );
+
     return config;
   }
   /**
@@ -2100,8 +2297,16 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   */
   public clearStore($event) {
     if (this.form.controls.store.value &#x3D;&#x3D;&#x3D; false) {
-      this.$component.$data.$storage.removeItem(PbAppStorageConst.CONFIG_TEST);
+
     }
+  }
+  /**
+   * Configure data-service with powerbot-production
+   * configuration
+   */
+  public reset( $event: any &#x3D; false ) {
+    $event.preventDefault();
+    this.form.reset();
   }
   /**
    * TODO: Find out how to update configured connection
@@ -2112,7 +2317,7 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    */
   public action($event: any &#x3D; false) {
     const config &#x3D; this.getTestData();
-    if (!this.form.errors &amp;&amp; this.form.controls.store.value &#x3D;&#x3D;&#x3D; true) {
+    if (!this.form.errors &amp;&amp; this.form.controls.cache.value &#x3D;&#x3D;&#x3D; true) {
       this.storeTestConfig();
     }
     if (!this.form.errors) {
@@ -2167,18 +2372,28 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
       &lt;div fxFlex&#x3D;&quot;50px&quot;&gt;
         &lt;button
         mat-fab
+        color&#x3D;&quot;primary&quot;
         matTooltip&#x3D;&quot;Generate ApiKey&quot;
+        [disabled]&#x3D;&quot;apiKeyDisabled$ | async&quot;
         (click)&#x3D;&quot;openApiKeyModal($event)&quot;
         &gt;&lt;mat-icon&gt;vpn_key&lt;/mat-icon&gt;&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;p&gt;
       &lt;mat-checkbox
-        formControlName&#x3D;&quot;store&quot;
+        formControlName&#x3D;&quot;cache&quot;
         (change)&#x3D;&quot;clearStore($event)&quot;
       &gt;
         &lt;ng-container&gt;{{ &#x27;checkbox_label_cache&#x27; | translate}}&lt;/ng-container&gt;
       &lt;/mat-checkbox&gt;
+      &amp;nbsp;
+      &lt;button
+        mat-stroked-button
+        (click)&#x3D;&quot;reset($event)&quot;
+      &gt;
+        &lt;mat-icon&gt;clear&lt;/mat-icon&gt;
+        &lt;span&gt;Reset Form&lt;/span&gt;
+      &lt;/button&gt;
     &lt;/p&gt;
   &lt;/form&gt;
 &lt;/div&gt;
@@ -2210,9 +2425,9 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="pb-tab tab-test">  <form class="tab-test-form"    [formGroup]="form"    (ngSubmit)="action( $event )"  >    <p>      <mat-form-field        appearance="fill"        color="{{ config }}"      >        <mat-label translate>input_label_test_url</mat-label>        <input          matInput          placeholder="{{ \'input_placeholder_test_url\' | translate }}"          formControlName="serverUrl"          required        >        <pb-icon-validation matSuffix [entity]="this.form.controls.serverUrl"></pb-icon-validation>        <mat-hint translate>input_hint_test_url</mat-hint>        <mat-error>{{getServerUrlErrorMessage(this.form.controls.serverUrl)}}</mat-error>      </mat-form-field>    </p>    <div fxFlexLayout="row" fxLayoutGap="10px">      <mat-form-field        fxFlex=""        appearance="fill"        color="{{ config }}"      >        <mat-label translate>input_label_api_key</mat-label>        <input          matInput          placeholder="{{ \'input_placeholder_api_key\' | translate }}"          formControlName="apiKey"          required        >        <pb-icon-validation matSuffix [entity]="this.form.controls.apiKey"></pb-icon-validation>        <mat-hint translate>input_hint_test_api_key</mat-hint>        <mat-error>{{getApiErrorMessage(this.form.controls.apiKey)}}</mat-error>      </mat-form-field>      <div fxFlex="50px">        <button        mat-fab        matTooltip="Generate ApiKey"        (click)="openApiKeyModal($event)"        ><mat-icon>vpn_key</mat-icon></button>      </div>    </div>    <p>      <mat-checkbox        formControlName="store"        (change)="clearStore($event)"      >        <ng-container>{{ \'checkbox_label_cache\' | translate}}</ng-container>      </mat-checkbox>    </p>  </form></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="pb-tab tab-test">  <form class="tab-test-form"    [formGroup]="form"    (ngSubmit)="action( $event )"  >    <p>      <mat-form-field        appearance="fill"        color="{{ config }}"      >        <mat-label translate>input_label_test_url</mat-label>        <input          matInput          placeholder="{{ \'input_placeholder_test_url\' | translate }}"          formControlName="serverUrl"          required        >        <pb-icon-validation matSuffix [entity]="this.form.controls.serverUrl"></pb-icon-validation>        <mat-hint translate>input_hint_test_url</mat-hint>        <mat-error>{{getServerUrlErrorMessage(this.form.controls.serverUrl)}}</mat-error>      </mat-form-field>    </p>    <div fxFlexLayout="row" fxLayoutGap="10px">      <mat-form-field        fxFlex=""        appearance="fill"        color="{{ config }}"      >        <mat-label translate>input_label_api_key</mat-label>        <input          matInput          placeholder="{{ \'input_placeholder_api_key\' | translate }}"          formControlName="apiKey"          required        >        <pb-icon-validation matSuffix [entity]="this.form.controls.apiKey"></pb-icon-validation>        <mat-hint translate>input_hint_test_api_key</mat-hint>        <mat-error>{{getApiErrorMessage(this.form.controls.apiKey)}}</mat-error>      </mat-form-field>      <div fxFlex="50px">        <button        mat-fab        color="primary"        matTooltip="Generate ApiKey"        [disabled]="apiKeyDisabled$ | async"        (click)="openApiKeyModal($event)"        ><mat-icon>vpn_key</mat-icon></button>      </div>    </div>    <p>      <mat-checkbox        formControlName="cache"        (change)="clearStore($event)"      >        <ng-container>{{ \'checkbox_label_cache\' | translate}}</ng-container>      </mat-checkbox>      &nbsp;      <button        mat-stroked-button        (click)="reset($event)"      >        <mat-icon>clear</mat-icon>        <span>Reset Form</span>      </button>    </p>  </form></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pb-pwa'},{'name': 'AsksViewComponent', 'selector': 'pb-view-asks'},{'name': 'BarStateComponent', 'selector': 'pb-bar-state'},{'name': 'BidsViewComponent', 'selector': 'pb-view-bids'},{'name': 'DashboardComponent', 'selector': 'pb-dashboard'},{'name': 'DashboardViewComponent', 'selector': 'pb-view-dashboard'},{'name': 'FgActionsComponent', 'selector': 'fg-actions'},{'name': 'FgAngularMaterialDemoComponent', 'selector': 'fg-angular-material-demo'},{'name': 'FgCardComponent', 'selector': 'fg-card'},{'name': 'FgInputComponent', 'selector': 'fg-input'},{'name': 'FooterComponent', 'selector': 'pb-footer'},{'name': 'GraphComponent', 'selector': 'pb-graph'},{'name': 'GraphPortfolioComponent', 'selector': 'pb-graph-portfolio'},{'name': 'GraphProductHistoryComponent', 'selector': 'pb-graph-product-history'},{'name': 'GraphSignalHistoryComponent', 'selector': 'pb-graph-signal-history'},{'name': 'HeaderComponent', 'selector': 'pb-header'},{'name': 'LoginViewComponent', 'selector': 'pb-login'},{'name': 'ModalAddOrderComponent', 'selector': 'pb-modal-add-order'},{'name': 'ModalApiKeyComponent', 'selector': 'pb-modal-api-key'},{'name': 'ModalComponent', 'selector': 'pb-modal'},{'name': 'ModalHelpComponent', 'selector': 'app-modal-help'},{'name': 'ModalSettingsComponent', 'selector': 'pb-modal-settings'},{'name': 'OrderbookViewComponent', 'selector': 'pb-view-orderbook'},{'name': 'OrdersViewComponent', 'selector': 'pb-view-orders'},{'name': 'PbIconValidationComponent', 'selector': 'pb-icon-validation'},{'name': 'PortfolioViewComponent', 'selector': 'pb-view-portfolio'},{'name': 'ProductHistoryViewComponent', 'selector': 'pb-view-product-history'},{'name': 'PwaInstallComponent', 'selector': 'pb-pwa-install'},{'name': 'SignalsViewComponent', 'selector': 'pb-signals'},{'name': 'TabApiKeyComponent', 'selector': 'pb-tab-api-key'},{'name': 'TabLoggingComponent', 'selector': 'pb-tab-logging'},{'name': 'TabProductionComponent', 'selector': 'pb-tab-production'},{'name': 'TabTestComponent', 'selector': 'pb-tab-test'},{'name': 'TableAddOrderComponent', 'selector': 'pb-table-add-order'},{'name': 'TableAsksComponent', 'selector': 'pb-table-asks'},{'name': 'TableBidsComponent', 'selector': 'pb-table-bids'},{'name': 'TableComponent', 'selector': 'pb-table'},{'name': 'TableContractDetailsComponent', 'selector': 'pb-table-contract-details'},{'name': 'TableLogsComponent', 'selector': 'pb-table-logs'},{'name': 'TableOrderbookComponent', 'selector': 'pb-table-orderbook'},{'name': 'TableOrdersComponent', 'selector': 'pb-table-orders'},{'name': 'TableSignalsComponent', 'selector': 'pb-table-signals'},{'name': 'TableTradesComponent', 'selector': 'pb-table-trades'},{'name': 'TradesViewComponent', 'selector': 'pb-trades'}];
-    var DIRECTIVES = [];
+    var DIRECTIVES = [{'name': 'SyncMatchFieldlValidator', 'selector': '[pbMatchField]'}];
     var ACTUAL_COMPONENT = {'name': 'TabTestComponent'};
 </script>
 <script src="../js/tree.js"></script>

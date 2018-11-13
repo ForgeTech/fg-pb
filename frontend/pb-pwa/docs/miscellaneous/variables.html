@@ -99,10 +99,10 @@
                             <a href="#environment" title="src/environments/environment.ghp.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ghp.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                            <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                            <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
                         </li>
                         <li>
                             <a href="#InternalTradingEnum" title="src/app/module/pb-api/model/inlineResponse20014Options.ts"><b>InternalTradingEnum</b>&nbsp;&nbsp;&nbsp;(src/.../inlineResponse20014Options.ts)</a>
@@ -1182,122 +1182,250 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  name: &#x27;GITHUB&#x27;,
+  name: &#x27;GHPage&#x27;,
   debug: true,
   production: true,
   override: true,
   // Use Powerbot variable to preset application-data
   // for development environment
   powerbot: {
-    __typename: &#x27;powerbot&#x27;,
+    id: 0,
+    __typename: &#x27;PowerBot&#x27;,
+    state: {
+      id: 0,
+      __typename: &#x27;State&#x27;,
+      allowed: false,
+      connection: false,
+      connectionState: 0,
+      requestState: 0,
+    },
     config: {
-      __typename: &#x27;config&#x27;,
+      id: 0,
+      __typename: &#x27;Config&#x27;,
       languages: [
-        {
-          __typename: &#x27;language&#x27;,
-          short: &#x27;en&#x27;
-        },
-        {
-          __typename: &#x27;language&#x27;,
-          short: &#x27;de&#x27;
-        }
+        &#x27;en&#x27;
       ],
-      lang: {
-        __typename: &#x27;language&#x27;,
-        short: &#x27;en&#x27;
-      },
+      lang: &#x27;en&#x27;,
       backHours: 3,
       darkTheme: true,
+      logConfig: {
+        id: 0,
+        __typename: &#x27;ConfigLogging&#x27;,
+        logFolder: &#x27;test&#x27;,
+        logLevel: 1,
+        cache: true,
+        isValid: true
+      },
       prodConfig: {
-        __typename: &#x27;prod&#x27;,
+        id: 0,
+        __typename: &#x27;ConfigConnection&#x27;,
+        isProduction: true,
         serverUrl: &#x27;https://playground.powerbot-trading.com/api/error&#x27;,
         backupUrl: &#x27;https://playground.powerbot-trading.com/api/v0&#x27;,
         apiKey: &#x27;44fc8162-d2c6-432a-8279-d8d40e5c0e1b&#x27;,
-        cache: true
+        cache: true,
+        isValid: false
       },
       testConfig: {
-        __typename: &#x27;test&#x27;,
+        id: 1,
+        __typename: &#x27;ConfigConnection&#x27;,
+        isProduction: false,
         serverUrl: &#x27;https://playground.powerbot-trading.com/api/v0&#x27;,
+        backupUrl: false,
         apiKey: &#x27;44fc8162-d2c6-432a-8279-d8d40e5c0e1b&#x27;,
-        cache: false
+        cache: true,
+        isValid: true
       },
-      views: [
+      view: [
         {
-          __typename: &#x27;view&#x27;,
+          id: 0,
+          __typename: &#x27;View&#x27;,
           name: &#x27;dashboard&#x27;,
           breakpoints: [
             {
-              __typename: &#x27;breakpoint&#x27;,
-              name: &#x27;small&#x27;,
+              id: 0,
+              __typename: &#x27;Breakpoint&#x27;,
+              name: &#x27;Small&#x27;,
+              validFor: [
+                BreakpointEnum[BreakpointEnum.HANDSET_PORTRAIT],
+              ],
               grid: {
-                __typename: &#x27;grid&#x27;,
+                id: 0,
+                __typename: &#x27;Grid&#x27;,
+                cols: 32,
+                rowHeight: &#x27;20px&#x27;,
+                gutterSize: &#x27;5px&#x27;
+              },
+              cards: [
+                {
+                  id: 1,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_orders&#x27;,
+                  template: &#x27;orders&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 2,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_trades&#x27;,
+                  template: &#x27;trades&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 3,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_orderbook&#x27;,
+                  template: &#x27;orderbook&#x27;,
+                  cols: 32, rows: 14
+                },
+                {
+                  id: 4,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_bids&#x27;,
+                  template: &#x27;bids&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 5,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_asks&#x27;,
+                  template: &#x27;asks&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 6,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_portfolio&#x27;,
+                  template: &#x27;portfolio&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 7,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_contract_details&#x27;,
+                  template: &#x27;contractdetails&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 8,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_product_history&#x27;,
+                  template: &#x27;producthistory&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 9,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_signals&#x27;,
+                  template: &#x27;signals&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 10,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_logs&#x27;,
+                  template: &#x27;logs&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 11,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_signal_history&#x27;,
+                  template: &#x27;signalhistory&#x27;,
+                  cols: 32, rows: 7
+                },
+              ]
+            },
+            {
+              id: 1,
+              __typename: &#x27;Breakpoint&#x27;,
+              name: &#x27;Medium&#x27;,
+              validFor: [
+                BreakpointEnum[BreakpointEnum.HANDSET_LANDSCAPE],
+                BreakpointEnum[BreakpointEnum.SMALL],
+                BreakpointEnum[BreakpointEnum.MEDIUM],
+              ],
+              grid: {
+                id: 20,
+                __typename: &#x27;Grid&#x27;,
                 cols: 32,
                 rowHeight: &#x27;25px&#x27;,
                 gutterSize: &#x27;10px&#x27;
               },
               cards: [
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 21,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_orders&#x27;,
                   template: &#x27;orders&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 22,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_trades&#x27;,
                   template: &#x27;trades&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 23,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_orderbook&#x27;,
                   template: &#x27;orderbook&#x27;,
                   cols: 24, rows: 14
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 24,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_bids&#x27;,
                   template: &#x27;bids&#x27;,
                   cols: 8, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 25,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_asks&#x27;,
                   template: &#x27;asks&#x27;,
                   cols: 8, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 26,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_portfolio&#x27;,
                   template: &#x27;portfolio&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 27,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_contract_details&#x27;,
                   template: &#x27;contractdetails&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 28,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_product_history&#x27;,
                   template: &#x27;producthistory&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 29,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_signals&#x27;,
                   template: &#x27;signals&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 210,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_logs&#x27;,
                   template: &#x27;logs&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 211,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_signal_history&#x27;,
                   template: &#x27;signalhistory&#x27;,
                   cols: 16, rows: 7
@@ -1305,77 +1433,480 @@
               ]
             },
             {
-              __typename: &#x27;breakpoint&#x27;,
-              name: &#x27;large&#x27;,
+              id: 2,
+              __typename: &#x27;Breakpoint&#x27;,
+              name: &#x27;Default&#x27;,
+              validFor: [
+                BreakpointEnum[BreakpointEnum.LARGE]
+              ],
               grid: {
-                __typename: &#x27;grid&#x27;,
+                id: 31,
+                __typename: &#x27;Grid&#x27;,
                 cols: 32,
                 rowHeight: &#x27;25px&#x27;,
                 gutterSize: &#x27;10px&#x27;
               },
               cards: [
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 32,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_orders&#x27;,
                   template: &#x27;orders&#x27;,
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 33,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_orderbook&#x27;,
                   template: &#x27;orderbook&#x27;,
                   cols: 14, rows: 14
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 34,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_contract_details&#x27;,
                   template: &#x27;contractdetails&#x27;,
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 35,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_bids&#x27;,
                   template: &#x27;bids&#x27;,
                   cols: 4, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 36,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_trades&#x27;,
                   template: &#x27;trades&#x27;,
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 37,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_signals&#x27;,
                   template: &#x27;signals&#x27;,
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 38,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_asks&#x27;,
                   template: &#x27;asks&#x27;,
                   cols: 4, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 39,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_portfolio&#x27;,
                   template: &#x27;portfolio&#x27;,
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 310,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_product_history&#x27;,
                   template: &#x27;producthistory&#x27;,
                   cols: 14, rows: 14
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 311,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_signal_history&#x27;,
                   template: &#x27;signalhistory&#x27;,
                   cols: 11, rows: 14
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 312,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_logs&#x27;,
+                  template: &#x27;logs&#x27;,
+                  cols: 7, rows: 7
+                },
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/environments/environment.prod.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="environment"></a>
+                        <span class="name">
+                            <b>
+                            environment
+                            </b>
+                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>environment:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  name: &#x27;Production&#x27;,
+  debug: false,
+  production: true,
+  override: true,
+  // Use Powerbot variable to preset application-data
+  // for development environment
+  powerbot: {
+    id: 0,
+    __typename: &#x27;PowerBot&#x27;,
+    state: {
+      id: 0,
+      __typename: &#x27;State&#x27;,
+      allowed: false,
+      connection: false,
+      connectionState: 0,
+      requestState: 0,
+    },
+    config: {
+      id: 0,
+      __typename: &#x27;Config&#x27;,
+      languages: [
+        &#x27;en&#x27;
+      ],
+      lang: &#x27;en&#x27;,
+      backHours: 3,
+      darkTheme: true,
+      logConfig: {
+        id: 0,
+        __typename: &#x27;ConfigLogging&#x27;,
+        logFolder: &#x27;test&#x27;,
+        logLevel: 1,
+        cache: true,
+        isValid: true
+      },
+      prodConfig: {
+        id: 0,
+        __typename: &#x27;ConfigConnection&#x27;,
+        isProduction: true,
+        serverUrl: &#x27;https://playground.powerbot-trading.com/api/error&#x27;,
+        backupUrl: &#x27;https://playground.powerbot-trading.com/api/v0&#x27;,
+        apiKey: &#x27;44fc8162-d2c6-432a-8279-d8d40e5c0e1b&#x27;,
+        cache: true,
+        isValid: false
+      },
+      testConfig: {
+        id: 1,
+        __typename: &#x27;ConfigConnection&#x27;,
+        isProduction: false,
+        serverUrl: &#x27;https://playground.powerbot-trading.com/api/v0&#x27;,
+        backupUrl: false,
+        apiKey: &#x27;44fc8162-d2c6-432a-8279-d8d40e5c0e1b&#x27;,
+        cache: true,
+        isValid: true
+      },
+      view: [
+        {
+          id: 0,
+          __typename: &#x27;View&#x27;,
+          name: &#x27;dashboard&#x27;,
+          breakpoints: [
+            {
+              id: 0,
+              __typename: &#x27;Breakpoint&#x27;,
+              name: &#x27;Small&#x27;,
+              validFor: [
+                BreakpointEnum[BreakpointEnum.HANDSET_PORTRAIT],
+              ],
+              grid: {
+                id: 0,
+                __typename: &#x27;Grid&#x27;,
+                cols: 32,
+                rowHeight: &#x27;20px&#x27;,
+                gutterSize: &#x27;5px&#x27;
+              },
+              cards: [
+                {
+                  id: 1,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_orders&#x27;,
+                  template: &#x27;orders&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 2,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_trades&#x27;,
+                  template: &#x27;trades&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 3,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_orderbook&#x27;,
+                  template: &#x27;orderbook&#x27;,
+                  cols: 32, rows: 14
+                },
+                {
+                  id: 4,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_bids&#x27;,
+                  template: &#x27;bids&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 5,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_asks&#x27;,
+                  template: &#x27;asks&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 6,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_portfolio&#x27;,
+                  template: &#x27;portfolio&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 7,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_contract_details&#x27;,
+                  template: &#x27;contractdetails&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 8,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_product_history&#x27;,
+                  template: &#x27;producthistory&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 9,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_signals&#x27;,
+                  template: &#x27;signals&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 10,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_logs&#x27;,
+                  template: &#x27;logs&#x27;,
+                  cols: 32, rows: 7
+                },
+                {
+                  id: 11,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_signal_history&#x27;,
+                  template: &#x27;signalhistory&#x27;,
+                  cols: 32, rows: 7
+                },
+              ]
+            },
+            {
+              id: 1,
+              __typename: &#x27;Breakpoint&#x27;,
+              name: &#x27;Medium&#x27;,
+              validFor: [
+                BreakpointEnum[BreakpointEnum.HANDSET_LANDSCAPE],
+                BreakpointEnum[BreakpointEnum.SMALL],
+                BreakpointEnum[BreakpointEnum.MEDIUM],
+              ],
+              grid: {
+                id: 20,
+                __typename: &#x27;Grid&#x27;,
+                cols: 32,
+                rowHeight: &#x27;25px&#x27;,
+                gutterSize: &#x27;10px&#x27;
+              },
+              cards: [
+                {
+                  id: 21,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_orders&#x27;,
+                  template: &#x27;orders&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 22,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_trades&#x27;,
+                  template: &#x27;trades&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 23,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_orderbook&#x27;,
+                  template: &#x27;orderbook&#x27;,
+                  cols: 24, rows: 14
+                },
+                {
+                  id: 24,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_bids&#x27;,
+                  template: &#x27;bids&#x27;,
+                  cols: 8, rows: 7
+                },
+                {
+                  id: 25,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_asks&#x27;,
+                  template: &#x27;asks&#x27;,
+                  cols: 8, rows: 7
+                },
+                {
+                  id: 26,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_portfolio&#x27;,
+                  template: &#x27;portfolio&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 27,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_contract_details&#x27;,
+                  template: &#x27;contractdetails&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 28,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_product_history&#x27;,
+                  template: &#x27;producthistory&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 29,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_signals&#x27;,
+                  template: &#x27;signals&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 210,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_logs&#x27;,
+                  template: &#x27;logs&#x27;,
+                  cols: 16, rows: 7
+                },
+                {
+                  id: 211,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_signal_history&#x27;,
+                  template: &#x27;signalhistory&#x27;,
+                  cols: 16, rows: 7
+                },
+              ]
+            },
+            {
+              id: 2,
+              __typename: &#x27;Breakpoint&#x27;,
+              name: &#x27;Default&#x27;,
+              validFor: [
+                BreakpointEnum[BreakpointEnum.LARGE]
+              ],
+              grid: {
+                id: 31,
+                __typename: &#x27;Grid&#x27;,
+                cols: 32,
+                rowHeight: &#x27;25px&#x27;,
+                gutterSize: &#x27;10px&#x27;
+              },
+              cards: [
+                {
+                  id: 32,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_orders&#x27;,
+                  template: &#x27;orders&#x27;,
+                  cols: 7, rows: 7
+                },
+                {
+                  id: 33,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_orderbook&#x27;,
+                  template: &#x27;orderbook&#x27;,
+                  cols: 14, rows: 14
+                },
+                {
+                  id: 34,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_contract_details&#x27;,
+                  template: &#x27;contractdetails&#x27;,
+                  cols: 7, rows: 7
+                },
+                {
+                  id: 35,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_bids&#x27;,
+                  template: &#x27;bids&#x27;,
+                  cols: 4, rows: 7
+                },
+                {
+                  id: 36,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_trades&#x27;,
+                  template: &#x27;trades&#x27;,
+                  cols: 7, rows: 7
+                },
+                {
+                  id: 37,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_signals&#x27;,
+                  template: &#x27;signals&#x27;,
+                  cols: 7, rows: 7
+                },
+                {
+                  id: 38,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_asks&#x27;,
+                  template: &#x27;asks&#x27;,
+                  cols: 4, rows: 7
+                },
+                {
+                  id: 39,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_portfolio&#x27;,
+                  template: &#x27;portfolio&#x27;,
+                  cols: 7, rows: 7
+                },
+                {
+                  id: 310,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_product_history&#x27;,
+                  template: &#x27;producthistory&#x27;,
+                  cols: 14, rows: 14
+                },
+                {
+                  id: 311,
+                  __typename: &#x27;Card&#x27;,
+                  title: &#x27;component_label_signal_history&#x27;,
+                  template: &#x27;signalhistory&#x27;,
+                  cols: 11, rows: 14
+                },
+                {
+                  id: 312,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_logs&#x27;,
                   template: &#x27;logs&#x27;,
                   cols: 7, rows: 7
@@ -1434,6 +1965,18 @@
   powerbot: {
     id: 0,
     __typename: &#x27;PowerBot&#x27;,
+    states: [
+      {
+        id: &#x27;44fc8162-d2c6-432a-8279-d8d40e5c0e1b&#x27;,
+        __typename: &#x27;State&#x27;,
+        darkTheme: true,
+        backHours: 3,
+        allowed: false,
+        connection: false,
+        connectionState: 0,
+        requestState: 0,
+      }
+    ],
     config: {
       id: 0,
       __typename: &#x27;Config&#x27;,
@@ -1443,358 +1986,224 @@
       lang: &#x27;en&#x27;,
       backHours: 3,
       darkTheme: true,
+      logConfig: {
+        id: 0,
+        __typename: &#x27;ConfigLogging&#x27;,
+        logFolder: &#x27;test&#x27;,
+        logLevel: 1,
+        cache: true,
+        isValid: true
+      },
       prodConfig: {
         id: 0,
-        __typename: &#x27;ProdConfig&#x27;,
+        __typename: &#x27;ConfigConnection&#x27;,
+        isProduction: true,
         serverUrl: &#x27;https://playground.powerbot-trading.com/api/error&#x27;,
         backupUrl: &#x27;https://playground.powerbot-trading.com/api/v0&#x27;,
         apiKey: &#x27;44fc8162-d2c6-432a-8279-d8d40e5c0e1b&#x27;,
         cache: true,
-        valid: false
+        isValid: false
       },
       testConfig: {
-        id: 0,
-        __typename: &#x27;ProdConfig&#x27;,
+        id: 1,
+        __typename: &#x27;ConfigConnection&#x27;,
+        isProduction: false,
         serverUrl: &#x27;https://playground.powerbot-trading.com/api/v0&#x27;,
+        backupUrl: false,
         apiKey: &#x27;44fc8162-d2c6-432a-8279-d8d40e5c0e1b&#x27;,
-        cache: false,
-        valid: true
+        cache: true,
+        isValid: true
       },
-      views: [
+      view: [
         {
           id: 0,
-          __typename: &#x27;view&#x27;,
+          __typename: &#x27;View&#x27;,
           name: &#x27;dashboard&#x27;,
           breakpoints: [
             {
               id: 0,
-              __typename: &#x27;breakpoint&#x27;,
-              name: &#x27;small&#x27;,
+              __typename: &#x27;Breakpoint&#x27;,
+              name: &#x27;Small&#x27;,
+              validFor: [
+                BreakpointEnum[ BreakpointEnum.HANDSET_PORTRAIT ],
+              ],
               grid: {
                 id: 0,
-                __typename: &#x27;grid&#x27;,
+                __typename: &#x27;Grid&#x27;,
                 cols: 32,
-                rowHeight: &#x27;25px&#x27;,
-                gutterSize: &#x27;10px&#x27;
+                rowHeight: &#x27;20px&#x27;,
+                gutterSize: &#x27;5px&#x27;
               },
               cards: [
                 {
                   id: 1,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_orders&#x27;,
                   template: &#x27;orders&#x27;,
-                  cols: 16, rows: 7
+                  cols: 32, rows: 7
                 },
                 {
                   id: 2,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_trades&#x27;,
                   template: &#x27;trades&#x27;,
-                  cols: 16, rows: 7
+                  cols: 32, rows: 7
                 },
                 {
                   id: 3,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_orderbook&#x27;,
                   template: &#x27;orderbook&#x27;,
-                  cols: 24, rows: 14
+                  cols: 32, rows: 14
                 },
                 {
                   id: 4,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_bids&#x27;,
                   template: &#x27;bids&#x27;,
-                  cols: 8, rows: 7
+                  cols: 16, rows: 7
                 },
                 {
                   id: 5,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_asks&#x27;,
                   template: &#x27;asks&#x27;,
-                  cols: 8, rows: 7
+                  cols: 16, rows: 7
                 },
                 {
                   id: 6,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_portfolio&#x27;,
                   template: &#x27;portfolio&#x27;,
                   cols: 16, rows: 7
                 },
                 {
                   id: 7,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_contract_details&#x27;,
                   template: &#x27;contractdetails&#x27;,
-                  cols: 16, rows: 7
+                  cols: 32, rows: 7
                 },
                 {
                   id: 8,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_product_history&#x27;,
                   template: &#x27;producthistory&#x27;,
-                  cols: 16, rows: 7
+                  cols: 32, rows: 7
                 },
                 {
                   id: 9,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_signals&#x27;,
                   template: &#x27;signals&#x27;,
-                  cols: 16, rows: 7
+                  cols: 32, rows: 7
                 },
                 {
                   id: 10,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_logs&#x27;,
                   template: &#x27;logs&#x27;,
-                  cols: 16, rows: 7
+                  cols: 32, rows: 7
                 },
                 {
                   id: 11,
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_signal_history&#x27;,
                   template: &#x27;signalhistory&#x27;,
-                  cols: 16, rows: 7
+                  cols: 32, rows: 7
                 },
               ]
             },
             {
               id: 1,
-              __typename: &#x27;breakpoint&#x27;,
-              name: &#x27;large&#x27;,
+              __typename: &#x27;Breakpoint&#x27;,
+              name: &#x27;Medium&#x27;,
+              validFor: [
+                BreakpointEnum[ BreakpointEnum.HANDSET_LANDSCAPE ],
+                BreakpointEnum[ BreakpointEnum.SMALL ],
+                BreakpointEnum[ BreakpointEnum.MEDIUM ],
+              ],
               grid: {
-                id: 1,
-                __typename: &#x27;grid&#x27;,
+                id: 20,
+                __typename: &#x27;Grid&#x27;,
                 cols: 32,
                 rowHeight: &#x27;25px&#x27;,
                 gutterSize: &#x27;10px&#x27;
               },
               cards: [
                 {
-                  id: 12,
-                  __typename: &#x27;card&#x27;,
+                  id: 21,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_orders&#x27;,
                   template: &#x27;orders&#x27;,
-                  cols: 7, rows: 7
-                },
-                {
-                  id: 13,
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_orderbook&#x27;,
-                  template: &#x27;orderbook&#x27;,
-                  cols: 14, rows: 14
-                },
-                {
-                  id: 14,
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_contract_details&#x27;,
-                  template: &#x27;contractdetails&#x27;,
-                  cols: 7, rows: 7
-                },
-                {
-                  id: 15,
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_bids&#x27;,
-                  template: &#x27;bids&#x27;,
-                  cols: 4, rows: 7
-                },
-                {
-                  id: 16,
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_trades&#x27;,
-                  template: &#x27;trades&#x27;,
-                  cols: 7, rows: 7
-                },
-                {
-                  id: 17,
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_signals&#x27;,
-                  template: &#x27;signals&#x27;,
-                  cols: 7, rows: 7
-                },
-                {
-                  id: 18,
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_asks&#x27;,
-                  template: &#x27;asks&#x27;,
-                  cols: 4, rows: 7
-                },
-                {
-                  id: 19,
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_portfolio&#x27;,
-                  template: &#x27;portfolio&#x27;,
-                  cols: 7, rows: 7
-                },
-                {
-                  id: 20,
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_product_history&#x27;,
-                  template: &#x27;producthistory&#x27;,
-                  cols: 14, rows: 14
-                },
-                {
-                  id: 21,
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_signal_history&#x27;,
-                  template: &#x27;signalhistory&#x27;,
-                  cols: 11, rows: 14
+                  cols: 16, rows: 7
                 },
                 {
                   id: 22,
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_logs&#x27;,
-                  template: &#x27;logs&#x27;,
-                  cols: 7, rows: 7
-                },
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  }
-}</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
-    <h3>src/environments/environment.prod.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="environment"></a>
-                        <span class="name">
-                            <b>
-                            environment
-                            </b>
-                            <a href="#environment"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>environment:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-  name: &#x27;Production&#x27;,
-  debug: false,
-  production: true,
-  override: true,
-  // Use Powerbot variable to preset application-data
-  // for development environment
-  powerbot: {
-    __typename: &#x27;powerbot&#x27;,
-    config: {
-      __typename: &#x27;config&#x27;,
-      languages: [&#x27;en&#x27;],
-      lang: &#x27;en&#x27;,
-      backHours: 3,
-      darkTheme: true,
-      prodConfig: {
-        __typename: &#x27;prod&#x27;,
-        serverUrl: &#x27;https://playground.powerbot-trading.com/api/error&#x27;,
-        backupUrl: &#x27;https://playground.powerbot-trading.com/api/v0&#x27;,
-        apiKey: &#x27;44fc8162-d2c6-432a-8279-d8d40e5c0e1b&#x27;,
-        cache: true
-      },
-      testConfig: {
-        __typename: &#x27;test&#x27;,
-        serverUrl: &#x27;https://playground.powerbot-trading.com/api/v0&#x27;,
-        apiKey: &#x27;44fc8162-d2c6-432a-8279-d8d40e5c0e1b&#x27;,
-        cache: false
-      },
-      views: [
-        {
-          __typename: &#x27;view&#x27;,
-          name: &#x27;dashboard&#x27;,
-          breakpoints: [
-            {
-              __typename: &#x27;breakpoint&#x27;,
-              name: &#x27;small&#x27;,
-              grid: {
-                __typename: &#x27;grid&#x27;,
-                cols: 32,
-                rowHeight: &#x27;25px&#x27;,
-                gutterSize: &#x27;10px&#x27;
-              },
-              cards: [
-                {
-                  __typename: &#x27;card&#x27;,
-                  title: &#x27;component_label_orders&#x27;,
-                  template: &#x27;orders&#x27;,
-                  cols: 16, rows: 7
-                },
-                {
-                  __typename: &#x27;card&#x27;,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_trades&#x27;,
                   template: &#x27;trades&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 23,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_orderbook&#x27;,
                   template: &#x27;orderbook&#x27;,
                   cols: 24, rows: 14
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 24,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_bids&#x27;,
                   template: &#x27;bids&#x27;,
                   cols: 8, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 25,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_asks&#x27;,
                   template: &#x27;asks&#x27;,
                   cols: 8, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 26,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_portfolio&#x27;,
                   template: &#x27;portfolio&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 27,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_contract_details&#x27;,
                   template: &#x27;contractdetails&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 28,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_product_history&#x27;,
                   template: &#x27;producthistory&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 29,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_signals&#x27;,
                   template: &#x27;signals&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 210,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_logs&#x27;,
                   template: &#x27;logs&#x27;,
                   cols: 16, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 211,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_signal_history&#x27;,
                   template: &#x27;signalhistory&#x27;,
                   cols: 16, rows: 7
@@ -1802,77 +2211,93 @@
               ]
             },
             {
-              __typename: &#x27;breakpoint&#x27;,
-              name: &#x27;large&#x27;,
+              id: 2,
+              __typename: &#x27;Breakpoint&#x27;,
+              name: &#x27;Default&#x27;,
+              validFor: [
+                BreakpointEnum[ BreakpointEnum.LARGE ]
+              ],
               grid: {
-                __typename: &#x27;grid&#x27;,
+                id: 31,
+                __typename: &#x27;Grid&#x27;,
                 cols: 32,
                 rowHeight: &#x27;25px&#x27;,
                 gutterSize: &#x27;10px&#x27;
               },
               cards: [
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 32,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_orders&#x27;,
                   template: &#x27;orders&#x27;,
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 33,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_orderbook&#x27;,
                   template: &#x27;orderbook&#x27;,
                   cols: 14, rows: 14
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 34,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_contract_details&#x27;,
                   template: &#x27;contractdetails&#x27;,
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 35,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_bids&#x27;,
                   template: &#x27;bids&#x27;,
                   cols: 4, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 36,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_trades&#x27;,
                   template: &#x27;trades&#x27;,
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 37,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_signals&#x27;,
                   template: &#x27;signals&#x27;,
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 38,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_asks&#x27;,
                   template: &#x27;asks&#x27;,
                   cols: 4, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 39,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_portfolio&#x27;,
                   template: &#x27;portfolio&#x27;,
                   cols: 7, rows: 7
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 310,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_product_history&#x27;,
                   template: &#x27;producthistory&#x27;,
                   cols: 14, rows: 14
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 311,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_signal_history&#x27;,
                   template: &#x27;signalhistory&#x27;,
                   cols: 11, rows: 14
                 },
                 {
-                  __typename: &#x27;card&#x27;,
+                  id: 312,
+                  __typename: &#x27;Card&#x27;,
                   title: &#x27;component_label_logs&#x27;,
                   template: &#x27;logs&#x27;,
                   cols: 7, rows: 7

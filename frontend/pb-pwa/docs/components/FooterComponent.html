@@ -1068,13 +1068,13 @@ a components events to their parent-component</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_subscribtions:     <code>Subscription[]</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_subscribtions:     <code>Array&lt;Subscription | ZenObservable.Subscription&gt;</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription[]</code>
+                            <i>Type : </i>    <code>Array&lt;Subscription | ZenObservable.Subscription&gt;</code>
 
                         </td>
                     </tr>
@@ -1331,7 +1331,7 @@ export class FooterComponent extends FgComponentBaseComponent {
 <script>
         var COMPONENT_TEMPLATE = '<div><mat-toolbar class="footer" color="primary">  <mat-toolbar-row>    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlexFill>      <div fxFlex="164px 30px">        <a mat-button href="https://forgetech.github.io/">          &copy; 2018          &nbsp;          <img height="16px" alt="{{ \'forgetech_logo\' | translate }}" src="./assets/forgetech/logo--small.png" />          &nbsp;          <img height="16px" alt="{{ \'forgetech_text\' | translate }}" src="./assets/forgetech/text--small.png" />        </a>      </div>    <div fxFlex="">    </div>    <div fxFlex="300px 30px">      <a mat-button href="{{ \'link_license\' | translate }}">        <img height="25px" alt="{{ \'licence_logo_alt\' | translate }}" src="./assets/licence/by-nd.png" />        <ng-container translate>licence_text</ng-container>      </a>    </div>  </div>  </mat-toolbar-row></mat-toolbar></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pb-pwa'},{'name': 'AsksViewComponent', 'selector': 'pb-view-asks'},{'name': 'BarStateComponent', 'selector': 'pb-bar-state'},{'name': 'BidsViewComponent', 'selector': 'pb-view-bids'},{'name': 'DashboardComponent', 'selector': 'pb-dashboard'},{'name': 'DashboardViewComponent', 'selector': 'pb-view-dashboard'},{'name': 'FgActionsComponent', 'selector': 'fg-actions'},{'name': 'FgAngularMaterialDemoComponent', 'selector': 'fg-angular-material-demo'},{'name': 'FgCardComponent', 'selector': 'fg-card'},{'name': 'FgInputComponent', 'selector': 'fg-input'},{'name': 'FooterComponent', 'selector': 'pb-footer'},{'name': 'GraphComponent', 'selector': 'pb-graph'},{'name': 'GraphPortfolioComponent', 'selector': 'pb-graph-portfolio'},{'name': 'GraphProductHistoryComponent', 'selector': 'pb-graph-product-history'},{'name': 'GraphSignalHistoryComponent', 'selector': 'pb-graph-signal-history'},{'name': 'HeaderComponent', 'selector': 'pb-header'},{'name': 'LoginViewComponent', 'selector': 'pb-login'},{'name': 'ModalAddOrderComponent', 'selector': 'pb-modal-add-order'},{'name': 'ModalApiKeyComponent', 'selector': 'pb-modal-api-key'},{'name': 'ModalComponent', 'selector': 'pb-modal'},{'name': 'ModalHelpComponent', 'selector': 'app-modal-help'},{'name': 'ModalSettingsComponent', 'selector': 'pb-modal-settings'},{'name': 'OrderbookViewComponent', 'selector': 'pb-view-orderbook'},{'name': 'OrdersViewComponent', 'selector': 'pb-view-orders'},{'name': 'PbIconValidationComponent', 'selector': 'pb-icon-validation'},{'name': 'PortfolioViewComponent', 'selector': 'pb-view-portfolio'},{'name': 'ProductHistoryViewComponent', 'selector': 'pb-view-product-history'},{'name': 'PwaInstallComponent', 'selector': 'pb-pwa-install'},{'name': 'SignalsViewComponent', 'selector': 'pb-signals'},{'name': 'TabApiKeyComponent', 'selector': 'pb-tab-api-key'},{'name': 'TabLoggingComponent', 'selector': 'pb-tab-logging'},{'name': 'TabProductionComponent', 'selector': 'pb-tab-production'},{'name': 'TabTestComponent', 'selector': 'pb-tab-test'},{'name': 'TableAddOrderComponent', 'selector': 'pb-table-add-order'},{'name': 'TableAsksComponent', 'selector': 'pb-table-asks'},{'name': 'TableBidsComponent', 'selector': 'pb-table-bids'},{'name': 'TableComponent', 'selector': 'pb-table'},{'name': 'TableContractDetailsComponent', 'selector': 'pb-table-contract-details'},{'name': 'TableLogsComponent', 'selector': 'pb-table-logs'},{'name': 'TableOrderbookComponent', 'selector': 'pb-table-orderbook'},{'name': 'TableOrdersComponent', 'selector': 'pb-table-orders'},{'name': 'TableSignalsComponent', 'selector': 'pb-table-signals'},{'name': 'TableTradesComponent', 'selector': 'pb-table-trades'},{'name': 'TradesViewComponent', 'selector': 'pb-trades'}];
-    var DIRECTIVES = [];
+    var DIRECTIVES = [{'name': 'SyncMatchFieldlValidator', 'selector': '[pbMatchField]'}];
     var ACTUAL_COMPONENT = {'name': 'FooterComponent'};
 </script>
 <script src="../js/tree.js"></script>

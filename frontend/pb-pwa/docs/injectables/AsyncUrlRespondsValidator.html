@@ -304,7 +304,9 @@ export class AsyncUrlRespondsValidator implements AsyncValidator {
     }
     // Set baseUrl to valid server-url, or valid backupUrl
     let config: Configuration &#x3D; new Configuration();
-    if ( !ctrl.errors ) {
+    // Only validate when control value is defined and no
+    // other errors appeared
+    if ( ctrl.value !&#x3D;&#x3D; undefined &amp;&amp; !ctrl.errors ) {
       config.basePath &#x3D; ctrl.value;
     }
     return ctrl.valueChanges.pipe(
@@ -319,15 +321,12 @@ export class AsyncUrlRespondsValidator implements AsyncValidator {
         this.$data.$market.configuration &#x3D; config;
         return this.$data.$market.getStatus();
       }),
-      catchError(error &#x3D;&gt; {
-        // this.$log.warn( &#x27;ERROR&#x27; );
-        // console.log( error );
+      catchError( error &#x3D;&gt; {
         let valid: boolean &#x3D; false;
         const httpError: HttpErrorResponse &#x3D; error as HttpErrorResponse;
         if (httpError.status &#x3D;&#x3D;&#x3D; 403) {
           valid &#x3D; true;
         }
-        // this.$log.warn( &#x27;Valid&#x27;, valid );
         return of(valid);
       }),
       map( valid &#x3D;&gt; {

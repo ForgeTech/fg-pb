@@ -64,6 +64,13 @@
     <code>src/app/component/modal-api-key/modal-api-key.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Modal-component for api-key generation</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -79,6 +86,10 @@
     <table class="table table-sm table-hover">
         <tbody>
 
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
 
 
 
@@ -126,6 +137,14 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#$fb">$fb</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#actionDisabled$">actionDisabled$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#apiKeyGenerated$">apiKeyGenerated$</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -299,7 +318,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -641,16 +660,14 @@ a components events to their parent-component</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:84</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>TODO: Find out how to connect market
-Configure powerbot to pass market-configuration with requests
-to allow connecting to market, so orders can be placed</p>
+                            <div class="io-description"><p>Request Api-Key</p>
 </div>
 
                             <div class="io-description">
@@ -1299,10 +1316,103 @@ modal-dialog window</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:58</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Reference to angular FormBuilder</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="actionDisabled$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            actionDisabled$
+                            </b>
+                            <a href="#actionDisabled$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>actionDisabled$:     <code>Observable&lt;boolean&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Streams the disabled state of action-button</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="apiKeyGenerated$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            apiKeyGenerated$
+                            </b>
+                            <a href="#apiKeyGenerated$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>apiKeyGenerated$:     <code>Subject&lt;string&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;string&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new BehaviorSubject(ApiKeyModalStateEnum[ApiKeyModalStateEnum.NOT_GENERATED])</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Streams boolean-value for when apiKey was created successfully</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1339,10 +1449,16 @@ modal-dialog window</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:50</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Pass preset-data to apiKey-Modal</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1373,7 +1489,7 @@ modal-dialog window</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -1415,10 +1531,16 @@ for setting market configuration</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/component/modal-api-key/modal-api-key.component.ts:54</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Reference to the created modal</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1631,13 +1753,13 @@ of primary for default-theme</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_subscribtions:     <code>Subscription[]</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_subscribtions:     <code>Array&lt;Subscription | ZenObservable.Subscription&gt;</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription[]</code>
+                            <i>Type : </i>    <code>Array&lt;Subscription | ZenObservable.Subscription&gt;</code>
 
                         </td>
                     </tr>
@@ -1814,19 +1936,33 @@ onDestroy they will be automatically unsubscribed</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, ChangeDetectionStrategy } from &#x27;@angular/core&#x27;;
 import { FgComponentBaseService } from &#x27;../fg-component-base/fg-component-base.service&#x27;;
 import { MatDialogRef } from &#x27;@angular/material&#x27;;
 import { MAT_DIALOG_DATA } from &#x27;@angular/material&#x27;;
 import { ModalComponent } from &#x27;../modal/modal.component&#x27;;
 import { FormGroup, FormBuilder, Validators } from &#x27;@angular/forms&#x27;;
-import { PowerBotEntity, ConfigMarketConnection } from &#x27;../../entity/entity.export&#x27;;
-import { PbAppStorageConst } from &#x27;../../app.const&#x27;;
-
+import { PowerBotEntity} from &#x27;../../entity/entity.export&#x27;;
+import { Observable, BehaviorSubject, Subject, merge } from &#x27;rxjs&#x27;;
+import { switchMap, map } from &#x27;rxjs/operators&#x27;;
+import { FgComponentBaseEvent } from &#x27;src/app/event/fg-events.export&#x27;;
+import { FormValidationStateEnum } from &#x27;src/app/enum/enum.export&#x27;;
+/**
+ * State of the apiKey-generation form
+ */
+enum ApiKeyModalStateEnum {
+  NOT_GENERATED,
+  SUCCESS,
+  ERROR
+}
+/**
+ * Modal-component for api-key generation
+ */
 @Component({
   selector: &#x27;pb-modal-api-key&#x27;,
   templateUrl: &#x27;./modal-api-key.component.html&#x27;,
-  styleUrls: [&#x27;./modal-api-key.component.scss&#x27;]
+  styleUrls: [&#x27;./modal-api-key.component.scss&#x27;],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModalApiKeyComponent extends ModalComponent {
   /**
@@ -1835,12 +1971,32 @@ export class ModalApiKeyComponent extends ModalComponent {
    */
   form: FormGroup;
   /**
+   * Streams the disabled state of action-button
+   */
+  public actionDisabled$: Observable&lt;boolean&gt;;
+  /**
+   * Streams boolean-value for when apiKey was created successfully
+   */
+  public apiKeyGenerated$: Subject&lt;string&gt; &#x3D; new BehaviorSubject(ApiKeyModalStateEnum[ApiKeyModalStateEnum.NOT_GENERATED]);
+  /**
    * CONSTRUCTOR
    */
   constructor(
+    /**
+     * Pass preset-data to apiKey-Modal
+     */
     @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
+    /**
+     * Reference to the created modal
+     */
     public modalRef: MatDialogRef&lt;any&gt;,
+    /**
+     * Reference to angular FormBuilder
+     */
     public $fb: FormBuilder,
+    /**
+     * Reference to component-base-service
+     * */
     $component: FgComponentBaseService
   ) {
     super(
@@ -1848,17 +2004,23 @@ export class ModalApiKeyComponent extends ModalComponent {
       data,
       $component
     );
+    // Observable for after-view-init event
+    const afterViewInit$ &#x3D; this.event$.filter(event &#x3D;&gt; event.signature &#x3D;&#x3D;&#x3D; FgComponentBaseEvent.AFTER_CONTENT_INIT );
+    // Compose observable for action-button disabled state
+    this.actionDisabled$ &#x3D; merge(
+      afterViewInit$.pipe( map( event &#x3D;&gt; this.form.status  ) ),
+      afterViewInit$.pipe(
+        switchMap( event &#x3D;&gt; this.form.statusChanges )
+      )
+    ).pipe(
+      map( ( status: string ) &#x3D;&gt; status &#x3D;&#x3D;&#x3D; FormValidationStateEnum[FormValidationStateEnum.VALID] ? true : false )
+    );
   }
   /**
-   * TODO: Find out how to connect market
-   * Configure powerbot to pass market-configuration with requests
-   * to allow connecting to market, so orders can be placed
+   * Request Api-Key
    */
   public action( $event: Event ) {
-    // if (!this.form.errors &amp;&amp; this.form.controls.store.value &#x3D;&#x3D;&#x3D; true) {
-    //   this.storeMarketConfig();
-    // }
-    // let config &#x3D; this.getMarketConfig();
+    // this.$component.$data.$auth.addApiKey()
   }
 
 }
@@ -1874,22 +2036,17 @@ export class ModalApiKeyComponent extends ModalComponent {
     &lt;pb-tab-api-key&gt;&lt;/pb-tab-api-key&gt;
   &lt;/div&gt;
   &lt;div actions&gt;
-    &lt;button
-      mat-flat-button
-      color&#x3D;&quot;primary&quot;
-      (click)&#x3D;&quot;closeModal($event)&quot;
-      translate
-    &gt;
-      Cancel
-    &lt;/button&gt;
-    &lt;button
-      mat-raised-button
-      color&#x3D;&quot;accent&quot;
-      (click)&#x3D;&quot;action($event)&quot;
-      translate
-    &gt;
-      Login
-    &lt;/button&gt;
+    &lt;div fxFlexLayout&#x3D;&quot;row&quot;&gt;
+      &lt;div fxFlex&#x3D;&quot;&quot;&gt;&lt;/div&gt;
+      &lt;button fxFlex&#x3D;&quot;150px&quot;
+        mat-raised-button
+        color&#x3D;&quot;accent&quot;
+        &gt;
+        &lt;!-- (click)&#x3D;&quot;this.tabComponents[ stepper.selectedIndex ].action( $event )&quot; --&gt;
+        &lt;!-- [disabled]&#x3D;&quot;( actionDisabled$ | async )&quot; --&gt;
+        Generate Api-Key
+      &lt;/button&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/pb-modal&gt;
 </code></pre>
@@ -1920,9 +2077,9 @@ export class ModalApiKeyComponent extends ModalComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><pb-modal [entity]="this.entity">  <div title translate>    Generate ApiKey  </div>  <div content>    <pb-tab-api-key></pb-tab-api-key>  </div>  <div actions>    <button      mat-flat-button      color="primary"      (click)="closeModal($event)"      translate    >      Cancel    </button>    <button      mat-raised-button      color="accent"      (click)="action($event)"      translate    >      Login    </button>  </div></pb-modal></div>'
+        var COMPONENT_TEMPLATE = '<div><pb-modal [entity]="this.entity">  <div title translate>    Generate ApiKey  </div>  <div content>    <pb-tab-api-key></pb-tab-api-key>  </div>  <div actions>    <div fxFlexLayout="row">      <div fxFlex=""></div>      <button fxFlex="150px"        mat-raised-button        color="accent"        >        <!-- (click)="this.tabComponents[ stepper.selectedIndex ].action( $event )" -->        <!-- [disabled]="( actionDisabled$ | async )" -->        Generate Api-Key      </button>    </div>  </div></pb-modal></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pb-pwa'},{'name': 'AsksViewComponent', 'selector': 'pb-view-asks'},{'name': 'BarStateComponent', 'selector': 'pb-bar-state'},{'name': 'BidsViewComponent', 'selector': 'pb-view-bids'},{'name': 'DashboardComponent', 'selector': 'pb-dashboard'},{'name': 'DashboardViewComponent', 'selector': 'pb-view-dashboard'},{'name': 'FgActionsComponent', 'selector': 'fg-actions'},{'name': 'FgAngularMaterialDemoComponent', 'selector': 'fg-angular-material-demo'},{'name': 'FgCardComponent', 'selector': 'fg-card'},{'name': 'FgInputComponent', 'selector': 'fg-input'},{'name': 'FooterComponent', 'selector': 'pb-footer'},{'name': 'GraphComponent', 'selector': 'pb-graph'},{'name': 'GraphPortfolioComponent', 'selector': 'pb-graph-portfolio'},{'name': 'GraphProductHistoryComponent', 'selector': 'pb-graph-product-history'},{'name': 'GraphSignalHistoryComponent', 'selector': 'pb-graph-signal-history'},{'name': 'HeaderComponent', 'selector': 'pb-header'},{'name': 'LoginViewComponent', 'selector': 'pb-login'},{'name': 'ModalAddOrderComponent', 'selector': 'pb-modal-add-order'},{'name': 'ModalApiKeyComponent', 'selector': 'pb-modal-api-key'},{'name': 'ModalComponent', 'selector': 'pb-modal'},{'name': 'ModalHelpComponent', 'selector': 'app-modal-help'},{'name': 'ModalSettingsComponent', 'selector': 'pb-modal-settings'},{'name': 'OrderbookViewComponent', 'selector': 'pb-view-orderbook'},{'name': 'OrdersViewComponent', 'selector': 'pb-view-orders'},{'name': 'PbIconValidationComponent', 'selector': 'pb-icon-validation'},{'name': 'PortfolioViewComponent', 'selector': 'pb-view-portfolio'},{'name': 'ProductHistoryViewComponent', 'selector': 'pb-view-product-history'},{'name': 'PwaInstallComponent', 'selector': 'pb-pwa-install'},{'name': 'SignalsViewComponent', 'selector': 'pb-signals'},{'name': 'TabApiKeyComponent', 'selector': 'pb-tab-api-key'},{'name': 'TabLoggingComponent', 'selector': 'pb-tab-logging'},{'name': 'TabProductionComponent', 'selector': 'pb-tab-production'},{'name': 'TabTestComponent', 'selector': 'pb-tab-test'},{'name': 'TableAddOrderComponent', 'selector': 'pb-table-add-order'},{'name': 'TableAsksComponent', 'selector': 'pb-table-asks'},{'name': 'TableBidsComponent', 'selector': 'pb-table-bids'},{'name': 'TableComponent', 'selector': 'pb-table'},{'name': 'TableContractDetailsComponent', 'selector': 'pb-table-contract-details'},{'name': 'TableLogsComponent', 'selector': 'pb-table-logs'},{'name': 'TableOrderbookComponent', 'selector': 'pb-table-orderbook'},{'name': 'TableOrdersComponent', 'selector': 'pb-table-orders'},{'name': 'TableSignalsComponent', 'selector': 'pb-table-signals'},{'name': 'TableTradesComponent', 'selector': 'pb-table-trades'},{'name': 'TradesViewComponent', 'selector': 'pb-trades'}];
-    var DIRECTIVES = [];
+    var DIRECTIVES = [{'name': 'SyncMatchFieldlValidator', 'selector': '[pbMatchField]'}];
     var ACTUAL_COMPONENT = {'name': 'ModalApiKeyComponent'};
 </script>
 <script src="../js/tree.js"></script>

@@ -30,7 +30,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -39,9 +39,13 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>FgComponentBaseService</li>
+  <li>Classes</li>
+  <li>PowerbotStateEntity</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,18 +63,18 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/component/fg-component-base/fg-component-base.service.ts</code>
+            <code>src/app/entity/app-state.entity.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>FgComponentBaseService -
-Service provides forge-components with all commonly needed
-functionality</p>
+                <p>Entity to hold the current-state of bar-status component</p>
 
             </p>
+
+
 
 
             <section>
@@ -87,31 +91,31 @@ functionality</p>
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#$apollo">$apollo</a>
+                                <a href="#allowed">allowed</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#$breakpoint">$breakpoint</a>
+                                <a href="#appEnv">appEnv</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#$data">$data</a>
+                                <a href="#connection">connection</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#$event">$event</a>
+                                <a href="#connectionState">connectionState</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#$keyboard">$keyboard</a>
+                                <a href="#requestState">requestState</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#$log">$log</a>
+                                <a href="#selectedContract">selectedContract</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#$translate">$translate</a>
+                                <a href="#selectedMarket">selectedMarket</a>
                             </li>
                         </ul>
                     </td>
@@ -132,19 +136,17 @@ functionality</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor($log: FgLogService, $event: <a href="../injectables/FgEventService.html">FgEventService</a>, $data: <a href="../injectables/PbDataService.html">PbDataService</a>, $translate: TranslateService, $keyboard: <a href="../injectables/FgKeyboardService.html">FgKeyboardService</a>, $apollo: <a href="../injectables/FgGraphqlService.html">FgGraphqlService</a>, $breakpoint: <a href="../injectables/FgBreakpointService.html">FgBreakpointService</a>)</code>
+<code>constructor(appEnv: <a href="../undefineds/AppEnv.html">AppEnv</a>, selectedContract: null | ContractInterface, selectedMarket: null | string, allowed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, connection: <a href="../classes/ConfigConnection.html">null | ConfigConnection</a>, connectionState: <a href="../undefineds/ConnectionState.html">ConnectionState</a>, requestState: <a href="../undefineds/RequestState.html">RequestState</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/component/fg-component-base/fg-component-base.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/entity/app-state.entity.ts:82</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>CONSTRUCTOR</p>
-</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -157,10 +159,10 @@ functionality</p>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>$log</td>
+                                                        <td>appEnv</td>
                                                   
                                                         <td>
-                                                                    <code>FgLogService</code>
+                                                                    <code><a href="../miscellaneous/enumerations.html#AppEnv" target="_self" >AppEnv</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -169,10 +171,10 @@ functionality</p>
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>$event</td>
+                                                        <td>selectedContract</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/FgEventService.html" target="_self" >FgEventService</a></code>
+                                                                    <code>null | ContractInterface</code>
                                                         </td>
                                                   
                                                     <td>
@@ -181,10 +183,10 @@ functionality</p>
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>$data</td>
+                                                        <td>selectedMarket</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/PbDataService.html" target="_self" >PbDataService</a></code>
+                                                                    <code>null | string</code>
                                                         </td>
                                                   
                                                     <td>
@@ -193,10 +195,10 @@ functionality</p>
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>$translate</td>
+                                                        <td>allowed</td>
                                                   
                                                         <td>
-                                                                    <code>TranslateService</code>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -205,10 +207,10 @@ functionality</p>
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>$keyboard</td>
+                                                        <td>connection</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/FgKeyboardService.html" target="_self" >FgKeyboardService</a></code>
+                                                                    <code><a href="../classes/ConfigConnection.html" target="_self" >null | ConfigConnection</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -217,10 +219,10 @@ functionality</p>
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>$apollo</td>
+                                                        <td>connectionState</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/FgGraphqlService.html" target="_self" >FgGraphqlService</a></code>
+                                                                    <code><a href="../miscellaneous/enumerations.html#ConnectionState" target="_self" >ConnectionState</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -229,10 +231,10 @@ functionality</p>
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>$breakpoint</td>
+                                                        <td>requestState</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/FgBreakpointService.html" target="_self" >FgBreakpointService</a></code>
+                                                                    <code><a href="../miscellaneous/enumerations.html#RequestState" target="_self" >RequestState</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -249,7 +251,6 @@ functionality</p>
         </table>
 </section>
 
-
             <section>
     
         <h3 id="inputs">
@@ -259,37 +260,42 @@ functionality</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="$apollo"></a>
+                        <a name="allowed"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $apollo
+                            allowed
                             </b>
-                            <a href="#$apollo"><span class="icon ion-ios-link"></span></a>
+                            <a href="#allowed"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$apollo:     <code><a href="../injectables/FgGraphqlService.html" target="_self" >FgGraphqlService</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>allowed:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../injectables/FgGraphqlService.html" target="_self" >FgGraphqlService</a></code>
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/component/fg-component-base/fg-component-base.service.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/entity/app-state.entity.ts:99</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Gives access to fg-graphql-service</p>
+                        <div class="io-description"><p>Flags if user is allowed to by-pass the connection route-guard</p>
 </div>
                     </td>
                 </tr>
@@ -300,37 +306,42 @@ functionality</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="$breakpoint"></a>
+                        <a name="appEnv"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $breakpoint
+                            appEnv
                             </b>
-                            <a href="#$breakpoint"><span class="icon ion-ios-link"></span></a>
+                            <a href="#appEnv"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$breakpoint:     <code><a href="../injectables/FgBreakpointService.html" target="_self" >FgBreakpointService</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>appEnv:     <code><a href="../miscellaneous/enumerations.html#AppEnv" target="_self" >AppEnv</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../injectables/FgBreakpointService.html" target="_self" >FgBreakpointService</a></code>
+                            <i>Type : </i>    <code><a href="../miscellaneous/enumerations.html#AppEnv" target="_self" >AppEnv</a></code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>AppEnv.Offline</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/component/fg-component-base/fg-component-base.service.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/entity/app-state.entity.ts:87</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Gives access to fg-breakpoint-service</p>
+                        <div class="io-description"><p>Flags in which environment the application is currently active in</p>
 </div>
                     </td>
                 </tr>
@@ -341,37 +352,42 @@ functionality</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="$data"></a>
+                        <a name="connection"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $data
+                            connection
                             </b>
-                            <a href="#$data"><span class="icon ion-ios-link"></span></a>
+                            <a href="#connection"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$data:     <code><a href="../injectables/PbDataService.html" target="_self" >PbDataService</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>connection:     <code><a href="../classes/ConfigConnection.html" target="_self" >null | ConfigConnection</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../injectables/PbDataService.html" target="_self" >PbDataService</a></code>
+                            <i>Type : </i>    <code><a href="../classes/ConfigConnection.html" target="_self" >null | ConfigConnection</a></code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/component/fg-component-base/fg-component-base.service.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/entity/app-state.entity.ts:103</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Gives access to PbDataService-methodes</p>
+                        <div class="io-description"><p>Contains currently configured connection-configuration</p>
 </div>
                     </td>
                 </tr>
@@ -382,37 +398,42 @@ functionality</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="$event"></a>
+                        <a name="connectionState"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $event
+                            connectionState
                             </b>
-                            <a href="#$event"><span class="icon ion-ios-link"></span></a>
+                            <a href="#connectionState"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$event:     <code><a href="../injectables/FgEventService.html" target="_self" >FgEventService</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>connectionState:     <code><a href="../miscellaneous/enumerations.html#ConnectionState" target="_self" >ConnectionState</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../injectables/FgEventService.html" target="_self" >FgEventService</a></code>
+                            <i>Type : </i>    <code><a href="../miscellaneous/enumerations.html#ConnectionState" target="_self" >ConnectionState</a></code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>ConnectionState.Offline</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/component/fg-component-base/fg-component-base.service.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/entity/app-state.entity.ts:107</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Gives access to FgEventService-methodes</p>
+                        <div class="io-description"><p>Flags the state of the application current backend connection</p>
 </div>
                     </td>
                 </tr>
@@ -423,37 +444,42 @@ functionality</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="$keyboard"></a>
+                        <a name="requestState"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $keyboard
+                            requestState
                             </b>
-                            <a href="#$keyboard"><span class="icon ion-ios-link"></span></a>
+                            <a href="#requestState"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$keyboard:     <code><a href="../injectables/FgKeyboardService.html" target="_self" >FgKeyboardService</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>requestState:     <code><a href="../miscellaneous/enumerations.html#RequestState" target="_self" >RequestState</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../injectables/FgKeyboardService.html" target="_self" >FgKeyboardService</a></code>
+                            <i>Type : </i>    <code><a href="../miscellaneous/enumerations.html#RequestState" target="_self" >RequestState</a></code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>RequestState.Inactive</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/component/fg-component-base/fg-component-base.service.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/app/entity/app-state.entity.ts:111</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Gives access to FgKeyboardService-methodes</p>
+                        <div class="io-description"><p>Flags if the application has active requests</p>
 </div>
                     </td>
                 </tr>
@@ -464,37 +490,42 @@ functionality</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="$log"></a>
+                        <a name="selectedContract"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $log
+                            selectedContract
                             </b>
-                            <a href="#$log"><span class="icon ion-ios-link"></span></a>
+                            <a href="#selectedContract"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$log:     <code>FgLogService</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>selectedContract:     <code>null | ContractInterface</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>FgLogService</code>
+                            <i>Type : </i>    <code>null | ContractInterface</code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/component/fg-component-base/fg-component-base.service.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/entity/app-state.entity.ts:91</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Gives access to FgLogService</p>
+                        <div class="io-description"><p>Contains the currently selected contract-entity</p>
 </div>
                     </td>
                 </tr>
@@ -505,37 +536,42 @@ functionality</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="$translate"></a>
+                        <a name="selectedMarket"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $translate
+                            selectedMarket
                             </b>
-                            <a href="#$translate"><span class="icon ion-ios-link"></span></a>
+                            <a href="#selectedMarket"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$translate:     <code>TranslateService</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>selectedMarket:     <code>null | string</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>TranslateService</code>
+                            <i>Type : </i>    <code>null | string</code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/component/fg-component-base/fg-component-base.service.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/entity/app-state.entity.ts:95</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Gives access to ngx-translate TranslateService Instance</p>
+                        <div class="io-description"><p>Holds name of currently used market-environment</p>
 </div>
                     </td>
                 </tr>
@@ -544,67 +580,132 @@ functionality</p>
         </table>
 </section>
 
+
+
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { FgEventService } from &#x27;../../service/fg-event/fg-event.service&#x27;;
-import { NGXLogger as FgLogService } from &#x27;ngx-logger&#x27;;
-import { PbDataService } from &#x27;../../service/pb-data/pb-data.service&#x27;;
-import { FgKeyboardService } from &#x27;../../service/fg-keyboard/fg-keyboard.service&#x27;;
-import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import { FgGraphqlService } from &#x27;src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service&#x27;;
-import { FgBreakpointService } from &#x27;src/app/module/fg-material/service/fg-breakpoint/fg-breakpoint.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ContractInterface } from &#x27;./../module/pb-api/model/interfaces.export&#x27;;
+import { ConfigConnection } from &#x27;./config-connection.entity&#x27;;
 /**
- * FgComponentBaseService -
- * Service provides forge-components with all commonly needed
- * functionality
+ * Available environment-states
  */
-@Injectable()
-export class FgComponentBaseService {
+export enum AppEnv {
   /**
-  * CONSTRUCTOR
-  */
-  constructor (
+   * Initial state - application is disconnected,
+   * only restores data from browser cache
+   */
+  Offline &#x3D; 1,
+  /**
+   * Application uses Offline-Mocks to simulate
+   * a live environment - should be used for
+   * testing/during development
+   */
+  Offline_Test &#x3D; 2,
+  /**
+   * Application is connected to live
+   * testing-environment
+   */
+  Live_Test &#x3D; 3,
+  /**
+   * Application is connected to live
+   * production-environment
+   */
+  Live_Prod &#x3D; 4,
+  /**
+   * Application fell back to backup-server
+   * of live production-environment, because
+   * producation-environment wasn&#x27;t reachable
+   */
+  Live_Backup &#x3D; 5,
+}
+/**
+ * Available connections-states used to display
+ * applications loading-state
+ */
+export enum ConnectionState {
+  /**
+   * Initial state - application is offline
+   * and resting
+   */
+  Offline &#x3D; 1,
+  /**
+   * Connection was offline and is performing first request
+   * to the backend data-service
+   */
+  Connecting &#x3D; 2,
+  /**
+   * Application is connected to data-service
+   */
+  Online &#x3D; 3,
+  /**
+   * Application experienced problems with data-service
+   * connection - like production-server doesn&#x27;t respond
+   * and data-service switched to backup-connection
+   */
+  Warning &#x3D; 4,
+  /**
+   * Application cannot fetch data from backend, because
+   * of errors or unresponsive/unavailable server
+   */
+  Error &#x3D; 5
+}
+/**
+ * Enum for defining available request-states
+ */
+export enum RequestState {
+  /**
+   * There is an active request to backend data-service
+   */
+  Active &#x3D; 1,
+  /**
+   * There is currently no active request to backend data-service
+   */
+  Inactive &#x3D; 2
+}
+/**
+ * Entity to hold the current-state of bar-status component
+ */
+export class PowerbotStateEntity {
+  constructor(
     /**
-    * Gives access to FgLogService
+   * Flags in which environment the application is currently active in
+   */
+    public appEnv: AppEnv &#x3D; AppEnv.Offline,
+   /**
+    * Contains the currently selected contract-entity
     */
-    public $log: FgLogService,
+    public selectedContract: null | ContractInterface &#x3D; null,
     /**
-    * Gives access to FgEventService-methodes
-    */
-    public $event: FgEventService,
+     * Holds name of currently used market-environment
+     */
+    public selectedMarket: null | string &#x3D; null,
     /**
-    * Gives access to PbDataService-methodes
-    */
-    public $data: PbDataService,
+     * Flags if user is allowed to by-pass the connection route-guard
+     */
+    public allowed: boolean &#x3D; false,
     /**
-    * Gives access to ngx-translate TranslateService Instance
-    */
-    public $translate: TranslateService,
+     * Contains currently configured connection-configuration
+     */
+    public connection: null | ConfigConnection &#x3D; null,
     /**
-    * Gives access to FgKeyboardService-methodes
-    */
-    public $keyboard: FgKeyboardService,
+     * Flags the state of the application current backend connection
+     */
+    public connectionState: ConnectionState &#x3D; ConnectionState.Offline,
     /**
-    * Gives access to fg-graphql-service
-    */
-    public $apollo: FgGraphqlService,
-    /**
-    * Gives access to fg-breakpoint-service
-    */
-    public $breakpoint: FgBreakpointService
-  ) {}
+     * Flags if the application has active requests
+     */
+    public requestState: RequestState &#x3D; RequestState.Inactive,
+  ) { }
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
 
 
 
@@ -628,8 +729,8 @@ export class FgComponentBaseService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'FgComponentBaseService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'PowerbotStateEntity.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

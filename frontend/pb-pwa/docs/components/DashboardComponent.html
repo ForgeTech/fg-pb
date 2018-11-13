@@ -87,6 +87,10 @@ Render dashboard displaying collected set of powerbot api-data</p>
     <table class="table table-sm table-hover">
         <tbody>
 
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
 
 
 
@@ -132,13 +136,24 @@ Render dashboard displaying collected set of powerbot api-data</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#config$">config$</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#$component">$component</a>
                             </li>
                             <li>
-                                <a href="#configLarge">configLarge</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#cards$">cards$</a>
                             </li>
                             <li>
-                                <a href="#configSmall">configSmall</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#data$">data$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#grid$">grid$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#request$">request$</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -168,6 +183,9 @@ Render dashboard displaying collected set of powerbot api-data</p>
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#getMatchedViewBreakpoint">getMatchedViewBreakpoint</a>
+                            </li>
                             <li>
                                     <span class="modifier">Protected</span>
                                 <a href="#emitEvent">emitEvent</a>
@@ -273,12 +291,12 @@ Render dashboard displaying collected set of powerbot api-data</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(breakpointObserver: BreakpointObserver, $component: <a href="../injectables/FgComponentBaseService.html">FgComponentBaseService</a>)</code>
+<code>constructor($component: <a href="../injectables/FgComponentBaseService.html">FgComponentBaseService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:145</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -297,18 +315,6 @@ Render dashboard displaying collected set of powerbot api-data</p>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                <tr>
-                                                        <td>breakpointObserver</td>
-                                                  
-                                                        <td>
-                                                                    <code>BreakpointObserver</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
                                                 <tr>
                                                         <td>$component</td>
                                                   
@@ -572,6 +578,90 @@ a components events to their parent-component</p>
         <h3 id="methods">
             Methods
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getMatchedViewBreakpoint"></a>
+                        <span class="name">
+                            <b>
+                            getMatchedViewBreakpoint
+                            </b>
+                            <a href="#getMatchedViewBreakpoint"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getMatchedViewBreakpoint(breakpoints: string[], matchedBreakpoints: string[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:103</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Methode for finding matching view-breakpoint and pushing it&#39;s
+values to grid$- and cards$-observable</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>breakpoints</td>
+                                                        <td>
+                                                                    <code>string[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>matchedBreakpoints</td>
+                                                        <td>
+                                                                    <code>string[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -1077,42 +1167,40 @@ a components events to their parent-component</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="config$"></a>
+                        <a name="$component"></a>
                         <span class="name">
                             <b>
-                            config$
+                                <span class="modifier">Public</span>
+                            $component
                             </b>
-                            <a href="#config$"><span class="icon ion-ios-link"></span></a>
+                            <a href="#$component"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <code>config$:     <code></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>$component:     <code><a href="../injectables/FgComponentBaseService.html" target="_self" >FgComponentBaseService</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.breakpointObserver.observe(Breakpoints.Tablet).pipe(
-    map( ( { matches } ) &#x3D;&gt; {
-      let configToReturn &#x3D; this.configLarge;
-      if ( matches ) {
-        console.log(&#x27;Small&#x27;);
-        configToReturn &#x3D; this.configSmall;
-      }
-      console.log( configToReturn );
-      return configToReturn;
-    } )
-  )</code>
+                            <i>Type : </i>    <code><a href="../injectables/FgComponentBaseService.html" target="_self" >FgComponentBaseService</a></code>
+
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:157</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:40</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Provide component-service to dashboard-component</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1120,101 +1208,40 @@ a components events to their parent-component</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="configLarge"></a>
+                        <a name="cards$"></a>
                         <span class="name">
                             <b>
-                            configLarge
+                                <span class="modifier">Public</span>
+                            cards$
                             </b>
-                            <a href="#configLarge"><span class="icon ion-ios-link"></span></a>
+                            <a href="#cards$"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <code>configLarge:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>cards$:     <code>Subject&lt;any&gt;</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>    <code>Subject&lt;any&gt;</code>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-    grid: {
-      cols: 32,
-      rowHeight: &#x27;25px&#x27;,
-      gutterSize: &#x27;10px&#x27;
-    },
-    cards: [
-      {
-        title: &#x27;component_label_orders&#x27;,
-        template: &#x27;orders&#x27;,
-        cols: 7, rows: 7
-      },
-      {
-        title: &#x27;component_label_orderbook&#x27;,
-        template: &#x27;orderbook&#x27;,
-        cols: 14, rows: 14
-      },
-      {
-        title: &#x27;component_label_contract_details&#x27;,
-        template: &#x27;contractdetails&#x27;,
-        cols: 7, rows: 7
-      },
-      {
-        title: &#x27;component_label_bids&#x27;,
-        template: &#x27;bids&#x27;,
-        cols: 4, rows: 7
-      },
-      {
-        title: &#x27;component_label_trades&#x27;,
-        template: &#x27;trades&#x27;,
-        cols: 7, rows: 7
-      },
-      {
-        title: &#x27;component_label_signals&#x27;,
-        template: &#x27;signals&#x27;,
-        cols: 7, rows: 7
-      },
-      {
-        title: &#x27;component_label_asks&#x27;,
-        template: &#x27;asks&#x27;,
-        cols: 4, rows: 7
-      },
-      {
-        title: &#x27;component_label_portfolio&#x27;,
-        template: &#x27;portfolio&#x27;,
-        cols: 7, rows: 7
-      },
-      {
-        title: &#x27;component_label_product_history&#x27;,
-        template: &#x27;producthistory&#x27;,
-        cols: 14, rows: 14
-      },
-      {
-        title: &#x27;component_label_signal_history&#x27;,
-        template: &#x27;signalhistory&#x27;,
-        cols: 11, rows: 14
-      },
-      {
-        title: &#x27;component_label_logs&#x27;,
-        template: &#x27;logs&#x27;,
-        cols: 7, rows: 7
-      },
-    ]
-  }</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:82</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:32</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observable to push a breakpoints cards-properties</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1222,101 +1249,127 @@ a components events to their parent-component</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="configSmall"></a>
+                        <a name="data$"></a>
                         <span class="name">
                             <b>
-                            configSmall
+                                <span class="modifier">Public</span>
+                            data$
                             </b>
-                            <a href="#configSmall"><span class="icon ion-ios-link"></span></a>
+                            <a href="#data$"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <code>configSmall:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>data$:     <code>Subject&lt;any&gt;</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>    <code>Subject&lt;any&gt;</code>
 
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>{
-    grid: {
-      cols: 32,
-      rowHeight: &#x27;25px&#x27;,
-      gutterSize: &#x27;10px&#x27;
-    },
-    cards: [
-      {
-        title: _(&#x27;component_label_orders&#x27;),
-        template: &#x27;orders&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_trades&#x27;),
-        template: &#x27;trades&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_orderbook&#x27;),
-        template: &#x27;orderbook&#x27;,
-        cols: 24, rows: 14
-      },
-      {
-        title: _(&#x27;component_label_bids&#x27;),
-        template: &#x27;bids&#x27;,
-        cols: 8, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_asks&#x27;),
-        template: &#x27;asks&#x27;,
-        cols: 8, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_portfolio&#x27;),
-        template: &#x27;portfolio&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_contract_details&#x27;),
-        template: &#x27;contractdetails&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_product_history&#x27;),
-        template: &#x27;producthistory&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_signals&#x27;),
-        template: &#x27;signals&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_logs&#x27;),
-        template: &#x27;logs&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_signal_history&#x27;),
-        template: &#x27;signalhistory&#x27;,
-        cols: 16, rows: 7
-      },
-    ]
-  }</code>
+                            <i>Default value : </i><code>new Subject()</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:24</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observable preparing the data for view on request updates</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="grid$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            grid$
+                            </b>
+                            <a href="#grid$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>grid$:     <code>Subject&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observable to push a breakpoints grid-properties</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="request$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            request$
+                            </b>
+                            <a href="#request$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>request$:     <code>ObservableQuery</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>ObservableQuery</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/component/dashboard/dashboard.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observable to providing view-data for dashboard-component</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1336,13 +1389,13 @@ a components events to their parent-component</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_subscribtions:     <code>Subscription[]</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_subscribtions:     <code>Array&lt;Subscription | ZenObservable.Subscription&gt;</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription[]</code>
+                            <i>Type : </i>    <code>Array&lt;Subscription | ZenObservable.Subscription&gt;</code>
 
                         </td>
                     </tr>
@@ -1519,13 +1572,11 @@ onDestroy they will be automatically unsubscribed</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import { map } from &#x27;rxjs/operators&#x27;;
-import { Breakpoints, BreakpointState, BreakpointObserver } from &#x27;@angular/cdk/layout&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectionStrategy } from &#x27;@angular/core&#x27;;
 import { FgComponentBaseComponent } from &#x27;../fg-component-base/fg-component-base.component&#x27;;
 import { FgComponentBaseService } from &#x27;../fg-component-base/fg-component-base.service&#x27;;
-import { _ } from &#x27;./../../app.utils&#x27;;
-import { Subject } from &#x27;rxjs&#x27;;
+import { Subject, combineLatest, BehaviorSubject } from &#x27;rxjs&#x27;;
+import { ObservableQuery } from &#x27;apollo-client&#x27;;
 /**
  * DashboardComponent -
  * Render dashboard displaying collected set of powerbot api-data
@@ -1533,252 +1584,220 @@ import { Subject } from &#x27;rxjs&#x27;;
 @Component({
   selector: &#x27;pb-dashboard&#x27;,
   templateUrl: &#x27;./dashboard.component.html&#x27;,
-  styleUrls: [&#x27;./dashboard.component.scss&#x27;]
+  styleUrls: [&#x27;./dashboard.component.scss&#x27;],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent extends FgComponentBaseComponent {
-  configSmall &#x3D; {
-    grid: {
-      cols: 32,
-      rowHeight: &#x27;25px&#x27;,
-      gutterSize: &#x27;10px&#x27;
-    },
-    cards: [
-      {
-        title: _(&#x27;component_label_orders&#x27;),
-        template: &#x27;orders&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_trades&#x27;),
-        template: &#x27;trades&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_orderbook&#x27;),
-        template: &#x27;orderbook&#x27;,
-        cols: 24, rows: 14
-      },
-      {
-        title: _(&#x27;component_label_bids&#x27;),
-        template: &#x27;bids&#x27;,
-        cols: 8, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_asks&#x27;),
-        template: &#x27;asks&#x27;,
-        cols: 8, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_portfolio&#x27;),
-        template: &#x27;portfolio&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_contract_details&#x27;),
-        template: &#x27;contractdetails&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_product_history&#x27;),
-        template: &#x27;producthistory&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_signals&#x27;),
-        template: &#x27;signals&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_logs&#x27;),
-        template: &#x27;logs&#x27;,
-        cols: 16, rows: 7
-      },
-      {
-        title: _(&#x27;component_label_signal_history&#x27;),
-        template: &#x27;signalhistory&#x27;,
-        cols: 16, rows: 7
-      },
-    ]
-  };
-  configLarge &#x3D; {
-    grid: {
-      cols: 32,
-      rowHeight: &#x27;25px&#x27;,
-      gutterSize: &#x27;10px&#x27;
-    },
-    cards: [
-      {
-        title: &#x27;component_label_orders&#x27;,
-        template: &#x27;orders&#x27;,
-        cols: 7, rows: 7
-      },
-      {
-        title: &#x27;component_label_orderbook&#x27;,
-        template: &#x27;orderbook&#x27;,
-        cols: 14, rows: 14
-      },
-      {
-        title: &#x27;component_label_contract_details&#x27;,
-        template: &#x27;contractdetails&#x27;,
-        cols: 7, rows: 7
-      },
-      {
-        title: &#x27;component_label_bids&#x27;,
-        template: &#x27;bids&#x27;,
-        cols: 4, rows: 7
-      },
-      {
-        title: &#x27;component_label_trades&#x27;,
-        template: &#x27;trades&#x27;,
-        cols: 7, rows: 7
-      },
-      {
-        title: &#x27;component_label_signals&#x27;,
-        template: &#x27;signals&#x27;,
-        cols: 7, rows: 7
-      },
-      {
-        title: &#x27;component_label_asks&#x27;,
-        template: &#x27;asks&#x27;,
-        cols: 4, rows: 7
-      },
-      {
-        title: &#x27;component_label_portfolio&#x27;,
-        template: &#x27;portfolio&#x27;,
-        cols: 7, rows: 7
-      },
-      {
-        title: &#x27;component_label_product_history&#x27;,
-        template: &#x27;producthistory&#x27;,
-        cols: 14, rows: 14
-      },
-      {
-        title: &#x27;component_label_signal_history&#x27;,
-        template: &#x27;signalhistory&#x27;,
-        cols: 11, rows: 14
-      },
-      {
-        title: &#x27;component_label_logs&#x27;,
-        template: &#x27;logs&#x27;,
-        cols: 7, rows: 7
-      },
-    ]
-  };
+  /**
+   * Observable to providing view-data for dashboard-component
+   */
+  public request$: ObservableQuery;
+  /**
+   * Observable preparing the data for view on request updates
+   */
+  public data$: Subject&lt;any&gt; &#x3D; new Subject();
+  /**
+   * Observable to push a breakpoints grid-properties
+   */
+  public grid$: Subject&lt;any&gt;;
+  /**
+   * Observable to push a breakpoints cards-properties
+   */
+  public cards$: Subject&lt;any&gt;;
   /**
    * CONSTRUCTOR
    */
   constructor(
-    private breakpointObserver: BreakpointObserver,
-    $component: FgComponentBaseService,
+    /**
+     * Provide component-service to dashboard-component
+     */
+    public $component: FgComponentBaseService
     ) {
     super(
       $component
     );
+    this.request$ &#x3D; this.$component.$apollo.watchQuery(&#x60;
+      query view($id: Int!) {
+        getView(id: $id) @client {
+          id
+          name
+          breakpoints {
+            id
+            name
+            validFor
+            cards {
+              id
+              cols
+              rows
+              template
+              title
+            }
+            grid {
+              id
+              cols
+              gutterSize
+              rowHeight
+            }
+          }
+        }
+      }&#x60;,
+      { id: 0 }
+    );
+    // Subscribe to result of view-data request
+    this._subscribtions.push(
+      this.request$.subscribe( result &#x3D;&gt; {
+        this.data$.next(result.data.getView);
+      })
+    );
+    // Subscribe to set view-data
+    this._subscribtions.push(
+      this.data$.subscribe( view &#x3D;&gt; {
+        console.log( &#x27;CALLED ON INIT!&#x27; );
+        const viewBreakpoint &#x3D; this.getMatchedViewBreakpoint(view.breakpoints, this.$component.$breakpoint.matchedBreakpoints);
+        this.grid$ &#x3D; new BehaviorSubject( viewBreakpoint.grid );
+        this.cards$ &#x3D; new BehaviorSubject( viewBreakpoint.cards );
+
+      })
+    );
+    // Subscribe to breakpoint changes
+    const combinedBreakpointData$ &#x3D; combineLatest( this.data$, this.$component.$breakpoint.matchedBreakpoints$ );
+    this._subscribtions.push( combinedBreakpointData$.subscribe(
+      ( [ view , matchedBreakpoints ] ) &#x3D;&gt; {
+        const viewBreakpoint &#x3D; this.getMatchedViewBreakpoint( view.breakpoints, matchedBreakpoints );
+        this.grid$.next( viewBreakpoint.grid );
+        this.cards$.next( viewBreakpoint.cards );
+      } )
+    );
+
   }
-  config$ &#x3D; this.breakpointObserver.observe(Breakpoints.Tablet).pipe(
-    map( ( { matches } ) &#x3D;&gt; {
-      let configToReturn &#x3D; this.configLarge;
-      if ( matches ) {
-        console.log(&#x27;Small&#x27;);
-        configToReturn &#x3D; this.configSmall;
+  /**
+   * Methode for finding matching view-breakpoint and pushing it&#x27;s
+   * values to grid$- and cards$-observable
+   */
+  getMatchedViewBreakpoint( breakpoints: string[], matchedBreakpoints: string[], ): any {
+    console.log(&#x27;REACT TO BREAKPOINT&#x27; );
+    console.log( breakpoints );
+    console.log( matchedBreakpoints );
+    let breakpointMatched: any &#x3D; null;
+    for ( let i &#x3D; 0; i &lt; breakpoints.length; i++) {
+      let viewBreakpoint: any &#x3D; breakpoints[i];
+      for ( let i2 &#x3D; 0; i2 &lt; viewBreakpoint.validFor.length; i2++ ) {
+        let validBreakpoint: string &#x3D; viewBreakpoint.validFor[i2];
+        if ( matchedBreakpoints.indexOf(validBreakpoint) !&#x3D;&#x3D; -1 ) {
+          console.log(&#x27;FOUND BREAKPOINT&#x27;);
+          console.log( viewBreakpoint );
+          breakpointMatched &#x3D; viewBreakpoint;
+          break;
+        }
       }
-      console.log( configToReturn );
-      return configToReturn;
-    } )
-  );
+      // If breakpoint is matched skip rest
+      if (breakpointMatched) {
+        break;
+      }
+    }
+    // If no breakpoint matched use Medium-Layout
+    if ( breakpointMatched &#x3D;&#x3D;&#x3D; null ) {
+      breakpointMatched &#x3D; breakpoints[ 2 ];
+    }
+    return breakpointMatched;
+  }
+
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;mat-grid-list
+  *ngIf&#x3D;&quot;grid$ | async as grid&quot;
   class&#x3D;&quot;dashboard-container&quot;
-  cols&#x3D;&quot;{{ ( config$ | async )?.grid.cols }}&quot;
-  rowHeight&#x3D;&quot;{{ ( config$ | async )?.grid.rowHeight }}&quot;
-  gutterSize&#x3D;&quot;{{ ( config$ | async )?.grid.gutterSize }}&quot;
+  cols&#x3D;&quot;{{ grid.cols }}&quot;
+  rowHeight&#x3D;&quot;{{ grid.rowHeight }}&quot;
+  gutterSize&#x3D;&quot;{{ grid.gutterSize }}&quot;
 &gt;
-  &lt;mat-grid-tile
-    *ngFor&#x3D;&quot;let card of ( config$ | async )?.cards&quot;
-    [colspan]&#x3D;&quot;card.cols&quot;
-    [rowspan]&#x3D;&quot;card.rows&quot;
-  &gt;
-    &lt;mat-card class&#x3D;&quot;dashboard-card&quot;&gt;
-      &lt;mat-card-header&gt;
-        &lt;!-- &lt;fg-actions [entity]&#x3D;&quot;this&quot;&gt;&lt;/fg-actions&gt; --&gt;
-        &lt;mat-card-title&gt;
-          {{ card.title | translate }}
-          &lt;button
-            class&#x3D;&quot;dashboard-card-menu-button&quot;
-            mat-icon-button
-            [matMenuTriggerFor]&#x3D;&quot;cardMenu&quot;
-            aria-label&#x3D;&quot;Toggle menu&quot;
+  &lt;ng-container *ngIf&#x3D;&quot; cards$ | async as cards&quot;&gt;
+    &lt;mat-grid-tile
+      *ngFor&#x3D;&quot;let card of cards&quot;
+      [colspan]&#x3D;&quot;card.cols&quot;
+      [rowspan]&#x3D;&quot;card.rows&quot;
+    &gt;
+      &lt;mat-card class&#x3D;&quot;dashboard-card&quot;&gt;
+        &lt;mat-card-header&gt;
+          &lt;!-- &lt;fg-actions [entity]&#x3D;&quot;this&quot;&gt;&lt;/fg-actions&gt; --&gt;
+          &lt;mat-card-title&gt;
+            {{ card.title | translate }}
+            &lt;button
+              class&#x3D;&quot;dashboard-card-menu-button&quot;
+              mat-icon-button
+              [matMenuTriggerFor]&#x3D;&quot;cardMenu&quot;
+              aria-label&#x3D;&quot;Toggle menu&quot;
+            &gt;
+              &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
+            &lt;/button&gt;
+            &lt;mat-menu #cardMenu&#x3D;&quot;matMenu&quot; xPosition&#x3D;&quot;before&quot;&gt;
+              &lt;button mat-menu-item&gt;
+                &lt;mat-icon&gt;open_in_new&lt;/mat-icon&gt;
+                &lt;span&gt;Open Window&lt;/span&gt;
+              &lt;/button&gt;
+              &lt;button mat-menu-item&gt;
+                &lt;mat-icon&gt;tab&lt;/mat-icon&gt;
+                &lt;span&gt;Open Tab&lt;/span&gt;
+              &lt;/button&gt;
+              &lt;button mat-menu-item&gt;
+                &lt;mat-icon&gt;print&lt;/mat-icon&gt;
+                &lt;span&gt;Print&lt;/span&gt;
+              &lt;/button&gt;
+            &lt;/mat-menu&gt;
+          &lt;/mat-card-title&gt;
+        &lt;/mat-card-header&gt;
+        &lt;mat-card-content
+          class&#x3D;&quot;dashboard-card-content&quot;
           &gt;
-            &lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;
-          &lt;/button&gt;
-          &lt;mat-menu #cardMenu&#x3D;&quot;matMenu&quot; xPosition&#x3D;&quot;before&quot;&gt;
-            &lt;button mat-menu-item&gt;
-              &lt;mat-icon&gt;open_in_new&lt;/mat-icon&gt;
-              &lt;span&gt;Open Window&lt;/span&gt;
-            &lt;/button&gt;
-            &lt;button mat-menu-item&gt;
-              &lt;mat-icon&gt;tab&lt;/mat-icon&gt;
-              &lt;span&gt;Open Tab&lt;/span&gt;
-            &lt;/button&gt;
-            &lt;button mat-menu-item&gt;
-              &lt;mat-icon&gt;print&lt;/mat-icon&gt;
-              &lt;span&gt;Print&lt;/span&gt;
-            &lt;/button&gt;
-          &lt;/mat-menu&gt;
-        &lt;/mat-card-title&gt;
-      &lt;/mat-card-header&gt;
-      &lt;mat-card-content
-        class&#x3D;&quot;dashboard-card-content&quot;
-        &gt;
-        &lt;!-- [style.overflow]&#x3D;&quot;&#x27;auto&#x27;&quot; --&gt;
-        &lt;!-- [style.height.px]&#x3D;&quot;&#x27;300&#x27;&quot; --&gt;
-        &lt;div tabindex&#x3D;&quot;0&quot;&gt;
-          &lt;ng-container [ngSwitch]&#x3D;&quot;card.template&quot;&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;orders&#x27;&quot;&gt;
-              &lt;pb-table-orders [entity]&#x3D;&quot;this.$component.$data.app.orders&quot;&gt;&lt;/pb-table-orders&gt;
+          &lt;!-- [style.overflow]&#x3D;&quot;&#x27;auto&#x27;&quot; --&gt;
+          &lt;!-- [style.height.px]&#x3D;&quot;&#x27;300&#x27;&quot; --&gt;
+          &lt;div tabindex&#x3D;&quot;0&quot;&gt;
+            &lt;ng-container [ngSwitch]&#x3D;&quot;card.template&quot;&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;orders&#x27;&quot;&gt;
+                &lt;pb-table-orders [entity]&#x3D;&quot;this.$component.$data.app.orders&quot;&gt;&lt;/pb-table-orders&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;trades&#x27;&quot;&gt;
+                &lt;pb-table-trades [entity]&#x3D;&quot;this.$component.$data.app.trades&quot;&gt;&lt;/pb-table-trades&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;portfolio&#x27;&quot;&gt;
+                &lt;pb-graph-portfolio [entity]&#x3D;&quot;this.$component.$data.app&quot;&gt;&lt;/pb-graph-portfolio&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;orderbook&#x27;&quot;&gt;
+                &lt;pb-table-orderbook [entity]&#x3D;&quot;this.$component.$data.app.contracts&quot;&gt;&lt;/pb-table-orderbook&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;producthistory&#x27;&quot;&gt;
+                &lt;pb-graph-product-history [entity]&#x3D;&quot;this.$component.$data.app.contractHistory&quot;&gt;&lt;/pb-graph-product-history&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;bids&#x27;&quot;&gt;
+                &lt;pb-table-bids [entity]&#x3D;&quot;this.$component.$data.app.bids&quot;&gt;&lt;/pb-table-bids&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;asks&#x27;&quot;&gt;
+                &lt;pb-table-asks [entity]&#x3D;&quot;this.$component.$data.app.asks&quot;&gt;&lt;/pb-table-asks&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;signals&#x27;&quot;&gt;
+                &lt;pb-table-signals [entity]&#x3D;&quot;this.$component.$data.app.signals&quot;&gt;&lt;/pb-table-signals&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;logs&#x27;&quot;&gt;
+                &lt;pb-table-logs [entity]&#x3D;&quot;this.$component.$data.app.logs&quot;&gt;&lt;/pb-table-logs&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;contractdetails&#x27;&quot;&gt;
+                &lt;pb-table-contract-details [entity]&#x3D;&quot;this.$component.$data.app.selectedContract&quot;&gt;&lt;/pb-table-contract-details&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;signalhistory&#x27;&quot;&gt;
+                &lt;pb-graph-signal-history [entity]&#x3D;&quot;this.$component.$data.app.selectedContract?.signals&quot;&gt;&lt;/pb-graph-signal-history&gt;
+              &lt;/ng-container&gt;
+              &lt;ng-container *ngSwitchDefault&gt;
+                Template {{card.title}}  not found!
+              &lt;/ng-container&gt;
             &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;trades&#x27;&quot;&gt;
-              &lt;pb-table-trades [entity]&#x3D;&quot;this.$component.$data.app.trades&quot;&gt;&lt;/pb-table-trades&gt;
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;portfolio&#x27;&quot;&gt;
-              &lt;pb-graph-portfolio [entity]&#x3D;&quot;this.$component.$data.app&quot;&gt;&lt;/pb-graph-portfolio&gt;
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;orderbook&#x27;&quot;&gt;
-              &lt;pb-table-orderbook [entity]&#x3D;&quot;this.$component.$data.app.contracts&quot;&gt;&lt;/pb-table-orderbook&gt;
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;producthistory&#x27;&quot;&gt;
-              &lt;pb-graph-product-history [entity]&#x3D;&quot;this.$component.$data.app.contractHistory&quot;&gt;&lt;/pb-graph-product-history&gt;
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;bids&#x27;&quot;&gt;
-              &lt;pb-table-bids [entity]&#x3D;&quot;this.$component.$data.app.bids&quot;&gt;&lt;/pb-table-bids&gt;
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;asks&#x27;&quot;&gt;
-              &lt;pb-table-asks [entity]&#x3D;&quot;this.$component.$data.app.asks&quot;&gt;&lt;/pb-table-asks&gt;
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;signals&#x27;&quot;&gt;
-              &lt;pb-table-signals [entity]&#x3D;&quot;this.$component.$data.app.signals&quot;&gt;&lt;/pb-table-signals&gt;
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;logs&#x27;&quot;&gt;
-              &lt;pb-table-logs [entity]&#x3D;&quot;this.$component.$data.app.logs&quot;&gt;&lt;/pb-table-logs&gt;
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;contractdetails&#x27;&quot;&gt;
-              &lt;pb-table-contract-details [entity]&#x3D;&quot;this.$component.$data.app.selectedContract&quot;&gt;&lt;/pb-table-contract-details&gt;
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;signalhistory&#x27;&quot;&gt;
-              &lt;pb-graph-signal-history [entity]&#x3D;&quot;this.$component.$data.app.selectedContract?.signals&quot;&gt;&lt;/pb-graph-signal-history&gt;
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngSwitchDefault&gt;
-              Template {{card.title}}  not found!
-            &lt;/ng-container&gt;
-          &lt;/ng-container&gt;
-        &lt;/div&gt;
-      &lt;/mat-card-content&gt;
-    &lt;/mat-card&gt;
-  &lt;/mat-grid-tile&gt;
+          &lt;/div&gt;
+        &lt;/mat-card-content&gt;
+      &lt;/mat-card&gt;
+    &lt;/mat-grid-tile&gt;
+  &lt;/ng-container&gt;
 &lt;/mat-grid-list&gt;
 </code></pre>
     </div>
@@ -1808,9 +1827,9 @@ export class DashboardComponent extends FgComponentBaseComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-grid-list  class="dashboard-container"  cols="{{ ( config$ | async )?.grid.cols }}"  rowHeight="{{ ( config$ | async )?.grid.rowHeight }}"  gutterSize="{{ ( config$ | async )?.grid.gutterSize }}">  <mat-grid-tile    *ngFor="let card of ( config$ | async )?.cards"    [colspan]="card.cols"    [rowspan]="card.rows"  >    <mat-card class="dashboard-card">      <mat-card-header>        <!-- <fg-actions [entity]="this"></fg-actions> -->        <mat-card-title>          {{ card.title | translate }}          <button            class="dashboard-card-menu-button"            mat-icon-button            [matMenuTriggerFor]="cardMenu"            aria-label="Toggle menu"          >            <mat-icon>more_vert</mat-icon>          </button>          <mat-menu #cardMenu="matMenu" xPosition="before">            <button mat-menu-item>              <mat-icon>open_in_new</mat-icon>              <span>Open Window</span>            </button>            <button mat-menu-item>              <mat-icon>tab</mat-icon>              <span>Open Tab</span>            </button>            <button mat-menu-item>              <mat-icon>print</mat-icon>              <span>Print</span>            </button>          </mat-menu>        </mat-card-title>      </mat-card-header>      <mat-card-content        class="dashboard-card-content"        >        <!-- [style.overflow]="\'auto\'" -->        <!-- [style.height.px]="\'300\'" -->        <div tabindex="0">          <ng-container [ngSwitch]="card.template">            <ng-container *ngSwitchCase="\'orders\'">              <pb-table-orders [entity]="this.$component.$data.app.orders"></pb-table-orders>            </ng-container>            <ng-container *ngSwitchCase="\'trades\'">              <pb-table-trades [entity]="this.$component.$data.app.trades"></pb-table-trades>            </ng-container>            <ng-container *ngSwitchCase="\'portfolio\'">              <pb-graph-portfolio [entity]="this.$component.$data.app"></pb-graph-portfolio>            </ng-container>            <ng-container *ngSwitchCase="\'orderbook\'">              <pb-table-orderbook [entity]="this.$component.$data.app.contracts"></pb-table-orderbook>            </ng-container>            <ng-container *ngSwitchCase="\'producthistory\'">              <pb-graph-product-history [entity]="this.$component.$data.app.contractHistory"></pb-graph-product-history>            </ng-container>            <ng-container *ngSwitchCase="\'bids\'">              <pb-table-bids [entity]="this.$component.$data.app.bids"></pb-table-bids>            </ng-container>            <ng-container *ngSwitchCase="\'asks\'">              <pb-table-asks [entity]="this.$component.$data.app.asks"></pb-table-asks>            </ng-container>            <ng-container *ngSwitchCase="\'signals\'">              <pb-table-signals [entity]="this.$component.$data.app.signals"></pb-table-signals>            </ng-container>            <ng-container *ngSwitchCase="\'logs\'">              <pb-table-logs [entity]="this.$component.$data.app.logs"></pb-table-logs>            </ng-container>            <ng-container *ngSwitchCase="\'contractdetails\'">              <pb-table-contract-details [entity]="this.$component.$data.app.selectedContract"></pb-table-contract-details>            </ng-container>            <ng-container *ngSwitchCase="\'signalhistory\'">              <pb-graph-signal-history [entity]="this.$component.$data.app.selectedContract?.signals"></pb-graph-signal-history>            </ng-container>            <ng-container *ngSwitchDefault>              Template {{card.title}}  not found!            </ng-container>          </ng-container>        </div>      </mat-card-content>    </mat-card>  </mat-grid-tile></mat-grid-list></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-grid-list  *ngIf="grid$ | async as grid"  class="dashboard-container"  cols="{{ grid.cols }}"  rowHeight="{{ grid.rowHeight }}"  gutterSize="{{ grid.gutterSize }}">  <ng-container *ngIf=" cards$ | async as cards">    <mat-grid-tile      *ngFor="let card of cards"      [colspan]="card.cols"      [rowspan]="card.rows"    >      <mat-card class="dashboard-card">        <mat-card-header>          <!-- <fg-actions [entity]="this"></fg-actions> -->          <mat-card-title>            {{ card.title | translate }}            <button              class="dashboard-card-menu-button"              mat-icon-button              [matMenuTriggerFor]="cardMenu"              aria-label="Toggle menu"            >              <mat-icon>more_vert</mat-icon>            </button>            <mat-menu #cardMenu="matMenu" xPosition="before">              <button mat-menu-item>                <mat-icon>open_in_new</mat-icon>                <span>Open Window</span>              </button>              <button mat-menu-item>                <mat-icon>tab</mat-icon>                <span>Open Tab</span>              </button>              <button mat-menu-item>                <mat-icon>print</mat-icon>                <span>Print</span>              </button>            </mat-menu>          </mat-card-title>        </mat-card-header>        <mat-card-content          class="dashboard-card-content"          >          <!-- [style.overflow]="\'auto\'" -->          <!-- [style.height.px]="\'300\'" -->          <div tabindex="0">            <ng-container [ngSwitch]="card.template">              <ng-container *ngSwitchCase="\'orders\'">                <pb-table-orders [entity]="this.$component.$data.app.orders"></pb-table-orders>              </ng-container>              <ng-container *ngSwitchCase="\'trades\'">                <pb-table-trades [entity]="this.$component.$data.app.trades"></pb-table-trades>              </ng-container>              <ng-container *ngSwitchCase="\'portfolio\'">                <pb-graph-portfolio [entity]="this.$component.$data.app"></pb-graph-portfolio>              </ng-container>              <ng-container *ngSwitchCase="\'orderbook\'">                <pb-table-orderbook [entity]="this.$component.$data.app.contracts"></pb-table-orderbook>              </ng-container>              <ng-container *ngSwitchCase="\'producthistory\'">                <pb-graph-product-history [entity]="this.$component.$data.app.contractHistory"></pb-graph-product-history>              </ng-container>              <ng-container *ngSwitchCase="\'bids\'">                <pb-table-bids [entity]="this.$component.$data.app.bids"></pb-table-bids>              </ng-container>              <ng-container *ngSwitchCase="\'asks\'">                <pb-table-asks [entity]="this.$component.$data.app.asks"></pb-table-asks>              </ng-container>              <ng-container *ngSwitchCase="\'signals\'">                <pb-table-signals [entity]="this.$component.$data.app.signals"></pb-table-signals>              </ng-container>              <ng-container *ngSwitchCase="\'logs\'">                <pb-table-logs [entity]="this.$component.$data.app.logs"></pb-table-logs>              </ng-container>              <ng-container *ngSwitchCase="\'contractdetails\'">                <pb-table-contract-details [entity]="this.$component.$data.app.selectedContract"></pb-table-contract-details>              </ng-container>              <ng-container *ngSwitchCase="\'signalhistory\'">                <pb-graph-signal-history [entity]="this.$component.$data.app.selectedContract?.signals"></pb-graph-signal-history>              </ng-container>              <ng-container *ngSwitchDefault>                Template {{card.title}}  not found!              </ng-container>            </ng-container>          </div>        </mat-card-content>      </mat-card>    </mat-grid-tile>  </ng-container></mat-grid-list></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pb-pwa'},{'name': 'AsksViewComponent', 'selector': 'pb-view-asks'},{'name': 'BarStateComponent', 'selector': 'pb-bar-state'},{'name': 'BidsViewComponent', 'selector': 'pb-view-bids'},{'name': 'DashboardComponent', 'selector': 'pb-dashboard'},{'name': 'DashboardViewComponent', 'selector': 'pb-view-dashboard'},{'name': 'FgActionsComponent', 'selector': 'fg-actions'},{'name': 'FgAngularMaterialDemoComponent', 'selector': 'fg-angular-material-demo'},{'name': 'FgCardComponent', 'selector': 'fg-card'},{'name': 'FgInputComponent', 'selector': 'fg-input'},{'name': 'FooterComponent', 'selector': 'pb-footer'},{'name': 'GraphComponent', 'selector': 'pb-graph'},{'name': 'GraphPortfolioComponent', 'selector': 'pb-graph-portfolio'},{'name': 'GraphProductHistoryComponent', 'selector': 'pb-graph-product-history'},{'name': 'GraphSignalHistoryComponent', 'selector': 'pb-graph-signal-history'},{'name': 'HeaderComponent', 'selector': 'pb-header'},{'name': 'LoginViewComponent', 'selector': 'pb-login'},{'name': 'ModalAddOrderComponent', 'selector': 'pb-modal-add-order'},{'name': 'ModalApiKeyComponent', 'selector': 'pb-modal-api-key'},{'name': 'ModalComponent', 'selector': 'pb-modal'},{'name': 'ModalHelpComponent', 'selector': 'app-modal-help'},{'name': 'ModalSettingsComponent', 'selector': 'pb-modal-settings'},{'name': 'OrderbookViewComponent', 'selector': 'pb-view-orderbook'},{'name': 'OrdersViewComponent', 'selector': 'pb-view-orders'},{'name': 'PbIconValidationComponent', 'selector': 'pb-icon-validation'},{'name': 'PortfolioViewComponent', 'selector': 'pb-view-portfolio'},{'name': 'ProductHistoryViewComponent', 'selector': 'pb-view-product-history'},{'name': 'PwaInstallComponent', 'selector': 'pb-pwa-install'},{'name': 'SignalsViewComponent', 'selector': 'pb-signals'},{'name': 'TabApiKeyComponent', 'selector': 'pb-tab-api-key'},{'name': 'TabLoggingComponent', 'selector': 'pb-tab-logging'},{'name': 'TabProductionComponent', 'selector': 'pb-tab-production'},{'name': 'TabTestComponent', 'selector': 'pb-tab-test'},{'name': 'TableAddOrderComponent', 'selector': 'pb-table-add-order'},{'name': 'TableAsksComponent', 'selector': 'pb-table-asks'},{'name': 'TableBidsComponent', 'selector': 'pb-table-bids'},{'name': 'TableComponent', 'selector': 'pb-table'},{'name': 'TableContractDetailsComponent', 'selector': 'pb-table-contract-details'},{'name': 'TableLogsComponent', 'selector': 'pb-table-logs'},{'name': 'TableOrderbookComponent', 'selector': 'pb-table-orderbook'},{'name': 'TableOrdersComponent', 'selector': 'pb-table-orders'},{'name': 'TableSignalsComponent', 'selector': 'pb-table-signals'},{'name': 'TableTradesComponent', 'selector': 'pb-table-trades'},{'name': 'TradesViewComponent', 'selector': 'pb-trades'}];
-    var DIRECTIVES = [];
+    var DIRECTIVES = [{'name': 'SyncMatchFieldlValidator', 'selector': '[pbMatchField]'}];
     var ACTUAL_COMPONENT = {'name': 'DashboardComponent'};
 </script>
 <script src="../js/tree.js"></script>

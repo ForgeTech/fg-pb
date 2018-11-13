@@ -92,6 +92,34 @@ client, based on apollo-graphql
                                 <a href="#apollo">apollo</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fragmentBreakpoint">fragmentBreakpoint</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fragmentConfigConnection">fragmentConfigConnection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fragmentConfigLogging">fragmentConfigLogging</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fragmentState">fragmentState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fragmentView">fragmentView</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#persistOptions">persistOptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#persistor">persistor</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Protected</span>
                                 <a href="#resolvers">resolvers</a>
                             </li>
@@ -116,7 +144,11 @@ client, based on apollo-graphql
                                 <a href="#createClient">createClient</a>
                             </li>
                             <li>
-                                <a href="#getFgCachePersistor">getFgCachePersistor</a>
+                                <a href="#getCachePersistor">getCachePersistor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#getMutationWriteData">getMutationWriteData</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -153,7 +185,7 @@ client, based on apollo-graphql
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:135</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="268" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:268</a></div>
                             </td>
                         </tr>
 
@@ -196,7 +228,7 @@ client, based on apollo-graphql
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="183" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:183</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="330" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:330</a></div>
                             </td>
                         </tr>
 
@@ -250,25 +282,25 @@ fg-graphql-client</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="getFgCachePersistor"></a>
+                        <a name="getCachePersistor"></a>
                         <span class="name">
                             <b>
-                            getFgCachePersistor
+                            getCachePersistor
                             </b>
-                            <a href="#getFgCachePersistor"><span class="icon ion-ios-link"></span></a>
+                            <a href="#getCachePersistor"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getFgCachePersistor(options: ApolloPersistOptions<any>)</code>
+<code>getCachePersistor()</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="243" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:243</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="372" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:372</a></div>
                             </td>
                         </tr>
 
@@ -276,7 +308,50 @@ fg-graphql-client</p>
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Return a instance of apollo cache-persistor for handling
-apollo cache-persistor</p>
+apollo cache-persistation</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>ApolloCachePersistor&lt;any&gt;</code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getMutationWriteData"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            getMutationWriteData
+                            </b>
+                            <a href="#getMutationWriteData"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getMutationWriteData(newData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, prevData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="278" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:278</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Methode returning a object for writing to apollo-cache by
+unioning new and previous data</p>
 </div>
 
                             <div class="io-description">
@@ -291,9 +366,21 @@ apollo cache-persistor</p>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>options</td>
+                                                        <td>newData</td>
                                                         <td>
-                                                                    <code>ApolloPersistOptions&lt;any&gt;</code>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>prevData</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -308,7 +395,7 @@ apollo cache-persistor</p>
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>ApolloCachePersistor&lt;any&gt;</code>
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -342,7 +429,7 @@ apollo cache-persistor</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:169</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="316" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:316</a></div>
                             </td>
                         </tr>
 
@@ -430,7 +517,7 @@ apollo cache-persistor</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:143</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="290" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:290</a></div>
                             </td>
                         </tr>
 
@@ -518,7 +605,7 @@ apollo cache-persistor</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:156</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="303" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:303</a></div>
                             </td>
                         </tr>
 
@@ -617,13 +704,330 @@ apollo cache-persistor</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:30</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Holds the created apollo-client instance</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fragmentBreakpoint"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            fragmentBreakpoint
+                            </b>
+                            <a href="#fragmentBreakpoint"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>fragmentBreakpoint:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>gql&#x60;
+    fragment breakpointConfig on Breakpoint {
+    id
+    name
+    cards {
+      id
+      cols
+      id
+      rows
+      template
+      title
+    }
+    grid {
+      id
+      cols
+      gutterSize
+      rowHeight
+    }
+  }&#x60;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:134</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fragmentConfigConnection"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            fragmentConfigConnection
+                            </b>
+                            <a href="#fragmentConfigConnection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>fragmentConfigConnection:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>gql&#x60;
+  fragment connectionConfig on ConfigConnection
+  {
+    id
+    apiKey
+    backupUrl
+    serverUrl
+    cache
+    isProduction
+    isValid
+  }&#x60;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:107</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fragmentConfigLogging"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            fragmentConfigLogging
+                            </b>
+                            <a href="#fragmentConfigLogging"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>fragmentConfigLogging:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>gql&#x60;
+  fragment loggingConfig on ConfigLogging {
+    id
+    logFolder
+    logLevel
+    cache
+    isValid
+  }&#x60;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:118</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fragmentState"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            fragmentState
+                            </b>
+                            <a href="#fragmentState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>fragmentState:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>gql&#x60;
+    fragment stateConfig on State {
+    id
+    allowed
+    connection
+    connectionState
+    requestState
+  }&#x60;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:126</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fragmentView"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            fragmentView
+                            </b>
+                            <a href="#fragmentView"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>fragmentView:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>gql&#x60;
+    fragment viewConfig on View {
+    id
+    name
+    breakpoints {
+      id
+      name
+      validFor
+      cards {
+        id
+        cols
+        rows
+        template
+        title
+      }
+      grid {
+        id
+        cols
+        gutterSize
+        rowHeight
+      }
+    }
+  }&#x60;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:153</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="persistOptions"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            persistOptions
+                            </b>
+                            <a href="#persistOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>persistOptions:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Holds apollo-client cache-persist options</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="persistor"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            persistor
+                            </b>
+                            <a href="#persistor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>persistor:     <code>ApolloCachePersistor&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>ApolloCachePersistor&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:39</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Holds instance of apollo cache persistor
+for controlling cache peristance behaviour</p>
 </div>
                     </td>
                 </tr>
@@ -660,53 +1064,88 @@ apollo cache-persistor</p>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
     Mutation: {
+      setConfigConnection: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ id: args.id, __typename: &#x27;ConfigConnection&#x27; });
+        const fragment &#x3D; this.fragmentConfigConnection;
+        const previous: ConfigConnection &#x3D; cache.readFragment({ id: id, fragment: fragment });
+        const data &#x3D; this.getMutationWriteData(args, previous);
+        console.log(&#x27;CONFIG_CONNECTION&#x27;);
+        console.log( args.data );
+        if ( args.delete) {
+          console.log( &#x27;DELETE&#x27; );
+        }
+        cache.writeFragment({ id: id, fragment: fragment, data: data });
+        return previous;
+      },
+      setConfigLogging: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({__typename: &#x27;ConfigLogging&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentConfigLogging;
+        const previous &#x3D; cache.readFragment({ fragment, id });
+        const data &#x3D; this.getMutationWriteData(args, previous);
+        cache.writeFragment({ id: id, fragment: fragment, data: data });
+        return data;
+      },
+      setState: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
+        // this.persistor.pause();
+        const id &#x3D; getCacheKey({__typename: &#x27;State&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentState;
+        const previous &#x3D; cache.readFragment({ fragment, id });
+        const data &#x3D; this.getMutationWriteData(args, previous);
+        cache.writeFragment({ id: id, fragment: fragment, data: data });
+        // this.persistor.resume();
+        return data;
+      },
       toggleDarkTheme: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
         const id &#x3D; getCacheKey({__typename: &#x27;Config&#x27;, id: args.id });
         const fragment &#x3D; gql&#x60;
-        fragment darkThema on Config {
+        fragment darkTheme on Config {
             darkTheme
         }&#x60;;
         const previous &#x3D; cache.readFragment({ fragment, id });
         const data &#x3D; { darkTheme: !previous.darkTheme };
         cache.writeData({ id, data });
-        return null;
-      }
+        return data;
+      },
+      toggleAllowed: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({__typename: &#x27;State&#x27;, id: args.id });
+        const fragment &#x3D; gql&#x60;
+        fragment allowed on Config {
+            allowed
+        }&#x60;;
+        const previous &#x3D; cache.readFragment({ fragment, id });
+        const data &#x3D; { darkTheme: !previous.allowed };
+        cache.writeData({ id, data });
+        return data;
+      },
     },
     Query: {
-      getProdConfig: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
-        const id &#x3D; getCacheKey({ __typename: &#x27;ProdConfig&#x27;, id: args.id });
-        const fragment &#x3D; gql&#x60;fragment prodConfig on ProdConfig {
-          id,
-          apiKey,
-          backupUrl,
-          serverUrl,
-          cache,
-          valid
-        }&#x60;;
+      getConfigConnection: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;ConfigConnection&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentConfigConnection;
+        const data &#x3D; cache.readFragment({ id: id, fragment: fragment });
+        return data;
+      },
+      getConfigLogging: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;ConfigLogging&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentConfigLogging;
         const data &#x3D; cache.readFragment({ fragment, id });
         return data;
       },
-      getTestConfig: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
-        const id &#x3D; getCacheKey({ __typename: &#x27;TestConfig&#x27;, id: args.id });
-        const fragment &#x3D; gql&#x60;fragment testConfig on TestConfig {
-          id,
-          apiKey,
-          serverUrl,
-          cache,
-          valid
-        }&#x60;;
+      getState: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;State&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentState;
         const data &#x3D; cache.readFragment({ fragment, id });
         return data;
       },
-      getBreakPoint: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
-        const id &#x3D; getCacheKey({ __typename: &#x27;TestConfig&#x27;, id: args.id });
-        const fragment &#x3D; gql&#x60;fragment testConfig on TestConfig {
-          id,
-          apiKey,
-          serverUrl,
-          cache,
-          valid
-        }&#x60;;
+      getBreakpoint: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;Breakpoint&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentBreakpoint;
+        const data &#x3D; cache.readFragment({ fragment, id });
+        return data;
+      },
+      getView: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;View&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentView;
         const data &#x3D; cache.readFragment({ fragment, id });
         return data;
       }
@@ -716,7 +1155,7 @@ apollo cache-persistor</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:82</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:180</a></div>
                             </td>
                         </tr>
 
@@ -752,60 +1191,80 @@ apollo cache-persistor</p>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>&#x60;
-  type Config {
-    id: Int
-    languages: [String]
-    language: String
-    backhours: Int
-    darkThema: Boolean
-    prodConfig: ProdConfig
-    testConfig: TestConfig
-  }
-  type ProdConfig {
-    id: Int
-    serverUrl: String
-    backupUrl: String
-    apiKey: String
-    cache: Boolean
-    valid: Boolean
-  }
-  type TestConfig {
-    id: Int
-    serverUrl: String
-    apiKey: String
-    cache: Boolean
-    valid: Boolean
-  }
-  type PowerBot {
-    id: Int
-    config: Config
-  }
   type Mutation {
-    setAllowed: Boolean
-    setProdConfig: ProdConfig
-    setTestConfig: TestConfig
-    setLogConfig: TestConfig
+    setState: ID
+    setConfigConnection: ID
+    setConfigLogging: ID
+    setView: ID
+    setGrid: ID
+    setBreakpoint: ID
+    setView: ID
+    setCard: ID
+    setTable: ID
     toggleDarkTheme: Boolean
+    toggleAllowed: Boolean
   }
   type Query {
-    isDarkTheme: Boolean
-    getProdConfig: ProdConfig
-    getTestConfig: TestConfig
-    getBreakPoint: Breakpoint
+    getState: State
+    getConfigConnection: ConfigConnection
+    getConfigLogging: ConfigLogging
+    getView: View
+    getGrid: Grid
+    getBreakpoint: Breakpoint
+    getCard: Card
+    getTable: Table
   }
   &#x60;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:82</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Create graphql typeDefinitions
-for working with local-state</p>
+for working with local-state
+type PowerBot {
+id: Int
+state: State
+config: Config
+}
+type State {
+selectedContract: false
+selectedMarket: String
+allowed: Boolean
+connection: ConfigConnection
+connectionState: Int
+requestState: Int
+}
+type Config {
+id: Int
+languages: [String]
+language: String
+backhours: Int
+darkThema: Boolean
+prodConfig: ConfigConnection
+testConfig: ConfigConnection
+logConfig: ConfigLogging
+}
+type ConfigConnection {
+id: Int
+isProduction: Boolean
+serverUrl: String
+backupUrl: String
+apiKey: String
+cache: Boolean
+isValid: Boolean
+}
+type ConfigLogging {
+id: Int
+logFolder
+logLevel
+cache
+}</p>
 </div>
                     </td>
                 </tr>
@@ -819,7 +1278,6 @@ for working with local-state</p>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { Apollo, QueryRef } from &#x27;apollo-angular&#x27;;
 import { InMemoryCache as ApolloInMemoryCache } from &#x27;apollo-cache-inmemory&#x27;;
 import { withClientState } from &#x27;apollo-link-state&#x27;;
 import {
@@ -833,9 +1291,9 @@ import * as LocalForage from &#x27;localforage&#x27;;
 import { ApolloPersistOptions } from &#x27;apollo-cache-persist/types&#x27;;
 import gql from &#x27;graphql-tag&#x27;;
 import { HttpHeaders } from &#x27;@angular/common/http&#x27;;
-import { PowerBotEntity } from &#x27;src/app/entity/entity.export&#x27;;
 import { ApolloClient, ApolloQueryResult, ObservableQuery } from &#x27;apollo-client&#x27;;
-import { injectArgs } from &#x27;@angular/core/src/di/injector&#x27;;
+import { environment } from &#x27;src/environments/environment.ghp&#x27;;
+import { ConfigConnection } from &#x27;src/app/entity/entity.export&#x27;;
 /**
  * FgGraphqlClientService -
 * This service provides methodes to
@@ -850,104 +1308,238 @@ export class FgGraphqlService {
    */
   protected apollo: ApolloClient&lt;{}&gt;;
   /**
+   * Holds apollo-client cache-persist options
+   */
+  protected persistOptions: any;
+  /**
+   * Holds instance of apollo cache persistor
+   * for controlling cache peristance behaviour
+   */
+  protected persistor: ApolloCachePersistor&lt;any&gt;;
+  /**
    * Create graphql typeDefinitions
    * for working with local-state
+   type PowerBot {
+     id: Int
+     state: State
+     config: Config
+   }
+   type State {
+     selectedContract: false
+     selectedMarket: String
+     allowed: Boolean
+     connection: ConfigConnection
+     connectionState: Int
+     requestState: Int
+   }
+   type Config {
+     id: Int
+     languages: [String]
+     language: String
+     backhours: Int
+     darkThema: Boolean
+     prodConfig: ConfigConnection
+     testConfig: ConfigConnection
+     logConfig: ConfigLogging
+   }
+   type ConfigConnection {
+     id: Int
+     isProduction: Boolean
+     serverUrl: String
+     backupUrl: String
+     apiKey: String
+     cache: Boolean
+     isValid: Boolean
+   }
+   type ConfigLogging {
+     id: Int
+     logFolder
+     logLevel
+     cache
+   }
    */
   protected typeDefs &#x3D; &#x60;
-  type Config {
-    id: Int
-    languages: [String]
-    language: String
-    backhours: Int
-    darkThema: Boolean
-    prodConfig: ProdConfig
-    testConfig: TestConfig
-  }
-  type ProdConfig {
-    id: Int
-    serverUrl: String
-    backupUrl: String
-    apiKey: String
-    cache: Boolean
-    valid: Boolean
-  }
-  type TestConfig {
-    id: Int
-    serverUrl: String
-    apiKey: String
-    cache: Boolean
-    valid: Boolean
-  }
-  type PowerBot {
-    id: Int
-    config: Config
-  }
   type Mutation {
-    setAllowed: Boolean
-    setProdConfig: ProdConfig
-    setTestConfig: TestConfig
-    setLogConfig: TestConfig
+    setState: ID
+    setConfigConnection: ID
+    setConfigLogging: ID
+    setView: ID
+    setGrid: ID
+    setBreakpoint: ID
+    setView: ID
+    setCard: ID
+    setTable: ID
     toggleDarkTheme: Boolean
+    toggleAllowed: Boolean
   }
   type Query {
-    isDarkTheme: Boolean
-    getProdConfig: ProdConfig
-    getTestConfig: TestConfig
-    getBreakPoint: Breakpoint
+    getState: State
+    getConfigConnection: ConfigConnection
+    getConfigLogging: ConfigLogging
+    getView: View
+    getGrid: Grid
+    getBreakpoint: Breakpoint
+    getCard: Card
+    getTable: Table
   }
   &#x60;;
+  public fragmentConfigConnection &#x3D; gql&#x60;
+  fragment connectionConfig on ConfigConnection
+  {
+    id
+    apiKey
+    backupUrl
+    serverUrl
+    cache
+    isProduction
+    isValid
+  }&#x60;;
+  public fragmentConfigLogging &#x3D; gql&#x60;
+  fragment loggingConfig on ConfigLogging {
+    id
+    logFolder
+    logLevel
+    cache
+    isValid
+  }&#x60;;
+  public fragmentState &#x3D; gql&#x60;
+    fragment stateConfig on State {
+    id
+    allowed
+    connection
+    connectionState
+    requestState
+  }&#x60;;
+  public fragmentBreakpoint &#x3D; gql&#x60;
+    fragment breakpointConfig on Breakpoint {
+    id
+    name
+    cards {
+      id
+      cols
+      id
+      rows
+      template
+      title
+    }
+    grid {
+      id
+      cols
+      gutterSize
+      rowHeight
+    }
+  }&#x60;;
+  public fragmentView &#x3D; gql&#x60;
+    fragment viewConfig on View {
+    id
+    name
+    breakpoints {
+      id
+      name
+      validFor
+      cards {
+        id
+        cols
+        rows
+        template
+        title
+      }
+      grid {
+        id
+        cols
+        gutterSize
+        rowHeight
+      }
+    }
+  }&#x60;;
+
   /**
    * Resolvers for working with graphql local-state
    */
   protected resolvers &#x3D; {
     Mutation: {
+      setConfigConnection: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ id: args.id, __typename: &#x27;ConfigConnection&#x27; });
+        const fragment &#x3D; this.fragmentConfigConnection;
+        const previous: ConfigConnection &#x3D; cache.readFragment({ id: id, fragment: fragment });
+        const data &#x3D; this.getMutationWriteData(args, previous);
+        console.log(&#x27;CONFIG_CONNECTION&#x27;);
+        console.log( args.data );
+        if ( args.delete) {
+          console.log( &#x27;DELETE&#x27; );
+        }
+        cache.writeFragment({ id: id, fragment: fragment, data: data });
+        return previous;
+      },
+      setConfigLogging: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({__typename: &#x27;ConfigLogging&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentConfigLogging;
+        const previous &#x3D; cache.readFragment({ fragment, id });
+        const data &#x3D; this.getMutationWriteData(args, previous);
+        cache.writeFragment({ id: id, fragment: fragment, data: data });
+        return data;
+      },
+      setState: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
+        // this.persistor.pause();
+        const id &#x3D; getCacheKey({__typename: &#x27;State&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentState;
+        const previous &#x3D; cache.readFragment({ fragment, id });
+        const data &#x3D; this.getMutationWriteData(args, previous);
+        cache.writeFragment({ id: id, fragment: fragment, data: data });
+        // this.persistor.resume();
+        return data;
+      },
       toggleDarkTheme: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
         const id &#x3D; getCacheKey({__typename: &#x27;Config&#x27;, id: args.id });
         const fragment &#x3D; gql&#x60;
-        fragment darkThema on Config {
+        fragment darkTheme on Config {
             darkTheme
         }&#x60;;
         const previous &#x3D; cache.readFragment({ fragment, id });
         const data &#x3D; { darkTheme: !previous.darkTheme };
         cache.writeData({ id, data });
-        return null;
-      }
+        return data;
+      },
+      toggleAllowed: ( _, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({__typename: &#x27;State&#x27;, id: args.id });
+        const fragment &#x3D; gql&#x60;
+        fragment allowed on Config {
+            allowed
+        }&#x60;;
+        const previous &#x3D; cache.readFragment({ fragment, id });
+        const data &#x3D; { darkTheme: !previous.allowed };
+        cache.writeData({ id, data });
+        return data;
+      },
     },
     Query: {
-      getProdConfig: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
-        const id &#x3D; getCacheKey({ __typename: &#x27;ProdConfig&#x27;, id: args.id });
-        const fragment &#x3D; gql&#x60;fragment prodConfig on ProdConfig {
-          id,
-          apiKey,
-          backupUrl,
-          serverUrl,
-          cache,
-          valid
-        }&#x60;;
+      getConfigConnection: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;ConfigConnection&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentConfigConnection;
+        const data &#x3D; cache.readFragment({ id: id, fragment: fragment });
+        return data;
+      },
+      getConfigLogging: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;ConfigLogging&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentConfigLogging;
         const data &#x3D; cache.readFragment({ fragment, id });
         return data;
       },
-      getTestConfig: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
-        const id &#x3D; getCacheKey({ __typename: &#x27;TestConfig&#x27;, id: args.id });
-        const fragment &#x3D; gql&#x60;fragment testConfig on TestConfig {
-          id,
-          apiKey,
-          serverUrl,
-          cache,
-          valid
-        }&#x60;;
+      getState: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;State&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentState;
         const data &#x3D; cache.readFragment({ fragment, id });
         return data;
       },
-      getBreakPoint: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
-        const id &#x3D; getCacheKey({ __typename: &#x27;TestConfig&#x27;, id: args.id });
-        const fragment &#x3D; gql&#x60;fragment testConfig on TestConfig {
-          id,
-          apiKey,
-          serverUrl,
-          cache,
-          valid
-        }&#x60;;
+      getBreakpoint: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;Breakpoint&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentBreakpoint;
+        const data &#x3D; cache.readFragment({ fragment, id });
+        return data;
+      },
+      getView: (parent, args, { cache, getCacheKey }) &#x3D;&gt; {
+        const id &#x3D; getCacheKey({ __typename: &#x27;View&#x27;, id: args.id });
+        const fragment &#x3D; this.fragmentView;
         const data &#x3D; cache.readFragment({ fragment, id });
         return data;
       }
@@ -956,12 +1548,26 @@ export class FgGraphqlService {
   /**
    * CONSTRUCTOR
    */
-  constructor() {}
+  constructor(
+  ) {}
+  /**
+   * Methode returning a object for writing to apollo-cache by
+   * unioning new and previous data
+   */
+  protected getMutationWriteData(newData: any, prevData: any) {
+    if( !prevData ) {
+      prevData &#x3D; {};
+    }
+    if( !newData ) {
+      newData &#x3D; {};
+    }
+    return Object.assign( prevData, newData );
+  }
   /*
   * Forward query to apollo-client instace query-methode
   */
   public query(query, variables: any &#x3D; {}): Promise&lt;ApolloQueryResult&lt;{}&gt;&gt; {
-    if(this.apollo) {
+    if ( this.apollo ) {
       return this.apollo.query({
         query: gql(query),
         variables: variables
@@ -974,7 +1580,7 @@ export class FgGraphqlService {
   * Forward watchQuery to apollo-client instace watchQuery-methode
   */
   public watchQuery(query, variables: any &#x3D; {}): ObservableQuery {
-    if(this.apollo) {
+    if ( this.apollo ) {
       return this.apollo.watchQuery({
         query: gql(query),
         variables: variables
@@ -987,7 +1593,7 @@ export class FgGraphqlService {
   * Forward mutations to apollo-client instace mutate-methode
   */
   public mutate(mutation, variables: any &#x3D; {}): Promise&lt;any&gt; {
-    if( this.apollo ) {
+    if ( this.apollo ) {
       return this.apollo.mutate({
         mutation: gql(mutation),
         variables: variables
@@ -1006,8 +1612,6 @@ export class FgGraphqlService {
     if ( this.apollo ) {
       return;
     }
-    let clientOptions: any &#x3D; {}
-    let persistOptions: any &#x3D; {};
     // Recieve auth-token from localstorage to set up Authorization http-header
     // const token &#x3D; window.localStorage.getItem(AUTH_USER_TOKEN);
     // const authorization &#x3D; token ? &#x60;Bearer ${token}&#x60; : null;
@@ -1016,9 +1620,11 @@ export class FgGraphqlService {
     // Initialize apollo InMemoryCache
     const cache &#x3D; new ApolloInMemoryCache();
     // Setup persist-storage options and initialize it for apollo-client cache
-    persistOptions.cache &#x3D; cache;
-    persistOptions.storage &#x3D; LocalForage.createInstance(persistOptions);
-    apollo_persistCache(persistOptions);
+    this.persistOptions &#x3D; {};
+    this.persistOptions.cache &#x3D; cache;
+    this.persistOptions.key &#x3D; environment.name.concat(&#x27;-apollo-persist-cache&#x27;);
+    this.persistOptions.storage &#x3D; LocalForage.createInstance(this.persistOptions);
+    apollo_persistCache(this.persistOptions);
 
     const localStateLink &#x3D; withClientState({
       cache: cache,
@@ -1026,42 +1632,24 @@ export class FgGraphqlService {
       resolvers: this.resolvers,
       typeDefs: this.typeDefs
     });
-    // Setup Websocket for apollo-graphql subscriptions
-    // const webSocketLinkConfig &#x3D; clientOptions.subscriptionWebSocketLink;
-    // webSocketLinkConfig.connectionParams.authToken &#x3D; window.localStorage.getItem(AUTH_USER_TOKEN);
-    // const wsLink &#x3D; new WebSocketLink(webSocketLinkConfig);
-    // Create Instace of apollo-http-link
-    // const httpLink &#x3D; createHttpLink({
-    //   uri: clientOptions.uri,
-    //   headers: headers,
-    // });
     // Initialize apollo-client instance
+    let clientOptions: any &#x3D; {};
     clientOptions.link &#x3D; localStateLink;
     clientOptions.cache &#x3D; cache;
-    clientOptions.connectToDevTools &#x3D; true;
+    // Initialize
+    clientOptions.connectToDevTools &#x3D; environment.debug;
     clientOptions.clientState &#x3D; this.resolvers;
     clientOptions.clientState.defaults &#x3D; data;
 
-    const client &#x3D; new ApolloClient(clientOptions);
-    // const client &#x3D; new ApolloBoostClient({
-    //   link: ApolloLink.split(
-    //     operation &#x3D;&gt; {
-    //       const operationAST &#x3D; getOperationAST(operation.query, operation.operationName);
-    //       return !!operationAST &amp;&amp; operationAST.operation &#x3D;&#x3D;&#x3D; &#x27;subscription&#x27;;
-    //     },
-    //     wsLink,
-    //     httpLink,
-    //   ),
-    //   cache: cache
-    // });
-    this.apollo &#x3D; client;
+    this.apollo &#x3D; new ApolloClient(clientOptions);
+    this.persistor &#x3D; this.getCachePersistor();
   }
   /**
    * Return a instance of apollo cache-persistor for handling
-   * apollo cache-persistor
+   * apollo cache-persistation
    */
-  getFgCachePersistor( options: ApolloPersistOptions&lt;any&gt; ): ApolloCachePersistor&lt;any&gt; {
-    return new ApolloCachePersistor( options );
+  getCachePersistor(): ApolloCachePersistor&lt;any&gt; {
+    return new ApolloCachePersistor( this.persistOptions );
   }
 }
 </code></pre>

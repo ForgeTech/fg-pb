@@ -1,0 +1,747 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>pb-pwa documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">pb-pwa documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>FgBreakpointService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/module/fg-material/service/fg-breakpoint/fg-breakpoint.service.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>FgBreakpointSevice -
+Service providing media-query functionality,
+based on angular-material cdk to importing application</p>
+
+            </p>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#breakpointObserver$">breakpointObserver$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#matchedBreakpoints">matchedBreakpoints</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#matchedBreakpoints$">matchedBreakpoints$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#mediaQueries">mediaQueries</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#getBreakpointEnumsFromBreakpointState">getBreakpointEnumsFromBreakpointState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getBreakpointObservable">getBreakpointObservable</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor($breakpointObserver: BreakpointObserver)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/module/fg-material/service/fg-breakpoint/fg-breakpoint.service.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>$breakpointObserver</td>
+                                                  
+                                                        <td>
+                                                                    <code>BreakpointObserver</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getBreakpointEnumsFromBreakpointState"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            getBreakpointEnumsFromBreakpointState
+                            </b>
+                            <a href="#getBreakpointEnumsFromBreakpointState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getBreakpointEnumsFromBreakpointState(breakpointState: BreakpointState)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/module/fg-material/service/fg-breakpoint/fg-breakpoint.service.ts:89</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Methode to return array of matched BreakpointEnums</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>breakpointState</td>
+                                                        <td>
+                                                                    <code>BreakpointState</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Array&lt;string&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getBreakpointObservable"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            getBreakpointObservable
+                            </b>
+                            <a href="#getBreakpointObservable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>getBreakpointObservable(mediaQueryStrings: string | Array<string>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/module/fg-material/service/fg-breakpoint/fg-breakpoint.service.ts:77</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Methode to return a Breakpoint-Matecher observable for the passed media-query strings</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>mediaQueryStrings</td>
+                                                        <td>
+                                                                    <code>string | Array&lt;string&gt;</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                        <td>
+                                                                <code><p>Either a single or multiple media-query strings</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code>Observable&lt;BreakpointState&gt;</code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="breakpointObserver$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            breakpointObserver$
+                            </b>
+                            <a href="#breakpointObserver$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>breakpointObserver$:     <code>Observable&lt;BreakpointState&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Observable&lt;BreakpointState&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/module/fg-material/service/fg-breakpoint/fg-breakpoint.service.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Return breakpoint-observer result for matching
+angular-material breakpoints</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="matchedBreakpoints"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            matchedBreakpoints
+                            </b>
+                            <a href="#matchedBreakpoints"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>matchedBreakpoints:     <code>string[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/module/fg-material/service/fg-breakpoint/fg-breakpoint.service.ts:37</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The currently matched breakpoints </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="matchedBreakpoints$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            matchedBreakpoints$
+                            </b>
+                            <a href="#matchedBreakpoints$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>matchedBreakpoints$:     <code>Subject&lt;string[]&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;string[]&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Subject()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/module/fg-material/service/fg-breakpoint/fg-breakpoint.service.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Observable Subject streamin enum-values
+of active breakpoints </p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mediaQueries"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            mediaQueries
+                            </b>
+                            <a href="#mediaQueries"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>mediaQueries:     <code>Array&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Array&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+    Breakpoints.Handset,
+    Breakpoints.HandsetLandscape,
+    Breakpoints.HandsetPortrait,
+    Breakpoints.Large,
+    Breakpoints.Medium,
+    Breakpoints.Small,
+    Breakpoints.Tablet,
+    Breakpoints.TabletLandscape,
+    Breakpoints.TabletPortrait,
+    Breakpoints.Web,
+    Breakpoints.WebLandscape,
+    Breakpoints.WebPortrait
+  ]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/module/fg-material/service/fg-breakpoint/fg-breakpoint.service.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Array to contain the Media-Queries to match.
+Contains all angular-material breakpoints by
+default</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, QueryList } from &#x27;@angular/core&#x27;;
+import { BreakpointObserver, Breakpoints, MediaMatcher, BreakpointState } from &#x27;@angular/cdk/layout&#x27;;
+import { BreakpointEnum } from &#x27;./../../enum/enum.export&#x27;;
+import { Subject, BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
+import { debounceTime } from &#x27;rxjs/operators&#x27;;
+import { FgGraphqlService } from &#x27;src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service&#x27;;
+/**
+ * FgBreakpointSevice -
+ * Service providing media-query functionality,
+ * based on angular-material cdk to importing application
+ */
+@Injectable()
+export class FgBreakpointService {
+  /**
+   * Array to contain the Media-Queries to match.
+   * Contains all angular-material breakpoints by
+   * default
+   */
+  protected mediaQueries: Array&lt;any&gt; &#x3D; [
+    Breakpoints.Handset,
+    Breakpoints.HandsetLandscape,
+    Breakpoints.HandsetPortrait,
+    Breakpoints.Large,
+    Breakpoints.Medium,
+    Breakpoints.Small,
+    Breakpoints.Tablet,
+    Breakpoints.TabletLandscape,
+    Breakpoints.TabletPortrait,
+    Breakpoints.Web,
+    Breakpoints.WebLandscape,
+    Breakpoints.WebPortrait
+  ];
+  /** Observable Subject streamin enum-values
+   * of active breakpoints */
+  public matchedBreakpoints$: Subject&lt;string[]&gt; &#x3D; new Subject();
+  /** The currently matched breakpoints */
+  public matchedBreakpoints: string[];
+  /**
+   * Return breakpoint-observer result for matching
+   * angular-material breakpoints
+   */
+  private breakpointObserver$: Observable&lt;BreakpointState&gt;;
+  /**
+   * Constructor
+   */
+  constructor(
+    /**
+     * Provides access to angular-material cdk breakpoint-observer
+     */
+    protected $breakpointObserver: BreakpointObserver,
+    /**
+     * Provides access to angular-material cdk mediaMatcher-wrapper
+     */
+    // protected $mediaMatcher: MediaMatcher,
+    /**
+     * Provides access to apllo graphql-service
+     */
+    // protected $apollo: FgGraphqlService
+  ) {
+    // Initialize breakpoint-observable for all angular-material
+    // default breakpoints
+    this.breakpointObserver$ &#x3D; $breakpointObserver.observe(
+      this.mediaQueries
+    );
+    // Listen to breakpoint-observable and translate state into
+    // BreakpointEnums
+    this.breakpointObserver$.subscribe( breakpointState &#x3D;&gt; {
+      const breakpointEnums: Array&lt;string&gt; &#x3D; this.getBreakpointEnumsFromBreakpointState( breakpointState );
+      this.matchedBreakpoints &#x3D; breakpointEnums;
+      this.matchedBreakpoints$.next( breakpointEnums );
+    });
+  }
+    /**
+   * Methode to return a Breakpoint-Matecher observable for the passed media-query strings
+   * @param mediaQueryStrings Either a single or multiple media-query strings
+   */
+  public getBreakpointObservable( mediaQueryStrings: string | Array&lt;string&gt; ): Observable&lt;BreakpointState&gt; {
+    let matchedBreakpoints: Array&lt;string&gt; &#x3D; [];
+    if ( mediaQueryStrings.length ){
+      matchedBreakpoints &#x3D;  mediaQueryStrings as Array&lt;string&gt;;
+    } else {
+      matchedBreakpoints.push( mediaQueryStrings as string );
+    }
+    return this.$breakpointObserver.observe( matchedBreakpoints );
+  }
+  /**
+   * Methode to return array of matched BreakpointEnums
+   */
+  protected getBreakpointEnumsFromBreakpointState( breakpointState: BreakpointState ): Array&lt;string&gt; {
+    let matchedBreakpointEnum: Array&lt;string&gt; &#x3D; [];
+    const breakpointKeys: Array&lt;string&gt; &#x3D; Object.keys(breakpointState.breakpoints);
+    for( var i &#x3D; 0; i &lt; breakpointKeys.length; i++ ) {
+      let breakpointKey: string &#x3D; breakpointKeys[ i ];
+
+      // if breapoint matching state is true set according enum-key
+      if (breakpointState.breakpoints[ breakpointKey ] &#x3D;&#x3D;&#x3D; true) {
+        switch ( breakpointKey ) {
+          case Breakpoints.Handset:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.HANDSET ] );
+            break;
+          case Breakpoints.HandsetLandscape:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.HANDSET_LANDSCAPE ] );
+            break;
+          case Breakpoints.HandsetPortrait:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.HANDSET_PORTRAIT ] );
+            break;
+          case Breakpoints.Large:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.LARGE ] );
+            break;
+          case Breakpoints.Medium:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.MEDIUM ] );
+            break;
+          case Breakpoints.Small:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.SMALL ] );
+            break;
+          case Breakpoints.Tablet:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.TABLET ] );
+            break;
+          case Breakpoints.TabletLandscape:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.TABLET_LANSCAPE ] );
+            break;
+          case Breakpoints.TabletPortrait:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.TABLET_PORTRAIT ] );
+            break;
+          case Breakpoints.Web:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.WEB ] );
+            break;
+          case Breakpoints.WebLandscape:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.WEB_LANSCAPE ] );
+            break;
+          case Breakpoints.WebPortrait:
+            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.WEB_PORTRAIT ] );
+            break;
+        }
+      }
+    }
+    return matchedBreakpointEnum;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'FgBreakpointService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

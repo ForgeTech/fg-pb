@@ -66,21 +66,25 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_FgMaterialModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="118,-70 118,-268 378,-268 378,-70 118,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="15,-70 15,-268 481,-268 481,-70 15,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_FgMaterialModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="128,-78 128,-130 368,-130 368,-78 128,-78"/>
+<polygon fill="none" stroke="#000000" points="233,-78 233,-130 473,-130 473,-78 233,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_FgMaterialModule_exports</title>
 <polygon fill="none" stroke="#000000" points="126,-208 126,-260 370,-260 370,-208 126,-208"/>
 </g>
+<g id="clust7" class="cluster">
+<title>cluster_FgMaterialModule_providers</title>
+<polygon fill="none" stroke="#000000" points="23,-78 23,-130 225,-130 225,-78 23,-78"/>
+</g>
 <!-- FgAngularMaterialDemoComponent -->
 <g id="node1" class="node">
 <title>FgAngularMaterialDemoComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="359.6203,-122 136.3797,-122 136.3797,-86 359.6203,-86 359.6203,-122"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">FgAngularMaterialDemoComponent</text>
+<polygon fill="#ffffb3" stroke="#000000" points="464.6203,-122 241.3797,-122 241.3797,-86 464.6203,-86 464.6203,-122"/>
+<text text-anchor="middle" x="353" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">FgAngularMaterialDemoComponent</text>
 </g>
 <!-- FgMaterialModule -->
 <g id="node2" class="node">
@@ -91,8 +95,8 @@
 <!-- FgAngularMaterialDemoComponent&#45;&gt;FgMaterialModule -->
 <g id="edge1" class="edge">
 <title>FgAngularMaterialDemoComponent&#45;&gt;FgMaterialModule</title>
-<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
+<path fill="none" stroke="#000000" d="M275.0333,-122.1061C275.0333,-122.1061 275.0333,-140.991 275.0333,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="271.5334,-140.9909 275.0333,-150.991 278.5334,-140.991 271.5334,-140.9909"/>
 </g>
 <!-- FgAngularMaterialDemoComponent  -->
 <g id="node3" class="node">
@@ -105,6 +109,18 @@
 <title>FgMaterialModule&#45;&gt;FgAngularMaterialDemoComponent </title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
+</g>
+<!-- FgBreakpointService -->
+<g id="node4" class="node">
+<title>FgBreakpointService</title>
+<ellipse fill="#fdb462" stroke="#000000" cx="124" cy="-104" rx="93.1968" ry="18"/>
+<text text-anchor="middle" x="124" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">FgBreakpointService</text>
+</g>
+<!-- FgBreakpointService&#45;&gt;FgMaterialModule -->
+<g id="edge3" class="edge">
+<title>FgBreakpointService&#45;&gt;FgMaterialModule</title>
+<path fill="none" stroke="#000000" d="M202.1109,-113.8721C202.1109,-113.8721 202.1109,-140.9074 202.1109,-140.9074"/>
+<polygon fill="#000000" stroke="#000000" points="198.611,-140.9073 202.1109,-150.9074 205.611,-140.9074 198.611,-140.9073"/>
 </g>
 </g>
 </svg>
@@ -164,6 +180,14 @@ angular-application</p>
                     </ul>
                 </div>
                 <div class="col-sm-3">
+                    <h3>Providers<a href="https://angular.io/api/core/NgModule#providers" target="_blank" title="Official documentation about module providers"><span class="icon ion-ios-information-circle-outline"></a></h3>
+                    <ul class="list-group">
+                            <li class="list-group-item">
+                                     <a href="../injectables/FgBreakpointService.html" >FgBreakpointService</a>
+                            </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
                     <h3>Exports<a href="https://angular.io/api/core/NgModule#exports" target="_blank" title="Official documentation about module exports"><span class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                             <li class="list-group-item">
@@ -177,7 +201,7 @@ angular-application</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule, ModuleWithProviders } from &#x27;@angular/core&#x27;;
 // Providing animation capabilities for angular-material
 // https://angular.io/api/platform-browser/animations/BrowserAnimationsModule
 import { BrowserAnimationsModule } from &#x27;@angular/platform-browser/animations&#x27;;
@@ -248,6 +272,7 @@ import { ScrollDispatchModule } from &#x27;@angular/cdk/scrolling&#x27;;
 import { CdkTableModule } from &#x27;@angular/cdk/table&#x27;;
 import { CdkStepperModule } from &#x27;@angular/cdk/stepper&#x27;;
 import { FgAngularMaterialDemoComponent } from &#x27;./component/fg-angular-material-demo/fg-angular-material-demo.component&#x27;;
+import { FgBreakpointService } from &#x27;./service/fg-breakpoint/fg-breakpoint.service&#x27;;
 /**
 * FgMaterialModule -
 * This Module provides all angular-material
@@ -374,9 +399,28 @@ import { FgAngularMaterialDemoComponent } from &#x27;./component/fg-angular-mate
   ],
   declarations: [
     FgAngularMaterialDemoComponent
+  ],
+  providers: [
+    FgBreakpointService
   ]
 })
-export class FgMaterialModule { }
+/**
+ * FgMaterialModule -
+ * Module Exports Angular-Material Components and
+ * Services for importing Application. Also provides
+ * some additional components and services build upon
+ * angular-material and angular-cdk
+ */
+export class FgMaterialModule {
+  public static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: FgMaterialModule,
+      providers: [
+        FgBreakpointService
+      ]
+    };
+  }
+}
 </code></pre>
     </div>
 </div>
