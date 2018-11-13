@@ -10,7 +10,8 @@ import { ObservableQuery } from 'apollo-client';
 @Component({
   selector: 'pb-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent extends FgComponentBaseComponent {
   /**
@@ -21,10 +22,6 @@ export class DashboardComponent extends FgComponentBaseComponent {
    * Observable preparing the data for view on request updates
    */
   public data$: Subject<any> = new Subject();
-  /**
-   * Observable preparing the data for view on request updates
-   */
-  public breakpoints: any = new Subject();
   /**
    * Observable to push a breakpoints grid-properties
    */

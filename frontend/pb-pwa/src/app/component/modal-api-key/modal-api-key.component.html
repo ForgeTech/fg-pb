@@ -11,10 +11,10 @@
       <button fxFlex="150px"
         mat-raised-button
         color="accent"
-        [disabled]="( actionDisabled$ | async )"
-        (click)="this.tabComponents[ stepper.selectedIndex ].action( $event )"
         >
-        {{ actionLabel$ | async }}
+        <!-- (click)="this.tabComponents[ stepper.selectedIndex ].action( $event )" -->
+        <!-- [disabled]="( actionDisabled$ | async )" -->
+        Generate Api-Key
       </button>
     </div>
   </div>

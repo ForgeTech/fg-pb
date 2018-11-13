@@ -10,7 +10,8 @@ import {
   MessagesService,
   OrdersService,
   TradesService,
-  Configuration
+  Configuration,
+  MarketStatus
 } from '../../module/pb-api';
 import {
   SignalInterface,
@@ -303,6 +304,9 @@ export class PbDataService {
     }
     this.app.state.requestState = RequestState.Active;
     const subject: Subject<PowerBotEntity> = new Subject();
+    this.$market.getStatus().subscribe( ( status: MarketStatus ) => {
+      console.log( 'MARKETSTATUS' );
+    });
     const data$ = combineLatest([
       this.$market.getStatus(),
       this.$orders.getOrderBooks( '', false, undefined, undefined, undefined, undefined, undefined, 3 ),

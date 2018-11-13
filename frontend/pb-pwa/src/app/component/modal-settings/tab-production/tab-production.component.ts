@@ -11,8 +11,8 @@ import { AsyncUrlRespondsValidator } from 'src/app/validators/async-url-responds
 import { AsyncUrlApiKeyRespondsValidator } from 'src/app/validators/async-url-api-key-responds.validator';
 import { ObservableQuery, ApolloQueryResult } from 'apollo-client';
 // import { SyncMatchFieldlValidator } from '../../../validators/sync-match-field.validator';
-import { Subject, Observable, merge } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { Subject, Observable, merge, BehaviorSubject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { SyncMatchFieldlValidator } from 'src/app/validators/sync-match-field.validator';
 /**
  * TabProductionComponent -
@@ -44,6 +44,10 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
    * Observable to provide fetched local-client state data
    */
   public data$: Subject<ConfigConnection> = new Subject();
+  /**
+   * Observable provides state of the apiKey-generator buttons
+   */
+  public apiKeyDisabled$: Subject<boolean> = new BehaviorSubject( true );
   /**
    * CONSTRUCTOR
    */
@@ -124,14 +128,24 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
     ).pipe(
       // Only update once if both fields are updated
       // by delaying execution
-      debounceTime( 100 )
+      debounceTime( 100 ),
+      distinctUntilChanged()
     );
     // If serverUrl/backupUrl-changes and apiKey contains value, revalidate field
-    this._subscribtions.push( urlChanges.pipe( debounceTime( 100 ) ).subscribe( event => {
+    this._subscribtions.push( urlChanges.subscribe( event => {
       if ( !this.form.controls.apiKey.valid
         && ( this.form.controls.serverUrl.valid || this.form.controls.backupUrl.valid
       ) ) {
         this.form.get('apiKey').updateValueAndValidity();
+      }
+    }));
+    // If serverUrl/backupUrl-changes update apyKey generator-button disabled-state -
+    // if either url is valid ( false ) oterwise ( true )
+    this._subscribtions.push( urlChanges.subscribe( event => {
+      if ( this.form.controls.serverUrl.valid || this.form.controls.backupUrl.valid ) {
+        this.apiKeyDisabled$.next( false );
+      } else {
+        this.apiKeyDisabled$.next( true );
       }
     }));
   }

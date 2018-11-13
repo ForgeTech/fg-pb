@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FgComponentBaseComponent } from '../../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../../fg-component-base/fg-component-base.service';
-import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 import { ConfigConnection } from '../../../entity/entity.export';
 import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-component.interface';
 import { FgEvent } from '../../../class/fg-event.class';
@@ -9,8 +9,9 @@ import { PbAppEvent } from '../../../event/pb-app.event';
 import { regexUrlValidationPattern } from '../../../validators/RegexUrlValidationPattern';
 import { AsyncUrlRespondsValidator } from '../../../validators/async-url-responds.validator';
 import { AsyncUrlApiKeyRespondsValidator } from 'src/app/validators/async-url-api-key-responds.validator';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject, Observable } from 'rxjs';
 import { ObservableQuery } from 'apollo-client';
+import { debounceTime, distinct, distinctUntilChanged } from 'rxjs/operators';
 
 /**
  * TabTestComponent -
@@ -42,6 +43,10 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
    * Observable to provide fetched local-client state data
    */
   public data$: Subject<ConfigConnection> = new Subject();
+  /**
+  * Observable provides state of the apiKey-generator buttons
+  */
+  public apiKeyDisabled$: Subject<boolean> = new BehaviorSubject( true );
   /**
    * CONSTRUCTOR
    */
@@ -89,30 +94,37 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
       cache: [null, []],
     });
     this._subscribtions.push(
-      this.request$.subscribe(result => {
+      this.request$.subscribe( result => {
         this.data$.next(result.data.getConfigConnection as ConfigConnection);
       })
     );
     this._subscribtions.push(
-      this.data$.subscribe(result => {
-        this.$component.$log.warn('RESULT-TEST');
-        console.log(result);
-        this.form.patchValue(result);
-        // Object.keys(this.form.controls).forEach(field => {
-        //   const control = this.form.get(field) as AbstractControl;
-        //   console.log('key: ', field);
-        //   control.markAsTouched()
-        //   control.markAsDirty();
-        //   control.setValue(result[field]);
-        //   control.updateValueAndValidity();
-        // });
-        // }
+      this.data$.subscribe( result => {
+        // this.form.patchValue(result);
+        Object.keys( this.form.controls ).forEach( field => {
+          const control = this.form.get(field) as AbstractControl;
+          control.markAsTouched();
+          control.setValue( result[ field ] );
+        });
       })
     );
+    // Createn pbservable for serverurl status-change
+    const urlServerUrlChange: Observable<any> = this.form.controls.serverUrl.statusChanges.pipe(
+      debounceTime( 100 ),
+      distinctUntilChanged()
+    );
     // If serverUrl-changes and apiKey contains value, revalidate field
-    this._subscribtions.push(this.form.controls.serverUrl.statusChanges.subscribe(event => {
+    this._subscribtions.push( urlServerUrlChange.subscribe( event => {
       if ( this.form.get('serverUrl').valid && this.form.get('apiKey').value ) {
         this.form.get('apiKey').updateValueAndValidity();
+      }
+    }));
+    // Update apiKey generator-button disabled state when serverurl is valid ( false ) / invalid ( true )
+    this._subscribtions.push( urlServerUrlChange.subscribe( event => {
+      if ( this.form.get('serverUrl').valid ) {
+        this.apiKeyDisabled$.next( false );
+      } else {
+        this.apiKeyDisabled$.next( true );
       }
     }));
   }

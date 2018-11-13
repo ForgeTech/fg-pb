@@ -14,14 +14,18 @@ export const environment = {
   powerbot: {
     id: 0,
     __typename: 'PowerBot',
-    state: {
-      id: 0,
-      __typename: 'State',
-      allowed: false,
-      connection: false,
-      connectionState: 0,
-      requestState: 0,
-    },
+    states: [
+      {
+        id: '44fc8162-d2c6-432a-8279-d8d40e5c0e1b',
+        __typename: 'State',
+        darkTheme: true,
+        backHours: 3,
+        allowed: false,
+        connection: false,
+        connectionState: 0,
+        requestState: 0,
+      }
+    ],
     config: {
       id: 0,
       __typename: 'Config',

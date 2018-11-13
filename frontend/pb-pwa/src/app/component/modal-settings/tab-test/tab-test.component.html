@@ -40,7 +40,9 @@
       <div fxFlex="50px">
         <button
         mat-fab
+        color="primary"
         matTooltip="Generate ApiKey"
+        [disabled]="apiKeyDisabled$ | async"
         (click)="openApiKeyModal($event)"
         ><mat-icon>vpn_key</mat-icon></button>
       </div>
