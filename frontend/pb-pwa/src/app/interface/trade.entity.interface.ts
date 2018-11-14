@@ -13,7 +13,7 @@ export interface TradeEntityInterface {
      * CREJ: cancel was rejected by global market operations.
      * RSFA: Request sent for approval to SOB (XBID).
      */
-    state?: Trade.StateEnum;
+    state?: TradeEntityInterface.StateEnum;
     /**
      * If you sold energy with this trade, delivery_area will contain the sell_delivery_area, otherwise the buy_delivery_area
      */
@@ -66,7 +66,7 @@ export interface TradeEntityInterface {
      * U - Unknown, for executed orders of remote products
      * and data before migration
      */
-    buy_aggressor_indicator?: Trade.BuyAggressorIndicatorEnum;
+    buy_aggressor_indicator?: TradeEntityInterface.BuyAggressorIndicatorEnum;
     /**
      * The seller's order id
      */
@@ -98,7 +98,7 @@ export interface TradeEntityInterface {
      * U - Unknown, for executed orders of remote products
      * and data before migration
      */
-    sell_aggressor_indicator?: Trade.SellAggressorIndicatorEnum;
+    sell_aggressor_indicator?: TradeEntityInterface.SellAggressorIndicatorEnum;
     /**
      * The contract_id against which the trade was executed
      */
@@ -132,7 +132,7 @@ export interface TradeEntityInterface {
      */
     contract_details?: any;
 }
-export namespace Trade {
+export namespace TradeEntityInterface {
     export type StateEnum = 'CNCL' | 'RREJ' | 'RGRA' | 'RREQ' | 'ACTI' | 'CREQ' | 'CREJ' | 'RSFA';
     export const StateEnum = {
         CNCL: 'CNCL' as StateEnum,

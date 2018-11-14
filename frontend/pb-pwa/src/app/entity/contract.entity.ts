@@ -1,7 +1,6 @@
-import { ContractInterface } from '../module/pb-api/model/interfaces.export';
-import { SignalInterface } from '../module/pb-api/model/interfaces.export';
+import { ContractEntityInterface } from '../interface/interface.export';
 
-export class ContractEntity implements ContractInterface {
+export class ContractEntity implements ContractEntityInterface {
   constructor(
     /**
          * the contract's product
@@ -14,7 +13,7 @@ export class ContractEntity implements ContractInterface {
     /**
      * State of the contract
      */
-    public state?: ContractInterface.StateEnum,
+    public state?: ContractEntityInterface.StateEnum,
     /**
      * The name of the contract
      */

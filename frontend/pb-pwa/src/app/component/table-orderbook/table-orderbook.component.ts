@@ -1,9 +1,8 @@
 import { Component, SimpleChanges } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { ConfigTableInterface } from '../../interface/interface.export';
+import { ConfigTableInterface, ContractEntityInterface } from '../../interface/interface.export';
 import { _ } from './../../app.utils';
-import { ContractInterface } from '../../module/pb-api/model/interfaces.export';
 import { FgEvent } from '../../class/fg-event.class';
 
 /**
@@ -15,12 +14,12 @@ import { FgEvent } from '../../class/fg-event.class';
   styleUrls: ['./table-orderbook.component.scss']
 })
 export class TableOrderbookComponent extends FgComponentBaseComponent {
-  public entity: ContractInterface[] = [];
-  protected _selected: ContractInterface[] = [];
-  public get selected(): ContractInterface[] {
+  public entity: ContractEntityInterface[] = [];
+  protected _selected: ContractEntityInterface[] = [];
+  public get selected(): ContractEntityInterface[] {
     return this._selected;
   }
-  public set selected( selected: ContractInterface[] ) {
+  public set selected( selected: ContractEntityInterface[] ) {
     try {
       this._selected = selected;
       this.$component.$data.app.state.selectedContract = this._selected[0];
@@ -177,7 +176,7 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
    * Return initial selection for passed contracts
    * @param contracts
    */
-  private getInitialSelectedContract(contracts: ContractInterface[]): ContractInterface[] {
+  private getInitialSelectedContract(contracts: ContractEntityInterface[]): ContractEntityInterface[] {
       return [ contracts.find( contract => {
         return contract.state === 'ACTI';
       })];
@@ -185,7 +184,7 @@ export class TableOrderbookComponent extends FgComponentBaseComponent {
   /**
    * Find selected contract in updated
    */
-  private updateSelectedContract(): ContractInterface[] {
+  private updateSelectedContract(): ContractEntityInterface[] {
     const updated = this.entity.filter( contract => {
       let found = false;
       for ( let selectedContract of this.selected ) {

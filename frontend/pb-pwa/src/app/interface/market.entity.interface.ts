@@ -9,7 +9,7 @@ export interface MarketEntityInterface {
      * WARNING Trading might not be possible, check the messages.
      * FAILURE Trading is not possible right now.
      */
-    status: MarketStatus.StatusEnum;
+    status: MarketEntityInterface.StatusEnum;
     options?: any;
     /**
      * The urls of EPEX's backand system Powerbot is connected to
@@ -52,7 +52,7 @@ export interface MarketEntityInterface {
      */
     messages?: Array<string>;
 }
-export namespace MarketStatus {
+export namespace MarketEntityInterface {
     export type StatusEnum = 'OK' | 'WARNING' | 'FAILURE';
     export const StatusEnum = {
         OK: 'OK' as StatusEnum,

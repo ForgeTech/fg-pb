@@ -2,8 +2,7 @@ import { Component, SimpleChanges } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { GraphDataInterface } from '../../interface/interface.export';
-import { SignalInterface } from '../../module/pb-api/model/interfaces.export';
+import { GraphDataInterface, SignalEntityInterface } from '../../interface/interface.export';
 import { sortArrayByTime } from '../../app.utils';
 
 /**
@@ -56,7 +55,7 @@ export class GraphSignalHistoryComponent extends FgComponentBaseComponent {
    * Prepare signals-data for being displayed in linear graph by ngx-graph-component
    * @param signals
    */
-  prepareSignalHistoryGraphData( signals: { label: string, values: SignalInterface[] }[] ): GraphDataInterface[] {
+  prepareSignalHistoryGraphData( signals: { label: string, values: SignalEntityInterface[] }[] ): GraphDataInterface[] {
       let graphData: GraphDataInterface[] = [];
       let signalImbalance = {
         name: 'imbalance',

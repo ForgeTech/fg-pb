@@ -22,9 +22,9 @@ export interface LogEntityInterface {
     /**
      * The severity of the log entry
      */
-    severity?: LogEntry.SeverityEnum;
+    severity?: LogEntityInterface.SeverityEnum;
 }
-export namespace LogEntry {
+export namespace LogEntityInterface {
     export type SeverityEnum = 'LOW' | 'MED' | 'HIG' | 'ERR' | 'URG';
     export const SeverityEnum = {
         LOW: 'LOW' as SeverityEnum,

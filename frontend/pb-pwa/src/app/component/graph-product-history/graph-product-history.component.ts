@@ -1,9 +1,7 @@
 import { Component, SimpleChanges } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { GraphDataInterface } from '../../interface/interface.export';
-import { ContractInterface } from '../../module/pb-api/model/interfaces.export';
-
+import { GraphDataInterface, ContractEntityInterface  } from '../../interface/interface.export';
 /**
  * PbGraphProductHistoryComponent -
  * Render graph for powerbot product-history api-data
@@ -23,7 +21,7 @@ export class GraphProductHistoryComponent extends FgComponentBaseComponent {
     );
   }
   // Override entity with signal-collection interface
-  entity: ContractInterface[];
+  entity: ContractEntityInterface[];
   // Hold graph-data parsed from enity
   data: GraphDataInterface[] = [];
 
@@ -55,7 +53,7 @@ export class GraphProductHistoryComponent extends FgComponentBaseComponent {
    * Prepare contracts-data for being displayed in linear graph by ngx-graph-component
    * @param signals
    */
-  prepareProductHistoryGraphData(contracts: ContractInterface[]): any[] {
+  prepareProductHistoryGraphData(contracts: ContractEntityInterface[]): any[] {
     let graphData: any[] = [];
     let volumeGraph = {
       name: 'volumne',

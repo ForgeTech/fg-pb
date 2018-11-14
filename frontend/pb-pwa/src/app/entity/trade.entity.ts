@@ -1,11 +1,11 @@
+import { TradeEntityInterface } from '../interface/interface.export';
 
-import { TradeInterface } from '../module/pb-api/model/interfaces.export';
 /**
  * Trade -
  * Entity-Class used to hold
  * order data
  */
-export class TradeEntity implements TradeInterface {
+export class TradeEntity implements TradeEntityInterface {
   /** Constructor */
   constructor(
     /**
@@ -22,7 +22,7 @@ export class TradeEntity implements TradeInterface {
      * CREJ: cancel was rejected by global market operations.
      * RSFA: Request sent for approval to SOB (XBID).
      */
-    public state?: TradeInterface.StateEnum,
+    public state?: TradeEntityInterface.StateEnum,
     /**
      * If you sold energy with this trade, delivery_area will contain the sell_delivery_area,
      *  otherwise the buy_delivery_area
@@ -74,7 +74,7 @@ export class TradeEntity implements TradeInterface {
      * N - Trade originator
      * U - Unknown, for executed orders of remote products and data before migration
      */
-    public buy_aggressor_indicator?: TradeInterface.BuyAggressorIndicatorEnum,
+    public buy_aggressor_indicator?: TradeEntityInterface.BuyAggressorIndicatorEnum,
     /**
     The seller's order id
      */
@@ -105,7 +105,7 @@ export class TradeEntity implements TradeInterface {
      * N - Trade originator
      * U - Unknown, for executed orders of remote products and data before migration
      */
-    public sell_aggressor_indicator?: TradeInterface.SellAggressorIndicatorEnum,
+    public sell_aggressor_indicator?: TradeEntityInterface.SellAggressorIndicatorEnum,
     /**
      * The contract_id against which the trade was executed
      */

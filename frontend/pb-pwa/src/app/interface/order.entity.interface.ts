@@ -81,7 +81,7 @@ export interface OrderEntityInterface {
      */
     dlvry_end?: Date;
 }
-export namespace Order {
+export namespace OrderEntityInterface {
     export type SideEnum = 'SELL' | 'BUY';
     export const SideEnum = {
         SELL: 'SELL' as SideEnum,

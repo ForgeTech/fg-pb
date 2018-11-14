@@ -1,10 +1,11 @@
-import { MarketInterface } from '../module/pb-api/model/interfaces.export';
+import { MarketEntityInterface } from '../interface/interface.export';
+
 /**
  * Market -
  * Entity-Class used to hold
  * market data
  */
-export class MarketEntity implements MarketInterface {
+export class MarketEntity implements MarketEntityInterface {
   /** Constructor */
   constructor(
     /**
@@ -12,7 +13,7 @@ export class MarketEntity implements MarketInterface {
      *  trading is possible * WARNING Trading might not be possible,
      *  check the messages. * FAILURE Trading is not possible right now.
      */
-    public status: MarketInterface.StatusEnum,
+    public status: MarketEntityInterface.StatusEnum,
     /**
      * The timestamp when the status of the market was last checked.
      */

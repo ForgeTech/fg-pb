@@ -1,10 +1,11 @@
-import { OrderInterface } from '../module/pb-api/model/interfaces.export';
+import { OrderEntityInterface } from '../interface/interface.export';
+
 /**
  * Order -
  * Entity-Class used to hold
  * order data
  */
-export class OrderEntity implements OrderInterface {
+export class OrderEntity implements OrderEntityInterface {
   /**
    * Constructor
    */
@@ -27,7 +28,7 @@ export class OrderEntity implements OrderInterface {
      * The delivery area of the orderbook's product. Mandatory in a multi-delivery-area configuration
      */
     public delivery_area?: string,
-    public side?: OrderInterface.SideEnum,
+    public side?: OrderEntityInterface.SideEnum,
     /**
      * The product of the order
      */
@@ -59,7 +60,7 @@ export class OrderEntity implements OrderInterface {
      * in the order book until it is executed or removed by the system or user.
      * AU (Auction): The order was entered in auction phase (no restriction is applied)
      */
-    public ordr_exe_restriction?: OrderInterface.OrdrExeRestrictionEnum,
+    public ordr_exe_restriction?: OrderEntityInterface.OrdrExeRestrictionEnum,
     /**
      * Flag which indicates if the entered order is a pre-arranged order or not.
      */
@@ -82,7 +83,7 @@ export class OrderEntity implements OrderInterface {
      *  Q: quote order
      *  W: Indicative quote order
      */
-    public type?: OrderInterface.TypeEnum,
+    public type?: OrderEntityInterface.TypeEnum,
     /**
      * Validity restriction of the order.
      public * GFS (Good for trading session): The order rests in the order book until it is either executed,
@@ -91,12 +92,12 @@ export class OrderEntity implements OrderInterface {
      * specified in the validityDate field. * NON (No validity restriction): Mandatory for orders with
      * the execution restriction “FOK” or “IOC”.
      */
-    public validity_res?: OrderInterface.ValidityResEnum,
+    public validity_res?: OrderEntityInterface.ValidityResEnum,
     /**
      * ACTI: The order is entered and immediately exposed to the market for execution. This is the default value.
      * HIBE: The order is entered into the backend system but not exposed to the market.
      */
-    public state?: OrderInterface.StateEnum,
+    public state?: OrderEntityInterface.StateEnum,
     /**
      * mandatory in case of validityRes equals “GTD”. It is used to define the date until
      * which the order is valid.  The remaining part of the order will be removed from the

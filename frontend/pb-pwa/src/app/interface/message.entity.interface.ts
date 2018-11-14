@@ -10,7 +10,7 @@ export interface MessageEntityInterface {
     group_sequence?: string;
     content?: any;
 }
-export namespace Message {
+export namespace MessageEntityInterface {
     export type CategoryEnum = 'INQUIRY_REQUEST' | 'MANAGEMENT_REQUEST' | 'RESPONSE' | 'BROADCAST';
     export const CategoryEnum = {
         INQUIRYREQUEST: 'INQUIRY_REQUEST' as CategoryEnum,

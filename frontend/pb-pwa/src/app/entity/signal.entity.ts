@@ -1,34 +1,42 @@
-import { SignalInterface } from '../module/pb-api/model/interfaces.export';
+import { SignalEntityInterface } from '../interface/interface.export';
 /**
  * Signal -
  * Entity-Class used to hold
  * signal data
  */
-export class SignalEntity implements SignalInterface {
+export class SignalEntity implements SignalEntityInterface {
   /** Constructor */
   constructor(
     /**
-   * The unique id of the signal (within the namespace of the emitting source)
-   */
+     * The unique id of the signal (within
+     * the namespace of the emitting source)
+     */
     public id?: string,
     /**
-     * The identifier of the system which emitted the signal
+     * The identifier of the system which emitted
+     * the signal
      */
     public source?: string,
     /**
-     * The timestamp when the signal was received by PowerBot
+     * The timestamp when the signal was received
+     * by PowerBot
      */
     public received_at?: Date,
     /**
-     * The number of times the signal has been updated. If the signal has never received any updates, then revision is 0.
+     * The number of times the signal has been updated.
+     * If the signal has never received any updates,
+     * then revision is 0.
      */
     public revision?: number,
     /**
-     * Together with delivery_start and delivery_end specify the delivery period in which the signal is valid
+     * Together with delivery_start and delivery_end specify
+     * the delivery period in which the signal is valid
      */
     public delivery_start?: Date,
     /**
-     * Together with delivery_start and delivery_end specify the delivery period in which the signal is valid
+     * Together with delivery_start and delivery_end
+     * specify the delivery period in which the signal
+     *  is valid
      */
     public delivery_end?: Date,
     /**

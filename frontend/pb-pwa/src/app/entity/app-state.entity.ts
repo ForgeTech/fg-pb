@@ -1,5 +1,5 @@
-import { ContractInterface } from './../module/pb-api/model/interfaces.export';
 import { ConfigConnection } from './config-connection.entity';
+import { ContractEntityInterface } from '../interface/interface.export';
 /**
  * Available environment-states
  */
@@ -88,7 +88,7 @@ export class PowerbotStateEntity {
    /**
     * Contains the currently selected contract-entity
     */
-    public selectedContract: null | ContractInterface = null,
+    public selectedContract: null | ContractEntityInterface = null,
     /**
      * Holds name of currently used market-environment
      */

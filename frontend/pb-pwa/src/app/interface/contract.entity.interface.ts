@@ -11,7 +11,7 @@ export interface ContractEntityInterface {
     /**
      * State of the contract
      */
-    state?: Contract.StateEnum;
+    state?: ContractEntityInterface.StateEnum;
     /**
      * The name of the contract
      */
@@ -93,7 +93,7 @@ export interface ContractEntityInterface {
      */
     signals?: any;
 }
-export namespace Contract {
+export namespace ContractEntityInterface {
     export type StateEnum = 'ACTI' | 'IACT';
     export const StateEnum = {
         ACTI: 'ACTI' as StateEnum,

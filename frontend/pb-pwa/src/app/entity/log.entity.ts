@@ -1,10 +1,11 @@
-import { LogInterface } from '../module/pb-api/model/interfaces.export';
+import { LogEntityInterface } from '../interface/interface.export';
+
 /**
  * Log -
  * Entity-Class used to hold
  * log-message data
  */
-export class LogEntity implements LogInterface {
+export class LogEntity implements LogEntityInterface {
   /**
    * Constructor
    */
@@ -32,6 +33,6 @@ export class LogEntity implements LogInterface {
     /**
      * The severity of the log entry
      */
-    public severity?: LogInterface.SeverityEnum,
+    public severity?: LogEntityInterface.SeverityEnum,
   ) {}
 }
