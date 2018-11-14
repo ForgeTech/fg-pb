@@ -114,6 +114,7 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
       this.data$.subscribe( result => {
         Object.keys(this.form.controls).forEach( key => {
           this.form.controls[ key ].setValue( result[ key ]);
+          this.form.controls[ key ].markAsTouched();
         });
       })
     );

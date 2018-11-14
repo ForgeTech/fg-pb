@@ -100,11 +100,9 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
     );
     this._subscribtions.push(
       this.data$.subscribe( result => {
-        // this.form.patchValue(result);
-        Object.keys( this.form.controls ).forEach( field => {
-          const control = this.form.get(field) as AbstractControl;
-          control.markAsTouched();
-          control.setValue( result[ field ] );
+        Object.keys(this.form.controls).forEach( key => {
+          this.form.controls[ key ].setValue( result[ key ] );
+          this.form.controls[ key ].markAsTouched();
         });
       })
     );

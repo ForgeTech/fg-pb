@@ -16,7 +16,7 @@ export class TableTradesComponent extends FgComponentBaseComponent {
         name: _('column_label_dlvry_start'),
         prop: 'contract_details.dlvryStart',
         cellTemplate: 'date',
-        dateFormat: 'mediumTime',
+        dateFormat: 'shortTime',
         display: true,
         width: 50
       },
@@ -24,7 +24,7 @@ export class TableTradesComponent extends FgComponentBaseComponent {
         name: _('column_label_dlvry_end'),
         prop: 'contract_details.dlvryEnd',
         cellTemplate: 'date',
-        dateFormat: 'mediumTime',
+        dateFormat: 'shortTime',
         display: true,
         width: 50
       },
@@ -50,6 +50,7 @@ export class TableTradesComponent extends FgComponentBaseComponent {
       {
         name: _('column_label_note'),
         prop: 'sell_txt',
+        cellTemplate: 'note',
         display: true,
         width: 50
       }

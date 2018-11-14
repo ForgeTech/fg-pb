@@ -28,7 +28,6 @@ export class SyncMatchFieldlValidator implements Validator {
 
         let matching = false;
         matching = ctrl.value === ctrl.parent.get( fieldName ).value ? true : false;
-        console.log( matching );
         return matching ? { pbMatchField: true } : null;
       } catch ( error ) {
         // Return null if an error occures, which occures when ctrl.parent isn't

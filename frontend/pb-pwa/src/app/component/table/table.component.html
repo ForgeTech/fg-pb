@@ -14,24 +14,7 @@
   [limit]="config.limit"
   [rowClass]="getRowClass"
   (select)="onSelect($event)"
-  ></ngx-datatable>
-<!-- <ngx-datatable-custom
-  class="datatable material"
-  [rows]="entity"
-  [columns]="columns"
-  [columnMode]="config.columnMode"
-  [headerHeight]="config.headerHeight"
-  [rowHeight]="config.rowHeight"
-  [footerHeight]="config.footerHeight"
-  [rowHeight]="config.rowHeight"
-  [scrollbarV]="config.scrollbarV"
-  [scrollbarH]="config.scrollbarH"
-  [selectionType]="config.selectionType"
-  [selected]="selected"
-  [limit]="config.limit"
-  [rowClass]="getRowClass"
-  (select)="onSelect($event)"
-  ></ngx-datatable-custom> -->
+></ngx-datatable>
 
 <ng-template
   #headerTmpl
@@ -64,4 +47,17 @@
   let-value="value"
 >
   {{ row | pbSidePipe }}
+</ng-template>
+<ng-template
+  #noteCellTmpl
+  let-row="row"
+  let-column="column"
+  let-value="value"
+>
+  <mat-icon
+    matTooltip="{{ value }}"
+    matTooltipPosition="after"
+    color="accent">
+    message
+  </mat-icon>
 </ng-template>

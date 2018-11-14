@@ -37,17 +37,22 @@ export class TableComponent extends FgComponentBaseComponent implements OnChange
    */
   @ViewChild('headerTmpl') headerTmpl: TemplateRef<any>;
   /**
-   * The default column-template to use
+   * The default cell-template to use
    */
   @ViewChild('cellTmpl') cellTmpl: TemplateRef<any>;
   /**
-   * The default column-template to use
+   * The date column-template
    */
   @ViewChild('dateCellTmpl') dateCellTmpl: TemplateRef<any>;
   /**
-   * The default column-template to use
+   * The side column-template - displaying buy/sell indicator
    */
   @ViewChild('sideCellTmpl') sideCellTmpl: TemplateRef<any>;
+  /**
+   * The note cell template used to display icon presenting
+   * tooltip on hover
+   */
+  @ViewChild('noteCellTmpl') noteCellTmpl: TemplateRef<any>;
   /**
    * Holds default table-configuration
    */
@@ -138,6 +143,9 @@ export class TableComponent extends FgComponentBaseComponent implements OnChange
           break;
         case 'date':
           tmpl = this.dateCellTmpl;
+          break;
+        case 'note':
+          tmpl = this.noteCellTmpl;
           break;
         default:
           tmpl = this.cellTmpl;
