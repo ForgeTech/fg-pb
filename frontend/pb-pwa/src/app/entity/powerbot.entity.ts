@@ -1,18 +1,18 @@
 import { ConfigPowerbot } from './config-powerbot.entity';
 import {
-  ContractInterface,
-  LogInterface,
-  MarketInterface,
-  MessageInterface,
-  OrderInterface,
-  SignalInterface,
-  TradeInterface,
-} from '../module/pb-api/model/interfaces.export';
+  ContractEntityInterface,
+  LogEntityInterface,
+  MarketEntityInterface,
+  MessageEntityInterface,
+  OrderEntityInterface,
+  SignalEntityInterface,
+  TradeEntityInterface,
+} from './../interface/interface.export';
 import { PowerbotStateEntity } from './entity.export';
 
 /**
- * PowerBor -
- * Entity to
+ * PowerBot -
+ * Entity to collect data-states
  */
 export class PowerBotEntity {
   /**
@@ -32,19 +32,19 @@ export class PowerBotEntity {
     /**
      * Holds current powerbot contract data
      */
-    public contracts: ContractInterface[] = [],
+    public contracts: ContractEntityInterface[] = [],
     /**
      * Holds historical contract-data for currently selected contract
      */
-    public contractHistory: ContractInterface[] = [],
+    public contractHistory: ContractEntityInterface[] = [],
     /**
      * Holds current powerbot contract data
      */
-    public logs: LogInterface[] = [],
+    public logs: LogEntityInterface[] = [],
     /**
      * Holds current powerbot contract data
      */
-    public messages: MessageInterface[] = [],
+    public messages: MessageEntityInterface[] = [],
     /**
      * Holds current powerbot orderbook data
      */
@@ -72,10 +72,10 @@ export class PowerBotEntity {
     /**
      * Holds current powerbot contract data
      */
-    public trades: TradeInterface[] = [],
+    public trades: TradeEntityInterface[] = [],
     /**
      * Holds current powerbot contract data
      */
-    public market?: MarketInterface,
+    public market?: MarketEntityInterface,
   ) {}
 }
