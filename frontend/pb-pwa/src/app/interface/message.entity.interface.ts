@@ -1,11 +1,11 @@
 export interface MessageEntityInterface {
     messageId?: string;
     api_timestamp?: Date;
-    category?: Message.CategoryEnum;
+    category?: MessageEntityInterface.CategoryEnum;
     message_class?: string;
     content_type?: string;
     correlation_id?: string;
-    direction?: Message.DirectionEnum;
+    direction?: MessageEntityInterface.DirectionEnum;
     groupId?: string;
     group_sequence?: string;
     content?: any;

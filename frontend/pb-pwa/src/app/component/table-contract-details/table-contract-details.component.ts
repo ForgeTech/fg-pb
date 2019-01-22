@@ -1,7 +1,6 @@
 import { Component, SimpleChanges } from '@angular/core';
 import { FgComponentBaseComponent } from '../fg-component-base/fg-component-base.component';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
-import { _ } from './../../app.utils';
 import { ContractEntityInterface } from 'src/app/interface/interface.export';
 
 @Component({

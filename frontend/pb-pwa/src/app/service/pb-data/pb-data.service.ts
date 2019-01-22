@@ -14,14 +14,14 @@ import {
   MarketStatus
 } from '../../module/pb-api';
 import {
-  SignalInterface,
-  ContractInterface,
-  LogInterface,
-  MarketInterface,
-  MessageInterface,
-  OrderInterface,
-  TradeInterface
-} from '../../module/pb-api/model/interfaces.export';
+  SignalEntityInterface,
+  ContractEntityInterface,
+  LogEntityInterface,
+  MarketEntityInterface,
+  MessageEntityInterface,
+  OrderEntityInterface,
+  TradeEntityInterface
+} from '../../interface/interface.export';
 import {
   OrderEntity,
   PowerBotEntity
@@ -61,7 +61,7 @@ export class PbDataService {
   /**
    *
    */
-  protected appSubscrption: Subscription;
+  protected appSubscribtion: Subscription;
   /**
    * Constructor
    */
@@ -156,6 +156,7 @@ export class PbDataService {
     // to prevent services to use hard-coded test-environment
     // before ConnectionType is explicitly set
     this.setAppEnv( AppEnv.Offline );
+    this.$apollo.testRestQuery();
   }
   /**
    * Apply passed service configuration to api-services
@@ -280,7 +281,7 @@ export class PbDataService {
   public connect( env: AppEnv ): void {
     this.allow = true;
     this.setAppEnv( env );
-    this.appSubscrption = this.getPollingTimer().subscribe(() => {
+    this.appSubscribtion = this.getPollingTimer().subscribe(() => {
       this.fetchApplicationData();
     });
   }
@@ -289,7 +290,7 @@ export class PbDataService {
    */
   public disconnect(): void {
     this.allow = false;
-    this.appSubscrption.unsubscribe();
+    this.appSubscribtion.unsubscribe();
     this.app.state.appEnv = AppEnv.Offline;
     this.app.state.connectionState = ConnectionState.Offline;
     this.app.state.requestState = RequestState.Inactive;
@@ -306,6 +307,7 @@ export class PbDataService {
     const subject: Subject<PowerBotEntity> = new Subject();
     this.$market.getStatus().subscribe( ( status: MarketStatus ) => {
       console.log( 'MARKETSTATUS' );
+      console.log( status );
     });
     const data$ = combineLatest([
       this.$market.getStatus(),
@@ -336,7 +338,7 @@ export class PbDataService {
           this.app.logs = logs;
           this.app.messages = messages;
           this.app.orders = orders;
-          this.app.signals = this.prepareSignalResponse( signals );
+          // this.app.signals = this.prepareSignalResponse( signals );
           this.app.trades = trades;
           this.app.state.connectionState = ConnectionState.Online;
           this.app.state.requestState = RequestState.Inactive;
@@ -348,28 +350,28 @@ export class PbDataService {
     );
     return subject.toPromise<PowerBotEntity>();
   }
-  public prepareSignalResponse( signals: SignalInterface[] ): any[] {
-    let keys: string[] = [];
-    let signalsObjects: { label: string, values: any[] }[] = [];
-    signals.forEach( signal => {
-      let index = keys.indexOf( signal.source );
-      // If key isn't found in key array, prepare
-      // signalObject to hold signal-data
-      if ( index === -1) {
-        keys.push( signal.source );
-        let signalObject = {
-          label: signal.source,
-          values: []
-        }
-        // Push signal data to signalObject
-        signalObject.values.push( signal );
-        // Push signalObjects to signalObjects-array
-        signalsObjects.push( signalObject );
-      } else {
-        // If key was found just push signal to according signalsObject
-        signalsObjects[index].values.push( signal );
-      }
-    });
-    return signalsObjects;
-  }
+  // public prepareSignalResponse( signals: SignalEntityInterface[] ): any[] {
+  //   let keys: string[] = [];
+  //   let signalsObjects: { label: string, values: any[] }[] = [];
+  //   signals.forEach( signal => {
+  //     let index = keys.indexOf( signal.source );
+  //     // If key isn't found in key array, prepare
+  //     // signalObject to hold signal-data
+  //     if ( index === -1) {
+  //       keys.push( signal.source );
+  //       let signalObject = {
+  //         label: signal.source,
+  //         values: []
+  //       }
+  //       // Push signal data to signalObject
+  //       signalObject.values.push( signal );
+  //       // Push signalObjects to signalObjects-array
+  //       signalsObjects.push( signalObject );
+  //     } else {
+  //       // If key was found just push signal to according signalsObject
+  //       signalsObjects[index].values.push( signal );
+  //     }
+  //   });
+  //   return signalsObjects;
+  // }
 }

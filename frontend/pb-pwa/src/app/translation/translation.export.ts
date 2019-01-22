@@ -1,4 +1,8 @@
-import { ErrorTranslation } from './error.translation';
+import { ErrorTranslation } from './errors.translation';
+import { TableTranslation } from './table.translation';
+import { TextTranslation } from './texts.translation';
 export {
-  ErrorTranslation
+  ErrorTranslation,
+  TableTranslation,
+  TextTranslation
 };

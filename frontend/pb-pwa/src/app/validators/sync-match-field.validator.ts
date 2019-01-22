@@ -50,6 +50,4 @@ export class SyncMatchFieldlValidator implements Validator {
     ): ValidationErrors | null {
       return SyncMatchFieldlValidator.matchField( this.fieldName )( ctrl );
     }
-
-
 }

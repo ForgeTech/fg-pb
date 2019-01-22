@@ -24,6 +24,19 @@ export const environment = {
         connection: false,
         connectionState: 0,
         requestState: 0,
+        orderbook: {
+          product: null,
+          withBidOrAskOnly: false,
+          contractId: null,
+          contractName: null,
+          deliveryStart: null,
+          deliveryEnd: null,
+          deliveryWithin: null,
+          pastHours: 3,
+          deliveryArea: null,
+          withDetails: true,
+          limit: null,
+        }
       }
     ],
     config: {

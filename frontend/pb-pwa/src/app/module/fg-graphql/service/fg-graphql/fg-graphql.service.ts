@@ -2,19 +2,23 @@ import { Injectable } from '@angular/core';
 import { InMemoryCache as ApolloInMemoryCache } from 'apollo-cache-inmemory';
 import { withClientState } from 'apollo-link-state';
 import {
+  ApolloClient,
+  ApolloQueryResult,
+  ObservableQuery,
+} from 'apollo-client';
+import {
   persistCache as apollo_persistCache,
   CachePersistor as ApolloCachePersistor
 } from 'apollo-cache-persist';
-// CacheProviders who are compatible with apollo persist-cache and should be choosen
-// based on the target-enviroment the apollo-client is run in, like in a browser, react-native
-// build
-import * as LocalForage from 'localforage';
 import { ApolloPersistOptions } from 'apollo-cache-persist/types';
+import { RestLink } from 'apollo-link-rest';
+import * as LocalForage from 'localforage';
 import gql from 'graphql-tag';
 import { HttpHeaders } from '@angular/common/http';
-import { ApolloClient, ApolloQueryResult, ObservableQuery } from 'apollo-client';
 import { environment } from 'src/environments/environment.ghp';
 import { ConfigConnection } from 'src/app/entity/entity.export';
+import { MessageEntityInterface } from 'src/app/interface/interface.export';
+import { PbDataService } from 'src/app/service/pb-data/pb-data.service';
 /**
  * FgGraphqlClientService -
 * This service provides methodes to
@@ -152,25 +156,11 @@ export class FgGraphqlService {
   }`;
   public fragmentView = gql`
     fragment viewConfig on View {
-    id
-    name
+    id name
     breakpoints {
-      id
-      name
-      validFor
-      cards {
-        id
-        cols
-        rows
-        template
-        title
-      }
-      grid {
-        id
-        cols
-        gutterSize
-        rowHeight
-      }
+      id name validFor
+      cards { id cols rows template title }
+      grid { id cols gutterSize rowHeight }
     }
   }`;
 
@@ -269,17 +259,16 @@ export class FgGraphqlService {
   /**
    * CONSTRUCTOR
    */
-  constructor(
-  ) {}
+  constructor() {}
   /**
    * Methode returning a object for writing to apollo-cache by
    * unioning new and previous data
    */
   protected getMutationWriteData(newData: any, prevData: any) {
-    if( !prevData ) {
+    if ( !prevData ) {
       prevData = {};
     }
-    if( !newData ) {
+    if ( !newData ) {
       newData = {};
     }
     return Object.assign( prevData, newData );
@@ -343,19 +332,27 @@ export class FgGraphqlService {
     // Setup persist-storage options and initialize it for apollo-client cache
     this.persistOptions = {};
     this.persistOptions.cache = cache;
-    this.persistOptions.key = environment.name.concat('-apollo-persist-cache');
+    this.persistOptions.key = environment.name.concat('-apollo-cache');
     this.persistOptions.storage = LocalForage.createInstance(this.persistOptions);
     apollo_persistCache(this.persistOptions);
-
+    // Setup local-state-link with graphql typeDefs and resolvers for
+    // local types
     const localStateLink = withClientState({
       cache: cache,
       defaults: data,
       resolvers: this.resolvers,
       typeDefs: this.typeDefs
     });
+    // Create a RestLink for the REST API
+    // If you are using multiple link types, restLink should go before httpLink,
+    // as httpLink will swallow any calls that should be routed through rest!
+    const restLink = new RestLink( {
+      uri: 'https://playground.powerbot-trading.com/api/v0/',
+      headers: { 'api_key': '44fc8162-d2c6-432a-8279-d8d40e5c0e1b' }
+    } );
     // Initialize apollo-client instance
     let clientOptions: any = {};
-    clientOptions.link = localStateLink;
+    clientOptions.link = localStateLink.concat( restLink );
     clientOptions.cache = cache;
     // Initialize
     clientOptions.connectToDevTools = environment.debug;
@@ -364,6 +361,100 @@ export class FgGraphqlService {
 
     this.apollo = new ApolloClient(clientOptions);
     this.persistor = this.getCachePersistor();
+  }
+  messageQuery(): void {
+    // A simple query to retrieve data about the first person
+    const query = gql`
+    query restTest {
+      messages @rest(type: "Message", path: "messages/") {
+        message_id
+        api_timestamp
+        category
+        message_class
+        content_type
+        correlation_id
+        direction
+        group_id
+        group_sequence
+        content
+      }
+    }
+  `;
+    // Invoke the query and log the person's name
+    this.apollo.query({ query }).then( (response: ApolloQueryResult<any> ) => {
+      console.log('RESPONSE');
+      console.log(response.data);
+    });
+  }
+  testRestQuery(): void {
+    // A simple query to retrieve data about the first person
+    const query = gql`
+    query restTest {
+      orderbook @rest(type: "Orderbook", path: "orderbooks/") {
+        products {
+          product_name
+          delivery_area
+          price_currency
+          quantity_unit
+        }
+      }
+    }`;
+          //   contracts [
+          //     {
+          //       product
+          //       contract_id
+          //       state
+          //       name
+          //       delUnits
+          //       revision_no
+          //       delivery_start
+          //       delivery_end
+          //       best_bid_price
+          //       best_bid_quantity
+          //       best_ask_price
+          //       best_ask_quantity
+          //       last_price
+          //       last_quantity
+          //       total_quantity
+          //       auction_price
+          //       high
+          //       low
+          //       contract_details
+          //       orderbook_details
+          //       relative_position
+          //       absolute_position
+          //       last_trade_time
+          //       signals [
+          //         {
+          //           id
+          //           source
+          //           received_at
+          //           revision
+          //           delivery_start
+          //           delivery_end
+          //           value {
+          //             imbalance
+          //             delivery_start
+          //             delivery_end
+          //           }
+          //         }
+          //       ]
+          //       vwap
+          //       otr
+          //       avwa
+          //       bvwa
+          //     }
+          //   ]
+          // }
+    // Invoke the query and log the person's name
+    this.apollo.query({
+      query: query,
+
+
+    }).then( (response: ApolloQueryResult<any> ) => {
+      console.log('RESPONSE');
+      console.log(response.data);
+    });
   }
   /**
    * Return a instance of apollo cache-persistor for handling
