@@ -9,13 +9,16 @@ import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-co
   templateUrl: './tab-api-key.component.html',
   styleUrls: ['./tab-api-key.component.scss']
 })
-export class TabApiKeyComponent extends FgComponentBaseComponent implements PbModalTabComponentInterface {
+export class TabApiKeyComponent extends FgComponentBaseComponent /*implements PbModalTabComponentInterface*/ {
+  /**
+   * Data passed to modal-window via 'modal-open'-event
+   */
+  entity: any;
   /**
    * Form containing input-elements to allow
    * setting data for api-key generation
    */
-  form: FormGroup;
-  public actionLabel = 'button_label_generate_api_key';
+  public form: FormGroup;
   /**
    * CONSTRUCTOR
    */
@@ -27,12 +30,12 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
       $component
     );
     this.form = $fb.group({
-      masterPwd: [null, [Validators.required, Validators.minLength(5)]],
+      masterPwd: [null, [Validators.required]],
       epexPwd: [null, [Validators.required]],
       name: [null, [Validators.required]],
       canTrade: [null, []],
       canSignal: [null, []],
-      isProd: [null, [Validators.required]],
+      envProd: [null, [Validators.required]],
       genApiKey: [null, []],
     });
   }
@@ -42,7 +45,6 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
       this.form.patchValue(
         this.$component.$data.app.config.apiKeyConfig
       );
-      // this.form.markAsDirty();
     }
   }
   /**
@@ -56,16 +58,8 @@ export class TabApiKeyComponent extends FgComponentBaseComponent implements PbMo
       can_trade: this.form.controls.canTrade.value,
       can_signal: this.form.controls.canSignal.value,
     };
-// {
-//       'masterPwd': this.form.controls.masterPwd.value,
-//       'epexPwd': this.form.controls.epexPwd.value,
-//       'name': this.form.controls.name.value,
-//       'canTrade': this.form.controls.canTrade.value,
-//       'canSignal': this.form.controls.canSignal.value,
-//       'envProd': this.form.controls.envProd.value,
-    // };
     this.$component.$data.$auth.configuration.basePath = 'https://playground.powerbot-trading.com/api/v0';
-    this.$component.$data.$auth.configuration.apiKeys = { api_key: '44fc8162-d2c6-432a-8279-d8d40e5c0e1b' };
+    this.$component.$data.$auth.configuration.apiKeys = { api_key: 'popowerbot_2f8fa4d3' };
     const subscription = this.$component.$data.$auth.addApiKey(params, 'body', true).subscribe( response => {
       console.log( 'API_KEY: ' + response );
       this.form.get('genApiKey').setValue('RECEIVED VALID');

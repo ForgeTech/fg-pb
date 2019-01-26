@@ -9,6 +9,7 @@ import { Observable, BehaviorSubject, Subject, merge } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { FgComponentBaseEvent } from 'src/app/event/fg-events.export';
 import { FormValidationStateEnum } from 'src/app/enum/enum.export';
+import { Configuration } from 'src/app/module/pb-api';
 /**
  * State of the apiKey-generation form
  */
@@ -31,7 +32,11 @@ export class ModalApiKeyComponent extends ModalComponent {
    * The Form containing input-elements
    * for setting market configuration
    */
-  form: FormGroup;
+  public tabApiKey: FormGroup;
+  /**
+   * Streams the translation for modal-headline
+   */
+  public modalGenApiKeyHeadline$: Observable<string>;
   /**
    * Streams the disabled state of action-button
    */
@@ -47,7 +52,7 @@ export class ModalApiKeyComponent extends ModalComponent {
     /**
      * Pass preset-data to apiKey-Modal
      */
-    @Inject(MAT_DIALOG_DATA) public data: PowerBotEntity,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     /**
      * Reference to the created modal
      */
@@ -70,19 +75,21 @@ export class ModalApiKeyComponent extends ModalComponent {
     const afterViewInit$ = this.event$.filter(event => event.signature === FgComponentBaseEvent.AFTER_CONTENT_INIT );
     // Compose observable for action-button disabled state
     this.actionDisabled$ = merge(
-      afterViewInit$.pipe( map( event => this.form.status  ) ),
+      afterViewInit$.pipe( map( event => this.tabApiKey.status  ) ),
       afterViewInit$.pipe(
-        switchMap( event => this.form.statusChanges )
+        switchMap( event => this.tabApiKey.statusChanges )
       )
     ).pipe(
-      map( ( status: string ) => status === FormValidationStateEnum[FormValidationStateEnum.VALID] ? true : false )
+      map( ( status: string ) => {
+          console.log( 'FORM STATUS' );
+          console.log( status );
+          return status === FormValidationStateEnum[FormValidationStateEnum.VALID] ? true : false;
+        }
+      )
+    );
+    // Provide generate ApiKey-Label for either Production/Test-Enviroment
+    this.modalGenApiKeyHeadline$ = this.$component.$translate.get(
+      data.productionEnv ? 'modal_headline_api_key_production' : 'modal_headline_api_key_test'
     );
   }
-  /**
-   * Request Api-Key
-   */
-  public action( $event: Event ) {
-    // this.$component.$data.$auth.addApiKey()
-  }
-
 }

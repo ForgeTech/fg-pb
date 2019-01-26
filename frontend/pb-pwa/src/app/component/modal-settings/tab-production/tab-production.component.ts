@@ -14,6 +14,7 @@ import { ObservableQuery, ApolloQueryResult } from 'apollo-client';
 import { Subject, Observable, merge, BehaviorSubject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { SyncMatchFieldlValidator } from 'src/app/validators/sync-match-field.validator';
+import { Configuration } from 'src/app/module/pb-api';
 /**
  * TabProductionComponent -
  * Component used to set production-configuration
@@ -170,7 +171,15 @@ export class TabProductionComponent extends FgComponentBaseComponent implements 
   /** Open generate ApiKey-Modal */
   public openApiKeyModal($event: Event) {
     event.preventDefault();
-    this.$component.$event.emit(new FgEvent(PbAppEvent.OPEN_API_KEY_MODAL, this));
+    let basePath: any = false;
+    if ( this.form.controls.serverUrl.valid ) {
+      basePath = this.form.controls.serverUrl.value;
+    } else if ( this.form.controls.backupUrl.valid ) {
+      basePath = this.form.controls.backupUrl.value;
+    }
+    if ( basePath ) {
+      this.$component.$event.emit(new FgEvent(PbAppEvent.OPEN_API_KEY_MODAL, this, { productionEnv: true, basePath: basePath}));
+    }
   }
   /**
    * Create production-config from form-data

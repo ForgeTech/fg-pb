@@ -1,9 +1,9 @@
 <pb-modal [entity]="this.entity">
-  <div title translate>
-    Generate ApiKey
+  <div title>
+      {{ modalGenApiKeyHeadline$ | async }}
   </div>
   <div content>
-    <pb-tab-api-key></pb-tab-api-key>
+    <pb-tab-api-key #tabApiKey [entity]="data"></pb-tab-api-key>
   </div>
   <div actions>
     <div fxFlexLayout="row">
@@ -11,8 +11,8 @@
       <button fxFlex="150px"
         mat-raised-button
         color="accent"
+        (click)="this.tabApiKey.action( $event )"
         >
-        <!-- (click)="this.tabComponents[ stepper.selectedIndex ].action( $event )" -->
         <!-- [disabled]="( actionDisabled$ | async )" -->
         Generate Api-Key
       </button>

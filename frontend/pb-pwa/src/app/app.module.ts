@@ -88,6 +88,7 @@ import { AsyncUrlApiKeyRespondsValidator } from './validators/async-url-api-key-
 import { FgGraphqlModule } from './module/fg-graphql/fg-graphql.module';
 import { FlexDashboardComponent } from './component/flex-dashboard/flex-dashboard.component';
 import { MatTableComponent } from './component/mat-table/mat-table.component';
+import { PwaOfflineComponent } from './component/pwa-offline/pwa-offline.component';
 
 /**
  * Routes for PowerBot application
@@ -97,6 +98,7 @@ const appRoutes: Routes = [
    * Empty route goes to dashboard
    */
   { path: 'login', component: LoginViewComponent },
+  { path: 'login/genApiKey/:environment', component: LoginViewComponent },
   /**
    * Routes to dashboard-components full-page views
    */
@@ -186,7 +188,8 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     FgCardComponent,
     SyncMatchFieldlValidator,
     FlexDashboardComponent,
-    MatTableComponent
+    MatTableComponent,
+    PwaOfflineComponent
   ],
   imports: [
     BrowserModule,

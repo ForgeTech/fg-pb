@@ -136,6 +136,7 @@ export class AppComponent {
     .filter( event => event.signature === PbAppEvent.OPEN_API_KEY_MODAL )
     .subscribe( event => {
       this.$app.$log.warn('OPEN API MODAL!');
+      modal_config.data = event.data;
       this.$dialog.open( ModalApiKeyComponent, modal_config );
     });
     // Register event for connecting to API

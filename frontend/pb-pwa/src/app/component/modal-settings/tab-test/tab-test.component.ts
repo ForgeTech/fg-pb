@@ -132,13 +132,17 @@ export class TabTestComponent extends FgComponentBaseComponent implements PbModa
   getApiErrorMessage(errors: ValidationErrors) {
     return 'Api Key Error';
   }
-  /**
-   * Open generate ApiKey-Modal
-  */
-  openApiKeyModal( $event: Event ) {
-    $event.preventDefault();
-    this.$component.$event.emit(new FgEvent(PbAppEvent.OPEN_API_KEY_MODAL, this));
+ /** Open generate ApiKey-Modal */
+ public openApiKeyModal($event: Event) {
+  event.preventDefault();
+  let basePath: any = false;
+  if ( this.form.controls.serverUrl.valid ) {
+    basePath = this.form.controls.serverUrl.value;
   }
+  if ( basePath ) {
+    this.$component.$event.emit(new FgEvent(PbAppEvent.OPEN_API_KEY_MODAL, this, { production: true, basePath: basePath}));
+  }
+}
   /**
    * Create logging-config from form-data
    */
