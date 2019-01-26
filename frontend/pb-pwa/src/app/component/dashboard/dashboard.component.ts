@@ -106,8 +106,10 @@ export class DashboardComponent extends FgComponentBaseComponent {
     console.log( matchedBreakpoints );
     let breakpointMatched: any = null;
     for ( let i = 0; i < breakpoints.length; i++) {
+      // tslint:disable-next-line prefer-const
       let viewBreakpoint: any = breakpoints[i];
       for ( let i2 = 0; i2 < viewBreakpoint.validFor.length; i2++ ) {
+        // tslint:disable-next-line prefer-const
         let validBreakpoint: string = viewBreakpoint.validFor[i2];
         if ( matchedBreakpoints.indexOf(validBreakpoint) !== -1 ) {
           console.log('FOUND BREAKPOINT');
