@@ -12,7 +12,7 @@
         "/PowerBot/libs/PACE/pace.js",
         "/PowerBot/libs/signet/signet.js",
         "/PowerBot/libs/svg-morpheus/source/js/svg-morpheus.js",
-        "/PowerBot/main.077a13b8b0092e175ba4.js",
+        "/PowerBot/main.d5f07a3de37f72d7b80e.js",
         "/PowerBot/polyfills.671834611e45c5e9bc4e.js",
         "/PowerBot/runtime.ec2944dd8b20ec099bf3.js",
         "/PowerBot/styles.6a0c7b5cf0462319eb5d.css"
@@ -117,11 +117,11 @@
     "/PowerBot/assets/powerbot_icon.png": "10d415e70923649fff842bb0474cb42ed527d104",
     "/PowerBot/assets/powerbot_logo.png": "83381f38f5142096c3485a873bed31df4dcab1da",
     "/PowerBot/favicon.ico": "3c215e52d566678137f0a8a59c448f39ace1f783",
-    "/PowerBot/index.html": "29e75d49f7903299795cd47562f9a5937704d49c",
+    "/PowerBot/index.html": "b7b605044f66ea13e56eee05e33a503a75aa8d97",
     "/PowerBot/libs/PACE/pace.js": "d9cfcb7e1fc4b827a64491726c9a78b9886b3793",
     "/PowerBot/libs/signet/signet.js": "31ecbfa9fa52963e7e5f83aaf92547c3b32a414a",
     "/PowerBot/libs/svg-morpheus/source/js/svg-morpheus.js": "840dce3f83fd4b7bfbee9ea500cdf49fbf2ec331",
-    "/PowerBot/main.077a13b8b0092e175ba4.js": "24a99bc4bc592fec424e6cb15a9f33de30fc7870",
+    "/PowerBot/main.d5f07a3de37f72d7b80e.js": "98e23435b24c384cba12d6f266879728c38438f2",
     "/PowerBot/polyfills.671834611e45c5e9bc4e.js": "4ab98e11e44c4bc97507dfc711f8420a47d6f18e",
     "/PowerBot/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/PowerBot/styles.6a0c7b5cf0462319eb5d.css": "d8fbb7c1e38c2267d4fb78d2dda5b33f0592c844"
