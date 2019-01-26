@@ -86,6 +86,8 @@ import { SyncMatchFieldlValidator } from './validators/sync-match-field.validato
 import { AsyncUrlRespondsValidator } from './validators/async-url-responds.validator';
 import { AsyncUrlApiKeyRespondsValidator } from './validators/async-url-api-key-responds.validator';
 import { FgGraphqlModule } from './module/fg-graphql/fg-graphql.module';
+import { FlexDashboardComponent } from './component/flex-dashboard/flex-dashboard.component';
+import { MatTableComponent } from './component/mat-table/mat-table.component';
 
 /**
  * Routes for PowerBot application
@@ -182,7 +184,9 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     TableLogsComponent,
     TableContractDetailsComponent,
     FgCardComponent,
-    SyncMatchFieldlValidator
+    SyncMatchFieldlValidator,
+    FlexDashboardComponent,
+    MatTableComponent
   ],
   imports: [
     BrowserModule,
