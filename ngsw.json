@@ -12,10 +12,10 @@
         "/PowerBot/libs/PACE/pace.js",
         "/PowerBot/libs/signet/signet.js",
         "/PowerBot/libs/svg-morpheus/source/js/svg-morpheus.js",
-        "/PowerBot/main.d5f07a3de37f72d7b80e.js",
+        "/PowerBot/main.f0b5f2a51dc8f8dbf452.js",
         "/PowerBot/polyfills.671834611e45c5e9bc4e.js",
         "/PowerBot/runtime.ec2944dd8b20ec099bf3.js",
-        "/PowerBot/styles.6a0c7b5cf0462319eb5d.css"
+        "/PowerBot/styles.d33bb5a74bce58677f9a.css"
       ],
       "patterns": []
     },
@@ -109,7 +109,7 @@
     "/PowerBot/assets/application/pwa-icon-96x96.png": "2a4f2cc6731a2ff6e9cf80c103cef886ad9c6daf",
     "/PowerBot/assets/forgetech/logo--small.png": "c078412b35b7644500c77e451fd8381fcf8ba20f",
     "/PowerBot/assets/forgetech/text--small.png": "50cb2ef1faaf8b9a93564dd3bb13d88a28b20b15",
-    "/PowerBot/assets/i18n/en.json": "72efa73c3f08c8b7381f86e6900da47824a654a1",
+    "/PowerBot/assets/i18n/en.json": "74dfd7df082584545097d6645ecbae8a180cefa7",
     "/PowerBot/assets/i18n/en.xlf": "1f2e8547e5313cedcc09484a3acd5b0db69b4e19",
     "/PowerBot/assets/i18n/master.json": "21a9c109748205e8a7367943e2e7d64267a642f3",
     "/PowerBot/assets/i18n/master.xlf": "91068e39961aa81a11a7c6a31969963d2a0a84ce",
@@ -117,14 +117,14 @@
     "/PowerBot/assets/powerbot_icon.png": "10d415e70923649fff842bb0474cb42ed527d104",
     "/PowerBot/assets/powerbot_logo.png": "83381f38f5142096c3485a873bed31df4dcab1da",
     "/PowerBot/favicon.ico": "3c215e52d566678137f0a8a59c448f39ace1f783",
-    "/PowerBot/index.html": "b7b605044f66ea13e56eee05e33a503a75aa8d97",
+    "/PowerBot/index.html": "02daf08199f1eea2129c4a54367e31f3058499d4",
     "/PowerBot/libs/PACE/pace.js": "d9cfcb7e1fc4b827a64491726c9a78b9886b3793",
     "/PowerBot/libs/signet/signet.js": "31ecbfa9fa52963e7e5f83aaf92547c3b32a414a",
     "/PowerBot/libs/svg-morpheus/source/js/svg-morpheus.js": "840dce3f83fd4b7bfbee9ea500cdf49fbf2ec331",
-    "/PowerBot/main.d5f07a3de37f72d7b80e.js": "98e23435b24c384cba12d6f266879728c38438f2",
+    "/PowerBot/main.f0b5f2a51dc8f8dbf452.js": "fe5a63a3ee5060fee62b4259e5e68999ce73ee07",
     "/PowerBot/polyfills.671834611e45c5e9bc4e.js": "4ab98e11e44c4bc97507dfc711f8420a47d6f18e",
     "/PowerBot/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
-    "/PowerBot/styles.6a0c7b5cf0462319eb5d.css": "d8fbb7c1e38c2267d4fb78d2dda5b33f0592c844"
+    "/PowerBot/styles.d33bb5a74bce58677f9a.css": "a8517c12a310899a6159af5dc361afc0c9e3fbe0"
   },
   "navigationUrls": [
     {
