@@ -14,7 +14,7 @@
     "i18n": "npm run i18n_extract_template && npm run i18n_extract_code",
     "translate_extract": "ngx-translate-extract -i ./src -o ./src/assets/i18n/master.json -m translation_key",
     "ghp-build": "ng build --prod --base-href /PowerBot/ --configuration=ghp",
-    "ghp-push": "./node_modules/.bin/angular-cli-ghpages --repo=https://6d96ad8b1251092dee67ef8e6defa64d795cc336@github.com/ForgeTech/PowerBot.git",
+    "ghp-push": "./node_modules/.bin/angular-cli-ghpages --repo=https://6d96ad8b1251092dee67ef8e6defa64d795cc336@github.com/ForgeTech/PowerBot.git --no-silent",
     "ghp-deploy": "npm run ghp-build & npm run ghp-push",
     "gen-swagger": "docker run --rm -v ~/swagger-codegen:/local swaggerapi/swagger-codegen-cli generate -i https://playground.powerbot-trading.com/api/v0/swagger.json -l typescript-angular -o /local/api"
   },
