@@ -49,6 +49,12 @@ body {
 .mat-menu-item {
   background-color: transparent !important;
 }
+.mat-horizontal-content-container {
+  padding: 0 12px 24px 12px !important;
+}
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
+  padding: 24px 12px 0 12px !important;
+}
 .modal-content {
   background-color: $light-modal;
   box-shadow: 0 11px 15px -7px rgba(0, 0, 0, .2),

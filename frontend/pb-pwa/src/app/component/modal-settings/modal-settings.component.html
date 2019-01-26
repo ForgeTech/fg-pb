@@ -25,7 +25,10 @@
       <ng-template matStepLabel>
         {{ 'tab_label_production' | translate }}
       </ng-template>
-      <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>
+      <div class="tab-height-container">
+        <h3>{{ 'tab_headline_production' | translate }}</h3>
+        <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>
+      </div>
       <div fxFlexLayout="row">
         <div fxFlex=""></div>
         <button fxFlex="150px" mat-stroked-button matStepperNext>
@@ -38,7 +41,10 @@
       <ng-template matStepLabel>
         {{ 'tab_label_test' | translate }}
       </ng-template>
-      <pb-tab-test #tabTest [config]="inputThemeColor"></pb-tab-test>
+      <div class="tab-height-container">
+        <h3>{{ 'tab_headline_test' | translate }}</h3>
+        <pb-tab-test #tabTest [config]="inputThemeColor"></pb-tab-test>
+      </div>
       <div fxFlexLayout="row">
         <button fxFlex="150px" mat-stroked-button matStepperPrevious>
           <mat-icon>navigate_before</mat-icon>
@@ -55,8 +61,11 @@
       <ng-template matStepLabel>
         {{ 'tab_label_logging' | translate }}
       </ng-template>
-      <pb-tab-logging #tabLogging [config]="inputThemeColor"></pb-tab-logging>
-      <div>
+      <div class="tab-height-container">
+        <h3>{{ 'tab_headline_logging' | translate }}</h3>
+        <pb-tab-logging #tabLogging [config]="inputThemeColor"></pb-tab-logging>
+      </div>
+      <div fxFlexLayout="row">
         <button mat-stroked-button matStepperPrevious>
           <mat-icon>navigate_before</mat-icon>
           Previous
