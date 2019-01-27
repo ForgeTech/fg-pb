@@ -11,6 +11,7 @@ import { AppEnv } from './entity/app-state.entity';
 import { Router } from '@angular/router';
 import { ModalApiKeyComponent } from './component/modal-api-key/modal-api-key.component';
 import { environment } from './../environments/environment';
+import { BreakpointEnum } from './module/fg-material/enum/enum.export';
 
 /**
   * The application-component loaded by angular-module bootstrap
@@ -108,15 +109,28 @@ export class AppComponent {
     // this.$app.$translate.use(
     //   this.$app.$translate.getLangs().indexOf(browserLang) ? browserLang : this.$app.$data.$env.lang
     // );
-
+    // Default modal-configuration
     const modal_config: MatDialogConfig = {
       panelClass: 'pb-panel',
       height: '90%',
-      width: '80vmax',
-      maxWidth: '640px',
+      width: '95%',
+      maxWidth: '95%',
       autoFocus: true,
       data: {}
     };
+    // Adapt modal-configuration to available screen-size
+    this.$app.$breakpoint.matchedBreakpoints$.subscribe( ( breakpoints ) => {
+      console.log('APP BREAKPOINTS: ', breakpoints );
+      for ( let i = 0; i < breakpoints.length; i++ ) {
+        // tslint:disable-next-line prefer-const
+        let breakpoint = breakpoints[ i ];
+        if ( breakpoint === BreakpointEnum[ BreakpointEnum.HANDSET ] ) {
+          modal_config.maxWidth = '80%';
+        } else {
+          modal_config.maxWidth = '640px';
+        }
+      }
+    });
     // Register event to open add-order modal
     this.$app.$event.event$
     .filter( event => event.signature === PbAppEvent.OPEN_ADD_ORDER_MODAL )

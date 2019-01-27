@@ -76,7 +76,7 @@ export class FgBreakpointService {
    */
   public getBreakpointObservable( mediaQueryStrings: string | Array<string> ): Observable<BreakpointState> {
     let matchedBreakpoints: Array<string> = [];
-    if ( mediaQueryStrings.length ){
+    if ( mediaQueryStrings.length ) {
       matchedBreakpoints =  mediaQueryStrings as Array<string>;
     } else {
       matchedBreakpoints.push( mediaQueryStrings as string );
@@ -87,53 +87,54 @@ export class FgBreakpointService {
    * Methode to return array of matched BreakpointEnums
    */
   protected getBreakpointEnumsFromBreakpointState( breakpointState: BreakpointState ): Array<string> {
-    let matchedBreakpointEnum: Array<string> = [];
+    // tslint:disable-next-line prefer-const
+    let matchedBreakpointEnums: Array<string> = [];
     const breakpointKeys: Array<string> = Object.keys(breakpointState.breakpoints);
-    for( var i = 0; i < breakpointKeys.length; i++ ) {
+    for ( let i = 0; i < breakpointKeys.length; i++ ) {
+      // tslint:disable-next-line prefer-const
       let breakpointKey: string = breakpointKeys[ i ];
-
-      // if breapoint matching state is true set according enum-key
+      // if breapoint matching state is true set according breakpoint-key
       if (breakpointState.breakpoints[ breakpointKey ] === true) {
         switch ( breakpointKey ) {
           case Breakpoints.Handset:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.HANDSET ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.HANDSET ] );
             break;
           case Breakpoints.HandsetLandscape:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.HANDSET_LANDSCAPE ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.HANDSET_LANDSCAPE ] );
             break;
           case Breakpoints.HandsetPortrait:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.HANDSET_PORTRAIT ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.HANDSET_PORTRAIT ] );
             break;
           case Breakpoints.Large:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.LARGE ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.LARGE ] );
             break;
           case Breakpoints.Medium:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.MEDIUM ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.MEDIUM ] );
             break;
           case Breakpoints.Small:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.SMALL ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.SMALL ] );
             break;
           case Breakpoints.Tablet:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.TABLET ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.TABLET ] );
             break;
           case Breakpoints.TabletLandscape:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.TABLET_LANSCAPE ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.TABLET_LANSCAPE ] );
             break;
           case Breakpoints.TabletPortrait:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.TABLET_PORTRAIT ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.TABLET_PORTRAIT ] );
             break;
           case Breakpoints.Web:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.WEB ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.WEB ] );
             break;
           case Breakpoints.WebLandscape:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.WEB_LANSCAPE ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.WEB_LANSCAPE ] );
             break;
           case Breakpoints.WebPortrait:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.WEB_PORTRAIT ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.WEB_PORTRAIT ] );
             break;
         }
       }
     }
-    return matchedBreakpointEnum;
+    return matchedBreakpointEnums;
   }
 }

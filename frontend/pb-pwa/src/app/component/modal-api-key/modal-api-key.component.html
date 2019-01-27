@@ -1,18 +1,25 @@
-<pb-modal [entity]="this.entity">
+<pb-modal
+  [entity]="this.entity">
   <div title>
       {{ modalGenApiKeyHeadline$ | async }}
   </div>
-  <div content>
-    <pb-tab-api-key #tabApiKey [entity]="data"></pb-tab-api-key>
+  <div content
+    [ngSwitch]="true">
+    <!-- <some-element *ngSwitchCase="match_expression_1">...</some-element> -->
+    <pb-tab-api-key
+      #tabApiKey
+      *ngSwitchDefault
+      [entity]="data">
+    </pb-tab-api-key>
   </div>
   <div actions>
     <div fxFlexLayout="row">
-      <div fxFlex=""></div>
-      <button fxFlex="150px"
+      <div fxFlex="1"></div>
+      <button
+        fxFlex="150px"
         mat-raised-button
         color="accent"
-        (click)="this.tabApiKey.action( $event )"
-        >
+        (click)="this.tabApiKey.action( $event )">
         <!-- [disabled]="( actionDisabled$ | async )" -->
         Generate Api-Key
       </button>

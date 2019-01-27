@@ -89,6 +89,7 @@ import { FgGraphqlModule } from './module/fg-graphql/fg-graphql.module';
 import { FlexDashboardComponent } from './component/flex-dashboard/flex-dashboard.component';
 import { MatTableComponent } from './component/mat-table/mat-table.component';
 import { PwaOfflineComponent } from './component/pwa-offline/pwa-offline.component';
+import { LoadingIndicatorComponent } from './component/loading-indicator/loading-indicator.component';
 
 /**
  * Routes for PowerBot application
@@ -189,7 +190,8 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     SyncMatchFieldlValidator,
     FlexDashboardComponent,
     MatTableComponent,
-    PwaOfflineComponent
+    PwaOfflineComponent,
+    LoadingIndicatorComponent
   ],
   imports: [
     BrowserModule,

@@ -2,11 +2,10 @@
   [ngClass]="{
     'pb-dark-theme': this.$component.$data.app.config.darkTheme
   }"
->
+  >
   <mat-toolbar
     color="primary"
-    class="modal-header"
-    >
+    class="modal-header">
     <mat-toolbar-row>
       <h2>
         <ng-content select="[title]"></ng-content>
@@ -16,8 +15,7 @@
         mat-fab
         matTooltip="Close Modal"
         color="primary"
-        (click)="closeModal()"
-        >
+        (click)="closeModal()">
         <mat-icon>close</mat-icon>
       </button>
     </mat-toolbar-row>
@@ -26,10 +24,9 @@
     <ng-content select="[content]"></ng-content>
   </div>
   <mat-toolbar
-  class="modal-actions"
-  color="primary"
-  >
-  <mat-toolbar-row>
+    class="modal-actions"
+    color="primary">
+    <mat-toolbar-row>
       <ng-content select="[actions]"></ng-content>
     </mat-toolbar-row>
   </mat-toolbar>

@@ -5,7 +5,10 @@
     (ngSubmit)="action( $event )"
   >
     <p>
-      <mat-form-field appearance="fill" color="{{ config }}">
+      <mat-form-field
+        appearance="fill"
+        color="{{ config }}"
+        >
         <mat-label translate>input_label_master_pwd</mat-label>
         <input
         matInput
@@ -13,33 +16,44 @@
         formControlName="masterPwd"
         required
         >
-        <pb-icon-validation matSuffix [entity]="this.form.controls.masterPwd"></pb-icon-validation>
+        <pb-icon-validation
+          matSuffix
+          [entity]="this.form.controls.masterPwd">
+        </pb-icon-validation>
         <mat-hint translate>input_hint_master_pwd</mat-hint>
       </mat-form-field>
     </p>
     <p>
-      <mat-form-field appearance="fill" color="{{ config }}">
+      <mat-form-field
+        appearance="fill"
+        color="{{ config }}">
         <mat-label  translate>input_label_epex</mat-label>
         <input
-        matInput
-        placeholder="{{ 'input_placeholder_epex' | translate }}"
-        formControlName="epexPwd"
-        required
-        >
-        <pb-icon-validation matSuffix [entity]="this.form.controls.epexPwd"></pb-icon-validation>
+          matInput
+          placeholder="{{ 'input_placeholder_epex' | translate }}"
+          formControlName="epexPwd"
+          required>
+        <pb-icon-validation
+          matSuffix
+          [entity]="this.form.controls.epexPwd">
+        </pb-icon-validation>
         <mat-hint translate>input_hint_epex</mat-hint>
       </mat-form-field>
     </p>
     <p>
-      <mat-form-field appearance="fill"  color="{{ config }}">
+      <mat-form-field
+        appearance="fill"
+        color="{{ config }}">
         <mat-label translate>input_label_api_key_name</mat-label>
         <input
-        matInput
-        placeholder="{{ 'input_placeholder_api_key_name' | translate }}"
-        formControlName="name"
-        required
-        >
-        <pb-icon-validation matSuffix [entity]="this.form.controls.name"></pb-icon-validation>
+          matInput
+          placeholder="{{ 'input_placeholder_api_key_name' | translate }}"
+          formControlName="name"
+          required>
+        <pb-icon-validation
+          matSuffix
+          [entity]="this.form.controls.name">
+        </pb-icon-validation>
         <mat-hint translate>input_hint_api_key_name</mat-hint>
       </mat-form-field>
     </p>
@@ -59,22 +73,29 @@
       </mat-checkbox>
     </p>
     <p>
-      <mat-radio-group formControlName="envProd" disabled="true">
-        <mat-radio-button value="true" [checked]="entity.productionEnv">
+      <mat-radio-group
+        formControlName="envProd"
+        disabled="true">
+        <mat-radio-button
+          value="true"
+          [checked]="entity.productionEnv">
           {{ 'checkbox_label_enable_environment_production' | translate }}
         </mat-radio-button>
-        <mat-radio-button value="false" [checked]="!entity.productionEnv">
+        <mat-radio-button
+          value="false"
+          [checked]="!entity.productionEnv">
           {{ 'checkbox_label_enable_environment_test' | translate }}
         </mat-radio-button>
       </mat-radio-group>
     </p>
     <p>
-      <mat-form-field appearance="fill"  color="{{ config }}">
+      <mat-form-field
+        appearance="fill"
+        color="{{ config }}">
         <mat-label translate>input_label_generated_api_key</mat-label>
         <input
-        matInput
-        formControlName="genApiKey"
-        >
+          matInput
+          formControlName="genApiKey">
         <mat-hint translate>input_hint_generated_api_key</mat-hint>
       </mat-form-field>
     </p>
