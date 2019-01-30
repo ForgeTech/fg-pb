@@ -45,11 +45,11 @@ export class BarStateComponent  extends FgComponentBaseComponent {
   getProgressBarMode(): string {
     let mode: string = '';
     // CAUTION! Loading progress only displayed for development
-    if ( this.$component.$data.app.config.debug) {
+    // if ( this.$component.$data.app.config.debug) {
       if ( this.entity.state.requestState === RequestState.Active) {
         mode = 'indeterminate';
       }
-    }
+    // }
     return mode;
   }
   /**

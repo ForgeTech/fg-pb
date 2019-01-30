@@ -16,7 +16,7 @@ body {
 // Override height of perfect-scrollbar .ps-content to allow
 // horizontal/vertical alignment of login-modal
 .ps-content {
-  height: 100%;
+  min-height: 100%;
 }
 
 // *:focus {

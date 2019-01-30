@@ -1,4 +1,4 @@
-import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Inject, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { FgComponentBaseService } from '../fg-component-base/fg-component-base.service';
 import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
@@ -10,6 +10,7 @@ import { switchMap, map } from 'rxjs/operators';
 import { FgComponentBaseEvent } from 'src/app/event/fg-events.export';
 import { FormValidationStateEnum } from 'src/app/enum/enum.export';
 import { Configuration } from 'src/app/module/pb-api';
+import { PbModalTabComponentInterface } from 'src/app/interface/interface.export';
 /**
  * State of the apiKey-generation form
  */
@@ -32,7 +33,7 @@ export class ModalApiKeyComponent extends ModalComponent {
    * The Form containing input-elements
    * for setting market configuration
    */
-  public tabApiKey: FormGroup;
+  public tabApiKey: PbModalTabComponentInterface;
   /**
    * Streams the translation for modal-headline
    */
@@ -75,9 +76,9 @@ export class ModalApiKeyComponent extends ModalComponent {
     const afterViewInit$ = this.event$.filter(event => event.signature === FgComponentBaseEvent.AFTER_CONTENT_INIT );
     // Compose observable for action-button disabled state
     this.actionDisabled$ = merge(
-      afterViewInit$.pipe( map( event => this.tabApiKey.status  ) ),
+      afterViewInit$.pipe( map( event => this.tabApiKey.form.status  ) ),
       afterViewInit$.pipe(
-        switchMap( event => this.tabApiKey.statusChanges )
+        switchMap( event => this.tabApiKey.form.statusChanges )
       )
     ).pipe(
       map( ( status: string ) => {

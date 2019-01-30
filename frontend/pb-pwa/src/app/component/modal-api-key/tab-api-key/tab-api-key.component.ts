@@ -9,11 +9,15 @@ import { PbModalTabComponentInterface } from '../../../interface/pb-modal-tab-co
   templateUrl: './tab-api-key.component.html',
   styleUrls: ['./tab-api-key.component.scss']
 })
-export class TabApiKeyComponent extends FgComponentBaseComponent /*implements PbModalTabComponentInterface*/ {
+export class TabApiKeyComponent extends FgComponentBaseComponent implements PbModalTabComponentInterface {
   /**
    * Data passed to modal-window via 'modal-open'-event
    */
-  entity: any;
+  public entity: any;
+  /**
+   * Label for tab-action
+   */
+  public actionLabel = 'button_label_generate_api_key';
   /**
    * Form containing input-elements to allow
    * setting data for api-key generation
