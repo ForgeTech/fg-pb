@@ -90,7 +90,7 @@
     "@angular/compiler-cli": "7.2.0",
     "@angular/language-service": "7.2.0",
     "@biesbjerg/ngx-translate-extract": "2.3.4",
-    "@compodoc/compodoc": "1.1.5",
+    "@compodoc/compodoc": "^1.1.8",
     "@types/highcharts": "5.0.31",
     "@types/jasmine": "2.8.9",
     "@types/jasminewd2": "2.0.5",
