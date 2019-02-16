@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -107,7 +104,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>transform(value: TradeInterface, args?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>transform(value: <a href="../classes/TradeEntity.html">TradeEntityInterface</a>, args?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
 
@@ -139,7 +136,7 @@
                                                 <tr>
                                                         <td>value</td>
                                                         <td>
-                                                                    <code>TradeInterface</code>
+                                                                    <code><a href="../classes/TradeEntity.html" target="_self" >TradeEntityInterface</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -148,8 +145,8 @@
                                                     
 
                                                         <td>
-                                                                <code><p>Datatable row trades-object instance</p>
-</code>
+                                                                <p>Datatable row trades-object instance</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -164,8 +161,8 @@
                                                     
 
                                                         <td>
-                                                                <code><p>(optional) args are not used in this pipe</p>
-</code>
+                                                                <p>(optional) args are not used in this pipe</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -193,7 +190,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
 import { PowerBotEntity } from &#x27;../../entity/entity.export&#x27;;
-import { TradeInterface } from &#x27;../../module/pb-api/model/interfaces.export&#x27;;
+import { TradeEntityInterface } from &#x27;./../../interface/interface.export&#x27;;
 /**
  * Pipe for transforming PowerBot trade-object to trade-side value
  */
@@ -206,13 +203,13 @@ export class PbSidePipe implements PipeTransform {
    * @param value Datatable row trades-object instance
    * @param args (optional) args are not used in this pipe
    */
-  transform( value: TradeInterface, args?: any ): string {
+  transform( value: TradeEntityInterface, args?: any ): string {
     let side &#x3D; &#x27;&#x27;;
     if ( value.buy &amp;&amp; value.sell ) {
       side &#x3D; &#x27;INT&#x27;;
     } else if ( value.buy ) {
       side &#x3D; &#x27;BUY&#x27;;
-    } else if ( value.sell ){
+    } else if ( value.sell ) {
       side &#x3D; &#x27;SELL&#x27;;
     }
     return side;
@@ -252,7 +249,9 @@ export class PbSidePipe implements PipeTransform {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

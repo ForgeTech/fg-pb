@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -204,16 +201,9 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Optional</span>
-                            accessToken
-                            </b>
+                            accessToken</b>
                             <a href="#accessToken"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>accessToken:     <code>string | </code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -239,16 +229,9 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Optional</span>
-                            apiKeys
-                            </b>
+                            apiKeys</b>
                             <a href="#apiKeys"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>apiKeys:     <code>literal type</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -274,16 +257,9 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Optional</span>
-                            basePath
-                            </b>
+                            basePath</b>
                             <a href="#basePath"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>basePath:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -309,16 +285,9 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Optional</span>
-                            password
-                            </b>
+                            password</b>
                             <a href="#password"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>password:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -344,16 +313,9 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Optional</span>
-                            username
-                            </b>
+                            username</b>
                             <a href="#username"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>username:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -379,16 +341,9 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Optional</span>
-                            withCredentials
-                            </b>
+                            withCredentials</b>
                             <a href="#withCredentials"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>withCredentials:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -476,10 +431,10 @@ JSON MIME examples:
                                                     
 
                                                         <td>
-                                                                <code><ul>
+                                                                <ul>
 <li>MIME (Multipurpose Internet Mail Extensions)</li>
 </ul>
-</code>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -559,10 +514,10 @@ If no content type is found return the first found type if the contentTypes is n
                                                     
 
                                                         <td>
-                                                                <code><ul>
+                                                                <ul>
 <li>the array of content types that are available for selection.</li>
 </ul>
-</code>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -642,10 +597,10 @@ If no content type is found return the first found type if the contentTypes is n
                                                     
 
                                                         <td>
-                                                                <code><ul>
+                                                                <ul>
 <li>the array of content types that are available for selection</li>
 </ul>
-</code>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -787,7 +742,9 @@ export class Configuration {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -70,8 +67,8 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>PowerBor -
-Entity to</p>
+                <p>PowerBot -
+Entity to collect data-states</p>
 
             </p>
 
@@ -166,7 +163,7 @@ Entity to</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(state: <a href="../classes/PowerbotStateEntity.html">PowerbotStateEntity</a>, config: <a href="../classes/ConfigPowerbot.html">ConfigPowerbot</a>, contracts: ContractInterface[], contractHistory: ContractInterface[], logs: LogInterface[], messages: MessageInterface[], orderbook: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, products: any[], asks: any[], bids: any[], orders: any[], signals: any[], trades: TradeInterface[], market?: MarketInterface)</code>
+<code>constructor(state: <a href="../classes/PowerbotStateEntity.html">PowerbotStateEntity</a>, config: <a href="../classes/ConfigPowerbot.html">ConfigPowerbot</a>, contracts: <a href="../classes/ContractEntity.html">ContractEntityInterface[]</a>, contractHistory: <a href="../classes/ContractEntity.html">ContractEntityInterface[]</a>, logs: <a href="../classes/LogEntity.html">LogEntityInterface[]</a>, messages: <a href="../classes/MessageEntity.html">MessageEntityInterface[]</a>, orderbook: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, products: any[], asks: any[], bids: any[], orders: any[], signals: any[], trades: <a href="../classes/TradeEntity.html">TradeEntityInterface[]</a>, market?: <a href="../classes/MarketEntity.html">MarketEntityInterface</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -218,7 +215,7 @@ Entity to</p>
                                                         <td>contracts</td>
                                                   
                                                         <td>
-                                                                    <code>ContractInterface[]</code>
+                                                                    <code><a href="../classes/ContractEntity.html" target="_self" >ContractEntityInterface[]</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -230,7 +227,7 @@ Entity to</p>
                                                         <td>contractHistory</td>
                                                   
                                                         <td>
-                                                                    <code>ContractInterface[]</code>
+                                                                    <code><a href="../classes/ContractEntity.html" target="_self" >ContractEntityInterface[]</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -242,7 +239,7 @@ Entity to</p>
                                                         <td>logs</td>
                                                   
                                                         <td>
-                                                                    <code>LogInterface[]</code>
+                                                                    <code><a href="../classes/LogEntity.html" target="_self" >LogEntityInterface[]</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -254,7 +251,7 @@ Entity to</p>
                                                         <td>messages</td>
                                                   
                                                         <td>
-                                                                    <code>MessageInterface[]</code>
+                                                                    <code><a href="../classes/MessageEntity.html" target="_self" >MessageEntityInterface[]</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -338,7 +335,7 @@ Entity to</p>
                                                         <td>trades</td>
                                                   
                                                         <td>
-                                                                    <code>TradeInterface[]</code>
+                                                                    <code><a href="../classes/TradeEntity.html" target="_self" >TradeEntityInterface[]</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -350,7 +347,7 @@ Entity to</p>
                                                         <td>market</td>
                                                   
                                                         <td>
-                                                                    <code>MarketInterface</code>
+                                                                    <code><a href="../classes/MarketEntity.html" target="_self" >MarketEntityInterface</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -380,16 +377,9 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            asks
-                            </b>
+                            asks</b>
                             <a href="#asks"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>asks:     <code>any[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -426,16 +416,9 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            bids
-                            </b>
+                            bids</b>
                             <a href="#bids"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>bids:     <code>any[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -472,16 +455,9 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            config
-                            </b>
+                            config</b>
                             <a href="#config"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>config:     <code><a href="../classes/ConfigPowerbot.html" target="_self" >ConfigPowerbot</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -518,21 +494,14 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            contractHistory
-                            </b>
+                            contractHistory</b>
                             <a href="#contractHistory"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>contractHistory:     <code>ContractInterface[]</code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>ContractInterface[]</code>
+                            <i>Type : </i>    <code><a href="../classes/ContractEntity.html" target="_self" >ContractEntityInterface[]</a></code>
 
                         </td>
                     </tr>
@@ -564,21 +533,14 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            contracts
-                            </b>
+                            contracts</b>
                             <a href="#contracts"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>contracts:     <code>ContractInterface[]</code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>ContractInterface[]</code>
+                            <i>Type : </i>    <code><a href="../classes/ContractEntity.html" target="_self" >ContractEntityInterface[]</a></code>
 
                         </td>
                     </tr>
@@ -610,21 +572,14 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            logs
-                            </b>
+                            logs</b>
                             <a href="#logs"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>logs:     <code>LogInterface[]</code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>LogInterface[]</code>
+                            <i>Type : </i>    <code><a href="../classes/LogEntity.html" target="_self" >LogEntityInterface[]</a></code>
 
                         </td>
                     </tr>
@@ -657,21 +612,14 @@ Entity to</p>
                             <b>
                                 <span class="modifier">Public</span>
                                 <span class="modifier">Optional</span>
-                            market
-                            </b>
+                            market</b>
                             <a href="#market"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>market:     <code>MarketInterface</code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>MarketInterface</code>
+                            <i>Type : </i>    <code><a href="../classes/MarketEntity.html" target="_self" >MarketEntityInterface</a></code>
 
                         </td>
                     </tr>
@@ -698,21 +646,14 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            messages
-                            </b>
+                            messages</b>
                             <a href="#messages"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>messages:     <code>MessageInterface[]</code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>MessageInterface[]</code>
+                            <i>Type : </i>    <code><a href="../classes/MessageEntity.html" target="_self" >MessageEntityInterface[]</a></code>
 
                         </td>
                     </tr>
@@ -744,16 +685,9 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            orderbook
-                            </b>
+                            orderbook</b>
                             <a href="#orderbook"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>orderbook:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -790,16 +724,9 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            orders
-                            </b>
+                            orders</b>
                             <a href="#orders"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>orders:     <code>any[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -836,16 +763,9 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            products
-                            </b>
+                            products</b>
                             <a href="#products"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>products:     <code>any[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -882,16 +802,9 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            signals
-                            </b>
+                            signals</b>
                             <a href="#signals"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>signals:     <code>any[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -928,16 +841,9 @@ Entity to</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            state
-                            </b>
+                            state</b>
                             <a href="#state"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>state:     <code><a href="../classes/PowerbotStateEntity.html" target="_self" >PowerbotStateEntity</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -976,21 +882,14 @@ component</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            trades
-                            </b>
+                            trades</b>
                             <a href="#trades"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>trades:     <code>TradeInterface[]</code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>TradeInterface[]</code>
+                            <i>Type : </i>    <code><a href="../classes/TradeEntity.html" target="_self" >TradeEntityInterface[]</a></code>
 
                         </td>
                     </tr>
@@ -1028,19 +927,19 @@ component</p>
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ConfigPowerbot } from &#x27;./config-powerbot.entity&#x27;;
 import {
-  ContractInterface,
-  LogInterface,
-  MarketInterface,
-  MessageInterface,
-  OrderInterface,
-  SignalInterface,
-  TradeInterface,
-} from &#x27;../module/pb-api/model/interfaces.export&#x27;;
+  ContractEntityInterface,
+  LogEntityInterface,
+  MarketEntityInterface,
+  MessageEntityInterface,
+  OrderEntityInterface,
+  SignalEntityInterface,
+  TradeEntityInterface,
+} from &#x27;./../interface/interface.export&#x27;;
 import { PowerbotStateEntity } from &#x27;./entity.export&#x27;;
 
 /**
- * PowerBor -
- * Entity to
+ * PowerBot -
+ * Entity to collect data-states
  */
 export class PowerBotEntity {
   /**
@@ -1060,19 +959,19 @@ export class PowerBotEntity {
     /**
      * Holds current powerbot contract data
      */
-    public contracts: ContractInterface[] &#x3D; [],
+    public contracts: ContractEntityInterface[] &#x3D; [],
     /**
      * Holds historical contract-data for currently selected contract
      */
-    public contractHistory: ContractInterface[] &#x3D; [],
+    public contractHistory: ContractEntityInterface[] &#x3D; [],
     /**
      * Holds current powerbot contract data
      */
-    public logs: LogInterface[] &#x3D; [],
+    public logs: LogEntityInterface[] &#x3D; [],
     /**
      * Holds current powerbot contract data
      */
-    public messages: MessageInterface[] &#x3D; [],
+    public messages: MessageEntityInterface[] &#x3D; [],
     /**
      * Holds current powerbot orderbook data
      */
@@ -1100,11 +999,11 @@ export class PowerBotEntity {
     /**
      * Holds current powerbot contract data
      */
-    public trades: TradeInterface[] &#x3D; [],
+    public trades: TradeEntityInterface[] &#x3D; [],
     /**
      * Holds current powerbot contract data
      */
-    public market?: MarketInterface,
+    public market?: MarketEntityInterface,
   ) {}
 }
 </code></pre>
@@ -1139,7 +1038,9 @@ export class PowerBotEntity {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

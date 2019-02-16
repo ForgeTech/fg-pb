@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -495,8 +492,8 @@ communication</p>
                                                         </td>
 
                                                         <td>
-                                                                <code><p>The name of the Event to register, like &#39;Event_FgComponentBase_onInit</p>
-</code>
+                                                                <p>The name of the Event to register, like &#39;Event_FgComponentBase_onInit</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -513,8 +510,8 @@ communication</p>
                                                         </td>
 
                                                         <td>
-                                                                <code><p>The callback-function to be executed when event is emitted using event-service</p>
-</code>
+                                                                <p>The callback-function to be executed when event is emitted using event-service</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -532,8 +529,8 @@ communication</p>
                                                         </td>
 
                                                         <td>
-                                                                <code><p>( Optional ) Only listen to event when dispatched by passed object</p>
-</code>
+                                                                <p>( Optional ) Only listen to event when dispatched by passed object</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -611,8 +608,8 @@ communication</p>
                                                     
 
                                                         <td>
-                                                                <code><p>The name of the Event to register, like &#39;Event_FgComponentBase_onInit</p>
-</code>
+                                                                <p>The name of the Event to register, like &#39;Event_FgComponentBase_onInit</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -627,8 +624,8 @@ communication</p>
                                                     
 
                                                         <td>
-                                                                <code><p>The callback-function to be executed when event is emitted using event-service</p>
-</code>
+                                                                <p>The callback-function to be executed when event is emitted using event-service</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -643,8 +640,8 @@ communication</p>
                                                     
 
                                                         <td>
-                                                                <code><p>( Optional ) Only listen to event when dispatched by passed object</p>
-</code>
+                                                                <p>( Optional ) Only listen to event when dispatched by passed object</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -680,16 +677,9 @@ false if no matching subscribtion is found</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            $log
-                            </b>
+                            $log</b>
                             <a href="#$log"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$log:     <code>FgLogService</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -721,16 +711,9 @@ false if no matching subscribtion is found</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            event$
-                            </b>
+                            event$</b>
                             <a href="#event$"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>event$:     <code><a href="../classes/FgEvent.html" target="_self" >Subject&lt;FgEvent&gt;</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -763,16 +746,9 @@ within the angular application</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            eventsToLog
-                            </b>
+                            eventsToLog</b>
                             <a href="#eventsToLog"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>eventsToLog:     <code>string[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -804,16 +780,9 @@ within the angular application</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            subscribed
-                            </b>
+                            subscribed</b>
                             <a href="#subscribed"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>subscribed:     <code>[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1007,7 +976,9 @@ export class FgEventService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

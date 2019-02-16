@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -63,13 +60,13 @@
                             <a href="#_" title="src/app/app.utils.ts"><b>_</b>&nbsp;&nbsp;&nbsp;(src/.../app.utils.ts)</a>
                         </li>
                         <li>
-                            <a href="#_" title="src/app/translation/translation.utils.ts"><b>_</b>&nbsp;&nbsp;&nbsp;(src/.../translation.utils.ts)</a>
-                        </li>
-                        <li>
                             <a href="#HttpLoaderFactory" title="src/app/app.module.ts"><b>HttpLoaderFactory</b>&nbsp;&nbsp;&nbsp;(src/.../app.module.ts)</a>
                         </li>
                         <li>
                             <a href="#sortArrayByTime" title="src/app/app.utils.ts"><b>sortArrayByTime</b>&nbsp;&nbsp;&nbsp;(src/.../app.utils.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#translation_key" title="src/app/translation/translation.utils.ts"><b>translation_key</b>&nbsp;&nbsp;&nbsp;(src/.../translation.utils.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -95,7 +92,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>_(str: undefined)</code>
+<code>_(str)</code>
                     </td>
                 </tr>
 
@@ -150,7 +147,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>sortArrayByTime(a: undefined, b: undefined)</code>
+<code>sortArrayByTime(a, b)</code>
                     </td>
                 </tr>
 
@@ -201,24 +198,80 @@ and return 0 for undefined dates</p>
             </tbody>
         </table>
 </section>
+    <h3>src/app/app.module.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="HttpLoaderFactory"></a>
+                        <span class="name">
+                            <b>
+                            HttpLoaderFactory
+                            </b>
+                            <a href="#HttpLoaderFactory"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>HttpLoaderFactory(httpClient)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>httpClient</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
     <h3>src/app/translation/translation.utils.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_"></a>
+                        <a name="translation_key"></a>
                         <span class="name">
                             <b>
-                            _
+                            translation_key
                             </b>
-                            <a href="#_"><span class="icon ion-ios-link"></span></a>
+                            <a href="#translation_key"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>_(str: undefined)</code>
+<code>translation_key(str)</code>
                     </td>
                 </tr>
 
@@ -242,62 +295,6 @@ and return 0 for undefined dates</p>
                                         <tbody>
                                                 <tr>
                                                         <td>str</td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-    <h3>src/app/app.module.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="HttpLoaderFactory"></a>
-                        <span class="name">
-                            <b>
-                            HttpLoaderFactory
-                            </b>
-                            <a href="#HttpLoaderFactory"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>HttpLoaderFactory(httpClient: undefined)</code>
-                    </td>
-                </tr>
-
-
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>httpClient</td>
                                                     
                                                     <td>
                                                             No
@@ -340,7 +337,9 @@ and return 0 for undefined dates</p>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

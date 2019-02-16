@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -262,16 +259,9 @@ inter-module/component/service messages</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            _bubble
-                            </b>
+                            _bubble</b>
                             <a href="#_bubble"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_bubble:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -304,16 +294,9 @@ via the component event-emitter binding</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            _data
-                            </b>
+                            _data</b>
                             <a href="#_data"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_data:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -345,16 +328,9 @@ via the component event-emitter binding</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            _dispatcher
-                            </b>
+                            _dispatcher</b>
                             <a href="#_dispatcher"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_dispatcher:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -387,16 +363,9 @@ the event</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            _options
-                            </b>
+                            _options</b>
                             <a href="#_options"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_options:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -428,16 +397,9 @@ the event</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            _signature
-                            </b>
+                            _signature</b>
                             <a href="#_signature"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_signature:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -857,7 +819,9 @@ the event</p>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

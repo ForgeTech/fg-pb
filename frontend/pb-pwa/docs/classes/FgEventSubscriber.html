@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -224,16 +221,9 @@ Abstract class to be extended by classes</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            _eventsToSubscribe
-                            </b>
+                            _eventsToSubscribe</b>
                             <a href="#_eventsToSubscribe"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_eventsToSubscribe:     <code>[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -266,16 +256,9 @@ event-service</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            $event
-                            </b>
+                            $event</b>
                             <a href="#$event"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$event:     <code><a href="../injectables/FgEventService.html" target="_self" >FgEventService</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -307,16 +290,9 @@ event-service</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            $log
-                            </b>
+                            $log</b>
                             <a href="#$log"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$log:     <code>FgLogService</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -696,7 +672,9 @@ export abstract class FgEventSubscriber {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

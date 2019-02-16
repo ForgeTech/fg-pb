@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -307,7 +304,7 @@
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>addOrder(order: Order, internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>addOrder(order: Order, internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -363,8 +360,8 @@ Allows you to place a new sell or bid order.</p>
                                                     
 
                                                         <td>
-                                                                <code><p>set to true, internal trading will be performed before submitting the orders to EPEX.  set to false if you don&#39;t want internal trading don&#39;t set it if the default market option (internal_trading) should determine if internal trading should be performed</p>
-</code>
+                                                                <p>set to true, internal trading will be performed before submitting the orders to EPEX.  set to false if you don&#39;t want internal trading don&#39;t set it if the default market option (internal_trading) should determine if internal trading should be performed</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -378,8 +375,8 @@ Allows you to place a new sell or bid order.</p>
                                                     
 
                                                         <td>
-                                                                <code><p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
-</code>
+                                                                <p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -394,8 +391,8 @@ Allows you to place a new sell or bid order.</p>
                                                     
 
                                                         <td>
-                                                                <code><p>flag to report request and response progress.</p>
-</code>
+                                                                <p>flag to report request and response progress.</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -431,7 +428,7 @@ Allows you to place a new sell or bid order.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>addOrder(order: Order, internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>addOrder(order: Order, internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -655,7 +652,7 @@ Allows you to place a new sell or bid order.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>addOrder(order: Order, internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>addOrder(order: Order, internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -761,7 +758,7 @@ Allows you to place a new sell or bid order.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>addOrders(order: Array<Order1>, execInstruction?: "VALID" | "LNKD", internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>addOrders(order: Array<Order1>, execInstruction?: "VALID" | "LNKD", internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -817,8 +814,8 @@ Allows you to place a new sell or bid orders. For each requested order one respo
                                                     
 
                                                         <td>
-                                                                <code><p>Defines the execution instruction for the whole list of orders:    * <strong>VALID</strong>: default. All orders must be valid, meaning they must past the order validation of the backend system (e.g. the price of the order must be in the price range of the product). If one order does not pass the validation, the full list of submitted orders is rejected.   * <strong>LNKD</strong>: Linked orders - the provided orders are linked together and should be executed all at once. This option can only be used, if all orders have the same product and the execution restriction FOK (Fill-or-Kill). In case one of the orders cannot be executed, the whole list is not executed. The Linked Orders feature is configurable and might be turned off by EPEX.</p>
-</code>
+                                                                <p>Defines the execution instruction for the whole list of orders:    * <strong>VALID</strong>: default. All orders must be valid, meaning they must past the order validation of the backend system (e.g. the price of the order must be in the price range of the product). If one order does not pass the validation, the full list of submitted orders is rejected.   * <strong>LNKD</strong>: Linked orders - the provided orders are linked together and should be executed all at once. This option can only be used, if all orders have the same product and the execution restriction FOK (Fill-or-Kill). In case one of the orders cannot be executed, the whole list is not executed. The Linked Orders feature is configurable and might be turned off by EPEX.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -833,8 +830,8 @@ Allows you to place a new sell or bid orders. For each requested order one respo
                                                     
 
                                                         <td>
-                                                                <code><p>set to true, internal matching will be performed before submitting the orders to EPEX.  set to false if you don&#39;t want internal matching don&#39;t set it if the default market option (internal_trading) should determine if internal matching should be performed</p>
-</code>
+                                                                <p>set to true, internal matching will be performed before submitting the orders to EPEX.  set to false if you don&#39;t want internal matching don&#39;t set it if the default market option (internal_trading) should determine if internal matching should be performed</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -848,8 +845,8 @@ Allows you to place a new sell or bid orders. For each requested order one respo
                                                     
 
                                                         <td>
-                                                                <code><p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
-</code>
+                                                                <p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -864,8 +861,8 @@ Allows you to place a new sell or bid orders. For each requested order one respo
                                                     
 
                                                         <td>
-                                                                <code><p>flag to report request and response progress.</p>
-</code>
+                                                                <p>flag to report request and response progress.</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -901,7 +898,7 @@ Allows you to place a new sell or bid orders. For each requested order one respo
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>addOrders(order: Array<Order1>, execInstruction?: "VALID" | "LNKD", internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>addOrders(order: Array<Order1>, execInstruction?: "VALID" | "LNKD", internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -1019,7 +1016,7 @@ Allows you to place a new sell or bid orders. For each requested order one respo
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>addOrders(order: Array<Order1>, execInstruction?: "VALID" | "LNKD", internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>addOrders(order: Array<Order1>, execInstruction?: "VALID" | "LNKD", internalTrading?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -1308,8 +1305,8 @@ Allows you to place a new sell or bid orders. For each requested order one respo
                                                     
 
                                                         <td>
-                                                                <code><p>string[] mime-types</p>
-</code>
+                                                                <p>string[] mime-types</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -1346,7 +1343,7 @@ Allows you to place a new sell or bid orders. For each requested order one respo
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getOrderBook(product: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>getOrderBook(product: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -1388,8 +1385,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>The product (e.g. Intraday_Power_D) for which the orderbook should be retrieved</p>
-</code>
+                                                                <p>The product (e.g. Intraday_Power_D) for which the orderbook should be retrieved</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1404,8 +1401,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>If set to true, the returned orderbook will contain only contracts which contain at least one active bid or ask</p>
-</code>
+                                                                <p>If set to true, the returned orderbook will contain only contracts which contain at least one active bid or ask</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1420,8 +1417,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>limit the orderbook to a certain contract only</p>
-</code>
+                                                                <p>limit the orderbook to a certain contract only</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1436,8 +1433,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>limit the orderbook to a certain contract name only</p>
-</code>
+                                                                <p>limit the orderbook to a certain contract name only</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1452,8 +1449,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>limit the orderbook to those contracts with the given delivery start date</p>
-</code>
+                                                                <p>limit the orderbook to those contracts with the given delivery start date</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1468,8 +1465,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>limit the orderbook to those contracts with the given delivery end date</p>
-</code>
+                                                                <p>limit the orderbook to those contracts with the given delivery end date</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1484,8 +1481,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>limit the orderbook to those contracts having a delivery start/end date which starts before and ends after the given parameter</p>
-</code>
+                                                                <p>limit the orderbook to those contracts having a delivery start/end date which starts before and ends after the given parameter</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1500,8 +1497,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>The number of hours to look behind in the orderbook. If this parameter is set, also historic closed contacts are contained in the orderbook</p>
-</code>
+                                                                <p>The number of hours to look behind in the orderbook. If this parameter is set, also historic closed contacts are contained in the orderbook</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1516,8 +1513,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>The delivery area of the orderbook; Mandatory unless in a multi-delivery-area environment, and a default delivery area is configured in the market options.</p>
-</code>
+                                                                <p>The delivery area of the orderbook; Mandatory unless in a multi-delivery-area environment, and a default delivery area is configured in the market options.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1532,8 +1529,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>If set to true, details about contract and orderbook are returned.</p>
-</code>
+                                                                <p>If set to true, details about contract and orderbook are returned.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1548,8 +1545,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>Limits the number of returned order books</p>
-</code>
+                                                                <p>Limits the number of returned order books</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1563,8 +1560,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
-</code>
+                                                                <p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -1579,8 +1576,8 @@ Shows the public order book for the selected product containing the active bids/
                                                     
 
                                                         <td>
-                                                                <code><p>flag to report request and response progress.</p>
-</code>
+                                                                <p>flag to report request and response progress.</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -1616,7 +1613,7 @@ Shows the public order book for the selected product containing the active bids/
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getOrderBook(product: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>getOrderBook(product: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -1830,7 +1827,7 @@ Shows the public order book for the selected product containing the active bids/
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getOrderBook(product: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>getOrderBook(product: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -2288,7 +2285,7 @@ Shows the public order book for the selected product containing the active bids/
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getOrderBooks(product?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>getOrderBooks(product?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -2330,8 +2327,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>The list of products (e.g. Intraday_Power_D or Intraday_Power_D,XBID_Hour_Power) for which the orderbook(s) should be retrieved; leave blank if you want all available orderbooks</p>
-</code>
+                                                                <p>The list of products (e.g. Intraday_Power_D or Intraday_Power_D,XBID_Hour_Power) for which the orderbook(s) should be retrieved; leave blank if you want all available orderbooks</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2346,8 +2343,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>If set to true, the returned orderbook will contain only contracts which contain at least one active bid or ask</p>
-</code>
+                                                                <p>If set to true, the returned orderbook will contain only contracts which contain at least one active bid or ask</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2362,8 +2359,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>limit the orderbook to a certain contract only</p>
-</code>
+                                                                <p>limit the orderbook to a certain contract only</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2378,8 +2375,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>limit the orderbook to a certain contract name only</p>
-</code>
+                                                                <p>limit the orderbook to a certain contract name only</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2394,8 +2391,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>limit the orderbook to those contracts with the given delivery start date</p>
-</code>
+                                                                <p>limit the orderbook to those contracts with the given delivery start date</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2410,8 +2407,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>limit the orderbook to those contracts with the given delivery end date</p>
-</code>
+                                                                <p>limit the orderbook to those contracts with the given delivery end date</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2426,8 +2423,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>limit the orderbook to those contracts having a delivery start/end date which starts before and ends after the given parameter</p>
-</code>
+                                                                <p>limit the orderbook to those contracts having a delivery start/end date which starts before and ends after the given parameter</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2442,8 +2439,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>The number of hours to look behind in the orderbook. If this parameter is set, also historic closed contacts are contained in the orderbook</p>
-</code>
+                                                                <p>The number of hours to look behind in the orderbook. If this parameter is set, also historic closed contacts are contained in the orderbook</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2458,8 +2455,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>The delivery area of the orderbook</p>
-</code>
+                                                                <p>The delivery area of the orderbook</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2474,8 +2471,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>If set to true, details about contract and orderbook are returned.</p>
-</code>
+                                                                <p>If set to true, details about contract and orderbook are returned.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2490,8 +2487,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>Limits the number of returned order books</p>
-</code>
+                                                                <p>Limits the number of returned order books</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2505,8 +2502,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
-</code>
+                                                                <p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -2521,8 +2518,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>flag to report request and response progress.</p>
-</code>
+                                                                <p>flag to report request and response progress.</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -2558,7 +2555,7 @@ Shows the public order books for the requested products (or all available produc
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getOrderBooks(product?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>getOrderBooks(product?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -2772,7 +2769,7 @@ Shows the public order books for the requested products (or all available produc
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getOrderBooks(product?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>getOrderBooks(product?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withBidOrAskOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deliveryStart?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryEnd?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, deliveryWithin?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, pastHours?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, withDetails?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -3230,7 +3227,7 @@ Shows the public order books for the requested products (or all available produc
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getOwnOrders(offset?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, activeOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>getOwnOrders(offset?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, activeOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -3271,8 +3268,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>Offset when loading a list of items</p>
-</code>
+                                                                <p>Offset when loading a list of items</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -3287,8 +3284,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>Limits the number of loaded items</p>
-</code>
+                                                                <p>Limits the number of loaded items</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -3303,8 +3300,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>Show only those orders related to a specific contract</p>
-</code>
+                                                                <p>Show only those orders related to a specific contract</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -3319,8 +3316,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>Returns only those orders which are active</p>
-</code>
+                                                                <p>Returns only those orders which are active</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -3335,8 +3332,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>The delivery area</p>
-</code>
+                                                                <p>The delivery area</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -3350,8 +3347,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
-</code>
+                                                                <p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -3366,8 +3363,8 @@ Shows the public order books for the requested products (or all available produc
                                                     
 
                                                         <td>
-                                                                <code><p>flag to report request and response progress.</p>
-</code>
+                                                                <p>flag to report request and response progress.</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -3403,7 +3400,7 @@ Shows the public order books for the requested products (or all available produc
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getOwnOrders(offset?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, activeOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>getOwnOrders(offset?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, activeOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -3705,7 +3702,7 @@ Shows the public order books for the requested products (or all available produc
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>getOwnOrders(offset?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, activeOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>getOwnOrders(offset?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, contractId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, activeOnly?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, deliveryArea?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -3847,7 +3844,7 @@ Shows the public order books for the requested products (or all available produc
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>modifyOrder(orderId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, modifications?: Modifications, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>modifyOrder(orderId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, modifications?: Modifications, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -3889,8 +3886,8 @@ Changes, activates or deactivates an existing order</p>
                                                     
 
                                                         <td>
-                                                                <code><p>the unique order_id. <strong>Heads up!</strong> After an order has been modified, it will change its&#39;s order_id!</p>
-</code>
+                                                                <p>the unique order_id. <strong>Heads up!</strong> After an order has been modified, it will change its&#39;s order_id!</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -3918,8 +3915,8 @@ Changes, activates or deactivates an existing order</p>
                                                     
 
                                                         <td>
-                                                                <code><p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
-</code>
+                                                                <p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -3934,8 +3931,8 @@ Changes, activates or deactivates an existing order</p>
                                                     
 
                                                         <td>
-                                                                <code><p>flag to report request and response progress.</p>
-</code>
+                                                                <p>flag to report request and response progress.</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -3971,7 +3968,7 @@ Changes, activates or deactivates an existing order</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>modifyOrder(orderId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, modifications?: Modifications, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>modifyOrder(orderId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, modifications?: Modifications, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -4077,7 +4074,7 @@ Changes, activates or deactivates an existing order</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>modifyOrder(orderId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, modifications?: Modifications, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>modifyOrder(orderId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, modifications?: Modifications, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -4301,7 +4298,7 @@ Changes, activates or deactivates an existing order</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>updateStatus(orders: Orders, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>updateStatus(orders: Orders, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -4355,8 +4352,8 @@ Changes, activates or deactivates an existing order</p>
                                                     
 
                                                         <td>
-                                                                <code><p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
-</code>
+                                                                <p>set whether or not to return the data Observable as the body, response or events. defaults to returning the body.</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -4371,8 +4368,8 @@ Changes, activates or deactivates an existing order</p>
                                                     
 
                                                         <td>
-                                                                <code><p>flag to report request and response progress.</p>
-</code>
+                                                                <p>flag to report request and response progress.</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -4408,7 +4405,7 @@ Changes, activates or deactivates an existing order</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>updateStatus(orders: Orders, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>updateStatus(orders: Orders, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -4502,7 +4499,7 @@ Changes, activates or deactivates an existing order</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>updateStatus(orders: Orders, observe?: , reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <code>updateStatus(orders: Orders, observe?, reportProgress?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                     </td>
                 </tr>
 
@@ -4698,16 +4695,9 @@ Changes, activates or deactivates an existing order</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            configuration
-                            </b>
+                            configuration</b>
                             <a href="#configuration"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>configuration:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -4732,16 +4722,9 @@ Changes, activates or deactivates an existing order</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            defaultHeaders
-                            </b>
+                            defaultHeaders</b>
                             <a href="#defaultHeaders"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>defaultHeaders:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -5315,7 +5298,9 @@ export class OrdersService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

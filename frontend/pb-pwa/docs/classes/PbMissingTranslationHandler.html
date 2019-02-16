@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -133,7 +130,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/app/app.module.ts:124</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/app/app.module.ts:128</a></div>
                             </td>
                         </tr>
 
@@ -205,7 +202,6 @@ import { NgxDatatableModule } from &#x27;@swimlane/ngx-datatable&#x27;;
 import { MAT_DIALOG_DEFAULT_OPTIONS } from &#x27;@angular/material&#x27;;
 // import { PbDatatableModule } from &#x27;./module/pb-datatable/pb-datatable.module&#x27;
 import { NgxChartsModule } from &#x27;@swimlane/ngx-charts&#x27;;
-import { PerfectScrollbarModule } from &#x27;ngx-perfect-scrollbar&#x27;;
 import {
   TranslateModule,
   TranslateLoader,
@@ -279,6 +275,10 @@ import { SyncMatchFieldlValidator } from &#x27;./validators/sync-match-field.val
 import { AsyncUrlRespondsValidator } from &#x27;./validators/async-url-responds.validator&#x27;;
 import { AsyncUrlApiKeyRespondsValidator } from &#x27;./validators/async-url-api-key-responds.validator&#x27;;
 import { FgGraphqlModule } from &#x27;./module/fg-graphql/fg-graphql.module&#x27;;
+import { FlexDashboardComponent } from &#x27;./component/flex-dashboard/flex-dashboard.component&#x27;;
+import { MatTableComponent } from &#x27;./component/mat-table/mat-table.component&#x27;;
+import { PwaOfflineComponent } from &#x27;./component/pwa-offline/pwa-offline.component&#x27;;
+import { LoadingIndicatorComponent } from &#x27;./component/loading-indicator/loading-indicator.component&#x27;;
 
 /**
  * Routes for PowerBot application
@@ -288,6 +288,7 @@ const appRoutes: Routes &#x3D; [
    * Empty route goes to dashboard
    */
   { path: &#x27;login&#x27;, component: LoginViewComponent },
+  { path: &#x27;login/genApiKey/:environment&#x27;, component: LoginViewComponent },
   /**
    * Routes to dashboard-components full-page views
    */
@@ -375,14 +376,18 @@ export class PbMissingTranslationHandler implements MissingTranslationHandler {
     TableLogsComponent,
     TableContractDetailsComponent,
     FgCardComponent,
-    SyncMatchFieldlValidator
+    SyncMatchFieldlValidator,
+    FlexDashboardComponent,
+    MatTableComponent,
+    PwaOfflineComponent,
+    LoadingIndicatorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    PerfectScrollbarModule,
+
     PrettyJsonModule,
     NgxDatatableModule,
     // PbDatatableModule,
@@ -483,7 +488,9 @@ export class AppModule {}
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

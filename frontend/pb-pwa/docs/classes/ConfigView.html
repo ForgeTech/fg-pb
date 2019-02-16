@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -204,16 +201,9 @@ for a powerbot view</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            breakpoints
-                            </b>
+                            breakpoints</b>
                             <a href="#breakpoints"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>breakpoints:     <code><a href="../classes/ConfigBreakPoint.html" target="_self" >ConfigBreakPoint[]</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -251,16 +241,9 @@ breakpoints</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            meta
-                            </b>
+                            meta</b>
                             <a href="#meta"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>meta:     <code><a href="../classes/ConfigMetaData.html" target="_self" >ConfigMetaData</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -297,16 +280,9 @@ breakpoints</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            name
-                            </b>
+                            name</b>
                             <a href="#name"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>name:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -405,7 +381,9 @@ export class ConfigView {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

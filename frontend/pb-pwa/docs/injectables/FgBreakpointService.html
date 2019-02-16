@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -320,8 +317,8 @@ based on angular-material cdk to importing application</p>
                                                     
 
                                                         <td>
-                                                                <code><p>Either a single or multiple media-query strings</p>
-</code>
+                                                                <p>Either a single or multiple media-query strings</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -355,16 +352,9 @@ based on angular-material cdk to importing application</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            breakpointObserver$
-                            </b>
+                            breakpointObserver$</b>
                             <a href="#breakpointObserver$"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>breakpointObserver$:     <code>Observable&lt;BreakpointState&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -397,16 +387,9 @@ angular-material breakpoints</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            matchedBreakpoints
-                            </b>
+                            matchedBreakpoints</b>
                             <a href="#matchedBreakpoints"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>matchedBreakpoints:     <code>string[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -438,16 +421,9 @@ angular-material breakpoints</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            matchedBreakpoints$
-                            </b>
+                            matchedBreakpoints$</b>
                             <a href="#matchedBreakpoints$"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>matchedBreakpoints$:     <code>Subject&lt;string[]&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -485,16 +461,9 @@ of active breakpoints </p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            mediaQueries
-                            </b>
+                            mediaQueries</b>
                             <a href="#mediaQueries"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>mediaQueries:     <code>Array&lt;any&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -622,7 +591,7 @@ export class FgBreakpointService {
    */
   public getBreakpointObservable( mediaQueryStrings: string | Array&lt;string&gt; ): Observable&lt;BreakpointState&gt; {
     let matchedBreakpoints: Array&lt;string&gt; &#x3D; [];
-    if ( mediaQueryStrings.length ){
+    if ( mediaQueryStrings.length ) {
       matchedBreakpoints &#x3D;  mediaQueryStrings as Array&lt;string&gt;;
     } else {
       matchedBreakpoints.push( mediaQueryStrings as string );
@@ -633,54 +602,55 @@ export class FgBreakpointService {
    * Methode to return array of matched BreakpointEnums
    */
   protected getBreakpointEnumsFromBreakpointState( breakpointState: BreakpointState ): Array&lt;string&gt; {
-    let matchedBreakpointEnum: Array&lt;string&gt; &#x3D; [];
+    // tslint:disable-next-line prefer-const
+    let matchedBreakpointEnums: Array&lt;string&gt; &#x3D; [];
     const breakpointKeys: Array&lt;string&gt; &#x3D; Object.keys(breakpointState.breakpoints);
-    for( var i &#x3D; 0; i &lt; breakpointKeys.length; i++ ) {
+    for ( let i &#x3D; 0; i &lt; breakpointKeys.length; i++ ) {
+      // tslint:disable-next-line prefer-const
       let breakpointKey: string &#x3D; breakpointKeys[ i ];
-
-      // if breapoint matching state is true set according enum-key
+      // if breapoint matching state is true set according breakpoint-key
       if (breakpointState.breakpoints[ breakpointKey ] &#x3D;&#x3D;&#x3D; true) {
         switch ( breakpointKey ) {
           case Breakpoints.Handset:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.HANDSET ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.HANDSET ] );
             break;
           case Breakpoints.HandsetLandscape:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.HANDSET_LANDSCAPE ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.HANDSET_LANDSCAPE ] );
             break;
           case Breakpoints.HandsetPortrait:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.HANDSET_PORTRAIT ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.HANDSET_PORTRAIT ] );
             break;
           case Breakpoints.Large:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.LARGE ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.LARGE ] );
             break;
           case Breakpoints.Medium:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.MEDIUM ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.MEDIUM ] );
             break;
           case Breakpoints.Small:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.SMALL ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.SMALL ] );
             break;
           case Breakpoints.Tablet:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.TABLET ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.TABLET ] );
             break;
           case Breakpoints.TabletLandscape:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.TABLET_LANSCAPE ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.TABLET_LANSCAPE ] );
             break;
           case Breakpoints.TabletPortrait:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.TABLET_PORTRAIT ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.TABLET_PORTRAIT ] );
             break;
           case Breakpoints.Web:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.WEB ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.WEB ] );
             break;
           case Breakpoints.WebLandscape:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.WEB_LANSCAPE ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.WEB_LANSCAPE ] );
             break;
           case Breakpoints.WebPortrait:
-            matchedBreakpointEnum.push( BreakpointEnum[ BreakpointEnum.WEB_PORTRAIT ] );
+            matchedBreakpointEnums.push( BreakpointEnum[ BreakpointEnum.WEB_PORTRAIT ] );
             break;
         }
       }
     }
-    return matchedBreakpointEnum;
+    return matchedBreakpointEnums;
   }
 }
 </code></pre>
@@ -720,7 +690,9 @@ export class FgBreakpointService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

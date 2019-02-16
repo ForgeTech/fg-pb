@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -268,16 +265,9 @@ for PowerBot api-key generation</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            allow_production
-                            </b>
+                            allow_production</b>
                             <a href="#allow_production"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>allow_production:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -314,16 +304,9 @@ for PowerBot api-key generation</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            allow_test
-                            </b>
+                            allow_test</b>
                             <a href="#allow_test"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>allow_test:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -360,16 +343,9 @@ for PowerBot api-key generation</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            api_key_name
-                            </b>
+                            api_key_name</b>
                             <a href="#api_key_name"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>api_key_name:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -406,16 +382,9 @@ for PowerBot api-key generation</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            can_signal
-                            </b>
+                            can_signal</b>
                             <a href="#can_signal"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>can_signal:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -452,16 +421,9 @@ for PowerBot api-key generation</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            can_trade
-                            </b>
+                            can_trade</b>
                             <a href="#can_trade"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>can_trade:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -498,16 +460,9 @@ for PowerBot api-key generation</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            pwd_epex
-                            </b>
+                            pwd_epex</b>
                             <a href="#pwd_epex"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>pwd_epex:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -544,16 +499,9 @@ for PowerBot api-key generation</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            pwd_robocomp
-                            </b>
+                            pwd_robocomp</b>
                             <a href="#pwd_robocomp"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>pwd_robocomp:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -661,7 +609,9 @@ for PowerBot api-key generation</p>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

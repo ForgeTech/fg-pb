@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -151,12 +148,18 @@ client, based on apollo-graphql
                                 <a href="#getMutationWriteData">getMutationWriteData</a>
                             </li>
                             <li>
+                                <a href="#messageQuery">messageQuery</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#mutate">mutate</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#query">query</a>
+                            </li>
+                            <li>
+                                <a href="#testRestQuery">testRestQuery</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -185,7 +188,7 @@ client, based on apollo-graphql
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="268" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:268</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="258" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:258</a></div>
                             </td>
                         </tr>
 
@@ -228,7 +231,7 @@ client, based on apollo-graphql
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="330" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:330</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="319" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:319</a></div>
                             </td>
                         </tr>
 
@@ -300,7 +303,7 @@ fg-graphql-client</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="372" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:372</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="463" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:463</a></div>
                             </td>
                         </tr>
 
@@ -343,7 +346,7 @@ apollo cache-persistation</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="278" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:278</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="267" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:267</a></div>
                             </td>
                         </tr>
 
@@ -409,6 +412,44 @@ unioning new and previous data</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="messageQuery"></a>
+                        <span class="name">
+                            <b>
+                            messageQuery
+                            </b>
+                            <a href="#messageQuery"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>messageQuery()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="365" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:365</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="mutate"></a>
                         <span class="name">
                             <b>
@@ -422,14 +463,14 @@ unioning new and previous data</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>mutate(mutation: , variables: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        <code>mutate(mutation, variables: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="316" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:316</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="305" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:305</a></div>
                             </td>
                         </tr>
 
@@ -510,14 +551,14 @@ unioning new and previous data</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>query(query: , variables: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        <code>query(query, variables: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="290" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:290</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="279" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:279</a></div>
                             </td>
                         </tr>
 
@@ -585,6 +626,44 @@ unioning new and previous data</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="testRestQuery"></a>
+                        <span class="name">
+                            <b>
+                            testRestQuery
+                            </b>
+                            <a href="#testRestQuery"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>testRestQuery()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="389" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:389</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="watchQuery"></a>
                         <span class="name">
                             <b>
@@ -598,14 +677,14 @@ unioning new and previous data</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>watchQuery(query: , variables: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        <code>watchQuery(query, variables: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="303" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:303</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="292" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:292</a></div>
                             </td>
                         </tr>
 
@@ -684,16 +763,9 @@ unioning new and previous data</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            apollo
-                            </b>
+                            apollo</b>
                             <a href="#apollo"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>apollo:     <code>ApolloClient&lt;literal type&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -704,7 +776,7 @@ unioning new and previous data</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -725,16 +797,9 @@ unioning new and previous data</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            fragmentBreakpoint
-                            </b>
+                            fragmentBreakpoint</b>
                             <a href="#fragmentBreakpoint"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>fragmentBreakpoint:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -762,7 +827,7 @@ unioning new and previous data</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:134</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:138</a></div>
                             </td>
                         </tr>
 
@@ -777,16 +842,9 @@ unioning new and previous data</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            fragmentConfigConnection
-                            </b>
+                            fragmentConfigConnection</b>
                             <a href="#fragmentConfigConnection"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>fragmentConfigConnection:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -806,7 +864,7 @@ unioning new and previous data</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:107</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:111</a></div>
                             </td>
                         </tr>
 
@@ -821,16 +879,9 @@ unioning new and previous data</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            fragmentConfigLogging
-                            </b>
+                            fragmentConfigLogging</b>
                             <a href="#fragmentConfigLogging"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>fragmentConfigLogging:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -847,7 +898,7 @@ unioning new and previous data</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:118</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:122</a></div>
                             </td>
                         </tr>
 
@@ -862,16 +913,9 @@ unioning new and previous data</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            fragmentState
-                            </b>
+                            fragmentState</b>
                             <a href="#fragmentState"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>fragmentState:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -888,7 +932,7 @@ unioning new and previous data</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:126</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:130</a></div>
                             </td>
                         </tr>
 
@@ -903,48 +947,27 @@ unioning new and previous data</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            fragmentView
-                            </b>
+                            fragmentView</b>
                             <a href="#fragmentView"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>fragmentView:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>gql&#x60;
     fragment viewConfig on View {
-    id
-    name
+    id name
     breakpoints {
-      id
-      name
-      validFor
-      cards {
-        id
-        cols
-        rows
-        template
-        title
-      }
-      grid {
-        id
-        cols
-        gutterSize
-        rowHeight
-      }
+      id name validFor
+      cards { id cols rows template title }
+      grid { id cols gutterSize rowHeight }
     }
   }&#x60;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:153</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:157</a></div>
                             </td>
                         </tr>
 
@@ -959,16 +982,9 @@ unioning new and previous data</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            persistOptions
-                            </b>
+                            persistOptions</b>
                             <a href="#persistOptions"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>persistOptions:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -979,7 +995,7 @@ unioning new and previous data</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -1000,16 +1016,9 @@ unioning new and previous data</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            persistor
-                            </b>
+                            persistor</b>
                             <a href="#persistor"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>persistor:     <code>ApolloCachePersistor&lt;any&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1020,7 +1029,7 @@ unioning new and previous data</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -1042,16 +1051,9 @@ for controlling cache peristance behaviour</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            resolvers
-                            </b>
+                            resolvers</b>
                             <a href="#resolvers"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>resolvers:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1155,7 +1157,7 @@ for controlling cache peristance behaviour</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:180</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:170</a></div>
                             </td>
                         </tr>
 
@@ -1176,16 +1178,9 @@ for controlling cache peristance behaviour</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            typeDefs
-                            </b>
+                            typeDefs</b>
                             <a href="#typeDefs"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>typeDefs:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1219,7 +1214,7 @@ for controlling cache peristance behaviour</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:82</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/module/fg-graphql/service/fg-graphql/fg-graphql.service.ts:86</a></div>
                             </td>
                         </tr>
 
@@ -1281,19 +1276,23 @@ cache
 import { InMemoryCache as ApolloInMemoryCache } from &#x27;apollo-cache-inmemory&#x27;;
 import { withClientState } from &#x27;apollo-link-state&#x27;;
 import {
+  ApolloClient,
+  ApolloQueryResult,
+  ObservableQuery,
+} from &#x27;apollo-client&#x27;;
+import {
   persistCache as apollo_persistCache,
   CachePersistor as ApolloCachePersistor
 } from &#x27;apollo-cache-persist&#x27;;
-// CacheProviders who are compatible with apollo persist-cache and should be choosen
-// based on the target-enviroment the apollo-client is run in, like in a browser, react-native
-// build
-import * as LocalForage from &#x27;localforage&#x27;;
 import { ApolloPersistOptions } from &#x27;apollo-cache-persist/types&#x27;;
+import { RestLink } from &#x27;apollo-link-rest&#x27;;
+import * as LocalForage from &#x27;localforage&#x27;;
 import gql from &#x27;graphql-tag&#x27;;
 import { HttpHeaders } from &#x27;@angular/common/http&#x27;;
-import { ApolloClient, ApolloQueryResult, ObservableQuery } from &#x27;apollo-client&#x27;;
 import { environment } from &#x27;src/environments/environment.ghp&#x27;;
 import { ConfigConnection } from &#x27;src/app/entity/entity.export&#x27;;
+import { MessageEntityInterface } from &#x27;src/app/interface/interface.export&#x27;;
+import { PbDataService } from &#x27;src/app/service/pb-data/pb-data.service&#x27;;
 /**
  * FgGraphqlClientService -
 * This service provides methodes to
@@ -1431,25 +1430,11 @@ export class FgGraphqlService {
   }&#x60;;
   public fragmentView &#x3D; gql&#x60;
     fragment viewConfig on View {
-    id
-    name
+    id name
     breakpoints {
-      id
-      name
-      validFor
-      cards {
-        id
-        cols
-        rows
-        template
-        title
-      }
-      grid {
-        id
-        cols
-        gutterSize
-        rowHeight
-      }
+      id name validFor
+      cards { id cols rows template title }
+      grid { id cols gutterSize rowHeight }
     }
   }&#x60;;
 
@@ -1548,17 +1533,16 @@ export class FgGraphqlService {
   /**
    * CONSTRUCTOR
    */
-  constructor(
-  ) {}
+  constructor() {}
   /**
    * Methode returning a object for writing to apollo-cache by
    * unioning new and previous data
    */
   protected getMutationWriteData(newData: any, prevData: any) {
-    if( !prevData ) {
+    if ( !prevData ) {
       prevData &#x3D; {};
     }
-    if( !newData ) {
+    if ( !newData ) {
       newData &#x3D; {};
     }
     return Object.assign( prevData, newData );
@@ -1622,19 +1606,27 @@ export class FgGraphqlService {
     // Setup persist-storage options and initialize it for apollo-client cache
     this.persistOptions &#x3D; {};
     this.persistOptions.cache &#x3D; cache;
-    this.persistOptions.key &#x3D; environment.name.concat(&#x27;-apollo-persist-cache&#x27;);
+    this.persistOptions.key &#x3D; environment.name.concat(&#x27;-apollo-cache&#x27;);
     this.persistOptions.storage &#x3D; LocalForage.createInstance(this.persistOptions);
     apollo_persistCache(this.persistOptions);
-
+    // Setup local-state-link with graphql typeDefs and resolvers for
+    // local types
     const localStateLink &#x3D; withClientState({
       cache: cache,
       defaults: data,
       resolvers: this.resolvers,
       typeDefs: this.typeDefs
     });
+    // Create a RestLink for the REST API
+    // If you are using multiple link types, restLink should go before httpLink,
+    // as httpLink will swallow any calls that should be routed through rest!
+    const restLink &#x3D; new RestLink( {
+      uri: &#x27;https://playground.powerbot-trading.com/api/v0/&#x27;,
+      headers: { &#x27;api_key&#x27;: &#x27;44fc8162-d2c6-432a-8279-d8d40e5c0e1b&#x27; }
+    } );
     // Initialize apollo-client instance
     let clientOptions: any &#x3D; {};
-    clientOptions.link &#x3D; localStateLink;
+    clientOptions.link &#x3D; localStateLink.concat( restLink );
     clientOptions.cache &#x3D; cache;
     // Initialize
     clientOptions.connectToDevTools &#x3D; environment.debug;
@@ -1643,6 +1635,100 @@ export class FgGraphqlService {
 
     this.apollo &#x3D; new ApolloClient(clientOptions);
     this.persistor &#x3D; this.getCachePersistor();
+  }
+  messageQuery(): void {
+    // A simple query to retrieve data about the first person
+    const query &#x3D; gql&#x60;
+    query restTest {
+      messages @rest(type: &quot;Message&quot;, path: &quot;messages/&quot;) {
+        message_id
+        api_timestamp
+        category
+        message_class
+        content_type
+        correlation_id
+        direction
+        group_id
+        group_sequence
+        content
+      }
+    }
+  &#x60;;
+    // Invoke the query and log the person&#x27;s name
+    this.apollo.query({ query }).then( (response: ApolloQueryResult&lt;any&gt; ) &#x3D;&gt; {
+      console.log(&#x27;RESPONSE&#x27;);
+      console.log(response.data);
+    });
+  }
+  testRestQuery(): void {
+    // A simple query to retrieve data about the first person
+    const query &#x3D; gql&#x60;
+    query restTest {
+      orderbook @rest(type: &quot;Orderbook&quot;, path: &quot;orderbooks/&quot;) {
+        products {
+          product_name
+          delivery_area
+          price_currency
+          quantity_unit
+        }
+      }
+    }&#x60;;
+          //   contracts [
+          //     {
+          //       product
+          //       contract_id
+          //       state
+          //       name
+          //       delUnits
+          //       revision_no
+          //       delivery_start
+          //       delivery_end
+          //       best_bid_price
+          //       best_bid_quantity
+          //       best_ask_price
+          //       best_ask_quantity
+          //       last_price
+          //       last_quantity
+          //       total_quantity
+          //       auction_price
+          //       high
+          //       low
+          //       contract_details
+          //       orderbook_details
+          //       relative_position
+          //       absolute_position
+          //       last_trade_time
+          //       signals [
+          //         {
+          //           id
+          //           source
+          //           received_at
+          //           revision
+          //           delivery_start
+          //           delivery_end
+          //           value {
+          //             imbalance
+          //             delivery_start
+          //             delivery_end
+          //           }
+          //         }
+          //       ]
+          //       vwap
+          //       otr
+          //       avwa
+          //       bvwa
+          //     }
+          //   ]
+          // }
+    // Invoke the query and log the person&#x27;s name
+    this.apollo.query({
+      query: query,
+
+
+    }).then( (response: ApolloQueryResult&lt;any&gt; ) &#x3D;&gt; {
+      console.log(&#x27;RESPONSE&#x27;);
+      console.log(response);
+    });
   }
   /**
    * Return a instance of apollo cache-persistor for handling
@@ -1689,7 +1775,9 @@ export class FgGraphqlService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -135,16 +132,9 @@
                             <b>
                                 <span class="modifier">Static</span>
                                 <span class="modifier">Readonly</span>
-                            CONFIG_LOGGING
-                            </b>
+                            CONFIG_LOGGING</b>
                             <a href="#CONFIG_LOGGING"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>CONFIG_LOGGING:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -182,16 +172,9 @@
                             <b>
                                 <span class="modifier">Static</span>
                                 <span class="modifier">Readonly</span>
-                            CONFIG_MARKET
-                            </b>
+                            CONFIG_MARKET</b>
                             <a href="#CONFIG_MARKET"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>CONFIG_MARKET:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -229,16 +212,9 @@
                             <b>
                                 <span class="modifier">Static</span>
                                 <span class="modifier">Readonly</span>
-                            CONFIG_PRODUCTION
-                            </b>
+                            CONFIG_PRODUCTION</b>
                             <a href="#CONFIG_PRODUCTION"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>CONFIG_PRODUCTION:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -276,16 +252,9 @@
                             <b>
                                 <span class="modifier">Static</span>
                                 <span class="modifier">Readonly</span>
-                            CONFIG_TEST
-                            </b>
+                            CONFIG_TEST</b>
                             <a href="#CONFIG_TEST"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>CONFIG_TEST:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -323,16 +292,9 @@
                             <b>
                                 <span class="modifier">Static</span>
                                 <span class="modifier">Readonly</span>
-                            PB_MAIN_STORAGE
-                            </b>
+                            PB_MAIN_STORAGE</b>
                             <a href="#PB_MAIN_STORAGE"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>PB_MAIN_STORAGE:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -437,7 +399,9 @@ export class PbAppStorageConst {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

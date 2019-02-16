@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -50,6 +47,9 @@
         </li>
         <li >
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
@@ -96,7 +96,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>product-history.component.scss</code></td>
+                <td class="col-md-9"><code>./product-history.component.scss</code></td>
             </tr>
 
 
@@ -105,6 +105,12 @@
                 <td class="col-md-3">templateUrl</td>
                 <td class="col-md-9"><code>./product-history.component.html</code></td>
             </tr>
+
+
+
+
+
+
 
 
         </tbody>
@@ -238,6 +244,13 @@ export class ProductHistoryViewComponent implements OnInit {
 </code></pre>
     </div>
 
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./product-history.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
@@ -264,7 +277,7 @@ export class ProductHistoryViewComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><p>  product-history works!</p><pb-graph-product-history></pb-graph-product-history></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pb-pwa'},{'name': 'AsksViewComponent', 'selector': 'pb-view-asks'},{'name': 'BarStateComponent', 'selector': 'pb-bar-state'},{'name': 'BidsViewComponent', 'selector': 'pb-view-bids'},{'name': 'DashboardComponent', 'selector': 'pb-dashboard'},{'name': 'DashboardViewComponent', 'selector': 'pb-view-dashboard'},{'name': 'FgActionsComponent', 'selector': 'fg-actions'},{'name': 'FgAngularMaterialDemoComponent', 'selector': 'fg-angular-material-demo'},{'name': 'FgCardComponent', 'selector': 'fg-card'},{'name': 'FgInputComponent', 'selector': 'fg-input'},{'name': 'FooterComponent', 'selector': 'pb-footer'},{'name': 'GraphComponent', 'selector': 'pb-graph'},{'name': 'GraphPortfolioComponent', 'selector': 'pb-graph-portfolio'},{'name': 'GraphProductHistoryComponent', 'selector': 'pb-graph-product-history'},{'name': 'GraphSignalHistoryComponent', 'selector': 'pb-graph-signal-history'},{'name': 'HeaderComponent', 'selector': 'pb-header'},{'name': 'LoginViewComponent', 'selector': 'pb-login'},{'name': 'ModalAddOrderComponent', 'selector': 'pb-modal-add-order'},{'name': 'ModalApiKeyComponent', 'selector': 'pb-modal-api-key'},{'name': 'ModalComponent', 'selector': 'pb-modal'},{'name': 'ModalHelpComponent', 'selector': 'app-modal-help'},{'name': 'ModalSettingsComponent', 'selector': 'pb-modal-settings'},{'name': 'OrderbookViewComponent', 'selector': 'pb-view-orderbook'},{'name': 'OrdersViewComponent', 'selector': 'pb-view-orders'},{'name': 'PbIconValidationComponent', 'selector': 'pb-icon-validation'},{'name': 'PortfolioViewComponent', 'selector': 'pb-view-portfolio'},{'name': 'ProductHistoryViewComponent', 'selector': 'pb-view-product-history'},{'name': 'PwaInstallComponent', 'selector': 'pb-pwa-install'},{'name': 'SignalsViewComponent', 'selector': 'pb-signals'},{'name': 'TabApiKeyComponent', 'selector': 'pb-tab-api-key'},{'name': 'TabLoggingComponent', 'selector': 'pb-tab-logging'},{'name': 'TabProductionComponent', 'selector': 'pb-tab-production'},{'name': 'TabTestComponent', 'selector': 'pb-tab-test'},{'name': 'TableAddOrderComponent', 'selector': 'pb-table-add-order'},{'name': 'TableAsksComponent', 'selector': 'pb-table-asks'},{'name': 'TableBidsComponent', 'selector': 'pb-table-bids'},{'name': 'TableComponent', 'selector': 'pb-table'},{'name': 'TableContractDetailsComponent', 'selector': 'pb-table-contract-details'},{'name': 'TableLogsComponent', 'selector': 'pb-table-logs'},{'name': 'TableOrderbookComponent', 'selector': 'pb-table-orderbook'},{'name': 'TableOrdersComponent', 'selector': 'pb-table-orders'},{'name': 'TableSignalsComponent', 'selector': 'pb-table-signals'},{'name': 'TableTradesComponent', 'selector': 'pb-table-trades'},{'name': 'TradesViewComponent', 'selector': 'pb-trades'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pb-pwa'},{'name': 'AsksViewComponent', 'selector': 'pb-view-asks'},{'name': 'BarStateComponent', 'selector': 'pb-bar-state'},{'name': 'BidsViewComponent', 'selector': 'pb-view-bids'},{'name': 'DashboardComponent', 'selector': 'pb-dashboard'},{'name': 'DashboardViewComponent', 'selector': 'pb-view-dashboard'},{'name': 'FgActionsComponent', 'selector': 'fg-actions'},{'name': 'FgAngularMaterialDemoComponent', 'selector': 'fg-angular-material-demo'},{'name': 'FgCardComponent', 'selector': 'fg-card'},{'name': 'FgInputComponent', 'selector': 'fg-input'},{'name': 'FlexDashboardComponent', 'selector': 'pb-flex-dashboard'},{'name': 'FooterComponent', 'selector': 'pb-footer'},{'name': 'GraphComponent', 'selector': 'pb-graph'},{'name': 'GraphPortfolioComponent', 'selector': 'pb-graph-portfolio'},{'name': 'GraphProductHistoryComponent', 'selector': 'pb-graph-product-history'},{'name': 'GraphSignalHistoryComponent', 'selector': 'pb-graph-signal-history'},{'name': 'HeaderComponent', 'selector': 'pb-header'},{'name': 'LoadingIndicatorComponent', 'selector': 'pb-loading-indicator'},{'name': 'LoginViewComponent', 'selector': 'pb-login'},{'name': 'MatTableComponent', 'selector': 'pb-mat-table'},{'name': 'ModalAddOrderComponent', 'selector': 'pb-modal-add-order'},{'name': 'ModalApiKeyComponent', 'selector': 'pb-modal-api-key'},{'name': 'ModalComponent', 'selector': 'pb-modal'},{'name': 'ModalHelpComponent', 'selector': 'app-modal-help'},{'name': 'ModalSettingsComponent', 'selector': 'pb-modal-settings'},{'name': 'OrderbookViewComponent', 'selector': 'pb-view-orderbook'},{'name': 'OrdersViewComponent', 'selector': 'pb-view-orders'},{'name': 'PbIconValidationComponent', 'selector': 'pb-icon-validation'},{'name': 'PortfolioViewComponent', 'selector': 'pb-view-portfolio'},{'name': 'ProductHistoryViewComponent', 'selector': 'pb-view-product-history'},{'name': 'PwaInstallComponent', 'selector': 'pb-pwa-install'},{'name': 'PwaOfflineComponent', 'selector': 'pb-pwa-offline'},{'name': 'SignalsViewComponent', 'selector': 'pb-signals'},{'name': 'TabApiKeyComponent', 'selector': 'pb-tab-api-key'},{'name': 'TableAddOrderComponent', 'selector': 'pb-table-add-order'},{'name': 'TableAsksComponent', 'selector': 'pb-table-asks'},{'name': 'TableBidsComponent', 'selector': 'pb-table-bids'},{'name': 'TableComponent', 'selector': 'pb-table'},{'name': 'TableContractDetailsComponent', 'selector': 'pb-table-contract-details'},{'name': 'TableLogsComponent', 'selector': 'pb-table-logs'},{'name': 'TableOrderbookComponent', 'selector': 'pb-table-orderbook'},{'name': 'TableOrdersComponent', 'selector': 'pb-table-orders'},{'name': 'TableSignalsComponent', 'selector': 'pb-table-signals'},{'name': 'TableTradesComponent', 'selector': 'pb-table-trades'},{'name': 'TabLoggingComponent', 'selector': 'pb-tab-logging'},{'name': 'TabProductionComponent', 'selector': 'pb-tab-production'},{'name': 'TabTestComponent', 'selector': 'pb-tab-test'},{'name': 'TradesViewComponent', 'selector': 'pb-trades'}];
     var DIRECTIVES = [{'name': 'SyncMatchFieldlValidator', 'selector': '[pbMatchField]'}];
     var ACTUAL_COMPONENT = {'name': 'ProductHistoryViewComponent'};
 </script>
@@ -305,7 +318,9 @@ export class ProductHistoryViewComponent implements OnInit {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

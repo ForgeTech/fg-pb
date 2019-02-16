@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -264,16 +261,9 @@ and run successfully</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $apollo
-                            </b>
+                            $apollo</b>
                             <a href="#$apollo"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$apollo:     <code><a href="../injectables/FgGraphqlService.html" target="_self" >FgGraphqlService</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -305,16 +295,9 @@ and run successfully</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $breakpoint
-                            </b>
+                            $breakpoint</b>
                             <a href="#$breakpoint"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$breakpoint:     <code><a href="../injectables/FgBreakpointService.html" target="_self" >FgBreakpointService</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -346,16 +329,9 @@ and run successfully</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $data
-                            </b>
+                            $data</b>
                             <a href="#$data"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$data:     <code><a href="../injectables/PbDataService.html" target="_self" >PbDataService</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -387,16 +363,9 @@ and run successfully</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $event
-                            </b>
+                            $event</b>
                             <a href="#$event"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$event:     <code><a href="../injectables/FgEventService.html" target="_self" >FgEventService</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -428,16 +397,9 @@ and run successfully</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $keyboard
-                            </b>
+                            $keyboard</b>
                             <a href="#$keyboard"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$keyboard:     <code><a href="../injectables/FgKeyboardService.html" target="_self" >FgKeyboardService</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -469,16 +431,9 @@ and run successfully</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $log
-                            </b>
+                            $log</b>
                             <a href="#$log"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$log:     <code>FgLogService</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -510,16 +465,9 @@ and run successfully</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $translate
-                            </b>
+                            $translate</b>
                             <a href="#$translate"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$translate:     <code>TranslateService</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -659,7 +607,9 @@ export class FgAppService // extends FgEventSubscriber
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

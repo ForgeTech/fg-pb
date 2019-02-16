@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -50,6 +47,9 @@
         </li>
         <li >
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
@@ -110,7 +110,7 @@ application</p>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>modal-settings.component.scss</code></td>
+                <td class="col-md-9"><code>./modal-settings.component.scss</code></td>
             </tr>
 
 
@@ -119,6 +119,12 @@ application</p>
                 <td class="col-md-3">templateUrl</td>
                 <td class="col-md-9"><code>./modal-settings.component.html</code></td>
             </tr>
+
+
+
+
+
+
 
 
         </tbody>
@@ -358,17 +364,15 @@ application</p>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="config"></a>
-                        <code>config</code>
+                        <b>config</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>INPUT To receive a components configuration-object</p>
-</div>
-                            <p>
-                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                            </p>
                     </td>
                 </tr>
                             <tr>
@@ -382,22 +386,26 @@ application</p>
                                     <div class="io-line">Defined in FgComponentBaseComponent:49</div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>INPUT To receive a components configuration-object</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="entity"></a>
-                        <code>entity</code>
+                        <b>entity</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>INPUT To receive a components entity-object</p>
-</div>
-                            <p>
-                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                            </p>
                     </td>
                 </tr>
                             <tr>
@@ -411,6 +419,12 @@ application</p>
                                     <div class="io-line">Defined in FgComponentBaseComponent:45</div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>INPUT To receive a components entity-object</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -419,15 +433,14 @@ application</p>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="event"></a>
-                        <code>event</code>
+                        <b>event</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>Contains a EventEmitter instance and uses it to publish
-a components events to their parent-component</p>
-</div>
-                        <em><code>$event</code> Type:</em>    <code><a href="../classes/FgEvent.html" target="_self" >EventEmitter&lt;FgEvent&gt;</a></code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code><a href="../classes/FgEvent.html" target="_self" >EventEmitter&lt;FgEvent&gt;</a></code>
 
                     </td>
                 </tr>
@@ -442,6 +455,13 @@ a components events to their parent-component</p>
                                     <div class="io-line">Defined in FgComponentBaseComponent:54</div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Contains a EventEmitter instance and uses it to publish
+a components events to their parent-component</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -467,7 +487,7 @@ a components events to their parent-component</p>
                     </tr>
                 <tr>
                     <td class="col-md-4">
-<code>click($event: )</code>
+<code>click($event)</code>
                     </td>
                 </tr>
 
@@ -514,7 +534,7 @@ a components events to their parent-component</p>
                     </tr>
                 <tr>
                     <td class="col-md-4">
-<code>focusin($event: )</code>
+<code>focusin($event)</code>
                     </td>
                 </tr>
 
@@ -561,7 +581,7 @@ a components events to their parent-component</p>
                     </tr>
                 <tr>
                     <td class="col-md-4">
-<code>focusout($event: )</code>
+<code>focusout($event)</code>
                     </td>
                 </tr>
 
@@ -1104,16 +1124,9 @@ a components events to their parent-component</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $component
-                            </b>
+                            $component</b>
                             <a href="#$component"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$component:     <code><a href="../injectables/FgComponentBaseService.html" target="_self" >FgComponentBaseService</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1139,16 +1152,9 @@ a components events to their parent-component</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            actionDisabled$
-                            </b>
+                            actionDisabled$</b>
                             <a href="#actionDisabled$"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>actionDisabled$:     <code>Observable&lt;boolean&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1180,16 +1186,9 @@ a components events to their parent-component</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            actionLabel$
-                            </b>
+                            actionLabel$</b>
                             <a href="#actionLabel$"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>actionLabel$:     <code>Observable&lt;any&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1221,16 +1220,9 @@ a components events to their parent-component</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            activeTab$
-                            </b>
+                            activeTab$</b>
                             <a href="#activeTab$"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>activeTab$:     <code><a href="../interfaces/PbModalTabComponentInterface.html" target="_self" >Observable&lt;PbModalTabComponentInterface&gt;</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1261,16 +1253,9 @@ a components events to their parent-component</p>
                         <a name="entity"></a>
                         <span class="name">
                             <b>
-                            entity
-                            </b>
+                            entity</b>
                             <a href="#entity"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>entity:     <code><a href="../classes/PowerBotEntity.html" target="_self" >PowerBotEntity</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1301,16 +1286,9 @@ a components events to their parent-component</p>
                         <a name="inputThemeColor"></a>
                         <span class="name">
                             <b>
-                            inputThemeColor
-                            </b>
+                            inputThemeColor</b>
                             <a href="#inputThemeColor"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>inputThemeColor:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1340,16 +1318,9 @@ a components events to their parent-component</p>
                         <a name="stepper"></a>
                         <span class="name">
                             <b>
-                            stepper
-                            </b>
+                            stepper</b>
                             <a href="#stepper"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>stepper:     <code>MatStepper</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1360,7 +1331,11 @@ a components events to their parent-component</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ViewChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;stepper&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -1380,16 +1355,9 @@ a components events to their parent-component</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            tabComponents
-                            </b>
+                            tabComponents</b>
                             <a href="#tabComponents"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>tabComponents:     <code><a href="../interfaces/PbModalTabComponentInterface.html" target="_self" >PbModalTabComponentInterface[]</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1420,16 +1388,9 @@ a components events to their parent-component</p>
                         <a name="tabLogging"></a>
                         <span class="name">
                             <b>
-                            tabLogging
-                            </b>
+                            tabLogging</b>
                             <a href="#tabLogging"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>tabLogging:     <code><a href="../components/TabLoggingComponent.html" target="_self" >TabLoggingComponent</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1440,7 +1401,11 @@ a components events to their parent-component</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ViewChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;tabLogging&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -1459,16 +1424,9 @@ a components events to their parent-component</p>
                         <a name="tabProduction"></a>
                         <span class="name">
                             <b>
-                            tabProduction
-                            </b>
+                            tabProduction</b>
                             <a href="#tabProduction"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>tabProduction:     <code><a href="../components/TabProductionComponent.html" target="_self" >TabProductionComponent</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1479,7 +1437,11 @@ a components events to their parent-component</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ViewChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;tabProduction&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -1498,16 +1460,9 @@ a components events to their parent-component</p>
                         <a name="tabTest"></a>
                         <span class="name">
                             <b>
-                            tabTest
-                            </b>
+                            tabTest</b>
                             <a href="#tabTest"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>tabTest:     <code><a href="../components/TabTestComponent.html" target="_self" >TabTestComponent</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1518,7 +1473,11 @@ a components events to their parent-component</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ViewChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;tabTest&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -1538,16 +1497,9 @@ a components events to their parent-component</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            _subscribtions
-                            </b>
+                            _subscribtions</b>
                             <a href="#_subscribtions"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_subscribtions:     <code>Array&lt;Subscription | ZenObservable.Subscription&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1591,16 +1543,9 @@ onDestroy they will be automatically unsubscribed</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $component
-                            </b>
+                            $component</b>
                             <a href="#$component"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$component:     <code><a href="../injectables/FgComponentBaseService.html" target="_self" >FgComponentBaseService</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1632,16 +1577,9 @@ onDestroy they will be automatically unsubscribed</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            actions
-                            </b>
+                            actions</b>
                             <a href="#actions"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>actions:     <code><a href="../classes/FgAction.html" target="_self" >FgAction[]</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1679,16 +1617,9 @@ onDestroy they will be automatically unsubscribed</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Readonly</span>
-                            event$
-                            </b>
+                            event$</b>
                             <a href="#event$"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>event$:     <code><a href="../classes/FgEvent.html" target="_self" >Subject&lt;FgEvent&gt;</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1879,7 +1810,10 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
       &lt;ng-template matStepLabel&gt;
         {{ &#x27;tab_label_production&#x27; | translate }}
       &lt;/ng-template&gt;
-      &lt;pb-tab-production #tabProduction [config]&#x3D;&quot;inputThemeColor&quot;&gt;&lt;/pb-tab-production&gt;
+      &lt;div class&#x3D;&quot;tab-height-container&quot;&gt;
+        &lt;h3&gt;{{ &#x27;tab_headline_production&#x27; | translate }}&lt;/h3&gt;
+        &lt;pb-tab-production #tabProduction [config]&#x3D;&quot;inputThemeColor&quot;&gt;&lt;/pb-tab-production&gt;
+      &lt;/div&gt;
       &lt;div fxFlexLayout&#x3D;&quot;row&quot;&gt;
         &lt;div fxFlex&#x3D;&quot;&quot;&gt;&lt;/div&gt;
         &lt;button fxFlex&#x3D;&quot;150px&quot; mat-stroked-button matStepperNext&gt;
@@ -1892,7 +1826,10 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
       &lt;ng-template matStepLabel&gt;
         {{ &#x27;tab_label_test&#x27; | translate }}
       &lt;/ng-template&gt;
-      &lt;pb-tab-test #tabTest [config]&#x3D;&quot;inputThemeColor&quot;&gt;&lt;/pb-tab-test&gt;
+      &lt;div class&#x3D;&quot;tab-height-container&quot;&gt;
+        &lt;h3&gt;{{ &#x27;tab_headline_test&#x27; | translate }}&lt;/h3&gt;
+        &lt;pb-tab-test #tabTest [config]&#x3D;&quot;inputThemeColor&quot;&gt;&lt;/pb-tab-test&gt;
+      &lt;/div&gt;
       &lt;div fxFlexLayout&#x3D;&quot;row&quot;&gt;
         &lt;button fxFlex&#x3D;&quot;150px&quot; mat-stroked-button matStepperPrevious&gt;
           &lt;mat-icon&gt;navigate_before&lt;/mat-icon&gt;
@@ -1909,8 +1846,11 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
       &lt;ng-template matStepLabel&gt;
         {{ &#x27;tab_label_logging&#x27; | translate }}
       &lt;/ng-template&gt;
-      &lt;pb-tab-logging #tabLogging [config]&#x3D;&quot;inputThemeColor&quot;&gt;&lt;/pb-tab-logging&gt;
-      &lt;div&gt;
+      &lt;div class&#x3D;&quot;tab-height-container&quot;&gt;
+        &lt;h3&gt;{{ &#x27;tab_headline_logging&#x27; | translate }}&lt;/h3&gt;
+        &lt;pb-tab-logging #tabLogging [config]&#x3D;&quot;inputThemeColor&quot;&gt;&lt;/pb-tab-logging&gt;
+      &lt;/div&gt;
+      &lt;div fxFlexLayout&#x3D;&quot;row&quot;&gt;
         &lt;button mat-stroked-button matStepperPrevious&gt;
           &lt;mat-icon&gt;navigate_before&lt;/mat-icon&gt;
           Previous
@@ -1937,7 +1877,7 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
   &lt;div actions&gt;
     &lt;br/&gt;
     &lt;div fxFlexLayout&#x3D;&quot;row&quot;&gt;
-      &lt;div fxFlex&#x3D;&quot;&quot;&gt;&lt;/div&gt;
+      &lt;div fxFlex&gt;&lt;/div&gt;
       &lt;button fxFlex&#x3D;&quot;150px&quot;
         mat-raised-button
         color&#x3D;&quot;accent&quot;
@@ -1949,6 +1889,16 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/fg-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./modal-settings.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.tab-height-container {
+  height: 340px;
+}
 </code></pre>
     </div>
 
@@ -1977,8 +1927,8 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><fg-card [entity]="this.entity" class="modal_login">  <div title>  <div    fxLayout="row"    fxLayoutAlign="start center"  >    <div fxFlex="1 1 100px">      <img        class="pb-header-logo"        height="60px"        alt="PowerBot Logo"        src="./assets/powerbot_logo.png"      />    </div>    <div fxFlex=""></div>    <!-- <div fxFlex="1 1 60px">      <button mat-fab color="primary"><mat-icon>help_outline</mat-icon></button>    </div> -->  </div>  </div>  <div content>  <br/>  <mat-horizontal-stepper #stepper labelPosition="bottom">    <mat-step [stepControl]="tabProduction.form" [completed]="tabProduction.form.valid" [state]="\'prod\'">      <ng-template matStepLabel>        {{ \'tab_label_production\' | translate }}      </ng-template>      <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>      <div fxFlexLayout="row">        <div fxFlex=""></div>        <button fxFlex="150px" mat-stroked-button matStepperNext>          Next          <mat-icon>navigate_next</mat-icon>        </button>      </div>    </mat-step>    <mat-step [stepControl]="tabTest.form" [completed]="tabTest.form.valid" state="test">      <ng-template matStepLabel>        {{ \'tab_label_test\' | translate }}      </ng-template>      <pb-tab-test #tabTest [config]="inputThemeColor"></pb-tab-test>      <div fxFlexLayout="row">        <button fxFlex="150px" mat-stroked-button matStepperPrevious>          <mat-icon>navigate_before</mat-icon>          Previous        </button>        <div fxFlex=""></div>        <button fxFlex="150px" mat-stroked-button matStepperNext>          Next          <mat-icon>navigate_next</mat-icon>        </button>      </div>    </mat-step>    <mat-step [stepControl]="tabLogging.form" [completed]="tabLogging.form.valid" [optional]="true" state="log">      <ng-template matStepLabel>        {{ \'tab_label_logging\' | translate }}      </ng-template>      <pb-tab-logging #tabLogging [config]="inputThemeColor"></pb-tab-logging>      <div>        <button mat-stroked-button matStepperPrevious>          <mat-icon>navigate_before</mat-icon>          Previous        </button>      </div>    </mat-step>    <ng-template matStepperIcon="prod">      <mat-icon>timeline</mat-icon>    </ng-template>    <ng-template matStepperIcon="test">      <mat-icon>build</mat-icon>    </ng-template>    <ng-template matStepperIcon="log">      <mat-icon>check_outline_circle</mat-icon>    </ng-template>    <ng-template matStepperIcon="completed">      <mat-icon>timeline</mat-icon>    </ng-template>    <ng-template matStepperIcon="edit">      <mat-icon>check</mat-icon>    </ng-template>  </mat-horizontal-stepper>  </div>  <div actions>    <br/>    <div fxFlexLayout="row">      <div fxFlex=""></div>      <button fxFlex="150px"        mat-raised-button        color="accent"        [disabled]="( actionDisabled$ | async )"        (click)="this.tabComponents[ stepper.selectedIndex ].action( $event )"        >        {{ actionLabel$ | async }}      </button>    </div>  </div></fg-card></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pb-pwa'},{'name': 'AsksViewComponent', 'selector': 'pb-view-asks'},{'name': 'BarStateComponent', 'selector': 'pb-bar-state'},{'name': 'BidsViewComponent', 'selector': 'pb-view-bids'},{'name': 'DashboardComponent', 'selector': 'pb-dashboard'},{'name': 'DashboardViewComponent', 'selector': 'pb-view-dashboard'},{'name': 'FgActionsComponent', 'selector': 'fg-actions'},{'name': 'FgAngularMaterialDemoComponent', 'selector': 'fg-angular-material-demo'},{'name': 'FgCardComponent', 'selector': 'fg-card'},{'name': 'FgInputComponent', 'selector': 'fg-input'},{'name': 'FooterComponent', 'selector': 'pb-footer'},{'name': 'GraphComponent', 'selector': 'pb-graph'},{'name': 'GraphPortfolioComponent', 'selector': 'pb-graph-portfolio'},{'name': 'GraphProductHistoryComponent', 'selector': 'pb-graph-product-history'},{'name': 'GraphSignalHistoryComponent', 'selector': 'pb-graph-signal-history'},{'name': 'HeaderComponent', 'selector': 'pb-header'},{'name': 'LoginViewComponent', 'selector': 'pb-login'},{'name': 'ModalAddOrderComponent', 'selector': 'pb-modal-add-order'},{'name': 'ModalApiKeyComponent', 'selector': 'pb-modal-api-key'},{'name': 'ModalComponent', 'selector': 'pb-modal'},{'name': 'ModalHelpComponent', 'selector': 'app-modal-help'},{'name': 'ModalSettingsComponent', 'selector': 'pb-modal-settings'},{'name': 'OrderbookViewComponent', 'selector': 'pb-view-orderbook'},{'name': 'OrdersViewComponent', 'selector': 'pb-view-orders'},{'name': 'PbIconValidationComponent', 'selector': 'pb-icon-validation'},{'name': 'PortfolioViewComponent', 'selector': 'pb-view-portfolio'},{'name': 'ProductHistoryViewComponent', 'selector': 'pb-view-product-history'},{'name': 'PwaInstallComponent', 'selector': 'pb-pwa-install'},{'name': 'SignalsViewComponent', 'selector': 'pb-signals'},{'name': 'TabApiKeyComponent', 'selector': 'pb-tab-api-key'},{'name': 'TabLoggingComponent', 'selector': 'pb-tab-logging'},{'name': 'TabProductionComponent', 'selector': 'pb-tab-production'},{'name': 'TabTestComponent', 'selector': 'pb-tab-test'},{'name': 'TableAddOrderComponent', 'selector': 'pb-table-add-order'},{'name': 'TableAsksComponent', 'selector': 'pb-table-asks'},{'name': 'TableBidsComponent', 'selector': 'pb-table-bids'},{'name': 'TableComponent', 'selector': 'pb-table'},{'name': 'TableContractDetailsComponent', 'selector': 'pb-table-contract-details'},{'name': 'TableLogsComponent', 'selector': 'pb-table-logs'},{'name': 'TableOrderbookComponent', 'selector': 'pb-table-orderbook'},{'name': 'TableOrdersComponent', 'selector': 'pb-table-orders'},{'name': 'TableSignalsComponent', 'selector': 'pb-table-signals'},{'name': 'TableTradesComponent', 'selector': 'pb-table-trades'},{'name': 'TradesViewComponent', 'selector': 'pb-trades'}];
+        var COMPONENT_TEMPLATE = '<div><fg-card [entity]="this.entity" class="modal_login">  <div title>  <div    fxLayout="row"    fxLayoutAlign="start center"  >    <div fxFlex="1 1 100px">      <img        class="pb-header-logo"        height="60px"        alt="PowerBot Logo"        src="./assets/powerbot_logo.png"      />    </div>    <div fxFlex=""></div>    <!-- <div fxFlex="1 1 60px">      <button mat-fab color="primary"><mat-icon>help_outline</mat-icon></button>    </div> -->  </div>  </div>  <div content>  <br/>  <mat-horizontal-stepper #stepper labelPosition="bottom">    <mat-step [stepControl]="tabProduction.form" [completed]="tabProduction.form.valid" [state]="\'prod\'">      <ng-template matStepLabel>        {{ \'tab_label_production\' | translate }}      </ng-template>      <div class="tab-height-container">        <h3>{{ \'tab_headline_production\' | translate }}</h3>        <pb-tab-production #tabProduction [config]="inputThemeColor"></pb-tab-production>      </div>      <div fxFlexLayout="row">        <div fxFlex=""></div>        <button fxFlex="150px" mat-stroked-button matStepperNext>          Next          <mat-icon>navigate_next</mat-icon>        </button>      </div>    </mat-step>    <mat-step [stepControl]="tabTest.form" [completed]="tabTest.form.valid" state="test">      <ng-template matStepLabel>        {{ \'tab_label_test\' | translate }}      </ng-template>      <div class="tab-height-container">        <h3>{{ \'tab_headline_test\' | translate }}</h3>        <pb-tab-test #tabTest [config]="inputThemeColor"></pb-tab-test>      </div>      <div fxFlexLayout="row">        <button fxFlex="150px" mat-stroked-button matStepperPrevious>          <mat-icon>navigate_before</mat-icon>          Previous        </button>        <div fxFlex=""></div>        <button fxFlex="150px" mat-stroked-button matStepperNext>          Next          <mat-icon>navigate_next</mat-icon>        </button>      </div>    </mat-step>    <mat-step [stepControl]="tabLogging.form" [completed]="tabLogging.form.valid" [optional]="true" state="log">      <ng-template matStepLabel>        {{ \'tab_label_logging\' | translate }}      </ng-template>      <div class="tab-height-container">        <h3>{{ \'tab_headline_logging\' | translate }}</h3>        <pb-tab-logging #tabLogging [config]="inputThemeColor"></pb-tab-logging>      </div>      <div fxFlexLayout="row">        <button mat-stroked-button matStepperPrevious>          <mat-icon>navigate_before</mat-icon>          Previous        </button>      </div>    </mat-step>    <ng-template matStepperIcon="prod">      <mat-icon>timeline</mat-icon>    </ng-template>    <ng-template matStepperIcon="test">      <mat-icon>build</mat-icon>    </ng-template>    <ng-template matStepperIcon="log">      <mat-icon>check_outline_circle</mat-icon>    </ng-template>    <ng-template matStepperIcon="completed">      <mat-icon>timeline</mat-icon>    </ng-template>    <ng-template matStepperIcon="edit">      <mat-icon>check</mat-icon>    </ng-template>  </mat-horizontal-stepper>  </div>  <div actions>    <br/>    <div fxFlexLayout="row">      <div fxFlex></div>      <button fxFlex="150px"        mat-raised-button        color="accent"        [disabled]="( actionDisabled$ | async )"        (click)="this.tabComponents[ stepper.selectedIndex ].action( $event )"        >        {{ actionLabel$ | async }}      </button>    </div>  </div></fg-card></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pb-pwa'},{'name': 'AsksViewComponent', 'selector': 'pb-view-asks'},{'name': 'BarStateComponent', 'selector': 'pb-bar-state'},{'name': 'BidsViewComponent', 'selector': 'pb-view-bids'},{'name': 'DashboardComponent', 'selector': 'pb-dashboard'},{'name': 'DashboardViewComponent', 'selector': 'pb-view-dashboard'},{'name': 'FgActionsComponent', 'selector': 'fg-actions'},{'name': 'FgAngularMaterialDemoComponent', 'selector': 'fg-angular-material-demo'},{'name': 'FgCardComponent', 'selector': 'fg-card'},{'name': 'FgInputComponent', 'selector': 'fg-input'},{'name': 'FlexDashboardComponent', 'selector': 'pb-flex-dashboard'},{'name': 'FooterComponent', 'selector': 'pb-footer'},{'name': 'GraphComponent', 'selector': 'pb-graph'},{'name': 'GraphPortfolioComponent', 'selector': 'pb-graph-portfolio'},{'name': 'GraphProductHistoryComponent', 'selector': 'pb-graph-product-history'},{'name': 'GraphSignalHistoryComponent', 'selector': 'pb-graph-signal-history'},{'name': 'HeaderComponent', 'selector': 'pb-header'},{'name': 'LoadingIndicatorComponent', 'selector': 'pb-loading-indicator'},{'name': 'LoginViewComponent', 'selector': 'pb-login'},{'name': 'MatTableComponent', 'selector': 'pb-mat-table'},{'name': 'ModalAddOrderComponent', 'selector': 'pb-modal-add-order'},{'name': 'ModalApiKeyComponent', 'selector': 'pb-modal-api-key'},{'name': 'ModalComponent', 'selector': 'pb-modal'},{'name': 'ModalHelpComponent', 'selector': 'app-modal-help'},{'name': 'ModalSettingsComponent', 'selector': 'pb-modal-settings'},{'name': 'OrderbookViewComponent', 'selector': 'pb-view-orderbook'},{'name': 'OrdersViewComponent', 'selector': 'pb-view-orders'},{'name': 'PbIconValidationComponent', 'selector': 'pb-icon-validation'},{'name': 'PortfolioViewComponent', 'selector': 'pb-view-portfolio'},{'name': 'ProductHistoryViewComponent', 'selector': 'pb-view-product-history'},{'name': 'PwaInstallComponent', 'selector': 'pb-pwa-install'},{'name': 'PwaOfflineComponent', 'selector': 'pb-pwa-offline'},{'name': 'SignalsViewComponent', 'selector': 'pb-signals'},{'name': 'TabApiKeyComponent', 'selector': 'pb-tab-api-key'},{'name': 'TableAddOrderComponent', 'selector': 'pb-table-add-order'},{'name': 'TableAsksComponent', 'selector': 'pb-table-asks'},{'name': 'TableBidsComponent', 'selector': 'pb-table-bids'},{'name': 'TableComponent', 'selector': 'pb-table'},{'name': 'TableContractDetailsComponent', 'selector': 'pb-table-contract-details'},{'name': 'TableLogsComponent', 'selector': 'pb-table-logs'},{'name': 'TableOrderbookComponent', 'selector': 'pb-table-orderbook'},{'name': 'TableOrdersComponent', 'selector': 'pb-table-orders'},{'name': 'TableSignalsComponent', 'selector': 'pb-table-signals'},{'name': 'TableTradesComponent', 'selector': 'pb-table-trades'},{'name': 'TabLoggingComponent', 'selector': 'pb-tab-logging'},{'name': 'TabProductionComponent', 'selector': 'pb-tab-production'},{'name': 'TabTestComponent', 'selector': 'pb-tab-test'},{'name': 'TradesViewComponent', 'selector': 'pb-trades'}];
     var DIRECTIVES = [{'name': 'SyncMatchFieldlValidator', 'selector': '[pbMatchField]'}];
     var ACTUAL_COMPONENT = {'name': 'ModalSettingsComponent'};
 </script>
@@ -2019,7 +1969,9 @@ export class ModalSettingsComponent extends FgComponentBaseComponent {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

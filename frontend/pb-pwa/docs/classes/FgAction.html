@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -272,16 +269,9 @@ can perform on the containing component</p>
                             <b>
                                 <span class="modifier">Public</span>
                                 <span class="modifier">Optional</span>
-                            animation
-                            </b>
+                            animation</b>
                             <a href="#animation"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>animation:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -317,16 +307,9 @@ this state</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            color
-                            </b>
+                            color</b>
                             <a href="#color"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>color:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -359,16 +342,9 @@ this state</p>
                             <b>
                                 <span class="modifier">Public</span>
                                 <span class="modifier">Optional</span>
-                            disabled
-                            </b>
+                            disabled</b>
                             <a href="#disabled"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>disabled:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -401,16 +377,9 @@ validate if action should be disabled</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            event
-                            </b>
+                            event</b>
                             <a href="#event"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>event:     <code><a href="../classes/FgEvent.html" target="_self" >FgEvent</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -442,16 +411,9 @@ validate if action should be disabled</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            icon
-                            </b>
+                            icon</b>
                             <a href="#icon"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>icon:     <code>string | Function</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -488,16 +450,9 @@ this state</p>
                             <b>
                                 <span class="modifier">Public</span>
                                 <span class="modifier">Optional</span>
-                            key
-                            </b>
+                            key</b>
                             <a href="#key"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>key:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -530,16 +485,9 @@ to use to activate this action</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            label
-                            </b>
+                            label</b>
                             <a href="#label"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>label:     <code>string | Function</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -661,7 +609,9 @@ export class FgAction /* implements IFgActionEntityInterface */ {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

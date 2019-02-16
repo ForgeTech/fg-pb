@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -50,6 +47,9 @@
         </li>
         <li >
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
@@ -111,7 +111,7 @@ application.</p>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>table.component.scss</code></td>
+                <td class="col-md-9"><code>./table.component.scss</code></td>
             </tr>
 
 
@@ -120,6 +120,12 @@ application.</p>
                 <td class="col-md-3">templateUrl</td>
                 <td class="col-md-9"><code>./table.component.html</code></td>
             </tr>
+
+
+
+
+
+
 
 
         </tbody>
@@ -166,6 +172,9 @@ application.</p>
                             </li>
                             <li>
                                 <a href="#headerTmpl">headerTmpl</a>
+                            </li>
+                            <li>
+                                <a href="#noteCellTmpl">noteCellTmpl</a>
                             </li>
                             <li>
                                 <a href="#sideCellTmpl">sideCellTmpl</a>
@@ -332,7 +341,7 @@ application.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/component/table/table.component.ts:69</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/component/table/table.component.ts:74</a></div>
                             </td>
                         </tr>
 
@@ -377,17 +386,15 @@ application.</p>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="selected"></a>
-                        <code>selected</code>
+                        <b>selected</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>Hold selected table items</p>
-</div>
-                            <p>
-                            <em>Type :</em>    <code>any[]</code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
 
-                            </p>
                     </td>
                 </tr>
                         <tr>
@@ -395,22 +402,26 @@ application.</p>
                                     <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/component/table/table.component.ts:34</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Hold selected table items</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="config"></a>
-                        <code>config</code>
+                        <b>config</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>INPUT To receive a components configuration-object</p>
-</div>
-                            <p>
-                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                            </p>
                     </td>
                 </tr>
                             <tr>
@@ -424,22 +435,26 @@ application.</p>
                                     <div class="io-line">Defined in FgComponentBaseComponent:49</div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>INPUT To receive a components configuration-object</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="entity"></a>
-                        <code>entity</code>
+                        <b>entity</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>INPUT To receive a components entity-object</p>
-</div>
-                            <p>
-                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                            </p>
                     </td>
                 </tr>
                             <tr>
@@ -453,6 +468,12 @@ application.</p>
                                     <div class="io-line">Defined in FgComponentBaseComponent:45</div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>INPUT To receive a components entity-object</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -461,15 +482,14 @@ application.</p>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
-                    <td class="col-md-2">
+                    <td class="col-md-4">
                         <a name="event"></a>
-                        <code>event</code>
+                        <b>event</b>
                     </td>
-                    <td class="col-md-10">
-                        <div><p>Contains a EventEmitter instance and uses it to publish
-a components events to their parent-component</p>
-</div>
-                        <em><code>$event</code> Type:</em>    <code><a href="../classes/FgEvent.html" target="_self" >EventEmitter&lt;FgEvent&gt;</a></code>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code><a href="../classes/FgEvent.html" target="_self" >EventEmitter&lt;FgEvent&gt;</a></code>
 
                     </td>
                 </tr>
@@ -484,6 +504,13 @@ a components events to their parent-component</p>
                                     <div class="io-line">Defined in FgComponentBaseComponent:54</div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Contains a EventEmitter instance and uses it to publish
+a components events to their parent-component</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -509,7 +536,7 @@ a components events to their parent-component</p>
                     </tr>
                 <tr>
                     <td class="col-md-4">
-<code>click($event: )</code>
+<code>click($event)</code>
                     </td>
                 </tr>
 
@@ -556,7 +583,7 @@ a components events to their parent-component</p>
                     </tr>
                 <tr>
                     <td class="col-md-4">
-<code>focusin($event: )</code>
+<code>focusin($event)</code>
                     </td>
                 </tr>
 
@@ -603,7 +630,7 @@ a components events to their parent-component</p>
                     </tr>
                 <tr>
                     <td class="col-md-4">
-<code>focusout($event: )</code>
+<code>focusout($event)</code>
                     </td>
                 </tr>
 
@@ -659,7 +686,7 @@ a components events to their parent-component</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/app/component/table/table.component.ts:133</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/app/component/table/table.component.ts:138</a></div>
                             </td>
                         </tr>
 
@@ -734,7 +761,7 @@ a components events to their parent-component</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">src/app/component/table/table.component.ts:121</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/app/component/table/table.component.ts:126</a></div>
                             </td>
                         </tr>
 
@@ -802,14 +829,14 @@ a components events to their parent-component</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>getRowClass(row: )</code>
+<code>getRowClass(row)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/app/component/table/table.component.ts:167</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="175" class="link-to-prism">src/app/component/table/table.component.ts:175</a></div>
                             </td>
                         </tr>
 
@@ -876,7 +903,7 @@ a components events to their parent-component</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/component/table/table.component.ts:81</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/component/table/table.component.ts:86</a></div>
                             </td>
                         </tr>
 
@@ -947,7 +974,7 @@ a components events to their parent-component</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/component/table/table.component.ts:91</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/component/table/table.component.ts:96</a></div>
                             </td>
                         </tr>
 
@@ -980,14 +1007,14 @@ a components events to their parent-component</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>onSelect(selected: )</code>
+<code>onSelect(selected)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">src/app/component/table/table.component.ts:152</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/app/component/table/table.component.ts:160</a></div>
                             </td>
                         </tr>
 
@@ -1054,7 +1081,7 @@ a components events to their parent-component</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/component/table/table.component.ts:100</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/component/table/table.component.ts:105</a></div>
                             </td>
                         </tr>
 
@@ -1612,16 +1639,9 @@ if they aren&#39;t set</p>
                         <a name="cellTmpl"></a>
                         <span class="name">
                             <b>
-                            cellTmpl
-                            </b>
+                            cellTmpl</b>
                             <a href="#cellTmpl"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>cellTmpl:     <code>TemplateRef&lt;any&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1632,7 +1652,11 @@ if they aren&#39;t set</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ViewChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;cellTmpl&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -1643,7 +1667,7 @@ if they aren&#39;t set</p>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>The default column-template to use</p>
+                        <div class="io-description"><p>The default cell-template to use</p>
 </div>
                     </td>
                 </tr>
@@ -1658,16 +1682,9 @@ if they aren&#39;t set</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            columns
-                            </b>
+                            columns</b>
                             <a href="#columns"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>columns:     <code><a href="../interfaces/RenderTableColumnInterface.html" target="_self" >RenderTableColumnInterface[]</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1699,16 +1716,9 @@ if they aren&#39;t set</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            config
-                            </b>
+                            config</b>
                             <a href="#config"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>config:     <code><a href="../interfaces/ConfigTableInterface.html" target="_self" >ConfigTableInterface</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1739,16 +1749,9 @@ if they aren&#39;t set</p>
                         <a name="dateCellTmpl"></a>
                         <span class="name">
                             <b>
-                            dateCellTmpl
-                            </b>
+                            dateCellTmpl</b>
                             <a href="#dateCellTmpl"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>dateCellTmpl:     <code>TemplateRef&lt;any&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1759,7 +1762,11 @@ if they aren&#39;t set</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ViewChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;dateCellTmpl&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -1770,7 +1777,7 @@ if they aren&#39;t set</p>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>The default column-template to use</p>
+                        <div class="io-description"><p>The date column-template</p>
 </div>
                     </td>
                 </tr>
@@ -1785,16 +1792,9 @@ if they aren&#39;t set</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            default_config_column
-                            </b>
+                            default_config_column</b>
                             <a href="#default_config_column"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>default_config_column:     <code><a href="../interfaces/ConfigTableColumnInterface.html" target="_self" >ConfigTableColumnInterface</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1813,7 +1813,7 @@ if they aren&#39;t set</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/component/table/table.component.ts:66</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/component/table/table.component.ts:71</a></div>
                             </td>
                         </tr>
 
@@ -1834,16 +1834,9 @@ if they aren&#39;t set</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            default_config_table
-                            </b>
+                            default_config_table</b>
                             <a href="#default_config_table"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>default_config_table:     <code><a href="../interfaces/ConfigTableInterface.html" target="_self" >ConfigTableInterface</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1867,7 +1860,7 @@ if they aren&#39;t set</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/component/table/table.component.ts:54</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/component/table/table.component.ts:59</a></div>
                             </td>
                         </tr>
 
@@ -1888,16 +1881,9 @@ if they aren&#39;t set</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            entity
-                            </b>
+                            entity</b>
                             <a href="#entity"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>entity:     <code>any[]</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1933,16 +1919,9 @@ if they aren&#39;t set</p>
                         <a name="headerTmpl"></a>
                         <span class="name">
                             <b>
-                            headerTmpl
-                            </b>
+                            headerTmpl</b>
                             <a href="#headerTmpl"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>headerTmpl:     <code>TemplateRef&lt;any&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1953,7 +1932,11 @@ if they aren&#39;t set</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ViewChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;headerTmpl&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -1975,19 +1958,12 @@ if they aren&#39;t set</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="sideCellTmpl"></a>
+                        <a name="noteCellTmpl"></a>
                         <span class="name">
                             <b>
-                            sideCellTmpl
-                            </b>
-                            <a href="#sideCellTmpl"><span class="icon ion-ios-link"></span></a>
+                            noteCellTmpl</b>
+                            <a href="#noteCellTmpl"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>sideCellTmpl:     <code>TemplateRef&lt;any&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -1998,7 +1974,54 @@ if they aren&#39;t set</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ViewChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;noteCellTmpl&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/component/table/table.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The note cell template used to display icon presenting
+tooltip on hover</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sideCellTmpl"></a>
+                        <span class="name">
+                            <b>
+                            sideCellTmpl</b>
+                            <a href="#sideCellTmpl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;sideCellTmpl&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -2009,7 +2032,7 @@ if they aren&#39;t set</p>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>The default column-template to use</p>
+                        <div class="io-description"><p>The side column-template - displaying buy/sell indicator</p>
 </div>
                     </td>
                 </tr>
@@ -2024,16 +2047,9 @@ if they aren&#39;t set</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Protected</span>
-                            _subscribtions
-                            </b>
+                            _subscribtions</b>
                             <a href="#_subscribtions"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>_subscribtions:     <code>Array&lt;Subscription | ZenObservable.Subscription&gt;</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -2077,16 +2093,9 @@ onDestroy they will be automatically unsubscribed</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            $component
-                            </b>
+                            $component</b>
                             <a href="#$component"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>$component:     <code><a href="../injectables/FgComponentBaseService.html" target="_self" >FgComponentBaseService</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -2118,16 +2127,9 @@ onDestroy they will be automatically unsubscribed</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            actions
-                            </b>
+                            actions</b>
                             <a href="#actions"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>actions:     <code><a href="../classes/FgAction.html" target="_self" >FgAction[]</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -2165,16 +2167,9 @@ onDestroy they will be automatically unsubscribed</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Readonly</span>
-                            event$
-                            </b>
+                            event$</b>
                             <a href="#event$"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>event$:     <code><a href="../classes/FgEvent.html" target="_self" >Subject&lt;FgEvent&gt;</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -2254,17 +2249,22 @@ export class TableComponent extends FgComponentBaseComponent implements OnChange
    */
   @ViewChild(&#x27;headerTmpl&#x27;) headerTmpl: TemplateRef&lt;any&gt;;
   /**
-   * The default column-template to use
+   * The default cell-template to use
    */
   @ViewChild(&#x27;cellTmpl&#x27;) cellTmpl: TemplateRef&lt;any&gt;;
   /**
-   * The default column-template to use
+   * The date column-template
    */
   @ViewChild(&#x27;dateCellTmpl&#x27;) dateCellTmpl: TemplateRef&lt;any&gt;;
   /**
-   * The default column-template to use
+   * The side column-template - displaying buy/sell indicator
    */
   @ViewChild(&#x27;sideCellTmpl&#x27;) sideCellTmpl: TemplateRef&lt;any&gt;;
+  /**
+   * The note cell template used to display icon presenting
+   * tooltip on hover
+   */
+  @ViewChild(&#x27;noteCellTmpl&#x27;) noteCellTmpl: TemplateRef&lt;any&gt;;
   /**
    * Holds default table-configuration
    */
@@ -2356,6 +2356,9 @@ export class TableComponent extends FgComponentBaseComponent implements OnChange
         case &#x27;date&#x27;:
           tmpl &#x3D; this.dateCellTmpl;
           break;
+        case &#x27;note&#x27;:
+          tmpl &#x3D; this.noteCellTmpl;
+          break;
         default:
           tmpl &#x3D; this.cellTmpl;
           break;
@@ -2407,24 +2410,7 @@ export class TableComponent extends FgComponentBaseComponent implements OnChange
   [limit]&#x3D;&quot;config.limit&quot;
   [rowClass]&#x3D;&quot;getRowClass&quot;
   (select)&#x3D;&quot;onSelect($event)&quot;
-  &gt;&lt;/ngx-datatable&gt;
-&lt;!-- &lt;ngx-datatable-custom
-  class&#x3D;&quot;datatable material&quot;
-  [rows]&#x3D;&quot;entity&quot;
-  [columns]&#x3D;&quot;columns&quot;
-  [columnMode]&#x3D;&quot;config.columnMode&quot;
-  [headerHeight]&#x3D;&quot;config.headerHeight&quot;
-  [rowHeight]&#x3D;&quot;config.rowHeight&quot;
-  [footerHeight]&#x3D;&quot;config.footerHeight&quot;
-  [rowHeight]&#x3D;&quot;config.rowHeight&quot;
-  [scrollbarV]&#x3D;&quot;config.scrollbarV&quot;
-  [scrollbarH]&#x3D;&quot;config.scrollbarH&quot;
-  [selectionType]&#x3D;&quot;config.selectionType&quot;
-  [selected]&#x3D;&quot;selected&quot;
-  [limit]&#x3D;&quot;config.limit&quot;
-  [rowClass]&#x3D;&quot;getRowClass&quot;
-  (select)&#x3D;&quot;onSelect($event)&quot;
-  &gt;&lt;/ngx-datatable-custom&gt; --&gt;
+&gt;&lt;/ngx-datatable&gt;
 
 &lt;ng-template
   #headerTmpl
@@ -2458,7 +2444,27 @@ export class TableComponent extends FgComponentBaseComponent implements OnChange
 &gt;
   {{ row | pbSidePipe }}
 &lt;/ng-template&gt;
+&lt;ng-template
+  #noteCellTmpl
+  let-row&#x3D;&quot;row&quot;
+  let-column&#x3D;&quot;column&quot;
+  let-value&#x3D;&quot;value&quot;
+&gt;
+  &lt;mat-icon
+    matTooltip&#x3D;&quot;{{ value }}&quot;
+    matTooltipPosition&#x3D;&quot;after&quot;
+    color&#x3D;&quot;accent&quot;&gt;
+    message
+  &lt;/mat-icon&gt;
+&lt;/ng-template&gt;
 </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./table.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -2486,8 +2492,8 @@ export class TableComponent extends FgComponentBaseComponent implements OnChange
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ngx-datatable  class="datatable material"  [rows]="entity"  [columns]="columns"  [columnMode]="config.columnMode"  [headerHeight]="config.headerHeight"  [rowHeight]="config.rowHeight"  [footerHeight]="config.footerHeight"  [rowHeight]="config.rowHeight"  [scrollbarV]="config.scrollbarV"  [scrollbarH]="config.scrollbarH"  [selectionType]="config.selectionType"  [selected]="selected"  [limit]="config.limit"  [rowClass]="getRowClass"  (select)="onSelect($event)"  ></ngx-datatable><!-- <ngx-datatable-custom  class="datatable material"  [rows]="entity"  [columns]="columns"  [columnMode]="config.columnMode"  [headerHeight]="config.headerHeight"  [rowHeight]="config.rowHeight"  [footerHeight]="config.footerHeight"  [rowHeight]="config.rowHeight"  [scrollbarV]="config.scrollbarV"  [scrollbarH]="config.scrollbarH"  [selectionType]="config.selectionType"  [selected]="selected"  [limit]="config.limit"  [rowClass]="getRowClass"  (select)="onSelect($event)"  ></ngx-datatable-custom> --><ng-template  #headerTmpl  let-value="value"  let-column="column"  let-row="row">    {{ column.name | translate }}</ng-template><ng-template  #cellTmpl  let-row="row"  let-column="column"  let-value="value">  {{ value }}</ng-template><ng-template  #dateCellTmpl  let-row="row"  let-column="column"  let-value="value">  {{ value | date:column.dateFormat }}</ng-template><ng-template  #sideCellTmpl  let-row="row"  let-column="column"  let-value="value">  {{ row | pbSidePipe }}</ng-template></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pb-pwa'},{'name': 'AsksViewComponent', 'selector': 'pb-view-asks'},{'name': 'BarStateComponent', 'selector': 'pb-bar-state'},{'name': 'BidsViewComponent', 'selector': 'pb-view-bids'},{'name': 'DashboardComponent', 'selector': 'pb-dashboard'},{'name': 'DashboardViewComponent', 'selector': 'pb-view-dashboard'},{'name': 'FgActionsComponent', 'selector': 'fg-actions'},{'name': 'FgAngularMaterialDemoComponent', 'selector': 'fg-angular-material-demo'},{'name': 'FgCardComponent', 'selector': 'fg-card'},{'name': 'FgInputComponent', 'selector': 'fg-input'},{'name': 'FooterComponent', 'selector': 'pb-footer'},{'name': 'GraphComponent', 'selector': 'pb-graph'},{'name': 'GraphPortfolioComponent', 'selector': 'pb-graph-portfolio'},{'name': 'GraphProductHistoryComponent', 'selector': 'pb-graph-product-history'},{'name': 'GraphSignalHistoryComponent', 'selector': 'pb-graph-signal-history'},{'name': 'HeaderComponent', 'selector': 'pb-header'},{'name': 'LoginViewComponent', 'selector': 'pb-login'},{'name': 'ModalAddOrderComponent', 'selector': 'pb-modal-add-order'},{'name': 'ModalApiKeyComponent', 'selector': 'pb-modal-api-key'},{'name': 'ModalComponent', 'selector': 'pb-modal'},{'name': 'ModalHelpComponent', 'selector': 'app-modal-help'},{'name': 'ModalSettingsComponent', 'selector': 'pb-modal-settings'},{'name': 'OrderbookViewComponent', 'selector': 'pb-view-orderbook'},{'name': 'OrdersViewComponent', 'selector': 'pb-view-orders'},{'name': 'PbIconValidationComponent', 'selector': 'pb-icon-validation'},{'name': 'PortfolioViewComponent', 'selector': 'pb-view-portfolio'},{'name': 'ProductHistoryViewComponent', 'selector': 'pb-view-product-history'},{'name': 'PwaInstallComponent', 'selector': 'pb-pwa-install'},{'name': 'SignalsViewComponent', 'selector': 'pb-signals'},{'name': 'TabApiKeyComponent', 'selector': 'pb-tab-api-key'},{'name': 'TabLoggingComponent', 'selector': 'pb-tab-logging'},{'name': 'TabProductionComponent', 'selector': 'pb-tab-production'},{'name': 'TabTestComponent', 'selector': 'pb-tab-test'},{'name': 'TableAddOrderComponent', 'selector': 'pb-table-add-order'},{'name': 'TableAsksComponent', 'selector': 'pb-table-asks'},{'name': 'TableBidsComponent', 'selector': 'pb-table-bids'},{'name': 'TableComponent', 'selector': 'pb-table'},{'name': 'TableContractDetailsComponent', 'selector': 'pb-table-contract-details'},{'name': 'TableLogsComponent', 'selector': 'pb-table-logs'},{'name': 'TableOrderbookComponent', 'selector': 'pb-table-orderbook'},{'name': 'TableOrdersComponent', 'selector': 'pb-table-orders'},{'name': 'TableSignalsComponent', 'selector': 'pb-table-signals'},{'name': 'TableTradesComponent', 'selector': 'pb-table-trades'},{'name': 'TradesViewComponent', 'selector': 'pb-trades'}];
+        var COMPONENT_TEMPLATE = '<div><ngx-datatable  class="datatable material"  [rows]="entity"  [columns]="columns"  [columnMode]="config.columnMode"  [headerHeight]="config.headerHeight"  [rowHeight]="config.rowHeight"  [footerHeight]="config.footerHeight"  [rowHeight]="config.rowHeight"  [scrollbarV]="config.scrollbarV"  [scrollbarH]="config.scrollbarH"  [selectionType]="config.selectionType"  [selected]="selected"  [limit]="config.limit"  [rowClass]="getRowClass"  (select)="onSelect($event)"></ngx-datatable><ng-template  #headerTmpl  let-value="value"  let-column="column"  let-row="row">    {{ column.name | translate }}</ng-template><ng-template  #cellTmpl  let-row="row"  let-column="column"  let-value="value">  {{ value }}</ng-template><ng-template  #dateCellTmpl  let-row="row"  let-column="column"  let-value="value">  {{ value | date:column.dateFormat }}</ng-template><ng-template  #sideCellTmpl  let-row="row"  let-column="column"  let-value="value">  {{ row | pbSidePipe }}</ng-template><ng-template  #noteCellTmpl  let-row="row"  let-column="column"  let-value="value">  <mat-icon    matTooltip="{{ value }}"    matTooltipPosition="after"    color="accent">    message  </mat-icon></ng-template></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'pb-pwa'},{'name': 'AsksViewComponent', 'selector': 'pb-view-asks'},{'name': 'BarStateComponent', 'selector': 'pb-bar-state'},{'name': 'BidsViewComponent', 'selector': 'pb-view-bids'},{'name': 'DashboardComponent', 'selector': 'pb-dashboard'},{'name': 'DashboardViewComponent', 'selector': 'pb-view-dashboard'},{'name': 'FgActionsComponent', 'selector': 'fg-actions'},{'name': 'FgAngularMaterialDemoComponent', 'selector': 'fg-angular-material-demo'},{'name': 'FgCardComponent', 'selector': 'fg-card'},{'name': 'FgInputComponent', 'selector': 'fg-input'},{'name': 'FlexDashboardComponent', 'selector': 'pb-flex-dashboard'},{'name': 'FooterComponent', 'selector': 'pb-footer'},{'name': 'GraphComponent', 'selector': 'pb-graph'},{'name': 'GraphPortfolioComponent', 'selector': 'pb-graph-portfolio'},{'name': 'GraphProductHistoryComponent', 'selector': 'pb-graph-product-history'},{'name': 'GraphSignalHistoryComponent', 'selector': 'pb-graph-signal-history'},{'name': 'HeaderComponent', 'selector': 'pb-header'},{'name': 'LoadingIndicatorComponent', 'selector': 'pb-loading-indicator'},{'name': 'LoginViewComponent', 'selector': 'pb-login'},{'name': 'MatTableComponent', 'selector': 'pb-mat-table'},{'name': 'ModalAddOrderComponent', 'selector': 'pb-modal-add-order'},{'name': 'ModalApiKeyComponent', 'selector': 'pb-modal-api-key'},{'name': 'ModalComponent', 'selector': 'pb-modal'},{'name': 'ModalHelpComponent', 'selector': 'app-modal-help'},{'name': 'ModalSettingsComponent', 'selector': 'pb-modal-settings'},{'name': 'OrderbookViewComponent', 'selector': 'pb-view-orderbook'},{'name': 'OrdersViewComponent', 'selector': 'pb-view-orders'},{'name': 'PbIconValidationComponent', 'selector': 'pb-icon-validation'},{'name': 'PortfolioViewComponent', 'selector': 'pb-view-portfolio'},{'name': 'ProductHistoryViewComponent', 'selector': 'pb-view-product-history'},{'name': 'PwaInstallComponent', 'selector': 'pb-pwa-install'},{'name': 'PwaOfflineComponent', 'selector': 'pb-pwa-offline'},{'name': 'SignalsViewComponent', 'selector': 'pb-signals'},{'name': 'TabApiKeyComponent', 'selector': 'pb-tab-api-key'},{'name': 'TableAddOrderComponent', 'selector': 'pb-table-add-order'},{'name': 'TableAsksComponent', 'selector': 'pb-table-asks'},{'name': 'TableBidsComponent', 'selector': 'pb-table-bids'},{'name': 'TableComponent', 'selector': 'pb-table'},{'name': 'TableContractDetailsComponent', 'selector': 'pb-table-contract-details'},{'name': 'TableLogsComponent', 'selector': 'pb-table-logs'},{'name': 'TableOrderbookComponent', 'selector': 'pb-table-orderbook'},{'name': 'TableOrdersComponent', 'selector': 'pb-table-orders'},{'name': 'TableSignalsComponent', 'selector': 'pb-table-signals'},{'name': 'TableTradesComponent', 'selector': 'pb-table-trades'},{'name': 'TabLoggingComponent', 'selector': 'pb-tab-logging'},{'name': 'TabProductionComponent', 'selector': 'pb-tab-production'},{'name': 'TabTestComponent', 'selector': 'pb-tab-test'},{'name': 'TradesViewComponent', 'selector': 'pb-trades'}];
     var DIRECTIVES = [{'name': 'SyncMatchFieldlValidator', 'selector': '[pbMatchField]'}];
     var ACTUAL_COMPONENT = {'name': 'TableComponent'};
 </script>
@@ -2528,7 +2534,9 @@ export class TableComponent extends FgComponentBaseComponent implements OnChange
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
